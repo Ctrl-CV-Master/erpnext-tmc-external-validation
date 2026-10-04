@@ -62,6 +62,26 @@ def complete_wizard(page, res):
                 cur.select_option(value="CNY")
         except Exception:
             pass
+        try:
+            ctry = page.locator('select[data-fieldname="country"]').first
+            if ctry.count():
+                try:
+                    ctry.select_option(label="China")
+                except Exception:
+                    opts = ctry.locator("option").all_inner_texts()
+                    match = next((o for o in opts if o.strip() == "China"), None)
+                    if match:
+                        ctry.select_option(label=match)
+        except Exception:
+            pass
+        # dismiss a blocking "Missing Values" modal if present
+        try:
+            x = page.locator('.modal.show .btn-close, .modal.show button[data-dismiss="modal"]').first
+            if x.count() and x.is_visible():
+                x.click(timeout=2000)
+                page.wait_for_timeout(500)
+        except Exception:
+            pass
         # organization-ish text inputs, if this is that step
         for key, val in (("company_name", "Wizard Setup Co"), ("company_abbr", "WSC")):
             try:
