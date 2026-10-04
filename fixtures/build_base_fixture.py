@@ -138,6 +138,22 @@ def build():
             "warehouse_name": wh, "company": COMPANY, "parent_warehouse": group_wh, "is_group": 0,
         })
 
+    # --- stock settings: enable serial/batch inventory (required for has_batch_no) ----
+    try:
+        ss = frappe.get_doc("Stock Settings")
+        changed = False
+        for f in frappe.get_meta("Stock Settings").fields:
+            if f.fieldtype == "Check" and "serial" in (f.label or "").lower()                     and "batch" in (f.label or "").lower():
+                if not ss.get(f.fieldname):
+                    ss.set(f.fieldname, 1)
+                    changed = True
+        if changed:
+            ss.save(ignore_permissions=True)
+            commit()
+            print("stock settings: serial/batch inventory enabled")
+    except Exception as e:
+        print("stock settings update skipped:", e)
+
     # --- items ------------------------------------------------------------------------
     for code, (iname, _route, _rms) in FINISHED.items():
         ensure("Item", code, {
