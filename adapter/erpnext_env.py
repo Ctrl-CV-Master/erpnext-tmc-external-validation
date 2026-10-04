@@ -78,16 +78,19 @@ class ERPNextEnv:
                                 box.select_option(label=match)
                 except Exception:
                     pass
+            # country is a Link (autocomplete) input, not a <select>
             try:
-                ctry = self.page.locator('select[data-fieldname="country"]').first
+                ctry = self.page.locator('input[data-fieldname="country"]:visible').first
                 if ctry.count():
+                    ctry.fill("China")
+                    self.page.wait_for_timeout(900)
+                    opt = self.page.locator('.awesomplete li:has-text("China")').first
                     try:
-                        ctry.select_option(label="China")
+                        opt.wait_for(state="visible", timeout=4000)
+                        opt.click()
                     except Exception:
-                        opts = ctry.locator("option").all_inner_texts()
-                        match = next((o for o in opts if o.strip() == "China"), None)
-                        if match:
-                            ctry.select_option(label=match)
+                        ctry.press("Enter")
+                    self.page.wait_for_timeout(500)
             except Exception:
                 pass
             try:
