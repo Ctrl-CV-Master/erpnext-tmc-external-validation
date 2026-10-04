@@ -120,6 +120,11 @@ def _fill_link(page, fieldnames, value, label_hint=None):
     return False
 
 
+def _at_desk(url):
+    """v16: the desk lives at /desk (older /app also possible)."""
+    return ("setup-wizard" not in url) and ("/app" in url or "/desk" in url)
+
+
 def complete_setup_wizard(page, admin_password, log, shot=None):
     """Returns True when the desk (/app) is reached."""
     if "setup-wizard" not in page.url:
@@ -130,7 +135,7 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
         try:
             page.wait_for_timeout(1500)
             url = page.url
-            if "/app" in url and "setup-wizard" not in url:
+            if _at_desk(url):
                 log.append(f"step{step}: desk reached")
                 return True
             log.append(f"step{step} url={url}")
@@ -194,8 +199,7 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
                         # the backend now creates company/modules; this takes minutes
                         try:
                             page.wait_for_url(
-                                lambda u: "/app" in u and "setup-wizard" not in u,
-                                timeout=300000)
+                                lambda u: _at_desk(u), timeout=300000)
                             log.append("desk reached after setup")
                             return True
                         except Exception:
@@ -219,4 +223,4 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
         except Exception as e:
             log.append(f"step{step} error: {str(e)[:120]}")
             page.wait_for_timeout(1500)
-    return "/app" in page.url and "setup-wizard" not in page.url
+    return _at_desk(page.url)
