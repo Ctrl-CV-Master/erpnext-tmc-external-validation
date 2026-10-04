@@ -97,6 +97,11 @@ def table_field(dt, keyword):
 def build():
     frappe.flags.mute_emails = True
 
+    # --- master fixtures the setup wizard would normally load --------------------
+    for wt in ("Transit", "Stores", "Work In Progress", "Finished Goods",
+               "Rejection", "Quarantine", "Reserved", "Supplier", "Customer"):
+        ensure("Warehouse Type", wt, {"warehouse_type": wt})
+
     # --- company ---------------------------------------------------------------
     if not frappe.db.exists("Company", COMPANY):
         frappe.get_doc({
