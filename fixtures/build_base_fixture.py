@@ -119,6 +119,11 @@ def build():
         print("system settings defaults skipped:", e)
 
     # --- item groups / uom -------------------------------------------------------
+    if not frappe.db.exists("Item Group", "All Item Groups"):
+        frappe.get_doc({"doctype": "Item Group", "item_group_name": "All Item Groups",
+                        "is_group": 1, "parent_item_group": None}).insert(ignore_permissions=True)
+        commit()
+        print("created Item Group root: All Item Groups")
     for grp in ("Preparations", "Raw Materials"):
         ensure("Item Group", grp, {"item_group_name": grp, "parent_item_group": "All Item Groups", "is_group": 0})
     if not frappe.db.exists("UOM", UOM):
