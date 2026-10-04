@@ -228,10 +228,31 @@ def build():
         print(f"created Routing: {route}")
 
     # --- opening stock of raw materials (so transfers/manufacture have real stock) ---------------
+    # batch-tracked items need an existing Batch + use_serial_batch_fields on the row
+    rm_batch = {}
+    for c in RAW_ITEMS:
+        if c in BATCHED_RM:
+            bid = f"{c}-B0001"
+            if not frappe.db.exists("Batch", bid):
+                frappe.get_doc({"doctype": "Batch", "batch_id": bid, "item": c}).insert(
+                    ignore_permissions=True)
+                commit()
+            rm_batch[c] = bid
+            print(f"ensured Batch {bid}")
     if not frappe.db.exists("Stock Reconciliation", {"company": COMPANY, "docstatus": 1}):
         itf = table_field("Stock Reconciliation", "item")
-        rows = [{"item_code": c, "warehouse": f"RM-WH - {ABBR}", "qty": OPENING_RM_QTY,
-                 "valuation_rate": RM_RATE[c]} for c in RAW_ITEMS]
+        imeta = frappe.get_meta(itf.options)
+        use_sbf = imeta.get_field("use_serial_batch_fields")
+        rows = []
+        for c in RAW_ITEMS:
+            row = {"item_code": c, "warehouse": f"RM-WH - {ABBR}", "qty": OPENING_RM_QTY,
+                   "valuation_rate": RM_RATE[c]}
+            if c in rm_batch:
+                if use_sbf:
+                    row["use_serial_batch_fields"] = 1
+                if imeta.get_field("batch_no"):
+                    row["batch_no"] = rm_batch[c]
+            rows.append(row)
         doc = frappe.get_doc({"doctype": "Stock Reconciliation", "company": COMPANY,
                               "purpose": "Opening Stock", itf.fieldname: rows})
         doc.insert(ignore_permissions=True)
