@@ -147,7 +147,8 @@ class ERPNextEnv:
                     });
                 });
                 const buttons = [];
-                document.querySelectorAll('button.btn:visible, .btn:visible').forEach(b => {
+                document.querySelectorAll('button.btn, .btn').forEach(b => {
+                    if (!b.offsetParent) return;
                     const t = (b.innerText || '').trim();
                     if (t && t.length < 40 && !buttons.includes(t)) buttons.push(t);
                 });
