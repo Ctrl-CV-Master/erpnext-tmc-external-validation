@@ -34,11 +34,14 @@ def save(res):
 
 
 def main():
-    res = {"ui_ok": False, "errors": [], "wizard_completed": False}
+    res = {"ui_ok": False, "errors": [], "wizard_completed": False, "console": []}
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
+        page.on("pageerror", lambda e: res["console"].append("pageerror: " + str(e)[:200]))
+        page.on("console", lambda m: res["console"].append(f"console.{m.type}: {m.text[:200]}")
+                if m.type in ("error", "warning") else None)
         res["browser_version"] = browser.version
         try:
             page.goto(BASE + "/login", wait_until="domcontentloaded", timeout=90000)
@@ -97,6 +100,14 @@ def main():
             shot(page, "ui_saved.png")
         except Exception as e:
             res["errors"].append("uom: " + str(e)[:300])
+            try:
+                res["body_text"] = page.evaluate(
+                    "() => document.body.innerText.replace(/\s+/g, ' ').slice(0, 1200)")
+                res["buttons"] = page.evaluate(
+                    "() => Array.from(document.querySelectorAll('button')).slice(0,30).map(b => b.innerText.trim()).filter(t => t)")
+                res["url_final"] = page.url
+            except Exception:
+                pass
             shot(page, "uom_failed.png")
 
         save(res)
