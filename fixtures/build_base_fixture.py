@@ -250,7 +250,7 @@ def build():
     if not frappe.db.exists("Fiscal Year", fy_name):
         _fy = frappe.get_doc({
             "doctype": "Fiscal Year",
-            "fiscal_year": fy_name, "year_name": fy_name, "__newname": fy_name,
+            "year": fy_name, "fiscal_year": fy_name, "year_name": fy_name, "__newname": fy_name,
             "year_start_date": date(today.year, 1, 1).isoformat(),
             "year_end_date": date(today.year, 12, 31).isoformat(),
             "disabled": 0,
