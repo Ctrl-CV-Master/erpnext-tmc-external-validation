@@ -33,7 +33,8 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE/frappe_docker"
           SITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)
-          echo "site=$SITE"
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "site=$SITE db=$DB"
           BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
             'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
           echo "bench python: $BENCH_PY"
@@ -48,8 +49,9 @@ jobs:
       - name: Dump base fixture
         run: |
           cd "$GITHUB_WORKSPACE/frappe_docker"
-          SITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)
-          docker compose -f pwd.yml exec -T db sh -c "exec mariadb-dump -uroot -p\"\$MYSQL_ROOT_PASSWORD\" --single-transaction --hex-blob --default-character-set=utf8mb4 $SITE" \
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "db=$DB"
+          docker compose -f pwd.yml exec -T db sh -c "exec mariadb-dump -uroot -p\"\$MYSQL_ROOT_PASSWORD\" --single-transaction --hex-blob --default-character-set=utf8mb4 $DB" \
             | gzip > ../base_fixture.sql.gz
           ls -la ../base_fixture.sql.gz
           sha256sum ../base_fixture.sql.gz | tee ../smoke-out/base_fixture_sha256.txt
@@ -58,10 +60,12 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE/frappe_docker"
           SITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "site=$SITE db=$DB"
           BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
             'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
-          docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -e \"DROP DATABASE IF EXISTS $SITE; CREATE DATABASE $SITE CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\""
-          gunzip -c ../base_fixture.sql.gz | docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $SITE"
+          docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -e \"DROP DATABASE IF EXISTS $DB; CREATE DATABASE $DB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\""
+          gunzip -c ../base_fixture.sql.gz | docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DB"
           docker compose -f pwd.yml restart backend
           for i in $(seq 1 60); do
             body=$(curl -s -m 5 "http://localhost:8080/api/method/ping" || true)
