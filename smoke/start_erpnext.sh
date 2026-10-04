@@ -89,20 +89,48 @@ if [ -z "$READY" ]; then
 fi
 echo "ERPNEXT_READY after ${ELAPSED}s (create-site exit 0 + pong)"
 
-# 3) Set the Administrator password with retries.
+# 3) Deterministic credentials: detect the real site (a DIRECTORY under sites/),
+#    set the password via ORM, skip the setup wizard, verify login via HTTP API.
 SITE=$(docker compose -f pwd.yml exec -T backend bash -c \
-  "ls /home/frappe/frappe-bench/sites | grep -Ev '^(apps|assets|common_site_config.json|sites.txt)$' | head -1" \
-  | tr -d '\r\n')
+  "cd /home/frappe/frappe-bench/sites && ls -d */ 2>/dev/null | head -1" | tr -d '/\r\n')
 echo "erpnext_site=${SITE}" >> "$OUT/manifest.env"
-SETPW=""
-for i in $(seq 1 24); do
-  if docker compose -f pwd.yml exec -T backend bench --site "$SITE" set-admin-password "${ADMIN_PASSWORD}" >/dev/null 2>&1; then
-    SETPW=yes
-    break
-  fi
-  sleep 10
+echo "detected site: ${SITE}" | tee -a "$OUT/evaluator.txt"
+
+docker compose -f pwd.yml exec -T backend bench --site "$SITE" set-admin-password "${ADMIN_PASSWORD}" \
+  > "$OUT/setpw.out" 2>&1 \
+  && echo "bench set-admin-password rc=0" >> "$OUT/evaluator.txt" \
+  || echo "bench set-admin-password failed, output: $(tail -3 "$OUT/setpw.out" 2>/dev/null)" >> "$OUT/evaluator.txt"
+
+docker compose -f pwd.yml exec -T -e SITE="$SITE" -e ADMPW="${ADMIN_PASSWORD}" backend bash -s <<'EOF' >> "$OUT/evaluator.txt" 2>&1 || true
+cd /home/frappe/frappe-bench
+python3 - <<'PY'
+import os
+
+import frappe
+
+frappe.init(site=os.environ["SITE"])
+frappe.connect()
+from frappe.utils.password import update_password
+
+update_password(user="Administrator", pwd=os.environ["ADMPW"])
+try:
+    frappe.db.set_single_value("System Settings", "setup_complete", 1)
+except Exception:
+    frappe.db.set_value("System Settings", "System Settings", "setup_complete", 1)
+frappe.db.commit()
+print("ORM_PW_SET + SETUP_COMPLETE=1")
+frappe.destroy()
+PY
+EOF
+
+LOGIN_CODE=""
+for i in $(seq 1 12); do
+  LOGIN_CODE=$(curl -s -o "$OUT/login_check.out" -w '%{http_code}' \
+    -d "usr=Administrator&pwd=${ADMIN_PASSWORD}" "http://localhost:8080/api/method/login" || true)
+  [ "$LOGIN_CODE" = "200" ] && break
+  sleep 5
 done
-[ -n "$SETPW" ] && echo "admin password set" || echo "set-admin-password failed; ui_smoke will try default creds"
+echo "curl_login_http=$LOGIN_CODE body=$(head -c 100 "$OUT/login_check.out" 2>/dev/null)" | tee -a "$OUT/evaluator.txt"
 
 docker compose -f pwd.yml ps | tee "$OUT/compose_ps.txt"
 echo "=== df -h after startup ===" | tee -a "$OUT/df.log"
