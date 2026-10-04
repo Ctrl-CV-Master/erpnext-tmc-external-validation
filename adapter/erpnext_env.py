@@ -43,6 +43,7 @@ class ERPNextEnv:
         self.browser = self._pw.chromium.launch(headless=headless)
         self.ctx = self.browser.new_context(viewport={"width": 1440, "height": 900})
         self.page = self.ctx.new_page()
+        self.prefix = "/app"
         self._login(admin_password)
 
     # ---------------- internals ----------------
@@ -53,12 +54,24 @@ class ERPNextEnv:
         self.page.fill("#login_password", password)
         self.page.click("button.btn-login")
         self.page.wait_for_url(
-            lambda url: ("/app" in url) or ("setup-wizard" in url), timeout=90000)
+            lambda url: ("/app" in url) or ("/desk" in url), timeout=90000)
+        from urllib.parse import urlparse
+        path = urlparse(self.page.url).path or "/"
+        self.prefix = "/desk" if path.startswith("/desk") else "/app"
         if "setup-wizard" in self.page.url:
             # Harness bootstrap (not counted against the agent's action budget).
             self.wizard_log = []
             complete_setup_wizard(self.page, password, self.wizard_log,
                                   shot=lambda pg, n: pg.screenshot(path=n))
+            self.page.goto(self.base + self.prefix, wait_until="domcontentloaded",
+                           timeout=90000)
+        self._wait_settled()
+
+    def _fix_url(self, url):
+        """v16 moved the desk from /app to /desk; rewrite task-given /app routes."""
+        if url.startswith("/app") and self.prefix == "/desk":
+            return self.base + "/desk" + url[len("/app"):]
+        return (self.base + url) if url.startswith("/") else url
 
     def _wait_settled(self, ms=800):
         try:
@@ -130,9 +143,7 @@ class ERPNextEnv:
         kind = action.get("type")
         try:
             if kind == "navigate":
-                url = action["url"]
-                if url.startswith("/"):
-                    url = self.base + url
+                url = self._fix_url(action["url"])
                 self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
                 self._wait_settled()
                 return ActionResult(True, "navigated to " + self.page.url)
@@ -218,7 +229,7 @@ class ERPNextEnv:
         if self.actions_used >= self.budget:
             return None
         self.actions_used += 1
-        url = f"{self.base}/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}"
+        url = self._fix_url(f"/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}")
         try:
             self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
             obs = self.observe()
@@ -232,8 +243,9 @@ class ERPNextEnv:
             return False
         self.actions_used += 1
         try:
-            self.page.goto(f"{self.base}/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}",
-                           wait_until="domcontentloaded", timeout=60000)
+            self.page.goto(self._fix_url(
+                f"/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}"),
+                wait_until="domcontentloaded", timeout=60000)
             self._wait_settled(500)
             return "404" not in self.page.title() and "Not Found" not in self.page.title()
         except Exception:
