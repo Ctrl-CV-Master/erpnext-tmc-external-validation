@@ -20,6 +20,11 @@ COUNT=$(docker compose -f pwd.yml exec -T "$DBSVC" sh -c "exec mariadb -uroot -p
   < "$OUT/smoke_eval.sql" 2>/dev/null | tail -1)
 echo "EVAL_SQL_COUNT=${COUNT:-empty}" | tee -a "$OUT/evaluator.txt"
 
+# Dump all System Settings singles: reveals the real setup-wizard completion flag(s).
+docker compose -f pwd.yml exec -T "$DBSVC" sh -c \
+  "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -N -e \"SELECT field, value FROM tabSingles WHERE doctype='System Settings' ORDER BY field;\" $DB" \
+  >> "$OUT/evaluator.txt" 2>&1 || true
+
 EVAL_RC=1
 if [ "${COUNT:-0}" -ge 1 ] 2>/dev/null; then
   echo "EVALUATOR_PASS" | tee -a "$OUT/evaluator.txt"
