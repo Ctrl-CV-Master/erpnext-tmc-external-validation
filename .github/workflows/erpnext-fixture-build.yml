@@ -41,6 +41,7 @@ jobs:
           docker compose -f pwd.yml exec -T backend "$BENCH_PY" -c "import frappe; print('frappe import ok')"
           CID=$(docker compose -f pwd.yml ps -q backend)
           docker cp ../fixtures/build_base_fixture.py "$CID:/home/frappe/frappe-bench/build_base_fixture.py"
+          docker compose -f pwd.yml exec -T -u root backend mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs
           docker compose -f pwd.yml exec -T -u root -w /home/frappe/frappe-bench -e SITE="$SITE" backend \
             "$BENCH_PY" build_base_fixture.py 2>&1 | tee ../smoke-out/build.log
           grep -q "BUILD_DONE" ../smoke-out/build.log
@@ -72,6 +73,7 @@ jobs:
             echo "$body" | grep -q "pong" && break
             sleep 5
           done
+          docker compose -f pwd.yml exec -T -u root backend mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs
           docker compose -f pwd.yml exec -T -u root -w /home/frappe/frappe-bench -e SITE="$SITE" backend \
             "$BENCH_PY" build_base_fixture.py --hash-only 2>&1 | tee ../smoke-out/state_hash_restore.txt
           H1=$(grep -o 'STATE_HASH=.*' ../smoke-out/state_hash_build.txt | cut -d= -f2)
