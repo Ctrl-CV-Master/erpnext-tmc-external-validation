@@ -34,8 +34,8 @@ def complete_wizard(page, res):
     """Deterministically complete the setup wizard at /setup-wizard (the page the
     post-login server redirect lands on; /desk/* wizard URLs are SPA-internal only)."""
     log = res.setdefault("wizard_log", [])
-    page.goto(BASE + "/setup-wizard", wait_until="domcontentloaded", timeout=90000)
-    page.wait_for_timeout(2500)
+    if "setup-wizard" not in page.url:
+        page.goto(BASE + "/setup-wizard", wait_until="domcontentloaded", timeout=90000)
     for step in range(6):
         shot(page, f"wizard_step{step}.png")
         url = page.url
@@ -72,15 +72,15 @@ def complete_wizard(page, res):
                 pass
         # click Next / Complete / Continue
         clicked = False
-        for label in ("Complete Setup", "Next", "Continue", "Setup", "Finish"):
+        for label in ("Complete Setup", "Next", "Continue", "Setup", "Finish", "Start", "Go"):
             try:
                 btn = page.locator(f'button:has-text("{label}")').first
-                if btn.count() and btn.is_visible():
-                    btn.click(timeout=5000)
-                    clicked = True
-                    log.append(f"clicked {label}")
-                    page.wait_for_timeout(2500)
-                    break
+                btn.wait_for(state="visible", timeout=4000)
+                btn.click(timeout=5000)
+                clicked = True
+                log.append(f"clicked {label}")
+                page.wait_for_timeout(2500)
+                break
             except Exception:
                 continue
         if not clicked:
