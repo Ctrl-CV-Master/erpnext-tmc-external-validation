@@ -73,13 +73,29 @@ def commit():
     frappe.db.commit()
 
 
+def _dump_meta(dt):
+    try:
+        fields = [
+            {"f": f.fieldname, "t": f.fieldtype, "reqd": bool(f.reqd), "label": f.label}
+            for f in frappe.get_meta(dt).fields
+            if f.fieldtype not in ("Section Break", "Column Break", "HTML", "Tab Break", "Table")
+        ]
+        print("META " + dt + ": " + json.dumps(fields, ensure_ascii=False))
+    except Exception as e:
+        print("META dump failed:", e)
+
+
 def ensure(dt, name, values=None):
     if frappe.db.exists(dt, name):
         print(f"exists  {dt}: {name}")
         return frappe.get_doc(dt, name)
     doc = frappe.get_doc({"doctype": dt, "__newname": name, **(values or {})})
     doc.name = name  # covers 'prompt' autoname; other schemes regenerate
-    doc.insert(ignore_permissions=True)
+    try:
+        doc.insert(ignore_permissions=True)
+    except Exception:
+        _dump_meta(dt)
+        raise
     commit()
     print(f"created {dt}: {name}")
     return doc
@@ -241,7 +257,11 @@ def build():
             "companies": [{"company": COMPANY}],
         })
         _fy.name = fy_name
-        _fy.insert(ignore_permissions=True)
+        try:
+            _fy.insert(ignore_permissions=True)
+        except Exception:
+            _dump_meta("Fiscal Year")
+            raise
         commit()
         print(f"created Fiscal Year {fy_name}")
 
