@@ -98,9 +98,11 @@ echo "erpnext_site=${SITE}" >> "$OUT/manifest.env"
 echo "detected site: ${SITE}" | tee -a "$OUT/evaluator.txt"
 
 # The database name is NOT necessarily the site name: read it from site_config.json.
-DBNAME=$(docker compose -f pwd.yml exec -T backend bash -c \
-  "grep -oE '\"db_name\": *\"[^\"]+\"' /home/frappe/frappe-bench/sites/$SITE/site_config.json | head -1 | cut -d'\"' -f2" \
+DBRAW=$(docker compose -f pwd.yml exec -T backend bash -c \
+  "grep -oE '\"db_name\": *\"[^\"]+\"' /home/frappe/frappe-bench/sites/$SITE/site_config.json | head -1" \
   | tr -d '\r\n')
+echo "db_name raw match: ${DBRAW:-none}" | tee -a "$OUT/evaluator.txt"
+DBNAME=$(echo "$DBRAW" | cut -d'"' -f4 | tr -d '\r\n')
 DBNAME=${DBNAME:-$SITE}
 echo "erpnext_db=${DBNAME}" >> "$OUT/manifest.env"
 echo "db: ${DBNAME}" | tee -a "$OUT/evaluator.txt"
