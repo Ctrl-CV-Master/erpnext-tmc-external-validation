@@ -150,6 +150,32 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
                 did.append("email")
             if _fill_password(page, ["password", "pwd"], admin_password, "Password"):
                 did.append("password")
+            # v16 survey step: generic fill of every empty visible select
+            try:
+                for box in page.locator("select:visible").all():
+                    try:
+                        if not (box.input_value() or "").strip():
+                            opts = box.locator("option").all_inner_texts()
+                            choice = next(
+                                (o for o in opts if o.strip() and not o.strip().startswith("Select")),
+                                None)
+                            if choice:
+                                box.select_option(label=choice)
+                                did.append("survey")
+                    except Exception:
+                        continue
+            except Exception:
+                pass
+            # tick module checkboxes relevant to the synthetic manufacturer
+            for lbl in ("Manufacturing", "Stock", "Accounting"):
+                try:
+                    cb = page.locator(
+                        f'.checkbox:has-text("{lbl}") input, label:has-text("{lbl}") input').first
+                    if cb.count() and not cb.is_checked():
+                        cb.check()
+                        did.append("check:" + lbl)
+                except Exception:
+                    pass
             if _fill_input(page, ["company_name"], "Wizard Setup Co", "Company Name"):
                 did.append("company_name")
             if _fill_input(page, ["company_abbr", "abbr"], "WSC", "Abbr"):
@@ -157,7 +183,7 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
             log.append(f"step{step} filled={did}")
 
             clicked = False
-            for label in ("Complete Setup", "Next", "Continue", "Finish", "Start", "Go"):
+            for label in ("Complete Setup", "Next", "Continue", "Finish", "Start", "Go", "Let's go", "Go to"):
                 try:
                     btn = page.locator(f'button:has-text("{label}")').first
                     btn.wait_for(state="visible", timeout=4000)
