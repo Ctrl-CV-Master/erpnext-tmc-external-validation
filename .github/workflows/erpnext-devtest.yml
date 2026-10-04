@@ -1,0 +1,70 @@
+name: erpnext-devtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Dev task path in repo"
+        default: "tasks/dev/D01.json"
+      method:
+        description: "TMC | R2 | R3"
+        default: "TMC"
+      mock:
+        description: "Use deterministic planner (no LLM calls)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: erpnext-devtest
+  cancel-in-progress: false
+
+jobs:
+  devtest:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      ERPNEXT_VERSION: "v16.37.0"
+      FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
+      ADMIN_PASSWORD: "Smoke2026x!"
+      DB_PASSWORD: "Smoke2026x!"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clean runner disk
+        run: bash scripts/cleanup_runner_disk.sh normal
+
+      - name: Start ERPNext
+        run: bash smoke/start_erpnext.sh
+
+      - name: Setup Python (playwright)
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -q --upgrade pip
+          .venv/bin/pip install -q "playwright==1.52.0"
+          .venv/bin/python -m playwright install --with-deps chromium
+
+      - name: Run dev task (adapter + episode + evaluator chain)
+        env:
+          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+          GLM_API_KEY_2: ${{ secrets.GLM_API_KEY_2 }}
+          GLM_API_KEY_3: ${{ secrets.GLM_API_KEY_3 }}
+          GLM_API_KEY_4: ${{ secrets.GLM_API_KEY_4 }}
+          GLM_API_KEY_5: ${{ secrets.GLM_API_KEY_5 }}
+          GLM_API_KEY_6: ${{ secrets.GLM_API_KEY_6 }}
+          ERPNEXT_SITE: frontend
+        run: |
+          MOCK=${{ inputs.mock && '--mock' || '' }}
+          .venv/bin/python harness/runner.py --task "${{ inputs.task }}" \
+            --method "${{ inputs.method }}" --out-dir runs/dev $MOCK
+          echo "## devtest result" >> "$GITHUB_STEP_SUMMARY"
+          cat runs/dev/*.manifest.json >> "$GITHUB_STEP_SUMMARY" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: devtest-results
+          path: runs/
+          retention-days: 7
