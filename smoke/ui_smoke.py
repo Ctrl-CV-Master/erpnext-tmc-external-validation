@@ -50,7 +50,11 @@ def main():
                 page.fill("#login_email", "Administrator")
                 page.fill("#login_password", pw)
                 page.click("button.btn-login")
-                page.wait_for_url(re.compile(r"/app"), timeout=30000)
+                page.wait_for_url(re.compile(r"/app|/setup-wizard"), timeout=45000)
+                if "/setup-wizard" in page.url:
+                    shot(page, "setup_wizard_%d.png" % len(tried))
+                    res["errors"].append("login[%s]: setup wizard appeared (setup_complete not applied)" % label)
+                    continue
                 logged = True
                 res["login"] = "ok (password: %s)" % label
                 break
