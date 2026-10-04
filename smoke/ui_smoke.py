@@ -7,8 +7,11 @@ start_erpnext.sh.
 """
 import json
 import os
-import re
 import sys
+
+sys.path.insert(0, os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "adapter"))
+from wizard import complete_setup_wizard  # noqa: E402
 
 from playwright.sync_api import sync_playwright
 
@@ -28,102 +31,6 @@ def shot(page, name):
 def save(res):
     with open(os.path.join(OUT, "ui_result.json"), "w") as f:
         json.dump(res, f, indent=2)
-
-
-def complete_wizard(page, res):
-    """Deterministically complete the setup wizard at /setup-wizard (the page the
-    post-login server redirect lands on; /desk/* wizard URLs are SPA-internal only)."""
-    log = res.setdefault("wizard_log", [])
-    if "setup-wizard" not in page.url:
-        page.goto(BASE + "/setup-wizard", wait_until="domcontentloaded", timeout=90000)
-    for step in range(6):
-        shot(page, f"wizard_step{step}.png")
-        url = page.url
-        log.append(f"step{step} url={url}")
-        if "/app" in url and "/setup-wizard" not in url:
-            log.append("wizard finished")
-            return True
-        # language/timezone/currency step
-        try:
-            tz = page.locator('select[data-fieldname="timezone"], select:visible').first
-            if tz.count():
-                try:
-                    tz.select_option(label=re.compile("Asia/Shanghai"))
-                except Exception:
-                    opts = tz.locator("option").all_inner_texts()
-                    match = next((o for o in opts if "Shanghai" in o or "Hong_Kong" in o), None)
-                    if match:
-                        tz.select_option(label=match)
-        except Exception as e:
-            log.append(f"tz select: {str(e)[:80]}")
-        try:
-            cur = page.locator('select[data-fieldname="currency"]').first
-            if cur.count():
-                cur.select_option(value="CNY")
-        except Exception:
-            pass
-        # country is a Link (autocomplete) input, not a <select>
-        try:
-            ctry = page.locator('input[data-fieldname="country"]:visible').first
-            if ctry.count():
-                ctry.fill("China")
-                page.wait_for_timeout(900)
-                opt = page.locator('.awesomplete li:has-text("China")').first
-                try:
-                    opt.wait_for(state="visible", timeout=4000)
-                    opt.click()
-                except Exception:
-                    ctry.press("Enter")
-                page.wait_for_timeout(500)
-        except Exception:
-            pass
-        # dismiss a blocking "Missing Values" modal if present
-        try:
-            x = page.locator('.modal.show .btn-close, .modal.show button[data-dismiss="modal"]').first
-            if x.count() and x.is_visible():
-                x.click(timeout=2000)
-                page.wait_for_timeout(500)
-        except Exception:
-            pass
-        # organization-ish text inputs, if this is that step
-        for key, val in (("company_name", "Wizard Setup Co"), ("company_abbr", "WSC")):
-            try:
-                box = page.locator(f'input[data-fieldname="{key}"]:visible').first
-                if box.count():
-                    box.fill(val)
-            except Exception:
-                pass
-        # click Next / Complete / Continue
-        clicked = False
-        for label in ("Complete Setup", "Next", "Continue", "Setup", "Finish", "Start", "Go"):
-            try:
-                btn = page.locator(f'button:has-text("{label}")').first
-                btn.wait_for(state="visible", timeout=4000)
-                btn.click(timeout=5000)
-                clicked = True
-                log.append(f"clicked {label}")
-                page.wait_for_timeout(2500)
-                break
-            except Exception:
-                continue
-        if not clicked:
-            # maybe a "skip" path exists
-            for label in ("Skip", "Not now"):
-                try:
-                    lnk = page.locator(f'a:has-text("{label}"), button:has-text("{label}")').first
-                    if lnk.count() and lnk.is_visible():
-                        lnk.click(timeout=5000)
-                        log.append(f"clicked {label}")
-                        page.wait_for_timeout(2500)
-                        clicked = True
-                        break
-                except Exception:
-                    continue
-        if not clicked:
-            log.append("no button found; stopping wizard loop")
-            shot(page, "wizard_stuck.png")
-            return "/app" in page.url
-    return "/app" in page.url
 
 
 def main():
@@ -149,7 +56,9 @@ def main():
             sys.exit(2)
 
         if "/setup-wizard" in page.url:
-            res["wizard_completed"] = complete_wizard(page, res)
+            res["wizard_completed"] = complete_setup_wizard(
+                page, ADMIN_PASSWORD, res.setdefault("wizard_log", []),
+                shot=lambda pg, n: shot(pg, n))
             if not res["wizard_completed"]:
                 shot(page, "wizard_incomplete.png")
                 save(res)
