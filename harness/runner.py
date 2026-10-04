@@ -78,7 +78,7 @@ def orm_evaluate(task_path, out_path):
         capture_output=True, text=True)
     bpy = probe.stdout.strip().splitlines()[-1] if probe.stdout.strip() else "python3"
     subprocess.run(["docker", "compose", "-f", f"{FRAPPE_DIR}/pwd.yml", "exec", "-T",
-                    "-w", "/home/frappe/frappe-bench", "-e", f"SITE={SITE}",
+                    "-u", "root", "-w", "/home/frappe/frappe-bench", "-e", f"SITE={SITE}",
                     "backend", bpy, "evaluate.py",
                     "--task", "/tmp/task.json", "--out", "/tmp/eval_out.json"], check=False)
     res = subprocess.run(
