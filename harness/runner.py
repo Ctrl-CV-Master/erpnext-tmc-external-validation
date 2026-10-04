@@ -77,9 +77,12 @@ def orm_evaluate(task_path, out_path):
          'do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"'],
         capture_output=True, text=True)
     bpy = probe.stdout.strip().splitlines()[-1] if probe.stdout.strip() else "python3"
-    subprocess.run(["docker", "compose", "-f", f"{FRAPPE_DIR}/pwd.yml", "exec", "-T",
-                    "-u", "root", "backend", "mkdir", "-p",
-                    "/home/frappe/logs", "/home/frappe/frappe-bench/logs"], check=False)
+    subprocess.run(
+        ["docker", "compose", "-f", f"{FRAPPE_DIR}/pwd.yml", "exec", "-T", "-u", "root",
+         "backend", "bash", "-c",
+         "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs "
+         "/home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs"],
+        check=False)
     subprocess.run(["docker", "compose", "-f", f"{FRAPPE_DIR}/pwd.yml", "exec", "-T",
                     "-u", "root", "-w", "/home/frappe/frappe-bench", "-e", f"SITE={SITE}",
                     "backend", bpy, "evaluate.py",
