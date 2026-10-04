@@ -38,6 +38,22 @@ import traceback
 
 import frappe
 
+# frappe's RotatingFileHandler needs its log dirs to exist; different frappe
+# versions derive the path differently, so create every candidate up front.
+import os as _os
+_site = _os.environ.get("SITE", "frontend")
+for _d in (
+    "/home/frappe/logs",
+    "/home/frappe/frappe-bench/logs",
+    _os.path.join("/home/frappe/frappe-bench", _site, "logs"),
+    _os.path.join("/home/frappe/frappe-bench", "sites", _site, "logs"),
+    "/home/frappe/frappe-bench/sites/logs",
+):
+    try:
+        _os.makedirs(_d, exist_ok=True)
+    except OSError:
+        pass
+
 TOL = 1e-4
 
 
