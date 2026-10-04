@@ -97,6 +97,14 @@ SITE=$(docker compose -f pwd.yml exec -T backend bash -c \
 echo "erpnext_site=${SITE}" >> "$OUT/manifest.env"
 echo "detected site: ${SITE}" | tee -a "$OUT/evaluator.txt"
 
+# The database name is NOT necessarily the site name: read it from site_config.json.
+DBNAME=$(docker compose -f pwd.yml exec -T backend bash -c \
+  "grep -oE '\"db_name\": *\"[^\"]+\"' /home/frappe/frappe-bench/sites/$SITE/site_config.json | head -1 | cut -d'\"' -f2" \
+  | tr -d '\r\n')
+DBNAME=${DBNAME:-$SITE}
+echo "erpnext_db=${DBNAME}" >> "$OUT/manifest.env"
+echo "db: ${DBNAME}" | tee -a "$OUT/evaluator.txt"
+
 docker compose -f pwd.yml exec -T backend bench --site "$SITE" set-admin-password "${ADMIN_PASSWORD}" \
   > "$OUT/setpw.out" 2>&1 \
   && echo "bench setpw rc=0" >> "$OUT/evaluator.txt" \
@@ -109,11 +117,11 @@ INSERT INTO `tabSingles` (`doctype`, `field`, `value`)
 VALUES ('System Settings', 'setup_complete', '1')
 ON DUPLICATE KEY UPDATE `value` = '1';
 SQL
-docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $SITE" \
+docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME" \
   < "$OUT/setup_complete.sql" >> "$OUT/evaluator.txt" 2>&1 \
   && echo "setup_complete written via SQL" | tee -a "$OUT/evaluator.txt" \
   || echo "setup_complete SQL FAILED" | tee -a "$OUT/evaluator.txt"
-SC=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $SITE -N -e \"SELECT value FROM tabSingles WHERE doctype='System Settings' AND field='setup_complete';\"" 2>/dev/null | tail -1)
+SC=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME -N -e \"SELECT value FROM tabSingles WHERE doctype='System Settings' AND field='setup_complete';\"" 2>/dev/null | tail -1 || true)
 echo "setup_complete now: ${SC:-unset}" | tee -a "$OUT/evaluator.txt"
 docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache >> "$OUT/evaluator.txt" 2>&1 \
   && echo "clear-cache ok" >> "$OUT/evaluator.txt"
