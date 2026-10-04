@@ -1,0 +1,70 @@
+name: erpnext-smoke
+
+on:
+  workflow_dispatch:
+    inputs:
+      deep_cleanup:
+        description: "Deeper disk cleanup (storage-optimization retry)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: erpnext-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      ERPNEXT_VERSION: "v16.37.0"
+      FRAPPE_VERSION: "version-16"
+      FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
+      PLAYWRIGHT_VERSION: "1.52.0"
+      ADMIN_PASSWORD: "Smoke2026x!"
+      DB_PASSWORD: "Smoke2026x!"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Runner info (before cleanup)
+        run: |
+          mkdir -p smoke-out
+          {
+            echo "runner_vcpu=$(nproc)"
+            echo "node_version_before=$(node --version 2>/dev/null || echo none)"
+            echo "python_version_system=$(python3 --version 2>&1)"
+            docker --version
+            docker compose version
+          } | tee smoke-out/runner_before.txt
+          grep MemTotal /proc/meminfo | tee -a smoke-out/runner_before.txt
+          df -h / | tee -a smoke-out/runner_before.txt
+          free -h | tee -a smoke-out/runner_before.txt
+
+      - name: Clean runner disk
+        run: bash scripts/cleanup_runner_disk.sh ${{ inputs.deep_cleanup && 'deep' || 'normal' }}
+
+      - name: Start ERPNext (pinned images, bootstrap site)
+        run: bash smoke/start_erpnext.sh
+
+      - name: Setup Playwright
+        run: bash smoke/setup_playwright.sh
+
+      - name: Playwright UI smoke
+        run: bash smoke/run_ui_smoke.sh
+
+      - name: Evaluator smoke (DB readback)
+        run: bash smoke/run_evaluator.sh
+
+      - name: Final metrics
+        if: always()
+        run: bash smoke/final_metrics.sh
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-results
+          path: smoke-out/
+          retention-days: 7

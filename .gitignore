@@ -1,0 +1,7 @@
+.venv/
+frappe_docker/
+smoke-out/
+.gh_token
+.ghcred
+*.png
+__pycache__/
