@@ -131,6 +131,7 @@ def make_stock_entries(entries, log):
             }
             if row.get("batch_no"):
                 item["batch_no"] = row["batch_no"]
+                item["use_serial_batch_fields"] = 1
             if e.get("work_order"):
                 item["work_order"] = e["work_order"]
             doc.append("items", {k: v for k, v in item.items() if v})
