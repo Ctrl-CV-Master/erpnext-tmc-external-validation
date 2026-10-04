@@ -41,7 +41,7 @@ BENCH_PY=$(docker compose -f pwd.yml exec -T "$BKSVC" bash -c \
 docker compose -f pwd.yml exec -T -e EVAL_SITE="$(grep -m1 '^erpnext_site=' "$OUT/manifest.env" | cut -d= -f2)" "$BKSVC" \
   "$BENCH_PY" -c "
 import os, frappe
-frappe.init(site=os.environ['EVAL_SITE'])
+frappe.init(site=os.environ['EVAL_SITE'], sites_path='/home/frappe/frappe-bench/sites')
 frappe.connect()
 print('EVAL_ORM_COUNT', frappe.db.count('UOM', {'uom_name': ['like', '%SMOKE%']}))
 frappe.destroy()
