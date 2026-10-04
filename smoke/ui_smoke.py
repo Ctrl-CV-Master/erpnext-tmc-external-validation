@@ -46,7 +46,7 @@ def main():
             page.fill("#login_email", "Administrator")
             page.fill("#login_password", ADMIN_PASSWORD)
             page.click("button.btn-login")
-            page.wait_for_url(lambda u: ("/app" in u) or ("/setup-wizard" in u), timeout=60000)
+            page.wait_for_url(lambda u: ("/app" in u) or ("/desk" in u) or ("setup-wizard" in u), timeout=60000)
             res["login"] = "ok"
         except Exception as e:
             res["errors"].append("login: " + str(e)[:250])
@@ -67,14 +67,19 @@ def main():
 
         try:
             page.goto(BASE + "/app/uom/new", wait_until="domcontentloaded", timeout=90000)
+            try:
+                page.locator('input[data-fieldname="uom_name"]').first.wait_for(
+                    state="visible", timeout=20000)
+            except Exception:
+                page.goto(BASE + "/desk/uom/new", wait_until="domcontentloaded", timeout=90000)
             inp = page.locator('input[data-fieldname="uom_name"]')
-            inp.wait_for(state="visible", timeout=90000)
+            inp.wait_for(state="visible", timeout=60000)
             inp.fill(UOM_NAME)
             page.get_by_role("button", name="Save", exact=True).click()
             page.wait_for_selector("span.indicator-pill:has-text('Saved')", timeout=90000)
             page.wait_for_timeout(2000)
             res["final_url"] = page.url
-            res["ui_ok"] = ("/app/uom/" in page.url) and (not page.url.rstrip("/").endswith("/new"))
+            res["ui_ok"] = ("/uom/" in page.url) and (not page.url.rstrip("/").endswith("/new"))
             shot(page, "ui_saved.png")
         except Exception as e:
             res["errors"].append("uom: " + str(e)[:300])
