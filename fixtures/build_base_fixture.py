@@ -253,8 +253,17 @@ def build():
                 if imeta.get_field("batch_no"):
                     row["batch_no"] = rm_batch[c]
             rows.append(row)
+        acct = None
+        for pat in ("Temporary Opening", "Stock Adjustment"):
+            acct = next(iter(frappe.get_all(
+                "Account", filters={"company": COMPANY, "account_name": ["like", f"%{pat}%"]},
+                pluck="name")), None)
+            if acct:
+                break
         doc = frappe.get_doc({"doctype": "Stock Reconciliation", "company": COMPANY,
-                              "purpose": "Opening Stock", itf.fieldname: rows})
+                              "purpose": "Opening Stock", "expense_account": acct,
+                              itf.fieldname: rows})
+        print("SR expense_account:", acct)
         doc.insert(ignore_permissions=True)
         doc.submit()
         commit()
