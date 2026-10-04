@@ -102,38 +102,21 @@ docker compose -f pwd.yml exec -T backend bench --site "$SITE" set-admin-passwor
   && echo "bench setpw rc=0" >> "$OUT/evaluator.txt" \
   || echo "bench setpw failed: $(tail -2 "$OUT/setpw.out" 2>/dev/null)" >> "$OUT/evaluator.txt"
 
-# ORM: set password, skip setup wizard, then clear any login-lockout counters.
-docker compose -f pwd.yml exec -T -e SITE="$SITE" -e ADMPW="${ADMIN_PASSWORD}" backend bash -s <<'EOF' >> "$OUT/evaluator.txt" 2>&1 || true
-cd /home/frappe/frappe-bench
-python3 - <<'PY'
-import os
-
-import frappe
-
-frappe.init(site=os.environ["SITE"])
-frappe.connect()
-from frappe.utils.password import update_password
-
-update_password(user="Administrator", pwd=os.environ["ADMPW"])
-frappe.db.commit()
-try:
-    frappe.db.set_single_value("System Settings", "setup_complete", 1)
-    frappe.db.commit()
-except Exception as e:
-    print("setup_complete flag failed:", e)
-for sql in (
-    "UPDATE `tabUser` SET login_attempts=0, failed_login_count=0 WHERE name='Administrator'",
-    "UPDATE `tabUser` SET last_login_attempts=NULL WHERE name='Administrator'",
-):
-    try:
-        frappe.db.sql(sql)
-        frappe.db.commit()
-    except Exception as e:
-        print("lockout reset partial:", e)
-print("ORM_PW_SET + SETUP_COMPLETE=1 + LOCKOUT_RESET")
-frappe.destroy()
-PY
-EOF
+# Skip the setup wizard: write System Settings.setup_complete via SQL (no frappe
+# python env needed in backend), then clear frappe's singles cache.
+cat > "$OUT/setup_complete.sql" <<'SQL'
+INSERT INTO `tabSingles` (`doctype`, `field`, `value`)
+VALUES ('System Settings', 'setup_complete', '1')
+ON DUPLICATE KEY UPDATE `value` = '1';
+SQL
+docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $SITE" \
+  < "$OUT/setup_complete.sql" >> "$OUT/evaluator.txt" 2>&1 \
+  && echo "setup_complete written via SQL" | tee -a "$OUT/evaluator.txt" \
+  || echo "setup_complete SQL FAILED" | tee -a "$OUT/evaluator.txt"
+SC=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $SITE -N -e \"SELECT value FROM tabSingles WHERE doctype='System Settings' AND field='setup_complete';\"" 2>/dev/null | tail -1)
+echo "setup_complete now: ${SC:-unset}" | tee -a "$OUT/evaluator.txt"
+docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache >> "$OUT/evaluator.txt" 2>&1 \
+  && echo "clear-cache ok" >> "$OUT/evaluator.txt"
 
 # Verify login once via HTTP API (no browser); one retry after a fresh reset.
 LOGIN_CODE=$(curl -s -o "$OUT/login_check.out" -w '%{http_code}' \
