@@ -45,19 +45,22 @@ START=$(date +%s)
 docker compose -f pwd.yml up -d
 
 # 1) Wait for the one-shot create-site service to exit successfully.
+# NOTE: docker ps --format does not support .ExitCode; use docker inspect for that.
 CREATESITE_OK=""
 for i in $(seq 1 120); do
-  line=$(docker ps -a --filter "label=com.docker.compose.service=create-site" \
-        --format "{{.State}} {{.ExitCode}}" | head -1 || true)
-  state=${line%% *}; code=${line##* }
-  if [ "$state" = "exited" ]; then
-    if [ "$code" = "0" ]; then
-      CREATESITE_OK=yes
-    else
-      cid=$(docker ps -aq --filter "label=com.docker.compose.service=create-site" | head -1 || true)
-      [ -n "$cid" ] && docker logs "$cid" --tail 60 2>&1 | tail -60 || true
+  cid=$(docker ps -aq --filter "label=com.docker.compose.service=create-site" | head -1 || true)
+  if [ -n "$cid" ]; then
+    st=$(docker inspect -f "{{.State.Status}} {{.State.ExitCode}}" "$cid" 2>/dev/null || echo "unknown -1")
+    state=${st%% *}; code=${st##* }
+    if [ "$state" = "exited" ]; then
+      if [ "$code" = "0" ]; then
+        CREATESITE_OK=yes
+      else
+        echo "create-site FAILED (exit $code)"
+        docker logs "$cid" --tail 60 2>&1 | tail -60 || true
+      fi
+      break
     fi
-    break
   fi
   sleep 8
 done
