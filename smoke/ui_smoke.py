@@ -31,9 +31,9 @@ def save(res):
 
 
 def complete_wizard(page, res):
-    """Deterministically complete the setup wizard; log every step."""
+    """Deterministically complete the setup wizard (v16 route: /desk/setup-wizard)."""
     log = res.setdefault("wizard_log", [])
-    page.goto(BASE + "/setup-wizard", wait_until="domcontentloaded", timeout=90000)
+    page.goto(BASE + "/desk/setup-wizard", wait_until="domcontentloaded", timeout=90000)
     page.wait_for_timeout(2000)
     for step in range(6):
         shot(page, f"wizard_step{step}.png")
