@@ -2,9 +2,11 @@
 
 Proves: Chromium headless works, ERPNext UI works, and a scripted UI action
 persists a record that the evaluator can later read back from the database.
+Login tries the configured ADMIN_PASSWORD first, then known pwd.yml defaults.
 """
 import json
 import os
+import re
 import sys
 
 from playwright.sync_api import sync_playwright
@@ -22,6 +24,11 @@ def shot(page, name):
         pass
 
 
+def save(res):
+    with open(os.path.join(OUT, "ui_result.json"), "w") as f:
+        json.dump(res, f, indent=2)
+
+
 def main():
     res = {"ui_ok": False, "errors": []}
     with sync_playwright() as p:
@@ -29,19 +36,29 @@ def main():
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
         res["browser_version"] = browser.version
-        try:
-            page.goto(BASE + "/login", wait_until="domcontentloaded", timeout=90000)
-            page.wait_for_selector("#login_email", timeout=60000)
-            page.fill("#login_email", "Administrator")
-            page.fill("#login_password", ADMIN_PASSWORD)
-            page.click("button.btn-login")
-            page.wait_for_url("**/app", timeout=90000)
-            res["login"] = "ok"
-        except Exception as e:
-            res["errors"].append("login: " + str(e)[:300])
+
+        logged = False
+        tried = []
+        for pw in [ADMIN_PASSWORD, "admin", "admin123"]:
+            if pw in tried:
+                continue
+            tried.append(pw)
+            label = "custom" if pw == ADMIN_PASSWORD else pw
+            try:
+                page.goto(BASE + "/login", wait_until="domcontentloaded", timeout=90000)
+                page.wait_for_selector("#login_email", timeout=60000)
+                page.fill("#login_email", "Administrator")
+                page.fill("#login_password", pw)
+                page.click("button.btn-login")
+                page.wait_for_url(re.compile(r"/app"), timeout=25000)
+                logged = True
+                res["login"] = "ok (password: %s)" % label
+                break
+            except Exception as e:
+                res["errors"].append("login[%s]: %s" % (label, str(e)[:150]))
+        if not logged:
             shot(page, "login_failed.png")
-            with open(os.path.join(OUT, "ui_result.json"), "w") as f:
-                json.dump(res, f)
+            save(res)
             print("SMOKE_UI_FAIL " + json.dumps(res, ensure_ascii=False))
             sys.exit(2)
 
@@ -60,8 +77,7 @@ def main():
             res["errors"].append("uom: " + str(e)[:300])
             shot(page, "uom_failed.png")
 
-        with open(os.path.join(OUT, "ui_result.json"), "w") as f:
-            json.dump(res, f, indent=2)
+        save(res)
         print(("SMOKE_UI_OK " if res["ui_ok"] else "SMOKE_UI_FAIL ") + json.dumps(res, ensure_ascii=False))
         browser.close()
         sys.exit(0 if res["ui_ok"] else 3)
