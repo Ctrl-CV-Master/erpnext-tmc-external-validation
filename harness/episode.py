@@ -227,10 +227,11 @@ class Episode:
 
             marked = self._gamma_mark(i, action_id)
 
-            route = cond.get("route") or f"/app/{cond['doctype'].lower().replace(' ', '-')}/new"
-            self.env.act({"type": "navigate", "url": route})
-            if cond["kind"] == "edit" and cond.get("match"):
-                self.env.act({"type": "navigate", "url": cond["route"]})
+            if cond.get("kind", "create") == "create":
+                self.env.open_form(cond["doctype"])
+            else:
+                self.env.act({"type": "navigate",
+                              "url": cond.get("route") or self.env.prefix})
             actions = self._plan_fill(i)
             outcome = "ok"
             name = None
