@@ -38,7 +38,7 @@ fi
 # (this is the access pattern the full evaluator will use at Gate 2+).
 BENCH_PY=$(docker compose -f pwd.yml exec -T "$BKSVC" bash -c \
   'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
-docker compose -f pwd.yml exec -T -e EVAL_SITE="$(grep -m1 '^erpnext_site=' "$OUT/manifest.env" | cut -d= -f2)" "$BKSVC" \
+docker compose -f pwd.yml exec -T -u root -e EVAL_SITE="$(grep -m1 '^erpnext_site=' "$OUT/manifest.env" | cut -d= -f2)" "$BKSVC" \
   "$BENCH_PY" -c "
 import os, frappe
 frappe.init(site=os.environ['EVAL_SITE'], sites_path='/home/frappe/frappe-bench/sites')
