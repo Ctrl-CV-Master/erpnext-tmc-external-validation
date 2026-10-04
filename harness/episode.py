@@ -78,6 +78,8 @@ class Episode:
         self.attempts = {i: 0 for i in range(self.n)}
         self.given_up = set()
         self.events = []
+        self.trajectory = []
+        self.names = {}
         self.t0 = time.time()
         self.cursor = 0
         self.prev_entry = None
