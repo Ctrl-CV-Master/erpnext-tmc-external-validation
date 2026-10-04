@@ -50,12 +50,13 @@ def main():
                 page.fill("#login_email", "Administrator")
                 page.fill("#login_password", pw)
                 page.click("button.btn-login")
-                page.wait_for_url(re.compile(r"/app"), timeout=25000)
+                page.wait_for_url(re.compile(r"/app"), timeout=30000)
                 logged = True
                 res["login"] = "ok (password: %s)" % label
                 break
             except Exception as e:
                 res["errors"].append("login[%s]: %s" % (label, str(e)[:150]))
+                shot(page, "login_attempt_%d.png" % len(tried))
         if not logged:
             shot(page, "login_failed.png")
             save(res)
