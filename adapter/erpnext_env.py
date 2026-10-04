@@ -60,6 +60,25 @@ class ERPNextEnv:
             complete_setup_wizard(self.page, password, self.wizard_log,
                                   shot=lambda pg, n: pg.screenshot(path=n))
 
+    def _wait_settled(self, ms=800):
+        try:
+            self.page.wait_for_load_state("networkidle", timeout=8000)
+        except Exception:
+            pass
+        self.page.wait_for_timeout(ms)
+
+    def _toasts(self):
+        out = []
+        for sel in (".msgprint", ".alert", ".toast-message", ".indicator-pill"):
+            for el in self.page.locator(sel).all():
+                try:
+                    t = el.inner_text().strip()
+                    if t:
+                        out.append(t[:200])
+                except Exception:
+                    pass
+        return out[:5]
+
     # ---------------- observation ----------------
     def observe(self):
         self._wait_settled()
