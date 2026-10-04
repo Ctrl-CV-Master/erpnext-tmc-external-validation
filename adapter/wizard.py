@@ -190,6 +190,16 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
                     btn.click(timeout=5000)
                     clicked = True
                     log.append(f"clicked {label}")
+                    if label in ("Complete Setup", "Finish"):
+                        # the backend now creates company/modules; this takes minutes
+                        try:
+                            page.wait_for_url(
+                                lambda u: "/app" in u and "setup-wizard" not in u,
+                                timeout=300000)
+                            log.append("desk reached after setup")
+                            return True
+                        except Exception:
+                            log.append("timeout waiting for desk after setup")
                     page.wait_for_timeout(2500)
                     break
                 except Exception:
