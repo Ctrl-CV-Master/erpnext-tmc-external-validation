@@ -77,7 +77,8 @@ def ensure(dt, name, values=None):
     if frappe.db.exists(dt, name):
         print(f"exists  {dt}: {name}")
         return frappe.get_doc(dt, name)
-    doc = frappe.get_doc({"doctype": dt, **(values or {})})
+    doc = frappe.get_doc({"doctype": dt, "__newname": name, **(values or {})})
+    doc.name = name  # covers 'prompt' autoname; other schemes regenerate
     doc.insert(ignore_permissions=True)
     commit()
     print(f"created {dt}: {name}")
