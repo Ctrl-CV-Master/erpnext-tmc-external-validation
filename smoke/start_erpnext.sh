@@ -125,6 +125,20 @@ docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT
   || echo "setup_complete SQL FAILED" | tee -a "$OUT/evaluator.txt"
 SC=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME -N -e \"SELECT value FROM tabSingles WHERE doctype='System Settings' AND field='setup_complete';\"" 2>/dev/null | tail -1 || true)
 echo "setup_complete now: ${SC:-unset}" | tee -a "$OUT/evaluator.txt"
+
+# Set language explicitly: an unset locale crashes desk boot (AltShortcutGroup
+# RangeError) and leaves every desk page blank.
+cat > "$OUT/language.sql" <<'SQL'
+UPDATE `tabUser` SET language = 'en' WHERE name = 'Administrator';
+INSERT INTO `tabSingles` (`doctype`, `field`, `value`)
+VALUES ('System Settings', 'language', 'en')
+ON DUPLICATE KEY UPDATE `value` = 'en';
+SQL
+docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME" \
+  < "$OUT/language.sql" >> "$OUT/evaluator.txt" 2>&1 \
+  && echo "language set to en" | tee -a "$OUT/evaluator.txt" \
+  || echo "language SQL FAILED" | tee -a "$OUT/evaluator.txt"
+
 docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache >> "$OUT/evaluator.txt" 2>&1 \
   && echo "clear-cache ok" >> "$OUT/evaluator.txt"
 
