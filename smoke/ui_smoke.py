@@ -31,10 +31,11 @@ def save(res):
 
 
 def complete_wizard(page, res):
-    """Deterministically complete the setup wizard (v16 route: /desk/setup-wizard)."""
+    """Deterministically complete the setup wizard at /setup-wizard (the page the
+    post-login server redirect lands on; /desk/* wizard URLs are SPA-internal only)."""
     log = res.setdefault("wizard_log", [])
-    page.goto(BASE + "/desk/setup-wizard", wait_until="domcontentloaded", timeout=90000)
-    page.wait_for_timeout(2000)
+    page.goto(BASE + "/setup-wizard", wait_until="domcontentloaded", timeout=90000)
+    page.wait_for_timeout(2500)
     for step in range(6):
         shot(page, f"wizard_step{step}.png")
         url = page.url
