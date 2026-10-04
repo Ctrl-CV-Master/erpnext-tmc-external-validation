@@ -239,7 +239,7 @@ def state_hash():
 
 
 if __name__ == "__main__":
-    frappe.init(site=SITE)
+    frappe.init(site=SITE, sites_path="/home/frappe/frappe-bench/sites")
     frappe.connect()
     if "--hash-only" in sys.argv:
         print("STATE_HASH=" + state_hash())
