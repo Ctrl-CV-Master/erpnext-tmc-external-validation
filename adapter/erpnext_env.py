@@ -29,6 +29,9 @@ class ActionResult:
         self.name = name
 
 
+from wizard import complete_setup_wizard  # noqa: E402
+
+
 class ERPNextEnv:
     def __init__(self, base=BASE, admin_password="admin", headless=True, budget=80):
         self.base = base
@@ -52,94 +55,10 @@ class ERPNextEnv:
         self.page.wait_for_url(
             lambda url: ("/app" in url) or ("setup-wizard" in url), timeout=90000)
         if "setup-wizard" in self.page.url:
-            # v16 SPA wizard route: /desk/setup-wizard. Complete it deterministically
-            # (harness bootstrap, not counted against the agent's action budget).
-            self._complete_setup_wizard()
-
-    def _complete_setup_wizard(self):
-        deadline = time.time() + 180
-        for step in range(8):
-            url = self.page.url
-            if "/app" in url and "setup-wizard" not in url:
-                return True
-            if time.time() > deadline:
-                return False
-            for sel, val in (('select[data-fieldname="timezone"]', "Asia/Shanghai"),
-                             ('select[data-fieldname="currency"]', "CNY")):
-                try:
-                    box = self.page.locator(sel).first
-                    if box.count():
-                        try:
-                            box.select_option(value=val)
-                        except Exception:
-                            opts = box.locator("option").all_inner_texts()
-                            match = next((o for o in opts if val in o), None)
-                            if match:
-                                box.select_option(label=match)
-                except Exception:
-                    pass
-            # country is a Link (autocomplete) input, not a <select>
-            try:
-                ctry = self.page.locator('input[data-fieldname="country"]:visible').first
-                if ctry.count():
-                    ctry.fill("China")
-                    self.page.wait_for_timeout(900)
-                    opt = self.page.locator('.awesomplete li:has-text("China")').first
-                    try:
-                        opt.wait_for(state="visible", timeout=4000)
-                        opt.click()
-                    except Exception:
-                        ctry.press("Enter")
-                    self.page.wait_for_timeout(500)
-            except Exception:
-                pass
-            try:
-                x = self.page.locator('.modal.show .btn-close, .modal.show button[data-dismiss="modal"]').first
-                if x.count() and x.is_visible():
-                    x.click(timeout=2000)
-                    self.page.wait_for_timeout(500)
-            except Exception:
-                pass
-            for key, val in (("company_name", "Wizard Setup Co"), ("company_abbr", "WSC")):
-                try:
-                    box = self.page.locator(f'input[data-fieldname="{key}"]:visible').first
-                    if box.count():
-                        box.fill(val)
-                except Exception:
-                    pass
-            clicked = False
-            for label in ("Complete Setup", "Next", "Continue", "Finish"):
-                try:
-                    btn = self.page.locator(f'button:has-text("{label}")').first
-                    if btn.count() and btn.is_visible():
-                        btn.click(timeout=5000)
-                        clicked = True
-                        self.page.wait_for_timeout(2500)
-                        break
-                except Exception:
-                    continue
-            if not clicked:
-                self.page.wait_for_timeout(1500)
-        return "/app" in self.page.url
-
-    def _wait_settled(self, ms=800):
-        try:
-            self.page.wait_for_load_state("networkidle", timeout=8000)
-        except Exception:
-            pass
-        self.page.wait_for_timeout(ms)
-
-    def _toasts(self):
-        out = []
-        for sel in (".msgprint", ".alert", ".toast-message", ".indicator-pill"):
-            for el in self.page.locator(sel).all():
-                try:
-                    t = el.inner_text().strip()
-                    if t:
-                        out.append(t[:200])
-                except Exception:
-                    pass
-        return out[:5]
+            # Harness bootstrap (not counted against the agent's action budget).
+            self.wizard_log = []
+            complete_setup_wizard(self.page, password, self.wizard_log,
+                                  shot=lambda pg, n: pg.screenshot(path=n))
 
     # ---------------- observation ----------------
     def observe(self):
