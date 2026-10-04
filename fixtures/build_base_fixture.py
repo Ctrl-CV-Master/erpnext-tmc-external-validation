@@ -191,9 +191,19 @@ def build():
             print(f"exists  Quality Inspection Template: {tpl}")
             continue
         tf = table_field("Quality Inspection Template", "parameter")
+        cmeta = frappe.get_meta(tf.options)
+        rows = []
+        for p in params:
+            row = {}
+            for f in cmeta.fields:
+                if f.fieldtype in ("Data", "Small Text", "Text") and f.reqd and not row.get(f.fieldname):
+                    row[f.fieldname] = p
+                elif f.fieldtype == "Link" and f.options == "Quality Inspection Parameter":
+                    row[f.fieldname] = p
+            rows.append(row)
         frappe.get_doc({
             "doctype": "Quality Inspection Template", "quality_inspection_template_name": tpl,
-            tf.fieldname: [{"parameter": p} for p in params],
+            tf.fieldname: rows,
         }).insert(ignore_permissions=True)
         commit()
         print(f"created Quality Inspection Template: {tpl}")
