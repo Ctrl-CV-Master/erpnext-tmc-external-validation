@@ -36,9 +36,9 @@ jobs:
             echo "runner_vcpu=$(nproc)"
             echo "node_version_before=$(node --version 2>/dev/null || echo none)"
             echo "python_version_system=$(python3 --version 2>&1)"
-            docker --version
-            docker compose version
-          } | tee smoke-out/runner_before.txt
+          } | tee smoke-out/runner_before.txt | tee -a smoke-out/manifest.env
+          docker --version | tee -a smoke-out/runner_before.txt
+          docker compose version | tee -a smoke-out/runner_before.txt
           grep MemTotal /proc/meminfo | tee -a smoke-out/runner_before.txt
           df -h / | tee -a smoke-out/runner_before.txt
           free -h | tee -a smoke-out/runner_before.txt
