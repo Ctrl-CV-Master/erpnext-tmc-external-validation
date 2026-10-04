@@ -66,12 +66,26 @@ def main():
                 sys.exit(3)
 
         try:
-            page.goto(BASE + "/app/uom/new", wait_until="domcontentloaded", timeout=90000)
+            page.goto(BASE + "/app/uom", wait_until="domcontentloaded", timeout=90000)
+            page.wait_for_timeout(1500)
+            for sel in ('button:has-text("Skip All")',):
+                try:
+                    el = page.locator(sel).first
+                    if el.count() and el.is_visible():
+                        el.click(timeout=3000)
+                        page.wait_for_timeout(600)
+                except Exception:
+                    pass
+            add = page.locator('button:has-text("Add UOM")').first
             try:
-                page.locator('input[data-fieldname="uom_name"]').first.wait_for(
-                    state="visible", timeout=20000)
+                add.wait_for(state="visible", timeout=15000)
+                add.click(timeout=8000)
+                page.wait_for_timeout(1500)
             except Exception:
-                page.goto(BASE + "/desk/uom/new", wait_until="domcontentloaded", timeout=90000)
+                for route in ("/app/uom/new", "/desk/uom/new"):
+                    page.goto(BASE + route, wait_until="domcontentloaded", timeout=90000)
+                    if page.locator('input[data-fieldname="uom_name"]').count():
+                        break
             inp = page.locator('input[data-fieldname="uom_name"]')
             inp.wait_for(state="visible", timeout=60000)
             inp.fill(UOM_NAME)
