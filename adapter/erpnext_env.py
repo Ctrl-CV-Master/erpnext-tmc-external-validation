@@ -66,6 +66,41 @@ class ERPNextEnv:
             self.page.goto(self.base + self.prefix, wait_until="domcontentloaded",
                            timeout=90000)
         self._wait_settled()
+        self._dismiss_onboarding()
+
+    def _dismiss_onboarding(self):
+        for sel in ('button:has-text("Skip All")',
+                    '.onboarding-step-wrapper button.close',
+                    '#page-desktop .btn-close'):
+            try:
+                el = self.page.locator(sel).first
+                if el.count() and el.is_visible():
+                    el.click(timeout=3000)
+                    self.page.wait_for_timeout(600)
+                    return
+            except Exception:
+                continue
+
+    def open_form(self, doctype):
+        """Open a new-document form the way a user would: list page -> Add <DocType>;
+        falls back to the /new route when no Add button exists."""
+        slug = doctype.lower().replace(" ", "-")
+        self.page.goto(self.base + f"{self.prefix}/{slug}",
+                       wait_until="domcontentloaded", timeout=60000)
+        self._wait_settled()
+        self._dismiss_onboarding()
+        try:
+            add = self.page.locator(f'button:has-text("Add {doctype}")').first
+            add.wait_for(state="visible", timeout=10000)
+            add.click(timeout=8000)
+            self._wait_settled()
+            return
+        except Exception:
+            pass
+        self.page.goto(self.base + f"{self.prefix}/{slug}/new",
+                       wait_until="domcontentloaded", timeout=60000)
+        self._wait_settled()
+        self._dismiss_onboarding()
 
     def _fix_url(self, url):
         """v16 moved the desk from /app to /desk; rewrite task-given /app routes."""
