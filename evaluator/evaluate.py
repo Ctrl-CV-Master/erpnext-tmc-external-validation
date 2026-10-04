@@ -217,7 +217,7 @@ if __name__ == "__main__":
     ap.add_argument("--site", default=None)
     a = ap.parse_args()
     try:
-        frappe.init(site=a.site or "frontend")
+        frappe.init(site=a.site or "frontend", sites_path="/home/frappe/frappe-bench/sites")
         frappe.connect()
         task = json.load(open(a.task, encoding="utf-8"))
         result = evaluate(task)
