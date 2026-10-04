@@ -232,13 +232,16 @@ def build():
     today = date.today()
     fy_name = f"FY{today.year}"
     if not frappe.db.exists("Fiscal Year", fy_name):
-        frappe.get_doc({
-            "doctype": "Fiscal Year", "fiscal_year": fy_name,
+        _fy = frappe.get_doc({
+            "doctype": "Fiscal Year",
+            "fiscal_year": fy_name, "year_name": fy_name, "__newname": fy_name,
             "year_start_date": date(today.year, 1, 1).isoformat(),
             "year_end_date": date(today.year, 12, 31).isoformat(),
             "disabled": 0,
             "companies": [{"company": COMPANY}],
-        }).insert(ignore_permissions=True)
+        })
+        _fy.name = fy_name
+        _fy.insert(ignore_permissions=True)
         commit()
         print(f"created Fiscal Year {fy_name}")
 
