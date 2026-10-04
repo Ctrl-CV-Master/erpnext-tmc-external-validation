@@ -227,6 +227,21 @@ def build():
         commit()
         print(f"created Routing: {route}")
 
+    # --- fiscal year covering today (the setup wizard normally creates one) --------
+    from datetime import date
+    today = date.today()
+    fy_name = f"FY{today.year}"
+    if not frappe.db.exists("Fiscal Year", fy_name):
+        frappe.get_doc({
+            "doctype": "Fiscal Year", "fiscal_year": fy_name,
+            "year_start_date": date(today.year, 1, 1).isoformat(),
+            "year_end_date": date(today.year, 12, 31).isoformat(),
+            "disabled": 0,
+            "companies": [{"company": COMPANY}],
+        }).insert(ignore_permissions=True)
+        commit()
+        print(f"created Fiscal Year {fy_name}")
+
     # --- opening stock of raw materials (so transfers/manufacture have real stock) ---------------
     # batch-tracked items need an existing Batch + use_serial_batch_fields on the row
     rm_batch = {}
