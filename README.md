@@ -25,7 +25,7 @@ TMC-AE / R2 (ATG-adapted) / R3 (Task-State-adapted) 三种方法的对比实验�
 
 | Gate | 内容 | 状态 |
 |------|------|------|
-| 1 | `erpnext-smoke.yml`:runner 磁盘清理 → 启动 ERPNext → Playwright UI 读写 → evaluator 读回 | 进行中 |
+| 1 | `erpnext-smoke.yml`:runner 磁盘清理 → 启动 ERPNext → Playwright UI 读写 → evaluator 读回 | **通过**(2026-10-05,v15.99.1,run 37271739495;v15 适配修复见 git log 96bf125..c87a054) |
 | 2 | 完整 base fixture(`base_fixture.sql.gz`)+ 正式 evaluator | pending |
 | 3 | 2 个独立 development families × 36 pilot runs(不进正式集) | pending |
 | — | 冻结 protocol(evaluator / 任务 / 预算不得再改) | pending |
