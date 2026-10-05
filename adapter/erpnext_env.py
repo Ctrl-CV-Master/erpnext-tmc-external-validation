@@ -379,6 +379,11 @@ class ERPNextEnv:
         url = self._fix_url(f"/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}")
         try:
             self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            self._wait_settled()
+            try:
+                self.page.wait_for_selector(".form-layout [data-fieldname]", timeout=15000)
+            except Exception:
+                pass
             fields = self.page.evaluate(
                 """() => {
                     const out = [];
