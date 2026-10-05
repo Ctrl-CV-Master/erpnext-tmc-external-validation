@@ -96,15 +96,38 @@ def main():
                     page.goto(BASE + route, wait_until="domcontentloaded", timeout=90000)
                     if page.locator('input[data-fieldname="uom_name"]').count():
                         break
-            inp = page.locator('input[data-fieldname="uom_name"]')
-            inp.wait_for(state="visible", timeout=60000)
-            inp.fill(UOM_NAME)
-            page.get_by_role("button", name="Save", exact=True).click()
-            page.wait_for_selector("span.indicator-pill:has-text('Saved')", timeout=90000)
-            page.wait_for_timeout(2000)
-            res["final_url"] = page.url
-            res["ui_ok"] = ("/uom/" in page.url) and (not page.url.rstrip("/").endswith("/new"))
-            shot(page, "ui_saved.png")
+            # v15 opens a quick-entry dialog for Add UOM (UOM has a single
+            # mandatory field); v16 opens the full form. Handle both.
+            modal = page.locator('.modal.show:has(input[data-fieldname="uom_name"])')
+            if modal.count():
+                box = modal.locator('input[data-fieldname="uom_name"]')
+                box.wait_for(state="visible", timeout=60000)
+                box.fill(UOM_NAME)
+                modal.locator('button:has-text("Save")').first.click(timeout=8000)
+                try:
+                    modal.first.wait_for(state="hidden", timeout=60000)
+                except Exception:
+                    res["modal_after_save"] = page.evaluate(
+                        "() => Array.from(document.querySelectorAll('.modal.show'))"
+                        ".map(m => m.innerText.slice(0, 400))")
+                page.wait_for_timeout(2000)
+                shot(page, "ui_saved.png")
+                # UI-level verification: the record shows up in the list
+                page.reload(wait_until="domcontentloaded")
+                page.wait_for_timeout(2500)
+                res["final_url"] = page.url
+                res["ui_ok"] = page.locator(
+                    f'.list-row:has-text("{UOM_NAME}"), a[title="{UOM_NAME}"]').count() > 0
+            else:
+                inp = page.locator('input[data-fieldname="uom_name"]')
+                inp.wait_for(state="visible", timeout=60000)
+                inp.fill(UOM_NAME)
+                page.get_by_role("button", name="Save", exact=True).click()
+                page.wait_for_selector("span.indicator-pill:has-text('Saved')", timeout=90000)
+                page.wait_for_timeout(2000)
+                res["final_url"] = page.url
+                res["ui_ok"] = ("/uom/" in page.url) and (not page.url.rstrip("/").endswith("/new"))
+                shot(page, "ui_saved.png")
         except Exception as e:
             res["errors"].append("uom: " + str(e)[:300])
             try:

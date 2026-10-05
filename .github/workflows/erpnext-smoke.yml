@@ -59,6 +59,7 @@ jobs:
         run: bash smoke/run_ui_smoke.sh
 
       - name: Evaluator smoke (DB readback)
+        if: always()
         run: bash smoke/run_evaluator.sh
 
       - name: Final metrics
