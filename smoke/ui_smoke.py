@@ -39,8 +39,9 @@ def main():
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
-        page.on("pageerror", lambda e: res["console"].append("pageerror: " + str(e)[:200]))
-        page.on("console", lambda m: res["console"].append(f"console.{m.type}: {m.text[:200]}")
+        page.on("pageerror", lambda e: res["console"].append("pageerror: " + str(e)[:800])
+                if "pageerror" not in res["console"] else None)
+        page.on("console", lambda m: res["console"].append(f"console.{m.type}: {m.text[:300]}")
                 if m.type in ("error", "warning") else None)
         res["browser_version"] = browser.version
         try:
