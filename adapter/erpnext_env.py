@@ -239,7 +239,30 @@ class ERPNextEnv:
             box.press("Enter")
 
     def _save(self):
-        btn = self.page.locator('.primary-action:visible, button.btn-primary:has-text("Save"):visible').first
+        # v16 form head uses .primary-action; v15 uses .btn-primary-action and
+        # carries data-label on desk buttons; quick-entry dialogs keep
+        # .btn-primary inside .modal. Cascade so either version matches.
+        btn = None
+        for sel in ('.primary-action:visible',
+                    '.btn-primary-action:visible',
+                    'button[data-label="Save"]:visible',
+                    '.modal.show button.btn-primary:visible',
+                    'button.btn-primary:has-text("Save"):visible'):
+            loc = self.page.locator(sel).first
+            try:
+                loc.wait_for(state="visible", timeout=3000)
+                btn = loc
+                break
+            except Exception:
+                continue
+        if btn is None:
+            head = self.page.evaluate(
+                "() => Array.from(document.querySelectorAll("
+                "'.page-head button, .modal.show button'))"
+                ".map(b => (b.className || '') + '|' + (b.innerText || '').trim())"
+                ".join(' ;; ')")
+            return ActionResult(False, "save failed: no Save button found; head: "
+                                + str(head)[:160])
         btn.click(timeout=15000)
         try:
             self.page.wait_for_selector(
