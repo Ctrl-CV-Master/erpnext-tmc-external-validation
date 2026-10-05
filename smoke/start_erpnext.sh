@@ -164,9 +164,12 @@ docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT
 # populated by SystemSettings.save() -> set_defaults(). Without this,
 # sysdefaults.language stays null and desk boot crashes with
 # "Incorrect locale information provided" (seen on v15).
-docker compose -f pwd.yml exec -T -e SITE="$SITE" backend bash -s <<'EOF' >> "$OUT/evaluator.txt" 2>&1 || true
-cd /home/frappe/frappe-bench
-python3 - <<'PY'
+# Run with the bench venv python: system python3 has no frappe module.
+BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
+  'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
+echo "bench python: ${BENCH_PY:-none}" >> "$OUT/evaluator.txt"
+if [ -n "$BENCH_PY" ]; then
+  docker compose -f pwd.yml exec -T -e SITE="$SITE" backend "$BENCH_PY" - <<'PY' >> "$OUT/evaluator.txt" 2>&1 || true
 import os
 
 import frappe
@@ -183,7 +186,7 @@ print("system_settings saved via ORM; defaults language:",
       frappe.defaults.get_defaults().get("language"))
 frappe.destroy()
 PY
-EOF
+fi
 
 docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache >> "$OUT/evaluator.txt" 2>&1 \
   && echo "clear-cache ok" >> "$OUT/evaluator.txt"
