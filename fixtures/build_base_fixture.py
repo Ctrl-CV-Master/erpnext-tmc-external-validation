@@ -335,6 +335,25 @@ def build():
         commit()
         print(f"created+submitted BOM for {code}")
 
+    # --- pre-existing draft Work Orders (pre-state for dev family DF01 P/C) -------------------------
+    # DF01-P needs a draft WO to submit; DF01-C needs a draft WO to edit+submit.
+    for code, q in (("PREP-C", 20), ("PREP-D", 15)):
+        if frappe.db.exists("Work Order", {"production_item": code, "docstatus": 0}):
+            print(f"exists  draft Work Order for {code}")
+            continue
+        bom = frappe.db.get_value("BOM", {"item": code, "docstatus": 1, "is_active": 1}, "name")
+        if not bom:
+            print(f"SKIP draft Work Order for {code}: no active BOM")
+            continue
+        doc = frappe.get_doc({
+            "doctype": "Work Order", "company": COMPANY,
+            "production_item": code, "bom_no": bom, "qty": q,
+            "wip_warehouse": f"WIP-WH - {ABBR}", "target_warehouse": f"FG-WH - {ABBR}",
+        })
+        doc.insert(ignore_permissions=True)
+        commit()
+        print(f"created draft Work Order for {code} qty={q} bom={bom}")
+
     print("BUILD_DONE")
 
 
@@ -342,7 +361,7 @@ def state_hash():
     parts = {}
     for dt in ("Company", "Item Group", "Item", "Warehouse", "Workstation", "Operation",
                "Routing", "BOM", "Quality Inspection Parameter", "Quality Inspection Template",
-               "Stock Reconciliation"):
+               "Stock Reconciliation", "Work Order"):
         try:
             parts[dt] = sorted(frappe.get_all(dt, pluck="name"))
         except Exception as e:

@@ -88,8 +88,20 @@ def cond_exists(c, refs):
     return ok, f"count={n} want [{lo},{hi if hi < 10**9 else 'inf'}]"
 
 
+def _ref_doc(c, refs):
+    """Resolve c['ref'] to a fetched doc; None when the creating condition
+    never ran/failed, so field-level checks degrade gracefully instead of
+    crashing the whole evaluation."""
+    name = refs.get(c.get("ref"))
+    if not name:
+        return None
+    return frappe.get_doc(c["doctype"], name)
+
+
 def cond_fields(c, refs):
-    doc = frappe.get_doc(c["doctype"], refs[c["ref"]])
+    doc = _ref_doc(c, refs)
+    if doc is None:
+        return False, "referenced record not created"
     bad = []
     for f, want in (c.get("fields") or {}).items():
         got = doc.get(f)
@@ -121,7 +133,9 @@ def cond_fields(c, refs):
 
 
 def cond_child_rows(c, refs):
-    doc = frappe.get_doc(c["doctype"], refs[c["ref"]])
+    doc = _ref_doc(c, refs)
+    if doc is None:
+        return False, "referenced record not created"
     rows = doc.get(c["child_field"]) or []
     msgs = []
     ok = True
@@ -146,7 +160,9 @@ def _eq(a, b):
 
 
 def cond_state(c, refs):
-    doc = frappe.get_doc(c["doctype"], refs[c["ref"]])
+    doc = _ref_doc(c, refs)
+    if doc is None:
+        return False, "referenced record not created"
     bad = []
     if c.get("docstatus") is not None and doc.docstatus != c["docstatus"]:
         bad.append(f"docstatus={doc.docstatus} want {c['docstatus']}")

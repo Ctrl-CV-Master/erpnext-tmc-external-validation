@@ -13,7 +13,8 @@
       "fields": {
         "production_item": "PREP-A",
         "qty": 50,
-        "fg_warehouse": "FG-WH - OPL",
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
         "company": "Open Preparation Lab"
       },
       "hint": "Work Order 表单:Production Item、Qty To Manufacture、FG Warehouse",
@@ -39,8 +40,8 @@
         "ref": "wo",
         "doctype": "Work Order",
         "fields": {
-          "fg_warehouse": "FG-WH - OPL",
-          "company": "Open Preparation Lab"
+          "company": "Open Preparation Lab",
+          "target_warehouse": "FG-WH - OPL"
         }
       }
     ]
