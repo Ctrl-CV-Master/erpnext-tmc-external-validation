@@ -112,6 +112,12 @@ def main():
                     "() => { try { return {lang: frappe.boot.lang, syslang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language, ready: !!frappe.boot.ready, user: frappe.session && frappe.session.user}; } catch(e) { return 'boot error: ' + e.message; } }")
                 res["form_input_count"] = page.evaluate(
                     "() => document.querySelectorAll('[data-fieldname]').length")
+                res["boot_workspaces"] = page.evaluate(
+                    "() => { try { return Object.keys(frappe.boot.workspaces || {}); } catch(e) { return 'err: ' + e.message; } }")
+                res["sidebar_links"] = page.evaluate(
+                    """() => Array.from(document.querySelectorAll('.sidebar-item, a.sidebar-link'))
+                        .slice(0, 40).map(a => (a.getAttribute('href') || a.innerText || '').trim().slice(0, 60))
+                        .filter(t => t)""")
             except Exception as e:
                 res["diag_error"] = str(e)[:200]
             shot(page, "uom_failed.png")
