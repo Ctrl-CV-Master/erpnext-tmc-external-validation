@@ -349,6 +349,9 @@ def build():
             "doctype": "Work Order", "company": COMPANY,
             "production_item": code, "bom_no": bom, "qty": q,
             "wip_warehouse": f"WIP-WH - {ABBR}", "target_warehouse": f"FG-WH - {ABBR}",
+            # v15 keeps fg_warehouse mandatory at schema level even though the
+            # desk hides it behind target_warehouse
+            "fg_warehouse": f"FG-WH - {ABBR}",
         })
         doc.insert(ignore_permissions=True)
         commit()
