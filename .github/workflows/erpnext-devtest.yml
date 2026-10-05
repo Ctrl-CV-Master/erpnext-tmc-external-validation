@@ -39,6 +39,9 @@ jobs:
       - name: Start ERPNext
         run: bash smoke/start_erpnext.sh
 
+      - name: Restore base fixture
+        run: bash fixtures/restore_base.sh
+
       - name: Setup Python (playwright)
         run: |
           python3 -m venv .venv

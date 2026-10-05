@@ -1,0 +1,47 @@
+{
+  "task_id": "DF01-N-I2",
+  "dev": true,
+  "family": "DF01",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在 ERPNext 中为成品 PREP-B 创建一张 30 件的生产工单,保存为草稿。公司 Open Preparation Lab,成品仓库 FG-WH - OPL。",
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-B",
+        "qty": 30,
+        "fg_warehouse": "FG-WH - OPL",
+        "company": "Open Preparation Lab"
+      },
+      "hint": "Work Order 表单",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-B",
+          "qty": 30,
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "fields": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "fields": {
+          "fg_warehouse": "FG-WH - OPL"
+        }
+      }
+    ]
+  }
+}

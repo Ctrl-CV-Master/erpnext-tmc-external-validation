@@ -1,0 +1,60 @@
+{
+  "task_id": "DF01-P-I2",
+  "dev": true,
+  "family": "DF01",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "系统中已有一张 PREP-E、数量 25 的生产工单草稿,尚未提交。请找到它并提交(Submit)。",
+  "fixture": {
+    "task_id": "DF01-P-I2",
+    "create": [
+      {
+        "doctype": "Work Order",
+        "marker": {
+          "doctype": "Work Order",
+          "fields": {
+            "production_item": "PREP-E",
+            "qty": 25
+          }
+        },
+        "fields": {
+          "production_item": "PREP-E",
+          "qty": 25,
+          "company": "Open Preparation Lab",
+          "fg_warehouse": "FG-WH - OPL",
+          "wip_warehouse": "WIP-WH - OPL"
+        },
+        "submit": false
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Work Order",
+      "kind": "edit",
+      "match": {
+        "production_item": "PREP-E",
+        "qty": 25
+      },
+      "fields": {},
+      "hint": "找到该草稿工单并提交",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-E",
+          "qty": 25,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "task_id": "DF01-C-I1",
+  "dev": true,
+  "family": "DF01",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "系统中已有一张 PREP-D、数量 15 的生产工单草稿。计划变更:请把数量改为 40,保存并提交。",
+  "fixture": {
+    "task_id": "DF01-C-I1",
+    "create": [
+      {
+        "doctype": "Work Order",
+        "marker": {
+          "doctype": "Work Order",
+          "fields": {
+            "production_item": "PREP-D",
+            "qty": 15
+          }
+        },
+        "fields": {
+          "production_item": "PREP-D",
+          "qty": 15,
+          "company": "Open Preparation Lab",
+          "fg_warehouse": "FG-WH - OPL",
+          "wip_warehouse": "WIP-WH - OPL"
+        },
+        "submit": false
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Work Order",
+      "kind": "edit",
+      "match": {
+        "production_item": "PREP-D",
+        "docstatus": 1
+      },
+      "fields": {
+        "qty": 40
+      },
+      "hint": "修改数量并提交",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-D",
+          "qty": 40,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-D",
+          "qty": 15
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}
