@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
-      ERPNEXT_VERSION: "v16.37.0"
+      ERPNEXT_VERSION: "v15.99.1"
       FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
       ADMIN_PASSWORD: "Smoke2026x!"
       DB_PASSWORD: "Smoke2026x!"

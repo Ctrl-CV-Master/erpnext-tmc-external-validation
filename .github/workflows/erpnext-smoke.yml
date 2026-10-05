@@ -8,8 +8,8 @@ on:
         type: boolean
         default: false
       erpnext_version:
-        description: "ERPNext image tag override (diagnostics only; protocol pin stays v16.37.0)"
-        default: "v16.37.0"
+        description: "ERPNext image tag override (diagnostics only; protocol pin stays v15.99.1)"
+        default: "v15.99.1"
 
 permissions:
   contents: read
@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
-      ERPNEXT_VERSION: "${{ inputs.erpnext_version || 'v16.37.0' }}"
-      FRAPPE_VERSION: "version-16"
+      ERPNEXT_VERSION: "${{ inputs.erpnext_version || 'v15.99.1' }}"
+      FRAPPE_VERSION: "version-15"
       FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
       PLAYWRIGHT_VERSION: "1.52.0"
       ADMIN_PASSWORD: "Smoke2026x!"

@@ -1,6 +1,6 @@
 # ERPNext TMC-AE External Validation
 
-跨系统制造环境实验:在 **ERPNext v16.37.0** 上以公开 GitHub Actions 免费标准 runner 运行
+跨系统制造环境实验:在 **ERPNext v15.99.1** 上以公开 GitHub Actions 免费标准 runner 运行
 TMC-AE / R2 (ATG-adapted) / R3 (Task-State-adapted) 三种方法的对比实验。
 
 - **Task set**: 24 task families × 3 conditions (N/P/C) × 2 data instances = **144 paired tasks**
@@ -33,9 +33,9 @@ TMC-AE / R2 (ATG-adapted) / R3 (Task-State-adapted) 三种方法的对比实验�
 
 ## 环境冻结(锚点)
 
-- ERPNext `v16.37.0`(tag commit `af63cde4941570ec7b9e12422c68302762cfcf91`)
-- frappe `version-16`(`97a5dd93ca5883bcc9c4ef9834120c5cba397b67`)
-- frappe_docker `f71a386bc13f75dcc0cf7462f025f531576a04fc`
+- ERPNext `v15.99.1`(tag commit `b2a8af5ba66a775e9a1887ae03235d68062c7e63`;2026-10-05 由 v16.37.0 切换)
+- frappe `version-15`(切换时 head `0b282e81ef30a7f6b8ff376ca8eacf9fb9f28f05`)
+- frappe_docker `f71a386bc13f75dcc0cf7462f025f531576a04fc`(pwd.yml 不变;v15 时由 `smoke/start_erpnext.sh` 将 mariadb 钉到 `10.6`,v15 不兼容 mariadb 11.x)
 - runner `ubuntu-24.04`,Playwright 版本在 smoke 中确定后冻结
 - 详细版本/digest 记录于每次运行产出的 `environment_manifest.json`
 
