@@ -37,7 +37,11 @@ def main():
     res = {"ui_ok": False, "errors": [], "wizard_completed": False, "console": []}
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        ctx = browser.new_context(viewport={"width": 1440, "height": 900})
+        # locale is required: on a locale-less Linux runner Chromium reports
+        # navigator.languages[0] as "en-US@posix" and the v15 desk
+        # (frappe.ui.keys.AltShortcutGroup -> Intl.Locale) crashes on it.
+        ctx = browser.new_context(viewport={"width": 1440, "height": 900},
+                                  locale="en-US")
         page = ctx.new_page()
         page.on("pageerror", lambda e: res["console"].append(
             "pageerror: " + str(e)[:300] + " | stack: "
