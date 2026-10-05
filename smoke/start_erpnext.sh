@@ -186,8 +186,12 @@ s = frappe.get_doc("System Settings")
 s.language = "en"
 s.flags.ignore_mandatory = True
 s.save()
+# boot.sysdefaults = frappe.defaults.get_defaults() (tabDefaultValue store);
+# seed the language default for both scopes explicitly.
+frappe.db.set_default("language", "en", parent="__global__")
+frappe.db.set_default("language", "en", parent="Administrator")
 frappe.db.commit()
-print("system_settings saved via ORM; defaults language:",
+print("defaults language after seed:",
       frappe.defaults.get_defaults().get("language"))
 frappe.destroy()
 PY

@@ -109,7 +109,7 @@ def main():
                 res["url_final"] = page.url
                 res["frames"] = [f.url for f in page.frames]
                 res["boot"] = page.evaluate(
-                    "() => { try { return {lang: frappe.boot.lang, syslang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language, ready: !!frappe.boot.ready, user: frappe.session && frappe.session.user}; } catch(e) { return 'boot error: ' + e.message; } }")
+                    "() => { try { return {lang: frappe.boot.lang, syslang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language, ready: !!frappe.boot.ready, user: frappe.session && frappe.session.user, sysdefaults: frappe.boot.sysdefaults, user_lang: frappe.boot.user && frappe.boot.user.language, session_lang: frappe.session && frappe.session.lang}; } catch(e) { return 'boot error: ' + e.message; } }")
                 res["form_input_count"] = page.evaluate(
                     "() => document.querySelectorAll('[data-fieldname]').length")
                 res["boot_workspaces"] = page.evaluate(
