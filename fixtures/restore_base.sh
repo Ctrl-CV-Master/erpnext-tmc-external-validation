@@ -21,4 +21,23 @@ for i in $(seq 1 60); do
   echo "$body" | grep -q "pong" && break
   sleep 5
 done
+
+# The DB was swapped under a live redis: stale boot/session/defaults caches
+# from the pre-restore site keep desk pages from rendering (login page never
+# shows up) even though /api/method/ping answers fine.
+docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache || true
+
+# Gate on the desk being actually reachable, not just the API.
+LOGIN_CODE=0
+for i in $(seq 1 12); do
+  LOGIN_CODE=$(curl -s -o "$OUT/login_check_restore.html" -w "%{http_code}" -m 10 "http://localhost:8080/login" || echo 0)
+  [ "$LOGIN_CODE" = "200" ] && break
+  sleep 5
+done
+echo "restore: /login http=$LOGIN_CODE"
+if [ "$LOGIN_CODE" != "200" ]; then
+  echo "restore: /login not OK, body head:"
+  head -c 400 "$OUT/login_check_restore.html" 2>/dev/null || true
+  exit 1
+fi
 echo "BASE_RESTORED"

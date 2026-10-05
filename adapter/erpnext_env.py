@@ -49,8 +49,21 @@ class ERPNextEnv:
 
     # ---------------- internals ----------------
     def _login(self, password):
-        self.page.goto(self.base + "/login", wait_until="domcontentloaded", timeout=90000)
-        self.page.wait_for_selector("#login_email", timeout=60000)
+        last_err = None
+        for attempt in (1, 2):
+            try:
+                self.page.goto(self.base + "/login", wait_until="domcontentloaded",
+                               timeout=90000)
+                self.page.wait_for_selector("#login_email", timeout=45000)
+                break
+            except Exception as e:
+                last_err = e
+                if attempt == 2:
+                    raise
+                try:
+                    self.page.reload(wait_until="domcontentloaded", timeout=90000)
+                except Exception:
+                    pass
         self.page.fill("#login_email", "Administrator")
         self.page.fill("#login_password", password)
         self.page.click("button.btn-login")
