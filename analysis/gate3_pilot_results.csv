@@ -1,0 +1,13 @@
+task,TMC,R2,R3,kind_TMC,kind_R2,kind_R3
+DF01-N-I1,1,1,1,glm,glm,glm
+DF01-N-I2,1,1,1,glm,glm,glm
+DF01-P-I1,0,0,0,glm,glm,glm
+DF01-P-I2,0,0,0,glm,glm,glm
+DF01-C-I1,0,0,0,glm,glm,glm
+DF01-C-I2,0,0,0,glm,glm,glm
+DF02-N-I1,1,1,1,glm,glm,glm
+DF02-N-I2,1,1,1,glm,glm,glm
+DF02-P-I1,1,1,1,glm,glm,glm
+DF02-P-I2,0,0,0,glm,glm,glm
+DF02-C-I1,0,0,0,glm,glm,glm
+DF02-C-I2,0,0,0,glm,glm,glm
