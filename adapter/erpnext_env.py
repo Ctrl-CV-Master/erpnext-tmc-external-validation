@@ -239,31 +239,34 @@ class ERPNextEnv:
             box.press("Enter")
 
     def _save(self):
-        # v16 form head uses .primary-action; v15 uses .btn-primary-action and
-        # carries data-label on desk buttons; quick-entry dialogs keep
-        # .btn-primary inside .modal. Cascade so either version matches.
-        btn = None
-        for sel in ('.primary-action:visible',
+        # Click the first Save control that actually receives the click.
+        # v15 opens a quick-entry dialog for /app/<dt>/new on simple doctypes:
+        # the list head "Add <dt>" stays .primary-action but is covered by the
+        # modal overlay, so candidates must be tried with short actionability
+        # timeouts, modal-first, rather than one long-wait locator.
+        clicked = None
+        last_err = None
+        for sel in ('.modal.show button.btn-primary:visible',
+                    '.primary-action:visible',
                     '.btn-primary-action:visible',
                     'button[data-label="Save"]:visible',
-                    '.modal.show button.btn-primary:visible',
                     'button.btn-primary:has-text("Save"):visible'):
             loc = self.page.locator(sel).first
             try:
-                loc.wait_for(state="visible", timeout=3000)
-                btn = loc
+                loc.click(timeout=2500)
+                clicked = sel
                 break
-            except Exception:
+            except Exception as e:
+                last_err = str(e)[:100]
                 continue
-        if btn is None:
+        if clicked is None:
             head = self.page.evaluate(
                 "() => Array.from(document.querySelectorAll("
                 "'.page-head button, .modal.show button'))"
                 ".map(b => (b.className || '') + '|' + (b.innerText || '').trim())"
                 ".join(' ;; ')")
-            return ActionResult(False, "save failed: no Save button found; head: "
-                                + str(head)[:160])
-        btn.click(timeout=15000)
+            return ActionResult(False, "save failed: no clickable Save control ("
+                                + str(last_err) + "); head: " + str(head)[:140])
         try:
             self.page.wait_for_selector(
                 '.indicator-pill:has-text("Saved"), .msgprint, .modal.show', timeout=30000)
