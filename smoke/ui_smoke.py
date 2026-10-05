@@ -106,8 +106,13 @@ def main():
                 res["buttons"] = page.evaluate(
                     "() => Array.from(document.querySelectorAll('button')).slice(0,30).map(b => b.innerText.trim()).filter(t => t)")
                 res["url_final"] = page.url
-            except Exception:
-                pass
+                res["frames"] = [f.url for f in page.frames]
+                res["boot"] = page.evaluate(
+                    "() => { try { return {lang: frappe.boot.lang, syslang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language, ready: !!frappe.boot.ready, user: frappe.session && frappe.session.user}; } catch(e) { return 'boot error: ' + e.message; } }")
+                res["form_input_count"] = page.evaluate(
+                    "() => document.querySelectorAll('[data-fieldname]').length")
+            except Exception as e:
+                res["diag_error"] = str(e)[:200]
             shot(page, "uom_failed.png")
 
         save(res)
