@@ -1,5 +1,5 @@
 {
-  "instruction": "把原料 RM-A02 的标准费率(Standard Rate)调整为 21,保存。",
+  "instruction": "把原料 RM-A02 的物料名称(Item Name)改为 \"Raw Material A02 (updated)\",保存。",
   "conditions": [
     {
       "id": "C0",
@@ -9,9 +9,9 @@
         "item_code": "RM-A02"
       },
       "fields": {
-        "standard_rate": 21
+        "item_name": "Raw Material A02 (updated)"
       },
-      "hint": "找到 RM-A02 并修改 Standard Rate",
+      "hint": "找到 RM-A02 并修改 Item Name",
       "invalidates": []
     }
   ],
@@ -22,7 +22,7 @@
         "doctype": "Item",
         "filters": {
           "item_code": "RM-A02",
-          "standard_rate": 21
+          "item_name": "Raw Material A02 (updated)"
         },
         "count_gte": 1,
         "count_le": 1
@@ -33,7 +33,7 @@
         "doctype": "Item",
         "filters": {
           "item_code": "RM-A02",
-          "standard_rate": 19
+          "item_name": "Synthetic Raw Material A02"
         },
         "count_eq": 0
       }

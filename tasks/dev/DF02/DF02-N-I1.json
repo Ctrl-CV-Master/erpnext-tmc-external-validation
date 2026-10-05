@@ -1,5 +1,5 @@
 {
-  "instruction": "在 ERPNext 中创建新成品物料 PREP-G(Liquid Preparation G),物料组 Preparations,库存单位 Nos,标准费率 130,保存。",
+  "instruction": "在 ERPNext 中创建新成品物料 PREP-G,物料名称 Liquid Preparation G,物料组 Preparations,库存单位 Nos,保存。",
   "conditions": [
     {
       "id": "C0",
@@ -7,11 +7,11 @@
       "kind": "create",
       "fields": {
         "item_code": "PREP-G",
+        "item_name": "Liquid Preparation G",
         "item_group": "Preparations",
-        "stock_uom": "Nos",
-        "standard_rate": 130
+        "stock_uom": "Nos"
       },
-      "hint": "Item 表单:Item Code、Item Group、Stock UOM、Standard Rate",
+      "hint": "Item 表单:Item Code、Item Name、Item Group、Stock UOM",
       "invalidates": []
     }
   ],
@@ -34,7 +34,7 @@
         "fields": {
           "item_group": "Preparations",
           "stock_uom": "Nos",
-          "standard_rate": 130
+          "item_name": "Liquid Preparation G"
         }
       }
     ]

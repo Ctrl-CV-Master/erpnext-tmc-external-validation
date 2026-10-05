@@ -1,5 +1,5 @@
 {
-  "instruction": "在 ERPNext 中创建新原料物料 RM-A19(Synthetic Raw Material A19),物料组 Raw Materials,库存单位 Nos,标准费率 31,保存。",
+  "instruction": "在 ERPNext 中创建新原料物料 RM-A19,物料名称 Synthetic Raw Material A19,物料组 Raw Materials,库存单位 Nos,保存。",
   "conditions": [
     {
       "id": "C0",
@@ -7,11 +7,11 @@
       "kind": "create",
       "fields": {
         "item_code": "RM-A19",
+        "item_name": "Synthetic Raw Material A19",
         "item_group": "Raw Materials",
-        "stock_uom": "Nos",
-        "standard_rate": 31
+        "stock_uom": "Nos"
       },
-      "hint": "Item 表单:Item Code、Item Group、Stock UOM、Standard Rate",
+      "hint": "Item 表单:Item Code、Item Name、Item Group、Stock UOM",
       "invalidates": []
     }
   ],
@@ -33,7 +33,7 @@
         "doctype": "Item",
         "fields": {
           "item_group": "Raw Materials",
-          "standard_rate": 31
+          "item_name": "Synthetic Raw Material A19"
         }
       }
     ]

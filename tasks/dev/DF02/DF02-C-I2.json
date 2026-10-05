@@ -1,19 +1,18 @@
 {
-  "instruction": "把成品 PREP-F 的标准费率从 92 改为 100,并停用(Disabled)该物料,保存。",
+  "instruction": "计划变更:PREP-F 停产。请停用(Disabled)该物料,并把物料名称改为 \"PREP-F (decommissioned)\",保存。",
   "conditions": [
     {
       "id": "C0",
       "doctype": "Item",
       "kind": "edit",
       "match": {
-        "item_code": "PREP-F",
-        "standard_rate": 92
+        "item_code": "PREP-F"
       },
       "fields": {
-        "standard_rate": 100,
-        "disabled": 1
+        "disabled": 1,
+        "item_name": "PREP-F (decommissioned)"
       },
-      "hint": "找到 PREP-F:改 Standard Rate 为 100,并勾选 Disabled",
+      "hint": "找到 PREP-F:勾选 Disabled,并把 Item Name 改为 PREP-F (decommissioned)",
       "invalidates": []
     }
   ],
@@ -24,8 +23,8 @@
         "doctype": "Item",
         "filters": {
           "item_code": "PREP-F",
-          "standard_rate": 100,
-          "disabled": 1
+          "disabled": 1,
+          "item_name": "PREP-F (decommissioned)"
         },
         "count_gte": 1,
         "count_le": 1
@@ -36,7 +35,7 @@
         "doctype": "Item",
         "filters": {
           "item_code": "PREP-F",
-          "standard_rate": 92
+          "item_name": "Semi-solid Preparation F"
         },
         "count_eq": 0
       }
