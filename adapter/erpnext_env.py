@@ -199,7 +199,9 @@ class ERPNextEnv:
             if kind == "fill":
                 self._fill_field(action["fieldname"], str(action["value"]))
                 self._wait_settled()
-                return ActionResult(True, f"filled {action['fieldname']}")
+                note = getattr(self, "_last_expand_note", "")
+                self._last_expand_note = ""
+                return ActionResult(True, f"filled {action['fieldname']}{note}")
             if kind == "select":
                 self._select_field(action["fieldname"], str(action["value"]))
                 self._wait_settled()
@@ -226,17 +228,46 @@ class ERPNextEnv:
         except Exception as e:
             return ActionResult(False, f"{kind} failed: {str(e)[:180]}")
 
+    def _expand_collapsed_sections(self):
+        """v15 forms keep some sections (e.g. Work Order warehouses) collapsed;
+        click their heads so the fields become reachable. Returns count."""
+        try:
+            return self.page.evaluate(
+                """() => {
+                let n = 0;
+                document.querySelectorAll('.form-layout .row.section').forEach(sec => {
+                  const body = sec.querySelector('.section-body');
+                  if (body && getComputedStyle(body).display === 'none') {
+                    const head = sec.querySelector('.section-head');
+                    if (head) { head.click(); n++; }
+                  }
+                });
+                return n;
+              }""")
+        except Exception:
+            return 0
+
     def _fill_field(self, fieldname, value):
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                f'[data-fieldname="{fieldname}"] textarea:visible').first
-        el.wait_for(state="visible", timeout=15000)
+        try:
+            el.wait_for(state="visible", timeout=4000)
+        except Exception:
+            expanded = self._expand_collapsed_sections()
+            el.wait_for(state="visible", timeout=12000)
+            if expanded:
+                self._last_expand_note = f" (expanded {expanded} collapsed sections)"
         el.fill(value)
         el.press("Tab")
 
     def _select_field(self, fieldname, value):
         box = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                 f'[data-fieldname="{fieldname}"] select:visible').first
-        box.wait_for(state="visible", timeout=15000)
+        try:
+            box.wait_for(state="visible", timeout=4000)
+        except Exception:
+            self._expand_collapsed_sections()
+            box.wait_for(state="visible", timeout=12000)
         tag = box.evaluate("el => el.tagName.toLowerCase()")
         if tag == "select":
             box.select_option(label=value)
