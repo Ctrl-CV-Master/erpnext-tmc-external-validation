@@ -96,14 +96,27 @@ class ERPNextEnv:
                 continue
 
     def open_form(self, doctype):
-        """Open a new-document form the way a user would: list page -> Add <DocType>;
-        falls back to the /new route when no Add button exists."""
+        """Open a new-document form. Prefer the /new route: it renders the full
+        form directly (v15 list "Add <DocType>" opens a quick-entry dialog over
+        the list whose filter inputs share data-fieldnames with form fields and
+        shadow them). Falls back to list -> Add button when the route does not
+        render a form."""
         slug = doctype.lower().replace(" ", "-")
-        self.page.goto(self.base + f"{self.prefix}/{slug}",
+        self.page.goto(self.base + f"{self.prefix}/{slug}/new",
                        wait_until="domcontentloaded", timeout=60000)
         self._wait_settled()
         self._dismiss_onboarding()
         try:
+            if self.page.evaluate(
+                    "() => !!(window.cur_frm && cur_frm.doc)"):
+                return
+        except Exception:
+            pass
+        try:
+            self.page.goto(self.base + f"{self.prefix}/{slug}",
+                           wait_until="domcontentloaded", timeout=60000)
+            self._wait_settled()
+            self._dismiss_onboarding()
             add = self.page.locator(f'button:has-text("Add {doctype}")').first
             add.wait_for(state="visible", timeout=10000)
             add.click(timeout=8000)

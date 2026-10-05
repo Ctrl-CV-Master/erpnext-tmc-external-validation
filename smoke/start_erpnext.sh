@@ -45,7 +45,16 @@ docker system df >> "$OUT/df.log" 2>/dev/null || true
 
 echo "[$(date -u +%T)] starting stack ..."
 START=$(date +%s)
-docker compose -f pwd.yml up -d
+# retry: compose up has a known volume-creation race between services sharing
+# the sites volume (configurator "mkdir ... file exists") that clears on retry
+UP_OK=""
+for up_try in 1 2 3; do
+  if docker compose -f pwd.yml up -d; then UP_OK=yes; break; fi
+  echo "[$(date -u +%T)] compose up failed (try $up_try), retrying in 10s"
+  docker compose -f pwd.yml down >/dev/null 2>&1 || true
+  sleep 10
+done
+[ -n "$UP_OK" ] || { echo "COMPOSE_UP_FAILED after 3 tries"; exit 1; }
 
 # 1) Wait for the one-shot create-site service to exit successfully.
 # NOTE: docker ps --format does not support .ExitCode; use docker inspect for that.
