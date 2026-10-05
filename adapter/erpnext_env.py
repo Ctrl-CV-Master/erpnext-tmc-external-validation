@@ -205,7 +205,8 @@ class ERPNextEnv:
                 self._wait_settled()
                 note = getattr(self, "_last_expand_note", "")
                 self._last_expand_note = ""
-                return ActionResult(True, f"filled {action['fieldname']}{note}")
+                where = self.page.url.rsplit("/", 1)[-1][:36]
+                return ActionResult(True, f"filled {action['fieldname']}{note} @{where}")
             if kind == "select":
                 self._select_field(action["fieldname"], str(action["value"]))
                 self._wait_settled()
@@ -321,19 +322,34 @@ class ERPNextEnv:
         el.press("Tab")
         self.page.wait_for_timeout(400)
         mv = self._field_model_value(fieldname)
-        if mv.get("has_frm") and not self._model_matches(mv.get("value"), value):
+        if mv.get("has_frm"):
+            ok = self._model_matches(mv.get("value"), value)
+        else:
+            # quick-entry dialogs have no cur_frm: the input value itself is
+            # the authoritative state there
+            try:
+                ok = self._model_matches(el.input_value(), value)
+            except Exception:
+                ok = True
+        if ok is False:
             # v15 quirk: some Link fills (fill+Tab) do not reach the form model
-            # (e.g. Item Group on Item). Commit via the awesomplete selection.
+            # (e.g. Item Group in the Item quick entry). Commit via the
+            # awesomplete selection path, or select_option for real selects.
             el.fill(value)
             self.page.wait_for_timeout(700)
-            opt = self.page.locator(
-                f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
-                f'[data-fieldname="{fieldname}"] .awesomplete li').first
-            try:
-                opt.wait_for(state="visible", timeout=4000)
-                opt.click()
-            except Exception:
-                el.press("Enter")
+            tag = (el.evaluate("el => el.tagName.toLowerCase()")
+                  if el.count() else "input")
+            if tag == "select":
+                el.select_option(label=value)
+            else:
+                opt = self.page.locator(
+                    f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
+                    f'[data-fieldname="{fieldname}"] .awesomplete li').first
+                try:
+                    opt.wait_for(state="visible", timeout=4000)
+                    opt.click()
+                except Exception:
+                    el.press("Enter")
             self.page.wait_for_timeout(500)
 
     def _select_field(self, fieldname, value):
