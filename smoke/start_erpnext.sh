@@ -20,7 +20,7 @@ echo "frappe_docker_sha=$(git rev-parse HEAD)" >> "$OUT/manifest.env"
 # Pin the ERPNext image tag regardless of pwd.yml defaults.
 sed -i -E "s#(frappe/erpnext:)[^\"'[:space:]]+#\1${ERPNEXT_VERSION}#g" pwd.yml
 case "$ERPNEXT_VERSION" in
-  v15.*) sed -i -E "s#(image: mariadb:)[^\"'[:space:]]+#mariadb:10.6#g" pwd.yml ;;
+  v15.*) sed -i -E "s#image: mariadb:[^\"'[:space:]]+#image: mariadb:10.6#g" pwd.yml ;;
 esac
 grep -n "frappe/erpnext:" pwd.yml | tee "$OUT/pwd_image_pin.txt"
 
