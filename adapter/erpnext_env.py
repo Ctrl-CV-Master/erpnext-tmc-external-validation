@@ -369,15 +369,34 @@ class ERPNextEnv:
 
     # ---------------- UI readback (persisted truth, via UI only) ----------------
     def read_record(self, doctype, name):
-        """Open an existing record through the UI and read its persisted field values."""
+        """Open an existing record through the UI and read its persisted field values.
+        Reads hidden-tab fields too: the value lives in the input regardless of
+        which v15 tab pane is active (observe() stays visibility-faithful for
+        agent observations; this is the harness's own persisted-truth readback)."""
         if self.actions_used >= self.budget:
             return None
         self.actions_used += 1
         url = self._fix_url(f"/app/{quote(str(doctype).lower().replace(' ', '-'))}/{quote(str(name))}")
         try:
             self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            obs = self.observe()
-            return {f["fieldname"]: f["value"] for f in obs["fields"] if f["value"] not in (None, "")}
+            fields = self.page.evaluate(
+                """() => {
+                    const out = [];
+                    document.querySelectorAll('.form-layout [data-fieldname]').forEach(el => {
+                        const fn = el.getAttribute('data-fieldname');
+                        if (!fn || fn.indexOf('__') === 0) return;
+                        const input = el.querySelector('input, textarea, select');
+                        let value = null;
+                        if (input) value = input.value;
+                        else {
+                            const txt = el.querySelector('.control-value');
+                            if (txt) value = txt.innerText.trim();
+                        }
+                        if (value !== null && value !== '') out.push({fieldname: fn, value: value});
+                    });
+                    return out;
+                }""")
+            return {f["fieldname"]: f["value"] for f in fields}
         except Exception:
             return None
 
