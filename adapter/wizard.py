@@ -143,6 +143,11 @@ def complete_setup_wizard(page, admin_password, log, shot=None):
                 shot(page, f"wizard_step{step}.png")
 
             did = []
+            # v15 wizard step 0 leads with a language select; leaving it empty
+            # makes completion write System Settings.language='' which crashes
+            # the next desk boot (Intl locale error).
+            if _select(page, ["language"], [r"English"]):
+                did.append("language")
             if _fill_link(page, ["country"], "China", "Your Country"):
                 did.append("country")
             if _select(page, ["timezone", "time_zone"], [r"Shanghai", r"Hong_Kong"]):

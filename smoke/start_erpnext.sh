@@ -115,19 +115,36 @@ docker compose -f pwd.yml exec -T backend bench --site "$SITE" set-admin-passwor
   && echo "bench setpw rc=0" >> "$OUT/evaluator.txt" \
   || echo "bench setpw failed: $(tail -2 "$OUT/setpw.out" 2>/dev/null)" >> "$OUT/evaluator.txt"
 
-# Skip the setup wizard: write System Settings.setup_complete via SQL (no frappe
-# python env needed in backend), then clear frappe's singles cache.
+# Skip the setup wizard: mark setup complete via SQL (no frappe python env
+# needed in backend), then clear frappe's caches.
+# v16 semantics: System Settings.setup_complete.
+# v15 semantics: frappe.is_setup_complete() reads Installed Application rows
+# for frappe/erpnext (System Settings.setup_complete is ignored), so both
+# flags must be set or the desk keeps redirecting to /app/setup-wizard.
 cat > "$OUT/setup_complete.sql" <<'SQL'
 INSERT INTO `tabSingles` (`doctype`, `field`, `value`)
 VALUES ('System Settings', 'setup_complete', '1')
 ON DUPLICATE KEY UPDATE `value` = '1';
 SQL
+if [[ "${ERPNEXT_VERSION}" == v15.* ]]; then
+  cat >> "$OUT/setup_complete.sql" <<'SQL'
+UPDATE `tabInstalled Application` SET `is_setup_complete`=1
+WHERE app_name IN ('frappe', 'erpnext');
+SQL
+fi
 docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME" \
   < "$OUT/setup_complete.sql" >> "$OUT/evaluator.txt" 2>&1 \
   && echo "setup_complete written via SQL" | tee -a "$OUT/evaluator.txt" \
   || echo "setup_complete SQL FAILED" | tee -a "$OUT/evaluator.txt"
 SC=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME -N -e \"SELECT value FROM tabSingles WHERE doctype='System Settings' AND field='setup_complete';\"" 2>/dev/null | tail -1 || true)
 echo "setup_complete now: ${SC:-unset}" | tee -a "$OUT/evaluator.txt"
+if [[ "${ERPNEXT_VERSION}" == v15.* ]]; then
+  printf 'SELECT CONCAT(app_name, "=", is_setup_complete) FROM `tabInstalled Application`;\n' \
+    > "$OUT/ia_check.sql"
+  IA=$(docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DBNAME -N" \
+    < "$OUT/ia_check.sql" 2>/dev/null | tr '\n' ' ' || true)
+  echo "installed_apps: ${IA:-query_failed}" | tee -a "$OUT/evaluator.txt"
+fi
 
 # Set language explicitly: an unset locale crashes desk boot (AltShortcutGroup
 # RangeError) and leaves every desk page blank.
