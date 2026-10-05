@@ -159,6 +159,32 @@ docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT
   && echo "language set to en" | tee -a "$OUT/evaluator.txt" \
   || echo "language SQL FAILED" | tee -a "$OUT/evaluator.txt"
 
+# Raw tabSingles SQL does not update frappe's defaults store: boot.sysdefaults
+# comes from frappe.defaults.get_defaults() (tabDefaultValue), which is only
+# populated by SystemSettings.save() -> set_defaults(). Without this,
+# sysdefaults.language stays null and desk boot crashes with
+# "Incorrect locale information provided" (seen on v15).
+docker compose -f pwd.yml exec -T -e SITE="$SITE" backend bash -s <<'EOF' >> "$OUT/evaluator.txt" 2>&1 || true
+cd /home/frappe/frappe-bench
+python3 - <<'PY'
+import os
+
+import frappe
+
+frappe.init(site=os.environ["SITE"])
+frappe.connect()
+frappe.set_user("Administrator")
+s = frappe.get_doc("System Settings")
+s.language = "en"
+s.flags.ignore_mandatory = True
+s.save()
+frappe.db.commit()
+print("system_settings saved via ORM; defaults language:",
+      frappe.defaults.get_defaults().get("language"))
+frappe.destroy()
+PY
+EOF
+
 docker compose -f pwd.yml exec -T backend bench --site "$SITE" clear-cache >> "$OUT/evaluator.txt" 2>&1 \
   && echo "clear-cache ok" >> "$OUT/evaluator.txt"
 
