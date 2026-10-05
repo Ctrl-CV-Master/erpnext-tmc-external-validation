@@ -197,7 +197,11 @@ class ERPNextEnv:
                 self._wait_settled()
                 return ActionResult(True, "navigated to " + self.page.url)
             if kind == "fill":
-                self._fill_field(action["fieldname"], str(action["value"]))
+                try:
+                    self._fill_field(action["fieldname"], str(action["value"]))
+                except Exception as e:
+                    return ActionResult(False, "fill failed: " + str(e)[:160]
+                                        + " | fields: " + self._field_visibility_dump()[:300])
                 self._wait_settled()
                 note = getattr(self, "_last_expand_note", "")
                 self._last_expand_note = ""
@@ -235,7 +239,7 @@ class ERPNextEnv:
             return self.page.evaluate(
                 """() => {
                 let n = 0;
-                document.querySelectorAll('.form-layout .row.section').forEach(sec => {
+                document.querySelectorAll('.form-layout .form-section').forEach(sec => {
                   const body = sec.querySelector('.section-body');
                   if (body && getComputedStyle(body).display === 'none') {
                     const head = sec.querySelector('.section-head');
@@ -246,6 +250,21 @@ class ERPNextEnv:
               }""")
         except Exception:
             return 0
+
+    def _field_visibility_dump(self):
+        try:
+            return self.page.evaluate(
+                """() => {
+                const out = [];
+                document.querySelectorAll('.form-layout [data-fieldname]').forEach(e => {
+                  const r = e.getBoundingClientRect();
+                  out.push((e.getAttribute('data-fieldname') || '?') +
+                           (r.width > 0 && r.height > 0 ? ':V' : ':H'));
+                });
+                return out.slice(0, 60).join(' ');
+              }""")
+        except Exception:
+            return "dump failed"
 
     def _fill_field(self, fieldname, value):
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
