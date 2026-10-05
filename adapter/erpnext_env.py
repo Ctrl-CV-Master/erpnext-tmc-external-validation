@@ -266,16 +266,35 @@ class ERPNextEnv:
         except Exception:
             return "dump failed"
 
+    def _reveal_field(self, fieldname):
+        """Expand collapsed sections and activate the tab that holds fieldname.
+        Returns a short status string for the trajectory."""
+        expanded = self._expand_collapsed_sections()
+        status = self.page.evaluate(
+            """(fn) => {
+            const el = document.querySelector('[data-fieldname="' + fn + '"]');
+            if (!el) return 'absent';
+            const r = el.getBoundingClientRect();
+            if (r.width > 0 && r.height > 0) return 'visible';
+            const pane = el.closest('.tab-pane');
+            if (pane && pane.id) {
+              const link = document.querySelector(
+                '.nav-link[href="#' + pane.id + '"], [data-target="#' + pane.id + '"]');
+              if (link) { link.click(); return 'tab-activated'; }
+            }
+            return 'hidden';
+          }""", fieldname)
+        return f"expanded={expanded} reveal={status}"
+
     def _fill_field(self, fieldname, value):
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                f'[data-fieldname="{fieldname}"] textarea:visible').first
         try:
             el.wait_for(state="visible", timeout=4000)
         except Exception:
-            expanded = self._expand_collapsed_sections()
+            note = self._reveal_field(fieldname)
             el.wait_for(state="visible", timeout=12000)
-            if expanded:
-                self._last_expand_note = f" (expanded {expanded} collapsed sections)"
+            self._last_expand_note = f" ({note})"
         el.fill(value)
         el.press("Tab")
 
@@ -285,7 +304,7 @@ class ERPNextEnv:
         try:
             box.wait_for(state="visible", timeout=4000)
         except Exception:
-            self._expand_collapsed_sections()
+            self._reveal_field(fieldname)
             box.wait_for(state="visible", timeout=12000)
         tag = box.evaluate("el => el.tagName.toLowerCase()")
         if tag == "select":
