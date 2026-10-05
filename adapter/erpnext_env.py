@@ -286,6 +286,28 @@ class ERPNextEnv:
           }""", fieldname)
         return f"expanded={expanded} reveal={status}"
 
+    def _field_model_value(self, fieldname):
+        """Committed model value from cur_frm, or {'has_frm': False} off-form."""
+        try:
+            return self.page.evaluate(
+                """(fn) => {
+                if (!(window.cur_frm && cur_frm.doc)) return {has_frm: false};
+                return {has_frm: true, value: cur_frm.doc[fn]};
+              }""", fieldname)
+        except Exception:
+            return {"has_frm": False}
+
+    @staticmethod
+    def _model_matches(got, want):
+        if got is None:
+            return False
+        try:
+            if isinstance(want, (int, float)):
+                return abs(float(got) - float(want)) < 1e-6
+        except (TypeError, ValueError):
+            pass
+        return str(got).strip() == str(want).strip()
+
     def _fill_field(self, fieldname, value):
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                f'[data-fieldname="{fieldname}"] textarea:visible').first
@@ -297,6 +319,22 @@ class ERPNextEnv:
             self._last_expand_note = f" ({note})"
         el.fill(value)
         el.press("Tab")
+        self.page.wait_for_timeout(400)
+        mv = self._field_model_value(fieldname)
+        if mv.get("has_frm") and not self._model_matches(mv.get("value"), value):
+            # v15 quirk: some Link fills (fill+Tab) do not reach the form model
+            # (e.g. Item Group on Item). Commit via the awesomplete selection.
+            el.fill(value)
+            self.page.wait_for_timeout(700)
+            opt = self.page.locator(
+                f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
+                f'[data-fieldname="{fieldname}"] .awesomplete li').first
+            try:
+                opt.wait_for(state="visible", timeout=4000)
+                opt.click()
+            except Exception:
+                el.press("Enter")
+            self.page.wait_for_timeout(500)
 
     def _select_field(self, fieldname, value):
         box = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
