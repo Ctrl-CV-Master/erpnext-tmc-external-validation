@@ -1,0 +1,48 @@
+{
+  "instruction": "计划变更:RM-A06 的标准费率原计划 22,现改为 30,请更新并保存。",
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Item",
+      "kind": "edit",
+      "match": {
+        "item_code": "RM-A06",
+        "standard_rate": 22
+      },
+      "fields": {
+        "standard_rate": 30
+      },
+      "hint": "找到 RM-A06(费率 22)并把 Standard Rate 改为 30",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A06",
+          "standard_rate": 30
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A06",
+          "standard_rate": 22
+        },
+        "count_eq": 0
+      }
+    ]
+  },
+  "task_id": "DF02-C-I1",
+  "dev": true,
+  "family": "DF02",
+  "condition": "C",
+  "instance": 1
+}

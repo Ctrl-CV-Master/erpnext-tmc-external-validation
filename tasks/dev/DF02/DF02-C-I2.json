@@ -1,0 +1,50 @@
+{
+  "instruction": "把成品 PREP-F 的标准费率从 92 改为 100,并停用(Disabled)该物料,保存。",
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Item",
+      "kind": "edit",
+      "match": {
+        "item_code": "PREP-F",
+        "standard_rate": 92
+      },
+      "fields": {
+        "standard_rate": 100,
+        "disabled": 1
+      },
+      "hint": "找到 PREP-F:改 Standard Rate 为 100,并勾选 Disabled",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-F",
+          "standard_rate": 100,
+          "disabled": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-F",
+          "standard_rate": 92
+        },
+        "count_eq": 0
+      }
+    ]
+  },
+  "task_id": "DF02-C-I2",
+  "dev": true,
+  "family": "DF02",
+  "condition": "C",
+  "instance": 2
+}

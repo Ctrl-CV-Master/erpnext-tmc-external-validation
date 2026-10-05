@@ -1,0 +1,47 @@
+{
+  "instruction": "把原料 RM-A02 的标准费率(Standard Rate)调整为 21,保存。",
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Item",
+      "kind": "edit",
+      "match": {
+        "item_code": "RM-A02"
+      },
+      "fields": {
+        "standard_rate": 21
+      },
+      "hint": "找到 RM-A02 并修改 Standard Rate",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A02",
+          "standard_rate": 21
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A02",
+          "standard_rate": 19
+        },
+        "count_eq": 0
+      }
+    ]
+  },
+  "task_id": "DF02-P-I1",
+  "dev": true,
+  "family": "DF02",
+  "condition": "P",
+  "instance": 1
+}
