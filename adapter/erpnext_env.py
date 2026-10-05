@@ -41,7 +41,8 @@ class ERPNextEnv:
         self.trajectory = []
         self._pw = sync_playwright().start()
         self.browser = self._pw.chromium.launch(headless=headless)
-        self.ctx = self.browser.new_context(viewport={"width": 1440, "height": 900})
+        self.ctx = self.browser.new_context(viewport={"width": 1440, "height": 900},
+                                            locale="en-US")
         self.page = self.ctx.new_page()
         self.prefix = "/app"
         self._login(admin_password)
