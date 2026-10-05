@@ -5,25 +5,25 @@ set -uo pipefail
 WORKSPACE="${GITHUB_WORKSPACE:-$PWD}"
 OUT="$WORKSPACE/smoke-out"
 cd "$WORKSPACE/frappe_docker"
-mkdir -p "$OUT"
 
 SERVICES=$(docker compose -f pwd.yml config --services)
 DBSVC=$(echo "$SERVICES" | grep -E '^(mariadb|db)$' | head -1)
 BKSVC=$(echo "$SERVICES" | grep -E '^backend$' | head -1)
-echo "services: db=$DBSVC backend=$BKSVC" | tee -a "$OUT/evaluator.txt"
-
-SITE=$(docker compose -f pwd.yml exec -T "$BKSVC" bash -c \
-  "ls /home/frappe/frappe-bench/sites | grep -Ev '^(apps|assets|common_site_config.json|sites.txt)$' | head -1" \
-  | tr -d '\r\n')
-echo "site=$SITE" >> "$OUT/evaluator.txt"
+DB=$(grep -m1 '^erpnext_db=' "$OUT/manifest.env" | cut -d= -f2)
+echo "services: db=$DBSVC backend=$BKSVC db_name=$DB" | tee -a "$OUT/evaluator.txt"
 
 cat > "$OUT/smoke_eval.sql" <<SQL
 SELECT COUNT(*) FROM \`tabUOM\` WHERE uom_name = 'Case of 12 (SMOKE)';
 SQL
 
-COUNT=$(docker compose -f pwd.yml exec -T "$DBSVC" sh -c "exec mysql -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -N $SITE" \
+COUNT=$(docker compose -f pwd.yml exec -T "$DBSVC" sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -N $DB" \
   < "$OUT/smoke_eval.sql" 2>/dev/null | tail -1)
 echo "EVAL_SQL_COUNT=${COUNT:-empty}" | tee -a "$OUT/evaluator.txt"
+
+# Dump all System Settings singles: reveals the real setup-wizard completion flag(s).
+docker compose -f pwd.yml exec -T "$DBSVC" sh -c \
+  "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -N -e \"SELECT field, value FROM tabSingles WHERE doctype='System Settings' ORDER BY field;\" $DB" \
+  >> "$OUT/evaluator.txt" 2>&1 || true
 
 EVAL_RC=1
 if [ "${COUNT:-0}" -ge 1 ] 2>/dev/null; then
@@ -36,18 +36,16 @@ fi
 
 # Informational: frappe ORM read path inside the backend container
 # (this is the access pattern the full evaluator will use at Gate 2+).
-docker compose -f pwd.yml exec -T -e EVAL_SITE="$SITE" "$BKSVC" bash -s <<'EOF' >> "$OUT/evaluator.txt" 2>&1 \
-  || echo "EVAL_ORM_UNAVAILABLE (informational)" >> "$OUT/evaluator.txt"
-cd /home/frappe/frappe-bench
-python3 - <<'PY'
-import os
-import frappe
-
-frappe.init(site=os.environ["EVAL_SITE"])
+BENCH_PY=$(docker compose -f pwd.yml exec -T "$BKSVC" bash -c \
+  'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
+docker compose -f pwd.yml exec -T -u root backend bash -c "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs /home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs"
+docker compose -f pwd.yml exec -T -u root -e EVAL_SITE="$(grep -m1 '^erpnext_site=' "$OUT/manifest.env" | cut -d= -f2)" "$BKSVC" \
+  "$BENCH_PY" -c "
+import os, frappe
+frappe.init(site=os.environ['EVAL_SITE'], sites_path='/home/frappe/frappe-bench/sites')
 frappe.connect()
-print("EVAL_ORM_COUNT", frappe.db.count("UOM", {"uom_name": ["like", "%SMOKE%"]}))
+print('EVAL_ORM_COUNT', frappe.db.count('UOM', {'uom_name': ['like', '%SMOKE%']}))
 frappe.destroy()
-PY
-EOF
+" >> "$OUT/evaluator.txt" 2>&1 || echo "EVAL_ORM_UNAVAILABLE (informational)" >> "$OUT/evaluator.txt"
 
 exit $EVAL_RC

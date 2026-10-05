@@ -1,0 +1,21 @@
+{
+  "task_id": "D01-N-I1",
+  "dev": true,
+  "instruction": "Create a Unit of Measure named 'Box of 6 (dev)' in ERPNext.",
+  "conditions": [
+    {
+      "id": "C0",
+      "kind": "create",
+      "doctype": "UOM",
+      "route": "/app/uom/new",
+      "fields": {"uom_name": "Box of 6 (dev)"},
+      "hint": "UOM Name field",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {"ref": "uom1", "doctype": "UOM", "filters": {"uom_name": "Box of 6 (dev)"}, "count_gte": 1, "count_le": 1}
+    ]
+  }
+}

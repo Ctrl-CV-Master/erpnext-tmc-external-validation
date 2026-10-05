@@ -1,0 +1,92 @@
+name: erpnext-fixture-build
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: erpnext-fixture-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    env:
+      ERPNEXT_VERSION: "v16.37.0"
+      FRAPPE_VERSION: "version-16"
+      FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
+      ADMIN_PASSWORD: "Smoke2026x!"
+      DB_PASSWORD: "Smoke2026x!"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clean runner disk
+        run: bash scripts/cleanup_runner_disk.sh normal
+
+      - name: Start ERPNext (pinned images, bootstrap site)
+        run: bash smoke/start_erpnext.sh
+
+      - name: Build base fixture
+        run: |
+          cd "$GITHUB_WORKSPACE/frappe_docker"
+          SITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "site=$SITE db=$DB"
+          BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
+            'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
+          echo "bench python: $BENCH_PY"
+          docker compose -f pwd.yml exec -T backend "$BENCH_PY" -c "import frappe; print('frappe import ok')"
+          CID=$(docker compose -f pwd.yml ps -q backend)
+          docker cp ../fixtures/build_base_fixture.py "$CID:/home/frappe/frappe-bench/build_base_fixture.py"
+          docker compose -f pwd.yml exec -T -u root backend bash -c "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs /home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs"
+          docker compose -f pwd.yml exec -T -u root -w /home/frappe/frappe-bench -e SITE="$SITE" backend \
+            "$BENCH_PY" build_base_fixture.py 2>&1 | tee ../smoke-out/build.log
+          grep -q "BUILD_DONE" ../smoke-out/build.log
+          grep "STATE_HASH=" ../smoke-out/build.log | tee ../smoke-out/state_hash_build.txt
+
+      - name: Dump base fixture
+        run: |
+          cd "$GITHUB_WORKSPACE/frappe_docker"
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "db=$DB"
+          docker compose -f pwd.yml exec -T db sh -c "exec mariadb-dump -uroot -p\"\$MYSQL_ROOT_PASSWORD\" --single-transaction --hex-blob --default-character-set=utf8mb4 $DB" \
+            | gzip > ../base_fixture.sql.gz
+          ls -la ../base_fixture.sql.gz
+          sha256sum ../base_fixture.sql.gz | tee ../smoke-out/base_fixture_sha256.txt
+
+      - name: Verify restore reproduces the state hash
+        run: |
+          cd "$GITHUB_WORKSPACE/frappe_docker"
+          SITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)
+          DB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)
+          echo "site=$SITE db=$DB"
+          BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
+            'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
+          docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" -e \"DROP DATABASE IF EXISTS $DB; CREATE DATABASE $DB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\""
+          gunzip -c ../base_fixture.sql.gz | docker compose -f pwd.yml exec -T db sh -c "exec mariadb -uroot -p\"\$MYSQL_ROOT_PASSWORD\" $DB"
+          docker compose -f pwd.yml restart backend
+          for i in $(seq 1 60); do
+            body=$(curl -s -m 5 "http://localhost:8080/api/method/ping" || true)
+            echo "$body" | grep -q "pong" && break
+            sleep 5
+          done
+          docker compose -f pwd.yml exec -T -u root backend bash -c "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs /home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs"
+          docker compose -f pwd.yml exec -T -u root -w /home/frappe/frappe-bench -e SITE="$SITE" backend \
+            "$BENCH_PY" build_base_fixture.py --hash-only 2>&1 | tee ../smoke-out/state_hash_restore.txt
+          H1=$(grep -o 'STATE_HASH=.*' ../smoke-out/state_hash_build.txt | cut -d= -f2)
+          H2=$(grep -o 'STATE_HASH=.*' ../smoke-out/state_hash_restore.txt | cut -d= -f2)
+          echo "build hash:   $H1"
+          echo "restore hash: $H2"
+          [ -n "$H1" ] && [ "$H1" = "$H2" ] && echo "RESTORE_HASH_MATCH" || { echo "RESTORE_HASH_MISMATCH"; exit 1; }
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixture-build-results
+          path: |
+            base_fixture.sql.gz
+            smoke-out/
+          retention-days: 30
