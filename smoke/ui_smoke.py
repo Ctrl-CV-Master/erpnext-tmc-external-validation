@@ -39,8 +39,10 @@ def main():
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
-        page.on("pageerror", lambda e: res["console"].append("pageerror: " + str(e)[:800])
-                if "pageerror" not in res["console"] else None)
+        page.on("pageerror", lambda e: res["console"].append(
+            "pageerror: " + str(e)[:300] + " | stack: "
+            + (getattr(e, "stack", "") or "")[:700])
+            if "pageerror: " + str(e)[:300] not in str(res["console"]) else None)
         page.on("console", lambda m: res["console"].append(f"console.{m.type}: {m.text[:300]}")
                 if m.type in ("error", "warning") else None)
         res["browser_version"] = browser.version
@@ -110,6 +112,25 @@ def main():
                 res["frames"] = [f.url for f in page.frames]
                 res["boot"] = page.evaluate(
                     "() => { try { return {lang: frappe.boot.lang, syslang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language, ready: !!frappe.boot.ready, user: frappe.session && frappe.session.user, sysdefaults: frappe.boot.sysdefaults, user_lang: frappe.boot.user && frappe.boot.user.language, session_lang: frappe.session && frappe.session.lang}; } catch(e) { return 'boot error: ' + e.message; } }")
+                res["locale_probe"] = page.evaluate(
+                    """() => {
+                    const out = {};
+                    if (typeof frappe === 'undefined' || !frappe.boot) return out;
+                    const cands = {
+                      user_lang: frappe.boot.user && frappe.boot.user.language,
+                      sys_lang: frappe.boot.sysdefaults && frappe.boot.sysdefaults.language,
+                      boot_lang: frappe.boot.lang,
+                      session_lang: frappe.session && frappe.session.lang,
+                      nav_lang: (navigator.languages || [navigator.language])[0],
+                      html_lang: document.documentElement.lang
+                    };
+                    for (const [k, v] of Object.entries(cands)) {
+                      out[k] = (v === undefined || v === null) ? '<unset>' : v;
+                      try { new Intl.DateTimeFormat(v || undefined); out[k + '_ok'] = 'ok'; }
+                      catch (e) { out[k + '_ok'] = 'THROWS: ' + e.message; }
+                    }
+                    return out;
+                  }""")
                 res["form_input_count"] = page.evaluate(
                     "() => document.querySelectorAll('[data-fieldname]').length")
                 res["boot_workspaces"] = page.evaluate(
