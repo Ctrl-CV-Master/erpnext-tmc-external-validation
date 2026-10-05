@@ -169,7 +169,7 @@ BENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \
   'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)
 echo "bench python: ${BENCH_PY:-none}" >> "$OUT/evaluator.txt"
 if [ -n "$BENCH_PY" ]; then
-  docker compose -f pwd.yml exec -T -u root backend bash -c \
+  docker compose -f pwd.yml exec -T -u root -e SITE="$SITE" backend bash -c \
     "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs /home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs \"/home/frappe/frappe-bench/\${SITE}/logs\""
   # v15 site logger joins CWD-relative <site>/logs (frappe/utils/logger.py),
   # so the last dir above must exist or connect() crashes on database.log.
