@@ -35,13 +35,15 @@
       "kind": "edit",
       "match": {
         "production_item": "PREP-D",
-        "docstatus": 1
+        "qty": 15,
+        "docstatus": 0
       },
       "fields": {
         "qty": 40
       },
-      "hint": "修改数量并提交",
-      "invalidates": []
+      "hint": "工单链接: /app/work-order/MFG-WO-2026-00002 (Work Order 表单内修改/提交)",
+      "invalidates": [],
+      "route": "/app/work-order/MFG-WO-2026-00002"
     }
   ],
   "reward_conditions": {

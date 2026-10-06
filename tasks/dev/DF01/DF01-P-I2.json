@@ -35,11 +35,13 @@
       "kind": "edit",
       "match": {
         "production_item": "PREP-E",
-        "qty": 25
+        "qty": 25,
+        "docstatus": 0
       },
       "fields": {},
-      "hint": "找到该草稿工单并提交",
-      "invalidates": []
+      "hint": "工单链接: /app/work-order/MFG-WO-2026-00003 (Work Order 表单内修改/提交)",
+      "invalidates": [],
+      "route": "/app/work-order/MFG-WO-2026-00003"
     }
   ],
   "reward_conditions": {

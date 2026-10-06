@@ -337,7 +337,7 @@ def build():
 
     # --- pre-existing draft Work Orders (pre-state for dev family DF01 P/C) -------------------------
     # DF01-P needs a draft WO to submit; DF01-C needs a draft WO to edit+submit.
-    for code, q in (("PREP-C", 20), ("PREP-D", 15)):
+    for code, q in (("PREP-C", 20), ("PREP-D", 15), ("PREP-E", 25), ("PREP-F", 18)):
         if frappe.db.exists("Work Order", {"production_item": code, "docstatus": 0}):
             print(f"exists  draft Work Order for {code}")
             continue
