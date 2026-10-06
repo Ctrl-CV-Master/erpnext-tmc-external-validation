@@ -1,0 +1,96 @@
+name: erpnext-formal
+
+on:
+  workflow_dispatch:
+    inputs:
+      families:
+        description: "Comma-separated family filter (e.g. F01,F02); empty = all"
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: erpnext-formal
+  cancel-in-progress: false
+
+jobs:
+  formal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      max-parallel: 20
+      fail-fast: false
+      matrix:
+        family: [F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12,
+                 F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24]
+        instance: [1, 2]
+    env:
+      ERPNEXT_VERSION: "v15.99.1"
+      FRAPPE_VERSION: "version-15"
+      FRAPPE_DOCKER_SHA: "f71a386bc13f75dcc0cf7462f025f531576a04fc"
+      ADMIN_PASSWORD: "Smoke2026x!"
+      DB_PASSWORD: "Smoke2026x!"
+      ERPNEXT_SITE: frontend
+      GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+      GLM_API_KEY_2: ${{ secrets.GLM_API_KEY_2 }}
+      GLM_API_KEY_3: ${{ secrets.GLM_API_KEY_3 }}
+      GLM_API_KEY_4: ${{ secrets.GLM_API_KEY_4 }}
+      GLM_API_KEY_5: ${{ secrets.GLM_API_KEY_5 }}
+      GLM_API_KEY_6: ${{ secrets.GLM_API_KEY_6 }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Family filter
+        id: filt
+        run: |
+          F="${{ matrix.family }}"
+          WANT="${{ inputs.families }}"
+          if [ -n "$WANT" ]; then
+            case ",$WANT," in
+              *",$F,"*) echo "run=true" >> "$GITHUB_OUTPUT";;
+              *) echo "run=false" >> "$GITHUB_OUTPUT";;
+            esac
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Clean runner disk
+        if: steps.filt.outputs.run == 'true'
+        run: bash scripts/cleanup_runner_disk.sh normal
+
+      - name: Start ERPNext
+        if: steps.filt.outputs.run == 'true'
+        run: bash smoke/start_erpnext.sh
+
+      - name: Setup Python (playwright)
+        if: steps.filt.outputs.run == 'true'
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -q --upgrade pip
+          .venv/bin/pip install -q "playwright==1.52.0"
+          .venv/bin/python -m playwright install --with-deps chromium
+
+      - name: Run 9 episodes (3 conditions x 3 methods, fixture restored per run)
+        if: steps.filt.outputs.run == 'true'
+        run: |
+          FAM="${{ matrix.family }}"
+          INST="${{ matrix.instance }}"
+          mkdir -p "runs/${FAM}-I${INST}"
+          for COND in N P C; do
+            for M in TMC R2 R3; do
+              echo "=== $FAM $COND $M ==="
+              bash fixtures/restore_base.sh
+              .venv/bin/python harness/runner.py \
+                --task "tasks/formal/${FAM}/${FAM}-${COND}-${INST}.json" \
+                --method "$M" --out-dir "runs/${FAM}-I${INST}" \
+                || echo "RUN_FAILED ${FAM}-${COND}-${INST} ${M}"
+            done
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: formal-${{ matrix.family }}-I${{ matrix.instance }}
+          path: runs/
+          retention-days: 30
