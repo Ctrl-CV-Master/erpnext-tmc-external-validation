@@ -221,7 +221,8 @@ class Episode:
             "made; if a list shows the target row, open it immediately.")
         user = json.dumps({
             "condition": {"doctype": cond["doctype"], "fields": cond["fields"],
-                          "hint": cond.get("hint")},
+                          "hint": cond.get("hint"),
+                          "expect_docstatus": cond.get("expect_docstatus")},
             "route": cond.get("route"),
             "observation": obs}, ensure_ascii=False)
         raw = self.glm.chat([
