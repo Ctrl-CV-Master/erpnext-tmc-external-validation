@@ -157,6 +157,14 @@ class ERPNextEnv:
     # ---------------- observation ----------------
     def observe(self):
         self._wait_settled()
+        # list views render rows asynchronously after networkidle; give them a
+        # window or the observation shows an empty list and agents loop on
+        # re-navigation
+        try:
+            self.page.wait_for_selector(".list-row", timeout=6000)
+            self.page.wait_for_timeout(500)
+        except Exception:
+            pass
         url = self.page.url
         data = self.page.evaluate(
             """() => {
