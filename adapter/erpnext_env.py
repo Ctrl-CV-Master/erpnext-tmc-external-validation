@@ -216,6 +216,15 @@ class ERPNextEnv:
         if self.actions_used >= self.budget:
             return ActionResult(False, "action budget exhausted")
         self.actions_used += 1
+        result = self._act_impl(action)
+        meta = getattr(self, "last_obs_meta", None)
+        if meta:
+            result.message = (result.message or "") + (
+                f" [obs {meta.get('rows', 0)}r/{meta.get('links', 0)}l"
+                f" {meta.get('fields', 0)}f {meta.get('bytes', 0)}b]")
+        return result
+
+    def _act_impl(self, action):
         kind = action.get("type")
         try:
             if kind == "navigate":

@@ -185,6 +185,13 @@ class Episode:
         self.c["llm_calls"] += 1
         cond = self.conds[i]
         obs = self.env.observe()
+        self.last_obs_meta = {
+            "rows": len(obs.get("list_rows") or []),
+            "links": len(obs.get("row_links") or []),
+            "fields": len(obs.get("fields") or []),
+            "bytes": len(json.dumps(obs, ensure_ascii=False)),
+            "url": obs.get("url", ""),
+        }
         sys_prompt = (
             "You operate ERPNext's web UI through primitives. Return ONLY JSON: "
             "{\"actions\": [{\"type\":\"navigate|fill|select|click|save|key|set_checkbox\",\"...\":...}]}. "
