@@ -354,48 +354,56 @@ class ERPNextEnv:
     def _fill_field(self, fieldname, value):
         """Fill a form field with layered fallbacks; records the path used:
         checkbox -> input fill (+model verify -> link select -> rich text
-        editor contenteditable -> frappe set_value)."""
+        editor contenteditable -> frappe set_value). A missing input/textarea
+        (iframe-rendered editors like TinyMCE) is not fatal: the chain falls
+        through to the editor paths."""
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                f'[data-fieldname="{fieldname}"] textarea:visible').first
+        input_ok = True
         try:
             el.wait_for(state="visible", timeout=4000)
         except Exception:
             note = self._reveal_field(fieldname)
-            el.wait_for(state="visible", timeout=12000)
-            self._last_expand_note = f" ({note})"
+            try:
+                el.wait_for(state="visible", timeout=8000)
+                self._last_expand_note = f" ({note})"
+            except Exception:
+                input_ok = False
 
-        if el.evaluate("el => el.type || ''") == "checkbox":
+        if input_ok and el.evaluate("el => el.type || ''") == "checkbox":
             el.set_checked(bool(value) and str(value) not in ("0", "false", "False"))
             self.page.wait_for_timeout(300)
             self._last_fill_note = "checkbox"
             return
 
-        el.fill(value)
-        el.press("Tab")
-        self.page.wait_for_timeout(400)
-        if self._model_matches_field(fieldname, value, el):
-            return
+        if input_ok:
+            el.fill(value)
+            el.press("Tab")
+            self.page.wait_for_timeout(400)
+            if self._model_matches_field(fieldname, value, el):
+                return
 
-        # link/select did not commit: awesomplete selection path
-        el.fill(value)
-        self.page.wait_for_timeout(700)
-        tag = (el.evaluate("el => el.tagName.toLowerCase()")
-              if el.count() else "input")
-        if tag == "select":
-            el.select_option(label=value)
-        else:
-            opt = self.page.locator(
-                f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
-                f'[data-fieldname="{fieldname}"] .awesomplete li').first
-            try:
-                opt.wait_for(state="visible", timeout=4000)
-                opt.click()
-            except Exception:
-                el.press("Enter")
-        self.page.wait_for_timeout(500)
-        if self._model_matches_field(fieldname, value, el):
-            self._last_fill_note = "via-link-select"
-            return
+        if input_ok:
+            # link/select did not commit: awesomplete selection path
+            el.fill(value)
+            self.page.wait_for_timeout(700)
+            tag = (el.evaluate("el => el.tagName.toLowerCase()")
+                  if el.count() else "input")
+            if tag == "select":
+                el.select_option(label=value)
+            else:
+                opt = self.page.locator(
+                    f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
+                    f'[data-fieldname="{fieldname}"] .awesomplete li').first
+                try:
+                    opt.wait_for(state="visible", timeout=4000)
+                    opt.click()
+                except Exception:
+                    el.press("Enter")
+            self.page.wait_for_timeout(500)
+            if self._model_matches_field(fieldname, value, el):
+                self._last_fill_note = "via-link-select"
+                return
 
         # rich text editor (contenteditable) — description-like fields
         ce = self.page.locator(
