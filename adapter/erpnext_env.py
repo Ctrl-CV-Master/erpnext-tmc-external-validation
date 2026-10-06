@@ -350,7 +350,12 @@ class ERPNextEnv:
                     if not clicked:
                         raise RuntimeError(f"no clickable '{text}': {str(last)[:90]}")
                 self._wait_settled()
-                return ActionResult(True, f"clicked {text or sel}")
+                # modal-action flows (Submit/confirm) surface their server-side
+                # error toasts with a delay; give them a window to land
+                self.page.wait_for_timeout(1500)
+                ts = self._toasts()
+                return ActionResult(True, f"clicked {text or sel}",
+                                    toast=" | ".join(ts)[:200] if ts else None)
             if kind == "save":
                 return self._save()
             if kind == "key":
