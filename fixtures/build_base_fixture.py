@@ -374,6 +374,14 @@ def build():
         print(f"created Work Order for {code} qty={q} ds={ds} name={doc.name}")
 
     # --- pre-state customers/suppliers (families F23/F24 edit these) ---------------
+    for dt, nm, fld in (("Customer Group", "All Customer Groups", "customer_group_name"),
+                        ("Territory", "All Territories", "territory_name"),
+                        ("Supplier Group", "All Supplier Groups", "supplier_group_name")):
+        if not frappe.db.exists(dt, nm):
+            frappe.get_doc({"doctype": dt, fld: nm, "is_group": 1}).insert(
+                ignore_permissions=True)
+            commit()
+            print(f"created {dt}: {nm}")
     for name in ("Alpha Lab Client", "Beta Lab Client"):
         if not frappe.db.exists("Customer", name):
             frappe.get_doc({"doctype": "Customer", "customer_name": name,
