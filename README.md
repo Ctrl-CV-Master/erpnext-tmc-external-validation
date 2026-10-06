@@ -27,8 +27,8 @@ TMC-AE / R2 (ATG-adapted) / R3 (Task-State-adapted) 三种方法的对比实验�
 |------|------|------|
 | 1 | `erpnext-smoke.yml`:runner 磁盘清理 → 启动 ERPNext → Playwright UI 读写 → evaluator 读回 | **通过**(2026-10-05,v15.99.1,run 37271739495;v15 适配修复见 git log 96bf125..c87a054) |
 | 2 | 完整 base fixture(`base_fixture.sql.gz`)+ 正式 evaluator | **在 v15.99.1 上重建并验证**(2026-10-05,run 37272681828;build/restore `STATE_HASH` 一致,sha256 `e8a67b65`) |
-| 3 | 2 个独立 development families × 36 pilot runs(不进正式集) | **完成**(2026-10-06,DF01 工单族 + DF02 物料主数据族 × N/P/C × 2 实例 × 3 方法;结果见 `analysis/gate3_pilot_summary.md`:N 12/12、P 3/12、C 0/12,三方法无差异) |
-| — | 冻结 protocol(evaluator / 任务 / 预算不得再改) | 待定(C 条件 0/12,冻结前建议先做难度校准决策) |
+| 3 | 2 个独立 development families × 36 pilot runs(不进正式集) | **完成 + 校准轮通过**(2026-10-06:基线 36 runs 暴露环境缺口 → 供赋/fixture 修复后校准轮 P/C 全绿,校准后三方法各 12/12;详见 `analysis/gate3_pilot_summary.md`) |
+| — | 冻结 protocol(evaluator / 任务 / 预算不得再改) | 待用户确认后冻结(校准已完成,全部条件验证可完成) |
 | 正式 | 48 matrix jobs × 9 runs = 432 runs | pending |
 
 ## 环境冻结(锚点)
