@@ -4,7 +4,7 @@
   "family": "F03",
   "condition": "P",
   "instance": 1,
-  "instruction": "工单 MFG-WO-2026-00007(PREP-C,数量 46)的审核已完成,请将其提交(Submit)。",
+  "instruction": "工单 MFG-WO-2026-00007(PREP-C,数量 46)已在当前页面打开,需要提交。请直接点击提交(Submit)并确认。",
   "conditions": [
     {
       "doctype": "Work Order",

@@ -4,7 +4,7 @@
   "family": "F06",
   "condition": "P",
   "instance": 1,
-  "instruction": "MFG-WO-2026-00019 的排产需要后移:请把计划开始时间(Planned Start Date)改为 2026-10-20 08:00:00 并保存。",
+  "instruction": "工单 MFG-WO-2026-00019(PREP-C,数量 83)已在当前页面打开。请把计划开始时间(Planned Start Date)改为 2026-10-20 08:00:00,保存。",
   "conditions": [
     {
       "doctype": "Work Order",
