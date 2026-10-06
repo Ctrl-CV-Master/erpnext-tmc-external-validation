@@ -192,6 +192,8 @@ class Episode:
             "bytes": len(json.dumps(obs, ensure_ascii=False)),
             "url": obs.get("url", ""),
             "page_text": obs.get("page_text", ""),
+            "console": " || ".join(obs.get("console_tail") or [])[:120],
+            "perf": str(obs.get("perf") or "")[:150],
         }
         sys_prompt = (
             "You operate ERPNext's web UI through primitives. Return ONLY JSON: "

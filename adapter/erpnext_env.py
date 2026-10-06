@@ -223,6 +223,16 @@ class ERPNextEnv:
                     "() => document.body.innerText.replace(/\\s+/g, ' ').slice(0, 300)")
             except Exception:
                 pass
+            try:
+                out["perf"] = self.page.evaluate(
+                    """() => performance.getEntriesByType('resource')
+                    .filter(e => /reportview|get_list|search_link/.test(e.name))
+                    .map(e => e.name.split('/').pop().slice(0, 40)
+                         + ' d=' + Math.round(e.duration) + 'ms'
+                         + (e.responseStatus ? ' s=' + e.responseStatus : ''))
+                    .slice(0, 5)""")
+            except Exception:
+                pass
             if self.console_errors:
                 out["console_tail"] = self.console_errors[-3:]
             # one retry: some lists render just past the wait window
@@ -270,11 +280,13 @@ class ERPNextEnv:
         if meta:
             pt = (meta.get("page_text") or "")[:80]
             cons = (meta.get("console") or "")[:80]
+            perf = (meta.get("perf") or "")[:100]
             result.message = (result.message or "") + (
                 f" [obs {meta.get('rows', 0)}r/{meta.get('links', 0)}l"
                 f" {meta.get('fields', 0)}f {meta.get('bytes', 0)}b"
                 + (f" | {pt}" if pt and meta.get('rows', 0) == 0 else "")
-                + (f" | C:{cons}" if cons and meta.get('rows', 0) == 0 else "") + "]")
+                + (f" | C:{cons}" if cons and meta.get('rows', 0) == 0 else "")
+                + (f" | P:{perf}" if perf and meta.get('rows', 0) == 0 else "") + "]")
         return result
 
     def _act_impl(self, action):
