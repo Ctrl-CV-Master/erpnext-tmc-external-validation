@@ -121,6 +121,11 @@ class Episode:
         valid = False
         if got is not None:
             valid = all(_values_match(got.get(k), v) for k, v in cond["fields"].items())
+            # submit-requiring conditions: the reward's docstatus expectation
+            # is part of the condition truth, not just of the evaluator
+            expect_ds = cond.get("expect_docstatus")
+            if valid and expect_ds is not None:
+                valid = _values_match(got.get("docstatus"), expect_ds)
         self._setq(i, "1" if valid else "0", reason, source, action_id)
         return "1" if valid else "0"
 

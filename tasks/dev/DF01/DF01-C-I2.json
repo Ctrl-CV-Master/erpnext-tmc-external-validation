@@ -43,7 +43,8 @@
       },
       "hint": "工单链接: /app/work-order/MFG-WO-2026-00004 (Work Order 表单内修改/提交)",
       "invalidates": [],
-      "route": "/app/work-order/MFG-WO-2026-00004"
+      "route": "/app/work-order/MFG-WO-2026-00004",
+      "expect_docstatus": 1
     }
   ],
   "reward_conditions": {

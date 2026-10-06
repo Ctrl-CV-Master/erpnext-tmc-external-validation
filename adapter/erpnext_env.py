@@ -648,7 +648,17 @@ class ERPNextEnv:
                     });
                     return out;
                 }""")
-            return {f["fieldname"]: f["value"] for f in fields}
+            got = {f["fieldname"]: f["value"] for f in fields}
+            # docstatus lives outside data-fieldname controls; the readback
+            # needs it for submit-requiring conditions
+            try:
+                ds = self.page.evaluate(
+                    "() => (window.cur_frm && cur_frm.doc) ? cur_frm.doc.docstatus : null")
+                if ds is not None:
+                    got["docstatus"] = ds
+            except Exception:
+                pass
+            return got
         except Exception:
             return None
 

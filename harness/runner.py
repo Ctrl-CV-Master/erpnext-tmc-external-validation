@@ -49,6 +49,10 @@ class MockPlanner:
         cond = task["condition"]
         actions = [{"type": "fill", "fieldname": k, "value": v} for k, v in cond["fields"].items()]
         actions.append({"type": "save"})
+        if cond.get("expect_docstatus") == 1:
+            # submit flow: menu action + confirmation dialog
+            actions.append({"type": "click", "text": "Submit"})
+            actions.append({"type": "click", "text": "Yes"})
         return json.dumps({"actions": actions})
 
     def usage(self):

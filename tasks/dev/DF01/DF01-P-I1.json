@@ -41,7 +41,8 @@
       "fields": {},
       "hint": "工单链接: /app/work-order/MFG-WO-2026-00001 (Work Order 表单内修改/提交)",
       "invalidates": [],
-      "route": "/app/work-order/MFG-WO-2026-00001"
+      "route": "/app/work-order/MFG-WO-2026-00001",
+      "expect_docstatus": 1
     }
   ],
   "reward_conditions": {
