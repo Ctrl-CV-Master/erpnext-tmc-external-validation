@@ -339,27 +339,55 @@ def build():
         commit()
         print(f"created+submitted BOM for {code}")
 
-    # --- pre-existing draft Work Orders (pre-state for dev family DF01 P/C) -------------------------
-    # DF01-P needs a draft WO to submit; DF01-C needs a draft WO to edit+submit.
-    for code, q in (("PREP-C", 20), ("PREP-D", 15), ("PREP-E", 25), ("PREP-F", 18)):
-        if frappe.db.exists("Work Order", {"production_item": code, "docstatus": 0}):
-            print(f"exists  draft Work Order for {code}")
+    # --- Work Order pre-state (one ordered spec; names MFG-WO-2026-00001..00028) ---
+    # 1-4: dev family DF01 drafts; 5-10 F03 submit-existing; 11-16 F04 qty-change;
+    # 17-22 F06 date-edit; 23-28 F05 cancel-submitted.
+    WO_SPEC = [
+        ("PREP-C", 20, 0), ("PREP-D", 15, 0), ("PREP-E", 25, 0), ("PREP-F", 18, 0),
+        ("PREP-A", 30, 0), ("PREP-B", 40, 0), ("PREP-C", 46, 0), ("PREP-D", 56, 0),
+        ("PREP-E", 31, 0), ("PREP-F", 21, 0),
+        ("PREP-A", 61, 0), ("PREP-B", 62, 0), ("PREP-C", 63, 0), ("PREP-D", 64, 0),
+        ("PREP-E", 65, 0), ("PREP-F", 66, 0),
+        ("PREP-A", 81, 0), ("PREP-B", 82, 0), ("PREP-C", 83, 0), ("PREP-D", 84, 0),
+        ("PREP-E", 85, 0), ("PREP-F", 86, 0),
+        ("PREP-A", 71, 1), ("PREP-B", 72, 1), ("PREP-C", 73, 1), ("PREP-D", 74, 1),
+        ("PREP-E", 75, 1), ("PREP-F", 76, 1),
+    ]
+    for code, q, ds in WO_SPEC:
+        if frappe.db.exists("Work Order", {"production_item": code, "qty": q}):
+            print(f"exists  Work Order for {code} qty={q} ds={ds}")
             continue
         bom = frappe.db.get_value("BOM", {"item": code, "docstatus": 1, "is_active": 1}, "name")
         if not bom:
-            print(f"SKIP draft Work Order for {code}: no active BOM")
+            print(f"SKIP Work Order for {code}: no active BOM")
             continue
         doc = frappe.get_doc({
             "doctype": "Work Order", "company": COMPANY,
             "production_item": code, "bom_no": bom, "qty": q,
             "wip_warehouse": f"WIP-WH - {ABBR}", "target_warehouse": f"FG-WH - {ABBR}",
-            # v15 keeps fg_warehouse mandatory at schema level even though the
-            # desk hides it behind target_warehouse
             "fg_warehouse": f"FG-WH - {ABBR}",
         })
         doc.insert(ignore_permissions=True)
+        if ds == 1:
+            doc.submit()
         commit()
-        print(f"created draft Work Order for {code} qty={q} bom={bom}")
+        print(f"created Work Order for {code} qty={q} ds={ds} name={doc.name}")
+
+    # --- pre-state customers/suppliers (families F23/F24 edit these) ---------------
+    for name in ("Alpha Lab Client", "Beta Lab Client"):
+        if not frappe.db.exists("Customer", name):
+            frappe.get_doc({"doctype": "Customer", "customer_name": name,
+                            "customer_type": "Company",
+                            "customer_group": "All Customer Groups",
+                            "territory": "All Territories"}).insert(ignore_permissions=True)
+            commit()
+            print(f"created Customer {name}")
+    for name in ("Alpha Lab Vendor", "Beta Lab Vendor"):
+        if not frappe.db.exists("Supplier", name):
+            frappe.get_doc({"doctype": "Supplier", "supplier_name": name,
+                            "supplier_group": "All Supplier Groups"}).insert(ignore_permissions=True)
+            commit()
+            print(f"created Supplier {name}")
 
     print("BUILD_DONE")
 
