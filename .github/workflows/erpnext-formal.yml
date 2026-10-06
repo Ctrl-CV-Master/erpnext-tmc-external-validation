@@ -82,9 +82,9 @@ jobs:
               echo "=== $FAM $COND $M ==="
               bash fixtures/restore_base.sh
               .venv/bin/python harness/runner.py \
-                --task "tasks/formal/${FAM}/${FAM}-${COND}-${INST}.json" \
+                --task "tasks/formal/${FAM}/${FAM}-${COND}-I${INST}.json" \
                 --method "$M" --out-dir "runs/${FAM}-I${INST}" \
-                || echo "RUN_FAILED ${FAM}-${COND}-${INST} ${M}"
+                || echo "RUN_FAILED ${FAM}-${COND}-I${INST} ${M}"
             done
           done
 
