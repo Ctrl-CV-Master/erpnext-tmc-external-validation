@@ -1,0 +1,39 @@
+{
+  "task_id": "DF02-V1",
+  "dev": true,
+  "family": "DF02",
+  "condition": "V",
+  "instance": 1,
+  "instruction": "Harness validation task (not part of the 36 pilot runs): create a disabled raw material item with a description.",
+  "conditions": [
+    {
+      "id": "C0",
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "VALID-CHK-1",
+        "item_group": "Raw Materials",
+        "stock_uom": "Nos",
+        "description": "Validation item with editor text",
+        "disabled": 1
+      },
+      "hint": "Item form: Item Code, Item Group, Stock UOM, Description (rich text), Disabled (checkbox)",
+      "invalidates": []
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "VALID-CHK-1",
+          "disabled": 1,
+          "description": "Validation item with editor text"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

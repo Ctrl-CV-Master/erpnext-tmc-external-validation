@@ -191,8 +191,14 @@ class ERPNextEnv:
                 document.querySelectorAll('.list-row').forEach(r => {
                     if (list_rows.length < 20) list_rows.push(r.innerText.replace(/\\s+/g, ' ').trim().slice(0, 160));
                 });
+                const row_links = [];
+                document.querySelectorAll('.list-row a[href*="/app/"]').forEach(a => {
+                    if (row_links.length < 20) row_links.push({
+                        text: (a.innerText || '').trim().slice(0, 80),
+                        href: a.getAttribute('href')});
+                });
                 return {title: document.title, fields: fields.slice(0, 40),
-                        buttons: buttons.slice(0, 12), list_rows};
+                        buttons: buttons.slice(0, 12), list_rows, row_links};
             }"""
         )
         return {"url": url, "toasts": self._toasts(), **data}
@@ -217,17 +223,40 @@ class ERPNextEnv:
                                         + " | fields: " + self._field_visibility_dump()[:300])
                 self._wait_settled()
                 note = getattr(self, "_last_expand_note", "")
+                fill_note = getattr(self, "_last_fill_note", "")
                 self._last_expand_note = ""
+                self._last_fill_note = ""
                 where = self.page.url.rsplit("/", 1)[-1][:36]
-                return ActionResult(True, f"filled {action['fieldname']}{note} @{where}")
+                extra = (note + " " + fill_note).strip()
+                return ActionResult(True, f"filled {action['fieldname']}{extra} @{where}")
+            if kind == "set_checkbox":
+                self._fill_field(action["fieldname"], action.get("value", 1))
+                self._wait_settled()
+                return ActionResult(True, f"set {action['fieldname']}={action.get('value')}")
             if kind == "select":
                 self._select_field(action["fieldname"], str(action["value"]))
                 self._wait_settled()
                 return ActionResult(True, f"selected {action['fieldname']}={action['value']}")
             if kind == "click":
-                text = action.get("text")
-                sel = action.get("selector") or f'button:has-text("{text}")'
-                self.page.locator(sel).first.click(timeout=15000)
+                if action.get("selector"):
+                    self.page.locator(action["selector"]).first.click(timeout=15000)
+                else:
+                    text = action.get("text")
+                    clicked = False
+                    last = None
+                    # cascade: buttons first, then links, then list rows/cells
+                    for sel in (f'button:has-text("{text}")',
+                                f'a:has-text("{text}")',
+                                f'.list-row:has-text("{text}")',
+                                f'td:has-text("{text}")'):
+                        try:
+                            self.page.locator(sel).first.click(timeout=2500)
+                            clicked = True
+                            break
+                        except Exception as e:
+                            last = e
+                    if not clicked:
+                        raise RuntimeError(f"no clickable '{text}': {str(last)[:90]}")
                 self._wait_settled()
                 return ActionResult(True, f"clicked {text or sel}")
             if kind == "save":
@@ -323,6 +352,9 @@ class ERPNextEnv:
         return str(got).strip() == str(want).strip()
 
     def _fill_field(self, fieldname, value):
+        """Fill a form field with layered fallbacks; records the path used:
+        checkbox -> input fill (+model verify -> link select -> rich text
+        editor contenteditable -> frappe set_value)."""
         el = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
                                f'[data-fieldname="{fieldname}"] textarea:visible').first
         try:
@@ -331,39 +363,69 @@ class ERPNextEnv:
             note = self._reveal_field(fieldname)
             el.wait_for(state="visible", timeout=12000)
             self._last_expand_note = f" ({note})"
+
+        if el.evaluate("el => el.type || ''") == "checkbox":
+            el.set_checked(bool(value) and str(value) not in ("0", "false", "False"))
+            self.page.wait_for_timeout(300)
+            self._last_fill_note = "checkbox"
+            return
+
         el.fill(value)
         el.press("Tab")
         self.page.wait_for_timeout(400)
+        if self._model_matches_field(fieldname, value, el):
+            return
+
+        # link/select did not commit: awesomplete selection path
+        el.fill(value)
+        self.page.wait_for_timeout(700)
+        tag = (el.evaluate("el => el.tagName.toLowerCase()")
+              if el.count() else "input")
+        if tag == "select":
+            el.select_option(label=value)
+        else:
+            opt = self.page.locator(
+                f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
+                f'[data-fieldname="{fieldname}"] .awesomplete li').first
+            try:
+                opt.wait_for(state="visible", timeout=4000)
+                opt.click()
+            except Exception:
+                el.press("Enter")
+        self.page.wait_for_timeout(500)
+        if self._model_matches_field(fieldname, value, el):
+            self._last_fill_note = "via-link-select"
+            return
+
+        # rich text editor (contenteditable) — description-like fields
+        ce = self.page.locator(
+            f'[data-fieldname="{fieldname}"] [contenteditable="true"]').first
+        if ce.count():
+            ce.click()
+            ce.fill(str(value))
+            self.page.wait_for_timeout(400)
+            if self._model_matches_field(fieldname, value, el):
+                self._last_fill_note = "via-contenteditable"
+                return
+
+        # last resort: frappe model-level set (used when the widget renders in
+        # an iframe, e.g. TinyMCE text editors)
+        self.page.evaluate(
+            """(a) => { if (window.cur_frm && cur_frm.doc) cur_frm.set_value(a.f, a.v); }""",
+            {"f": fieldname, "v": str(value)})
+        self.page.wait_for_timeout(400)
+        self._last_fill_note = "via-set_value"
+
+    def _model_matches_field(self, fieldname, value, el):
         mv = self._field_model_value(fieldname)
         if mv.get("has_frm"):
-            ok = self._model_matches(mv.get("value"), value)
-        else:
-            # quick-entry dialogs have no cur_frm: the input value itself is
-            # the authoritative state there
-            try:
-                ok = self._model_matches(el.input_value(), value)
-            except Exception:
-                ok = True
-        if ok is False:
-            # v15 quirk: some Link fills (fill+Tab) do not reach the form model
-            # (e.g. Item Group in the Item quick entry). Commit via the
-            # awesomplete selection path, or select_option for real selects.
-            el.fill(value)
-            self.page.wait_for_timeout(700)
-            tag = (el.evaluate("el => el.tagName.toLowerCase()")
-                  if el.count() else "input")
-            if tag == "select":
-                el.select_option(label=value)
-            else:
-                opt = self.page.locator(
-                    f'.frappe-control[data-fieldname="{fieldname}"] .awesomplete li, '
-                    f'[data-fieldname="{fieldname}"] .awesomplete li').first
-                try:
-                    opt.wait_for(state="visible", timeout=4000)
-                    opt.click()
-                except Exception:
-                    el.press("Enter")
-            self.page.wait_for_timeout(500)
+            return self._model_matches(mv.get("value"), value)
+        # quick-entry dialogs have no cur_frm: the input value itself is the
+        # authoritative state there
+        try:
+            return self._model_matches(el.input_value(), value)
+        except Exception:
+            return True
 
     def _select_field(self, fieldname, value):
         box = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '

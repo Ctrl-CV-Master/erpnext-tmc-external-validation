@@ -36,7 +36,7 @@ BROWSER_BUDGET = 80
 CHUNK_BIG = 3
 CHUNK_SMALL = 1
 STALL_LIMIT = 3
-MAX_ATTEMPTS = 3
+MAX_ATTEMPTS = 5
 
 VARIANTS = {
     "TMC": dict(direct_confirm="read", gamma=True, recal="affected", adaptive_entry=True,
@@ -187,11 +187,17 @@ class Episode:
         obs = self.env.observe()
         sys_prompt = (
             "You operate ERPNext's web UI through primitives. Return ONLY JSON: "
-            "{\"actions\": [{\"type\":\"navigate|fill|select|click|save|key\",\"...\":...}]}. "
+            "{\"actions\": [{\"type\":\"navigate|fill|select|click|save|key|set_checkbox\",\"...\":...}]}. "
             "Fieldnames come from the form's data-fieldname attributes shown in the "
             "observation. Fill ALL required fields for the condition, then include one "
             "save action. Use exact values given; do not invent data. "
-            "For Link fields use the select primitive with the exact target value.")
+            "For Link fields use the select primitive with the exact target value. "
+            "For checkboxes use set_checkbox with fieldname and a boolean value. "
+            "To open an existing record from a list: the observation's row_links "
+            "give each row's record URL - navigate to that href, or click the row "
+            "by its visible text. To submit a document: click Submit, then click "
+            "Yes in the confirmation dialog. Plan each attempt as a COMPLETE "
+            "sequence (locate -> open -> edit -> save [+ submit]).")
         user = json.dumps({
             "condition": {"doctype": cond["doctype"], "fields": cond["fields"],
                           "hint": cond.get("hint")},
