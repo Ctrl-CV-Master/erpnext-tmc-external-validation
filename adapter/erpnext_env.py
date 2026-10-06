@@ -44,6 +44,11 @@ class ERPNextEnv:
         self.ctx = self.browser.new_context(viewport={"width": 1440, "height": 900},
                                             locale="en-US")
         self.page = self.ctx.new_page()
+        self.console_errors = []
+        self.page.on("console", lambda m: self.console_errors.append(
+            f"{m.type}: {m.text[:200]}") if m.type == "error" else None)
+        self.page.on("pageerror", lambda e: self.console_errors.append(
+            "pageerror: " + str(e)[:200]))
         self.prefix = "/app"
         self._login(admin_password)
 
@@ -218,6 +223,8 @@ class ERPNextEnv:
                     "() => document.body.innerText.replace(/\\s+/g, ' ').slice(0, 300)")
             except Exception:
                 pass
+            if self.console_errors:
+                out["console_tail"] = self.console_errors[-3:]
             # one retry: some lists render just past the wait window
             if not out.get("page_text") or "loading" in (out.get("page_text") or "").lower():
                 self.page.wait_for_timeout(3000)
@@ -261,11 +268,13 @@ class ERPNextEnv:
         result = self._act_impl(action)
         meta = getattr(self, "last_obs_meta", None)
         if meta:
-            pt = (meta.get("page_text") or "")[:100]
+            pt = (meta.get("page_text") or "")[:80]
+            cons = (meta.get("console") or "")[:80]
             result.message = (result.message or "") + (
                 f" [obs {meta.get('rows', 0)}r/{meta.get('links', 0)}l"
                 f" {meta.get('fields', 0)}f {meta.get('bytes', 0)}b"
-                + (f" | {pt}" if pt and meta.get('rows', 0) == 0 else "") + "]")
+                + (f" | {pt}" if pt and meta.get('rows', 0) == 0 else "")
+                + (f" | C:{cons}" if cons and meta.get('rows', 0) == 0 else "") + "]")
         return result
 
     def _act_impl(self, action):
