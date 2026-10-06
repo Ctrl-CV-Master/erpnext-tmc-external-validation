@@ -62,7 +62,8 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         + ("。创建后请提交(Submit)。" if submit_n else ",保存为草稿。")
         + f"公司 Open Preparation Lab,在制品仓库 {WIP},成品仓库 {FGW}。",
         {"doctype": "Work Order", "kind": "create",
-         "fields": {"production_item": item, "qty": n_qty, **WIPF},
+         "fields": {"production_item": item, "qty": n_qty,
+                    "company": COMPANY, **WIPF},
          "hint": "Work Order 表单:Production Item、Qty To Manufacture、仓库",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
@@ -73,7 +74,8 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         f"在 ERPNext 中为成品 {item} 创建一张 {n_qty + 1} 件的生产工单(Work Order)"
         + ("。创建后请提交(Submit)。" if submit_n else ",保存为草稿。"),
         {"doctype": "Work Order", "kind": "create",
-         "fields": {"production_item": item, "qty": n_qty + 1, **WIPF},
+         "fields": {"production_item": item, "qty": n_qty + 1,
+                    "company": COMPANY, **WIPF},
          "hint": "Work Order 表单:Production Item、Qty To Manufacture、仓库",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
@@ -84,8 +86,9 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         f"生产计划要求 {item} 的工单以 {p_qty} 件的规模执行。请创建该工单"
         + ("并直接提交(Submit)。" if submit_n else ",保存为草稿(仓库用默认设置)。"),
         {"doctype": "Work Order", "kind": "create",
-         "fields": ({"production_item": item, "qty": p_qty, **WIPF} if submit_n else
-                    {"production_item": item, "qty": p_qty}),
+         "fields": ({"production_item": item, "qty": p_qty,
+                     "company": COMPANY, **WIPF} if submit_n else
+                    {"production_item": item, "qty": p_qty, "company": COMPANY}),
          "hint": "创建 Work Order(仓库字段按需补全)",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
@@ -96,8 +99,9 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         f"生产计划要求 {item} 的工单以 {p_qty + 2} 件的规模执行。请创建该工单"
         + ("并直接提交(Submit)。" if submit_n else ",保存为草稿(仓库用默认设置)。"),
         {"doctype": "Work Order", "kind": "create",
-         "fields": ({"production_item": item, "qty": p_qty + 2, **WIPF} if submit_n else
-                    {"production_item": item, "qty": p_qty + 2}),
+         "fields": ({"production_item": item, "qty": p_qty + 2,
+                     "company": COMPANY, **WIPF} if submit_n else
+                    {"production_item": item, "qty": p_qty + 2, "company": COMPANY}),
          "hint": "创建 Work Order(仓库字段按需补全)",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
@@ -108,7 +112,8 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         f"计划变更:原计划为 {item} 创建 {c_old} 件的工单,现修订为 {c_new} 件。"
         "请按新数量创建工单并提交(Submit)。原数量的已提交工单不应存在。",
         {"doctype": "Work Order", "kind": "create",
-         "fields": {"production_item": item, "qty": c_new, **WIPF},
+         "fields": {"production_item": item, "qty": c_new,
+                    "company": COMPANY, **WIPF},
          "hint": f"按修订数量 {c_new} 创建并提交",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
@@ -121,7 +126,8 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
         f"计划变更:原计划为 {item} 创建 {c_old + 1} 件的工单,现修订为 {c_new + 1} 件。"
         "请按新数量创建工单并提交(Submit)。原数量的已提交工单不应存在。",
         {"doctype": "Work Order", "kind": "create",
-         "fields": {"production_item": item, "qty": c_new + 1, **WIPF},
+         "fields": {"production_item": item, "qty": c_new + 1,
+                    "company": COMPANY, **WIPF},
          "hint": f"按修订数量 {c_new + 1} 创建并提交",
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",

@@ -11,7 +11,8 @@
       "kind": "create",
       "fields": {
         "production_item": "PREP-A",
-        "qty": 35
+        "qty": 35,
+        "company": "Open Preparation Lab"
       },
       "hint": "创建 Work Order(仓库字段按需补全)",
       "invalidates": [],

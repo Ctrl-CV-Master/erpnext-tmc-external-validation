@@ -12,6 +12,7 @@
       "fields": {
         "production_item": "PREP-B",
         "qty": 48,
+        "company": "Open Preparation Lab",
         "wip_warehouse": "WIP-WH - OPL",
         "target_warehouse": "FG-WH - OPL",
         "fg_warehouse": "FG-WH - OPL"

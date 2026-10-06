@@ -4,7 +4,7 @@
   "family": "F03",
   "condition": "N",
   "instance": 1,
-  "instruction": "工单 MFG-WO-2026-00005(PREP-A,数量 30)已在当前页面打开,需要提交。请直接点击提交(Submit)并确认。",
+  "instruction": "系统中有一张 PREP-A、数量 30 的生产工单草稿(编号 MFG-WO-2026-00005)。请打开它并提交(Submit)。",
   "conditions": [
     {
       "doctype": "Work Order",
