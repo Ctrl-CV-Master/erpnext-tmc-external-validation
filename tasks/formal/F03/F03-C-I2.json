@@ -1,0 +1,40 @@
+{
+  "task_id": "F03-C-I2",
+  "dev": false,
+  "family": "F03",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "工单 MFG-WO-2026-00010(PREP-F,数量 21)的审核已完成,请将其提交(Submit)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00010",
+      "match": {
+        "production_item": "PREP-F",
+        "qty": 21,
+        "docstatus": 0
+      },
+      "fields": {},
+      "hint": "打开 MFG-WO-2026-00010 并提交",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-F",
+          "qty": 21,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "task_id": "F21-C-I2",
+  "dev": false,
+  "family": "F21",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:盘点数量由 120 修订为 130。请按新数量完成盘点并提交;提交记录中不应有数量 120 的行。",
+  "conditions": [
+    {
+      "doctype": "Stock Reconciliation",
+      "kind": "create",
+      "fields": {
+        "company": "Open Preparation Lab",
+        "item_code": "RM-A08",
+        "warehouse": "RM-WH - OPL",
+        "qty": 130
+      },
+      "hint": "Qty = 130",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "sr",
+        "doctype": "Stock Reconciliation",
+        "filters": {
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "child_rows": [
+      {
+        "ref": "sr",
+        "doctype": "Stock Reconciliation",
+        "child_field": "items",
+        "match": {
+          "item_code": "RM-A08",
+          "qty": 130
+        }
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Stock Reconciliation",
+        "filters": {
+          "docstatus": 1,
+          "name": "N/A-see-child"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

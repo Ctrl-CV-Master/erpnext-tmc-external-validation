@@ -1,0 +1,37 @@
+{
+  "task_id": "F22-P-I1",
+  "dev": false,
+  "family": "F22",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "为原料 RM-A09 创建质量检验草稿:类型 Incoming,模板 QI-SEMI,保存。",
+  "conditions": [
+    {
+      "doctype": "Quality Inspection",
+      "kind": "create",
+      "fields": {
+        "inspection_type": "Incoming",
+        "item_code": "RM-A09",
+        "quality_inspection_template": "QI-SEMI"
+      },
+      "hint": "Inspection Type、Item Code、Template",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "qi",
+        "doctype": "Quality Inspection",
+        "filters": {
+          "item_code": "RM-A09",
+          "inspection_type": "Incoming",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

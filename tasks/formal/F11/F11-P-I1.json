@@ -1,0 +1,37 @@
+{
+  "task_id": "F11-P-I1",
+  "dev": false,
+  "family": "F11",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "把成品 PREP-D 的描述(Description)改为 \"Semi-solid preparation D revision C\",保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "match": {
+        "item_code": "PREP-D"
+      },
+      "fields": {
+        "description": "Semi-solid preparation D revision C"
+      },
+      "hint": "先找到该物料(/app/item/PREP-D)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-D",
+          "description": "Semi-solid preparation D revision C"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "F05-C-I2",
+  "dev": false,
+  "family": "F05",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划调整:MFG-WO-2026-00028(PREP-F,数量 76)需要作废,请执行取消(Cancel)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00028",
+      "match": {
+        "production_item": "PREP-F",
+        "qty": 76,
+        "docstatus": 1
+      },
+      "fields": {},
+      "hint": "打开 MFG-WO-2026-00028 并 Cancel",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 2
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-F",
+          "qty": 76,
+          "docstatus": 2
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

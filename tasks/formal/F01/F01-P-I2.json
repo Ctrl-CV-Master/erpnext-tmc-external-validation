@@ -1,0 +1,36 @@
+{
+  "task_id": "F01-P-I2",
+  "dev": false,
+  "family": "F01",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "生产计划要求 PREP-A 的工单以 37 件的规模执行。请创建该工单,保存为草稿(仓库用默认设置)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-A",
+        "qty": 37
+      },
+      "hint": "创建 Work Order(仓库字段按需补全)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 37,
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

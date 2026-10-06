@@ -1,0 +1,42 @@
+{
+  "task_id": "F15-C-I1",
+  "dev": false,
+  "family": "F15",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:计量单位 \"Box of 24\" 应为 \"Box of 36\"。若已按旧名创建请改名;否则直接创建新名的计量单位。旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "UOM",
+      "kind": "create",
+      "fields": {
+        "uom_name": "Box of 36"
+      },
+      "hint": "UOM Name = Box of 36",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "u",
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Box of 36"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Box of 24"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

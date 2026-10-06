@@ -1,0 +1,35 @@
+{
+  "task_id": "F17-N-I2",
+  "dev": false,
+  "family": "F17",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在 ERPNext 中创建一个新客户(Customer):Delta Lab Client,客户类型 Company,客户组 All Customer Groups,保存。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "create",
+      "fields": {
+        "customer_name": "Delta Lab Client",
+        "customer_type": "Company",
+        "customer_group": "All Customer Groups"
+      },
+      "hint": "Customer 表单:Customer Name、Customer Type、Customer Group",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Delta Lab Client"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

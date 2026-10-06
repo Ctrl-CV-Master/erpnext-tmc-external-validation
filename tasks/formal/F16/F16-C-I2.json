@@ -1,0 +1,43 @@
+{
+  "task_id": "F16-C-I2",
+  "dev": false,
+  "family": "F16",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:仓库 \"SAMPLE-WH\" 的名称应为 \"SAMPLE-STORE-WH\"。请创建(或改名)为 SAMPLE-STORE-WH,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Warehouse",
+      "kind": "create",
+      "fields": {
+        "warehouse_name": "SAMPLE-STORE-WH",
+        "company": "Open Preparation Lab"
+      },
+      "hint": "Warehouse Name = SAMPLE-STORE-WH",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "SAMPLE-STORE-WH"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "SAMPLE-WH"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

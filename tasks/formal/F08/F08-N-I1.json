@@ -1,0 +1,46 @@
+{
+  "task_id": "F08-N-I1",
+  "dev": false,
+  "family": "F08",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "在 ERPNext 中创建新原料物料 RM-A19,物料名称 Synthetic Raw Material A19,物料组 Raw Materials,库存单位 Nos,保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "RM-A19",
+        "item_name": "Synthetic Raw Material A19",
+        "item_group": "Raw Materials",
+        "stock_uom": "Nos"
+      },
+      "hint": "Item 表单:Item Code、Item Name、Item Group、Stock UOM",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A19"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "fields": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "fields": {
+          "item_group": "Raw Materials",
+          "item_name": "Synthetic Raw Material A19"
+        }
+      }
+    ]
+  }
+}

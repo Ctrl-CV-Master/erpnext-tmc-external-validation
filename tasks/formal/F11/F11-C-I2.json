@@ -1,0 +1,49 @@
+{
+  "task_id": "F11-C-I2",
+  "dev": false,
+  "family": "F11",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:PREP-E 的描述由 \"Synthetic finished preparation PREP-E\" 改为 \"Semi-solid preparation E revision C\",请更新并保存。旧描述不应保留。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/PREP-E",
+      "match": {
+        "item_code": "PREP-E",
+        "description": "Synthetic finished preparation PREP-E"
+      },
+      "fields": {
+        "description": "Semi-solid preparation E revision C"
+      },
+      "hint": "Description -> Semi-solid preparation E revision C",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-E",
+          "description": "Semi-solid preparation E revision C"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-E",
+          "description": "Synthetic finished preparation PREP-E"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

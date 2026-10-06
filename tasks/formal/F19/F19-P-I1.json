@@ -1,0 +1,38 @@
+{
+  "task_id": "F19-P-I1",
+  "dev": false,
+  "family": "F19",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "为原料 RM-A02 创建售价:价格表 Standard Selling,单价 25。",
+  "conditions": [
+    {
+      "doctype": "Item Price",
+      "kind": "create",
+      "fields": {
+        "item_code": "RM-A02",
+        "price_list": "Standard Selling",
+        "selling": 1,
+        "price_list_rate": 25
+      },
+      "hint": "Item Code、Price List、Price List Rate、Selling",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "ip",
+        "doctype": "Item Price",
+        "filters": {
+          "item_code": "RM-A02",
+          "price_list": "Standard Selling",
+          "price_list_rate": 25
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

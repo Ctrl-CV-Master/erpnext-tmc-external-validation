@@ -1,0 +1,51 @@
+{
+  "task_id": "F01-C-I1",
+  "dev": false,
+  "family": "F01",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:原计划为 PREP-A 创建 33 件的工单,现修订为 37 件。请按新数量创建工单并提交(Submit)。原数量的已提交工单不应存在。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-A",
+        "qty": 37,
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
+        "fg_warehouse": "FG-WH - OPL"
+      },
+      "hint": "按修订数量 37 创建并提交",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 37,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 33,
+          "docstatus": 1
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

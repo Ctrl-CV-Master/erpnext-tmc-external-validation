@@ -1,0 +1,49 @@
+{
+  "task_id": "F19-C-I1",
+  "dev": false,
+  "family": "F19",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:RM-A02 的标准售价由 25 修订为 28。请创建(或更新)价格,旧价格不应存在。",
+  "conditions": [
+    {
+      "doctype": "Item Price",
+      "kind": "create",
+      "fields": {
+        "item_code": "RM-A02",
+        "price_list": "Standard Selling",
+        "selling": 1,
+        "price_list_rate": 28
+      },
+      "hint": "Price List Rate = 28",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "ip",
+        "doctype": "Item Price",
+        "filters": {
+          "item_code": "RM-A02",
+          "price_list": "Standard Selling",
+          "price_list_rate": 28
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item Price",
+        "filters": {
+          "item_code": "RM-A02",
+          "price_list": "Standard Selling",
+          "price_list_rate": 25
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

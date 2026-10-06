@@ -1,0 +1,45 @@
+{
+  "task_id": "F20-C-I2",
+  "dev": false,
+  "family": "F20",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:工作站 \"WS-STERILIZE\" 的产能由 2 修订为 4。请创建(或更新),旧产能设置不应存在。",
+  "conditions": [
+    {
+      "doctype": "Workstation",
+      "kind": "create",
+      "fields": {
+        "workstation_name": "WS-STERILIZE",
+        "production_capacity": 4
+      },
+      "hint": "Production Capacity = 4",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-STERILIZE",
+          "production_capacity": 4
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-STERILIZE",
+          "production_capacity": 2
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

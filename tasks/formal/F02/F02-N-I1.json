@@ -1,0 +1,40 @@
+{
+  "task_id": "F02-N-I1",
+  "dev": false,
+  "family": "F02",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "在 ERPNext 中为成品 PREP-B 创建一张 43 件的生产工单(Work Order)。创建后请提交(Submit)。公司 Open Preparation Lab,在制品仓库 WIP-WH - OPL,成品仓库 FG-WH - OPL。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-B",
+        "qty": 43,
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
+        "fg_warehouse": "FG-WH - OPL"
+      },
+      "hint": "Work Order 表单:Production Item、Qty To Manufacture、仓库",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-B",
+          "qty": 43,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

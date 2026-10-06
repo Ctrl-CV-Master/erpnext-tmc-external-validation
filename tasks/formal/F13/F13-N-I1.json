@@ -1,0 +1,35 @@
+{
+  "task_id": "F13-N-I1",
+  "dev": false,
+  "family": "F13",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "为原料 RM-A02 创建一个新的批次(Batch),批次 ID 为 RM-A02-B9001,保存。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "create",
+      "fields": {
+        "batch_id": "RM-A02-B9001",
+        "item": "RM-A02"
+      },
+      "hint": "Batch 表单:Batch ID、Item",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A02-B9001",
+          "item": "RM-A02"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

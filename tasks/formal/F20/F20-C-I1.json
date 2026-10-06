@@ -1,0 +1,45 @@
+{
+  "task_id": "F20-C-I1",
+  "dev": false,
+  "family": "F20",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:工作站 \"WS-REPACK\" 的产能由 3 修订为 5。请创建(或更新),旧产能设置不应存在。",
+  "conditions": [
+    {
+      "doctype": "Workstation",
+      "kind": "create",
+      "fields": {
+        "workstation_name": "WS-REPACK",
+        "production_capacity": 5
+      },
+      "hint": "Production Capacity = 5",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-REPACK",
+          "production_capacity": 5
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-REPACK",
+          "production_capacity": 3
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

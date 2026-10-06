@@ -1,0 +1,46 @@
+{
+  "task_id": "F07-P-I1",
+  "dev": false,
+  "family": "F07",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "在 ERPNext 中创建新成品物料 PREP-G(物料名称 Liquid Preparation G,物料组 Preparations)。库存单位等其他必填项按系统默认/惯例补全,保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "PREP-G",
+        "item_name": "Liquid Preparation G",
+        "item_group": "Preparations"
+      },
+      "hint": "Stock UOM 用 Nos",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-G"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "fields": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "fields": {
+          "item_group": "Preparations",
+          "stock_uom": "Nos",
+          "item_name": "Liquid Preparation G"
+        }
+      }
+    ]
+  }
+}

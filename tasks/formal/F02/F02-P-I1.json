@@ -1,0 +1,40 @@
+{
+  "task_id": "F02-P-I1",
+  "dev": false,
+  "family": "F02",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "生产计划要求 PREP-B 的工单以 45 件的规模执行。请创建该工单并直接提交(Submit)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-B",
+        "qty": 45,
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
+        "fg_warehouse": "FG-WH - OPL"
+      },
+      "hint": "创建 Work Order(仓库字段按需补全)",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-B",
+          "qty": 45,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

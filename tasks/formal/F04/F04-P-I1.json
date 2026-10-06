@@ -1,0 +1,53 @@
+{
+  "task_id": "F04-P-I1",
+  "dev": false,
+  "family": "F04",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "计划变更:MFG-WO-2026-00013(PREP-C,当前数量 63)的产量修订为 72。请修改数量,保存并提交(Submit)。修订前的数量不应以已提交状态存在。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00013",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 63,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 72
+      },
+      "hint": "数量 63 -> 72,然后提交",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-C",
+          "qty": 72,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-C",
+          "qty": 63,
+          "docstatus": 1
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

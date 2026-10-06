@@ -1,0 +1,37 @@
+{
+  "task_id": "F12-P-I2",
+  "dev": false,
+  "family": "F12",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "把原料 RM-A13 的物料组(Item Group)调整为 Preparations,保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "match": {
+        "item_code": "RM-A13"
+      },
+      "fields": {
+        "item_group": "Preparations"
+      },
+      "hint": "先找到该物料(/app/item/RM-A13)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A13",
+          "item_group": "Preparations"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

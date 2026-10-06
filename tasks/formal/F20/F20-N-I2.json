@@ -1,0 +1,34 @@
+{
+  "task_id": "F20-N-I2",
+  "dev": false,
+  "family": "F20",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在 ERPNext 中创建一个新工作站(Workstation):WS-STERILIZE,产能 2,保存。",
+  "conditions": [
+    {
+      "doctype": "Workstation",
+      "kind": "create",
+      "fields": {
+        "workstation_name": "WS-STERILIZE",
+        "production_capacity": 2
+      },
+      "hint": "Workstation 表单:Workstation Name、Production Capacity",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-STERILIZE"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

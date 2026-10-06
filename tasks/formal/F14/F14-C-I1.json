@@ -1,0 +1,49 @@
+{
+  "task_id": "F14-C-I1",
+  "dev": false,
+  "family": "F14",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:批次 RM-A02-B0001 的描述由 \"Batch adjusted for pilot\" 修订为 \"Batch description revised for formal run\",请更新,旧描述不应存在。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "edit",
+      "route": "/app/batch/RM-A02-B0001",
+      "match": {
+        "batch_id": "RM-A02-B0001",
+        "description": "Batch adjusted for pilot"
+      },
+      "fields": {
+        "description": "Batch description revised for formal run"
+      },
+      "hint": "Description -> Batch description revised for formal run",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A02-B0001",
+          "description": "Batch description revised for formal run"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A02-B0001",
+          "description": "Batch adjusted for pilot"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

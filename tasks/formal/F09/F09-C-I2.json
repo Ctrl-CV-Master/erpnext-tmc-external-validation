@@ -1,0 +1,49 @@
+{
+  "task_id": "F09-C-I2",
+  "dev": false,
+  "family": "F09",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划两次修订:RM-A03 的名称先改为 \"Raw Material A03 (interim)\",最终定为 \"Raw Material A03 (updated)\"。请确保最终名称为 \"Raw Material A03 (updated)\"(中间名不应保留)。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/RM-A03",
+      "match": {
+        "item_code": "RM-A03",
+        "item_name": "Synthetic Raw Material A03"
+      },
+      "fields": {
+        "item_name": "Raw Material A03 (updated)"
+      },
+      "hint": "最终 Item Name = Raw Material A03 (updated)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A03",
+          "item_name": "Raw Material A03 (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A03",
+          "item_name": "Raw Material A03 (interim)"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

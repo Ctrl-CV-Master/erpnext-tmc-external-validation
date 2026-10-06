@@ -1,0 +1,43 @@
+{
+  "task_id": "F16-C-I1",
+  "dev": false,
+  "family": "F16",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:仓库 \"RET-WH\" 的名称应为 \"RETURN-WH\"。请创建(或改名)为 RETURN-WH,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Warehouse",
+      "kind": "create",
+      "fields": {
+        "warehouse_name": "RETURN-WH",
+        "company": "Open Preparation Lab"
+      },
+      "hint": "Warehouse Name = RETURN-WH",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "RETURN-WH"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "RET-WH"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "F20-P-I1",
+  "dev": false,
+  "family": "F20",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "请新建工作站:WS-REPACK,产能 3。",
+  "conditions": [
+    {
+      "doctype": "Workstation",
+      "kind": "create",
+      "fields": {
+        "workstation_name": "WS-REPACK",
+        "production_capacity": 3
+      },
+      "hint": "Workstation Name、Production Capacity",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-REPACK"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

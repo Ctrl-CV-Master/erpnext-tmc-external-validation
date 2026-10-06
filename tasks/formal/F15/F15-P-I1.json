@@ -1,0 +1,33 @@
+{
+  "task_id": "F15-P-I1",
+  "dev": false,
+  "family": "F15",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "请在 ERPNext 中新建计量单位:Box of 24。",
+  "conditions": [
+    {
+      "doctype": "UOM",
+      "kind": "create",
+      "fields": {
+        "uom_name": "Box of 24"
+      },
+      "hint": "UOM Name",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "u",
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Box of 24"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

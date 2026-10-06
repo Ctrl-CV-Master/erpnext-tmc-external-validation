@@ -1,0 +1,40 @@
+{
+  "task_id": "F05-N-I1",
+  "dev": false,
+  "family": "F05",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "工单 MFG-WO-2026-00023(PREP-A,数量 71)已被误提交。请将其取消(Cancel)以作废。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00023",
+      "match": {
+        "production_item": "PREP-A",
+        "qty": 71,
+        "docstatus": 1
+      },
+      "fields": {},
+      "hint": "打开 MFG-WO-2026-00023 并 Cancel",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 2
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 71,
+          "docstatus": 2
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

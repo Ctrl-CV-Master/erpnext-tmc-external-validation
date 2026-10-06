@@ -1,0 +1,47 @@
+{
+  "task_id": "F07-N-I2",
+  "dev": false,
+  "family": "F07",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在 ERPNext 中创建新成品物料 PREP-H,物料名称 Liquid Preparation H,物料组 Preparations,库存单位 Nos,保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "PREP-H",
+        "item_name": "Liquid Preparation H",
+        "item_group": "Preparations",
+        "stock_uom": "Nos"
+      },
+      "hint": "Item 表单:Item Code、Item Name、Item Group、Stock UOM",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-H"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "fields": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "fields": {
+          "item_group": "Preparations",
+          "stock_uom": "Nos",
+          "item_name": "Liquid Preparation H"
+        }
+      }
+    ]
+  }
+}

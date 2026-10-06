@@ -1,0 +1,47 @@
+{
+  "task_id": "F08-C-I2",
+  "dev": false,
+  "family": "F08",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:物料 RM-A20 的名称由 \"Synthetic Raw Material A20\" 修订为 \"Raw Material A20 (rev A)\"。请创建(或改名),旧名称不应存在。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "RM-A20",
+        "item_name": "Raw Material A20 (rev A)",
+        "item_group": "Raw Materials",
+        "stock_uom": "Nos"
+      },
+      "hint": "Item Name = Raw Material A20 (rev A)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A20",
+          "item_name": "Raw Material A20 (rev A)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A20",
+          "item_name": "Synthetic Raw Material A20"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

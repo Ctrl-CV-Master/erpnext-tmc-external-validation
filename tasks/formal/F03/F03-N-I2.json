@@ -1,0 +1,40 @@
+{
+  "task_id": "F03-N-I2",
+  "dev": false,
+  "family": "F03",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "系统中有一张 PREP-B、数量 40 的生产工单草稿(编号 MFG-WO-2026-00006)。请打开它并提交(Submit)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00006",
+      "match": {
+        "production_item": "PREP-B",
+        "qty": 40,
+        "docstatus": 0
+      },
+      "fields": {},
+      "hint": "打开 MFG-WO-2026-00006 并提交",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-B",
+          "qty": 40,
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

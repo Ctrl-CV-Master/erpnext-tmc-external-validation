@@ -1,0 +1,43 @@
+{
+  "task_id": "F18-C-I1",
+  "dev": false,
+  "family": "F18",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:供应商 \"Gamma Lab Vendor\" 的名称应为 \"Gamma Lab Vendor (updated)\"。请创建(或改名)为新名称,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "create",
+      "fields": {
+        "supplier_name": "Gamma Lab Vendor (updated)",
+        "supplier_group": "All Supplier Groups"
+      },
+      "hint": "Supplier Name = Gamma Lab Vendor (updated)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Gamma Lab Vendor (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Gamma Lab Vendor"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

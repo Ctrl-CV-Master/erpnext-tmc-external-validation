@@ -1,0 +1,34 @@
+{
+  "task_id": "F18-N-I2",
+  "dev": false,
+  "family": "F18",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在 ERPNext 中创建一个新供应商(Supplier):Delta Lab Vendor,供应商组 All Supplier Groups,保存。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "create",
+      "fields": {
+        "supplier_name": "Delta Lab Vendor",
+        "supplier_group": "All Supplier Groups"
+      },
+      "hint": "Supplier 表单:Supplier Name、Supplier Group",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Delta Lab Vendor"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

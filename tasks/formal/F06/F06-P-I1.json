@@ -1,0 +1,42 @@
+{
+  "task_id": "F06-P-I1",
+  "dev": false,
+  "family": "F06",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "MFG-WO-2026-00019 的排产需要后移:请把计划开始时间(Planned Start Date)改为 2026-10-20 08:00:00 并保存。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00019",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 83,
+        "docstatus": 0
+      },
+      "fields": {
+        "planned_start_date": "2026-10-20 08:00:00"
+      },
+      "hint": "Planned Start Date 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-C",
+          "qty": 83,
+          "planned_start_date": "2026-10-20 08:00:00",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

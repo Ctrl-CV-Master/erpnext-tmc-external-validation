@@ -1,0 +1,48 @@
+{
+  "task_id": "F21-P-I1",
+  "dev": false,
+  "family": "F21",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "请创建一张库存盘点:盘点 RM-A07 在 RM-WH - OPL 的数量为 100,保存并提交。",
+  "conditions": [
+    {
+      "doctype": "Stock Reconciliation",
+      "kind": "create",
+      "fields": {
+        "company": "Open Preparation Lab",
+        "item_code": "RM-A07",
+        "warehouse": "RM-WH - OPL",
+        "qty": 100
+      },
+      "hint": "items 表:Add Row,填 Item、Warehouse、Qty",
+      "invalidates": [],
+      "id": "C0",
+      "expect_docstatus": 1
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "sr",
+        "doctype": "Stock Reconciliation",
+        "filters": {
+          "docstatus": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "child_rows": [
+      {
+        "ref": "sr",
+        "doctype": "Stock Reconciliation",
+        "child_field": "items",
+        "match": {
+          "item_code": "RM-A07",
+          "qty": 100
+        }
+      }
+    ]
+  }
+}

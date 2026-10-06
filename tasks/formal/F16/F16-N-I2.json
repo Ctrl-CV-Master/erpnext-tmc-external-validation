@@ -1,0 +1,34 @@
+{
+  "task_id": "F16-N-I2",
+  "dev": false,
+  "family": "F16",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "在公司 Open Preparation Lab 下创建一个新仓库(Warehouse):SAMPLE-WH,保存。",
+  "conditions": [
+    {
+      "doctype": "Warehouse",
+      "kind": "create",
+      "fields": {
+        "warehouse_name": "SAMPLE-WH",
+        "company": "Open Preparation Lab"
+      },
+      "hint": "Warehouse 表单:Warehouse Name、Company",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "SAMPLE-WH"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

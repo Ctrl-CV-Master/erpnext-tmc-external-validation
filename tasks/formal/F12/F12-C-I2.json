@@ -1,0 +1,48 @@
+{
+  "task_id": "F12-C-I2",
+  "dev": false,
+  "family": "F12",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:RM-A13 的物料组应调整为 Preparations,而 RM-A14 必须保留在 Raw Materials。请只移动 RM-A13 并保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/RM-A13",
+      "match": {
+        "item_code": "RM-A13"
+      },
+      "fields": {
+        "item_group": "Preparations"
+      },
+      "hint": "仅 RM-A13 移动到 Preparations",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A13",
+          "item_group": "Preparations"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A14",
+          "item_group": "Preparations"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

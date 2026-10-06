@@ -1,0 +1,47 @@
+{
+  "task_id": "F07-C-I2",
+  "dev": false,
+  "family": "F07",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:物料 PREP-H 的名称由 \"Liquid Preparation H\" 修订为 \"Liquid Preparation H (rev A)\"。请创建(或改名),旧名称不应存在。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "PREP-H",
+        "item_name": "Liquid Preparation H (rev A)",
+        "item_group": "Preparations",
+        "stock_uom": "Nos"
+      },
+      "hint": "Item Name = Liquid Preparation H (rev A)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-H",
+          "item_name": "Liquid Preparation H (rev A)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "PREP-H",
+          "item_name": "Liquid Preparation H"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

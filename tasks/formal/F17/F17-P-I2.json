@@ -1,0 +1,35 @@
+{
+  "task_id": "F17-P-I2",
+  "dev": false,
+  "family": "F17",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "请新建客户:Delta Lab Client(类型 Company,客户组 All Customer Groups)。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "create",
+      "fields": {
+        "customer_name": "Delta Lab Client",
+        "customer_type": "Company",
+        "customer_group": "All Customer Groups"
+      },
+      "hint": "Customer Name、Customer Type、Customer Group",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Delta Lab Client"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

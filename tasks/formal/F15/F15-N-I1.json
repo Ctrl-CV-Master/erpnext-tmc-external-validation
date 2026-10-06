@@ -1,0 +1,33 @@
+{
+  "task_id": "F15-N-I1",
+  "dev": false,
+  "family": "F15",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "在 ERPNext 中创建一个新的计量单位(UOM):Box of 24,保存。",
+  "conditions": [
+    {
+      "doctype": "UOM",
+      "kind": "create",
+      "fields": {
+        "uom_name": "Box of 24"
+      },
+      "hint": "UOM 表单:UOM Name",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "u",
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Box of 24"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

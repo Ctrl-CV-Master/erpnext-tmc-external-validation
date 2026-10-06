@@ -1,0 +1,48 @@
+{
+  "task_id": "F24-C-I2",
+  "dev": false,
+  "family": "F24",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:最初以为要冻结的是 Beta Lab Vendor,确认后需冻结的是 Alpha Lab Vendor。请只冻结 Alpha Lab Vendor,Beta Lab Vendor 必须保持未冻结。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "edit",
+      "route": "/app/supplier/Alpha-Lab-Vendor",
+      "match": {
+        "supplier_name": "Alpha Lab Vendor"
+      },
+      "fields": {
+        "is_frozen": 1
+      },
+      "hint": "冻结 Alpha Lab Vendor;Beta Lab Vendor 保持未冻结",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Alpha Lab Vendor",
+          "is_frozen": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Beta Lab Vendor",
+          "is_frozen": 1
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

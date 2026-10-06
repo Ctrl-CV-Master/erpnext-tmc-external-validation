@@ -1,0 +1,38 @@
+{
+  "task_id": "F09-N-I2",
+  "dev": false,
+  "family": "F09",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "把原料 RM-A03 的物料名称(Item Name)改为 \"Raw Material A03 (updated)\",保存。(该物料可直接访问 /app/item/RM-A03)",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/RM-A03",
+      "match": {
+        "item_code": "RM-A03"
+      },
+      "fields": {
+        "item_name": "Raw Material A03 (updated)"
+      },
+      "hint": "Item Name 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A03",
+          "item_name": "Raw Material A03 (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

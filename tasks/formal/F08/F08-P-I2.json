@@ -1,0 +1,46 @@
+{
+  "task_id": "F08-P-I2",
+  "dev": false,
+  "family": "F08",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "在 ERPNext 中创建新原料物料 RM-A20(物料名称 Synthetic Raw Material A20,物料组 Raw Materials)。库存单位等其他必填项按系统默认/惯例补全,保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "create",
+      "fields": {
+        "item_code": "RM-A20",
+        "item_name": "Synthetic Raw Material A20",
+        "item_group": "Raw Materials"
+      },
+      "hint": "Stock UOM 用 Nos",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A20"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "fields": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "fields": {
+          "item_group": "Raw Materials",
+          "stock_uom": "Nos",
+          "item_name": "Synthetic Raw Material A20"
+        }
+      }
+    ]
+  }
+}

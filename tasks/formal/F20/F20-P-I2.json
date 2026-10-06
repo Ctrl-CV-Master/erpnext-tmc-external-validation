@@ -1,0 +1,34 @@
+{
+  "task_id": "F20-P-I2",
+  "dev": false,
+  "family": "F20",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "请新建工作站:WS-STERILIZE,产能 2。",
+  "conditions": [
+    {
+      "doctype": "Workstation",
+      "kind": "create",
+      "fields": {
+        "workstation_name": "WS-STERILIZE",
+        "production_capacity": 2
+      },
+      "hint": "Workstation Name、Production Capacity",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Workstation",
+        "filters": {
+          "workstation_name": "WS-STERILIZE"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

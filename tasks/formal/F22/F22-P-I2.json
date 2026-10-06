@@ -1,0 +1,37 @@
+{
+  "task_id": "F22-P-I2",
+  "dev": false,
+  "family": "F22",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "为原料 RM-A10 创建质量检验草稿:类型 Incoming,模板 QI-PACK,保存。",
+  "conditions": [
+    {
+      "doctype": "Quality Inspection",
+      "kind": "create",
+      "fields": {
+        "inspection_type": "Incoming",
+        "item_code": "RM-A10",
+        "quality_inspection_template": "QI-PACK"
+      },
+      "hint": "Inspection Type、Item Code、Template",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "qi",
+        "doctype": "Quality Inspection",
+        "filters": {
+          "item_code": "RM-A10",
+          "inspection_type": "Incoming",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

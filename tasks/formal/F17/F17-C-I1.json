@@ -1,0 +1,44 @@
+{
+  "task_id": "F17-C-I1",
+  "dev": false,
+  "family": "F17",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:客户 \"Gamma Lab Client\" 的名称应为 \"Gamma Lab Client (updated)\"。请创建(或改名)为新名称,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "create",
+      "fields": {
+        "customer_name": "Gamma Lab Client (updated)",
+        "customer_type": "Company",
+        "customer_group": "All Customer Groups"
+      },
+      "hint": "Customer Name = Gamma Lab Client (updated)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Gamma Lab Client (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Gamma Lab Client"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

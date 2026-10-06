@@ -1,0 +1,42 @@
+{
+  "task_id": "F15-C-I2",
+  "dev": false,
+  "family": "F15",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:计量单位 \"Pallet of 96\" 应为 \"Pallet of 48\"。若已按旧名创建请改名;否则直接创建新名的计量单位。旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "UOM",
+      "kind": "create",
+      "fields": {
+        "uom_name": "Pallet of 48"
+      },
+      "hint": "UOM Name = Pallet of 48",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "u",
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Pallet of 48"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Pallet of 96"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "F16-P-I1",
+  "dev": false,
+  "family": "F16",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "请在公司 Open Preparation Lab 下新建仓库:RET-WH。",
+  "conditions": [
+    {
+      "doctype": "Warehouse",
+      "kind": "create",
+      "fields": {
+        "warehouse_name": "RET-WH",
+        "company": "Open Preparation Lab"
+      },
+      "hint": "Warehouse Name、Company",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "w",
+        "doctype": "Warehouse",
+        "filters": {
+          "warehouse_name": "RET-WH"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

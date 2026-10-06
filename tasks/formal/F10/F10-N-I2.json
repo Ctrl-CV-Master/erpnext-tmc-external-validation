@@ -1,0 +1,38 @@
+{
+  "task_id": "F10-N-I2",
+  "dev": false,
+  "family": "F10",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "原料 RM-A09 已停产:请停用(Disabled)该物料并保存。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/RM-A09",
+      "match": {
+        "item_code": "RM-A09"
+      },
+      "fields": {
+        "disabled": 1
+      },
+      "hint": "Disabled 复选框",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A09",
+          "disabled": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

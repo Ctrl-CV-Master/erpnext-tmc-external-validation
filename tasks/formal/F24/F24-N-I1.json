@@ -1,0 +1,38 @@
+{
+  "task_id": "F24-N-I1",
+  "dev": false,
+  "family": "F24",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "供应商 Alpha Lab Vendor 暂停合作:请将其冻结(Is Frozen)并保存。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "edit",
+      "route": "/app/supplier/Alpha-Lab-Vendor",
+      "match": {
+        "supplier_name": "Alpha Lab Vendor"
+      },
+      "fields": {
+        "is_frozen": 1
+      },
+      "hint": "Is Frozen 复选框",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Alpha Lab Vendor",
+          "is_frozen": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

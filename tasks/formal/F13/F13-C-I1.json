@@ -1,0 +1,44 @@
+{
+  "task_id": "F13-C-I1",
+  "dev": false,
+  "family": "F13",
+  "condition": "C",
+  "instance": 1,
+  "instruction": "计划变更:为 RM-A04 创建的批次 ID 由 RM-A04-B9001 修订为 RM-A04-B9002。请按新 ID 创建批次,原 ID 不应存在。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "create",
+      "fields": {
+        "batch_id": "RM-A04-B9002",
+        "item": "RM-A04"
+      },
+      "hint": "Batch ID = RM-A04-B9002",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A04-B9002",
+          "item": "RM-A04"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A04-B9001"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

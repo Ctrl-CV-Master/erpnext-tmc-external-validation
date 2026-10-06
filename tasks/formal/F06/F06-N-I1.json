@@ -1,0 +1,42 @@
+{
+  "task_id": "F06-N-I1",
+  "dev": false,
+  "family": "F06",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "请打开工单 MFG-WO-2026-00017(PREP-A),把计划开始时间(Planned Start Date)改为 2026-10-20 08:00:00,保存。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00017",
+      "match": {
+        "production_item": "PREP-A",
+        "qty": 81,
+        "docstatus": 0
+      },
+      "fields": {
+        "planned_start_date": "2026-10-20 08:00:00"
+      },
+      "hint": "Planned Start Date 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 81,
+          "planned_start_date": "2026-10-20 08:00:00",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

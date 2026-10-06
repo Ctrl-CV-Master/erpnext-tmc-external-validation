@@ -1,0 +1,38 @@
+{
+  "task_id": "F24-N-I2",
+  "dev": false,
+  "family": "F24",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "供应商 Beta Lab Vendor 暂停合作:请将其冻结(Is Frozen)并保存。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "edit",
+      "route": "/app/supplier/Beta-Lab-Vendor",
+      "match": {
+        "supplier_name": "Beta Lab Vendor"
+      },
+      "fields": {
+        "is_frozen": 1
+      },
+      "hint": "Is Frozen 复选框",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Beta Lab Vendor",
+          "is_frozen": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

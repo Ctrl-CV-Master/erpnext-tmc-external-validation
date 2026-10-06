@@ -1,0 +1,44 @@
+{
+  "task_id": "F17-C-I2",
+  "dev": false,
+  "family": "F17",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:客户 \"Delta Lab Client\" 的名称应为 \"Delta Lab Client (updated)\"。请创建(或改名)为新名称,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "create",
+      "fields": {
+        "customer_name": "Delta Lab Client (updated)",
+        "customer_type": "Company",
+        "customer_group": "All Customer Groups"
+      },
+      "hint": "Customer Name = Delta Lab Client (updated)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Delta Lab Client (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Delta Lab Client"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

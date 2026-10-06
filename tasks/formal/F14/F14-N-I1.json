@@ -1,0 +1,38 @@
+{
+  "task_id": "F14-N-I1",
+  "dev": false,
+  "family": "F14",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "把批次 RM-A02-B0001 的描述(Description)改为 \"Batch adjusted for pilot\",保存。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "edit",
+      "route": "/app/batch/RM-A02-B0001",
+      "match": {
+        "batch_id": "RM-A02-B0001"
+      },
+      "fields": {
+        "description": "Batch adjusted for pilot"
+      },
+      "hint": "Description 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "RM-A02-B0001",
+          "description": "Batch adjusted for pilot"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

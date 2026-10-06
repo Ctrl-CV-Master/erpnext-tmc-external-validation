@@ -1,0 +1,48 @@
+{
+  "task_id": "F10-C-I2",
+  "dev": false,
+  "family": "F10",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:应停用的原料是 RM-A14 而不是 RM-A15。请停用 RM-A14(Disabled),并确保 RM-A15 保持启用。",
+  "conditions": [
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/RM-A14",
+      "match": {
+        "item_code": "RM-A14"
+      },
+      "fields": {
+        "disabled": 1
+      },
+      "hint": "停用 RM-A14;RM-A15 不动",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "it",
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A14",
+          "disabled": 1
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Item",
+        "filters": {
+          "item_code": "RM-A15",
+          "disabled": 1
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

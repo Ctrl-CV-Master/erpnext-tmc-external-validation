@@ -1,0 +1,46 @@
+{
+  "task_id": "F23-N-I1",
+  "dev": false,
+  "family": "F23",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "把客户 Alpha Lab Client 的客户名称(Customer Name)改为 \"Alpha Lab Client (renamed)\",保存。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "edit",
+      "route": "/app/customer/Alpha-Lab-Client",
+      "match": {
+        "customer_name": "Alpha Lab Client"
+      },
+      "fields": {
+        "customer_name": "Alpha Lab Client (renamed)"
+      },
+      "hint": "Customer Name 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Alpha Lab Client (renamed)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Alpha Lab Client"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "F22-N-I1",
+  "dev": false,
+  "family": "F22",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "为原料 RM-A07 创建一张质量检验(Quality Inspection)草稿:检验类型 Incoming,检验模板 QI-LIQUID,保存(不提交)。",
+  "conditions": [
+    {
+      "doctype": "Quality Inspection",
+      "kind": "create",
+      "fields": {
+        "inspection_type": "Incoming",
+        "item_code": "RM-A07",
+        "quality_inspection_template": "QI-LIQUID"
+      },
+      "hint": "Quality Inspection 表单:Inspection Type、Item Code、Template",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "qi",
+        "doctype": "Quality Inspection",
+        "filters": {
+          "item_code": "RM-A07",
+          "inspection_type": "Incoming",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

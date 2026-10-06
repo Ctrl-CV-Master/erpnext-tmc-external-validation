@@ -1,0 +1,43 @@
+{
+  "task_id": "F18-C-I2",
+  "dev": false,
+  "family": "F18",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:供应商 \"Delta Lab Vendor\" 的名称应为 \"Delta Lab Vendor (updated)\"。请创建(或改名)为新名称,旧名不应存在。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "create",
+      "fields": {
+        "supplier_name": "Delta Lab Vendor (updated)",
+        "supplier_group": "All Supplier Groups"
+      },
+      "hint": "Supplier Name = Delta Lab Vendor (updated)",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Delta Lab Vendor (updated)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Delta Lab Vendor"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

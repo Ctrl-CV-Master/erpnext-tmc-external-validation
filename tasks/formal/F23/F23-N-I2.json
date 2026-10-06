@@ -1,0 +1,46 @@
+{
+  "task_id": "F23-N-I2",
+  "dev": false,
+  "family": "F23",
+  "condition": "N",
+  "instance": 2,
+  "instruction": "把客户 Beta Lab Client 的客户名称(Customer Name)改为 \"Beta Lab Client (renamed)\",保存。",
+  "conditions": [
+    {
+      "doctype": "Customer",
+      "kind": "edit",
+      "route": "/app/customer/Beta-Lab-Client",
+      "match": {
+        "customer_name": "Beta Lab Client"
+      },
+      "fields": {
+        "customer_name": "Beta Lab Client (renamed)"
+      },
+      "hint": "Customer Name 字段",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "c",
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Beta Lab Client (renamed)"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Customer",
+        "filters": {
+          "customer_name": "Beta Lab Client"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}

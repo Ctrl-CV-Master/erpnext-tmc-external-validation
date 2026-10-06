@@ -1,0 +1,34 @@
+{
+  "task_id": "F18-P-I1",
+  "dev": false,
+  "family": "F18",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "请新建供应商:Gamma Lab Vendor(供应商组 All Supplier Groups)。",
+  "conditions": [
+    {
+      "doctype": "Supplier",
+      "kind": "create",
+      "fields": {
+        "supplier_name": "Gamma Lab Vendor",
+        "supplier_group": "All Supplier Groups"
+      },
+      "hint": "Supplier Name、Supplier Group",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "s",
+        "doctype": "Supplier",
+        "filters": {
+          "supplier_name": "Gamma Lab Vendor"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "F15-P-I2",
+  "dev": false,
+  "family": "F15",
+  "condition": "P",
+  "instance": 2,
+  "instruction": "请在 ERPNext 中新建计量单位:Pallet of 96。",
+  "conditions": [
+    {
+      "doctype": "UOM",
+      "kind": "create",
+      "fields": {
+        "uom_name": "Pallet of 96"
+      },
+      "hint": "UOM Name",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "u",
+        "doctype": "UOM",
+        "filters": {
+          "uom_name": "Pallet of 96"
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "F13-P-I1",
+  "dev": false,
+  "family": "F13",
+  "condition": "P",
+  "instance": 1,
+  "instruction": "为原料 RM-A04 再创建一个新的批次(Batch),保存。完成后该物料应至少有两个批次。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "create",
+      "fields": {
+        "item": "RM-A04"
+      },
+      "hint": "Batch ID 可自行命名或留空由系统生成",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "item": "RM-A04"
+        },
+        "count_gte": 2,
+        "count_le": 1000000000
+      }
+    ]
+  }
+}

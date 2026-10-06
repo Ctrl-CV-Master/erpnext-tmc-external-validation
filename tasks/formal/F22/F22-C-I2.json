@@ -1,0 +1,47 @@
+{
+  "task_id": "F22-C-I2",
+  "dev": false,
+  "family": "F22",
+  "condition": "C",
+  "instance": 2,
+  "instruction": "计划变更:RM-A10 的检验草稿类型应为 Outgoing(不是 Incoming)。请创建(或修改)为 Outgoing 并保持草稿状态。",
+  "conditions": [
+    {
+      "doctype": "Quality Inspection",
+      "kind": "create",
+      "fields": {
+        "inspection_type": "Outgoing",
+        "item_code": "RM-A10",
+        "quality_inspection_template": "QI-PACK"
+      },
+      "hint": "Inspection Type = Outgoing",
+      "invalidates": [],
+      "id": "C0"
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "qi",
+        "doctype": "Quality Inspection",
+        "filters": {
+          "item_code": "RM-A10",
+          "inspection_type": "Outgoing",
+          "docstatus": 0
+        },
+        "count_gte": 1,
+        "count_le": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Quality Inspection",
+        "filters": {
+          "item_code": "RM-A10",
+          "inspection_type": "Incoming"
+        },
+        "count_eq": 0
+      }
+    ]
+  }
+}
