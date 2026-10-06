@@ -228,7 +228,15 @@ class ERPNextEnv:
         kind = action.get("type")
         try:
             if kind == "navigate":
-                url = self._fix_url(action["url"])
+                # GLM planners name the target inconsistently; accept the
+                # common aliases
+                url = (action.get("url") or action.get("to") or action.get("href")
+                       or action.get("target") or action.get("value"))
+                if not url:
+                    return ActionResult(
+                        False, "navigate failed: no url (keys="
+                        + str(sorted(k for k in action.keys() if k != "type")) + ")")
+                url = self._fix_url(str(url))
                 self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
                 self._wait_settled()
                 return ActionResult(True, "navigated to " + self.page.url)
@@ -258,7 +266,9 @@ class ERPNextEnv:
                 if action.get("selector"):
                     self.page.locator(action["selector"]).first.click(timeout=15000)
                 else:
-                    text = action.get("text")
+                    # accept the key names GLM planners actually emit
+                    text = (action.get("text") or action.get("target")
+                            or action.get("label") or action.get("value"))
                     clicked = False
                     last = None
                     # cascade: buttons first, then links, then list rows/cells
@@ -347,12 +357,16 @@ class ERPNextEnv:
         return f"expanded={expanded} reveal={status}"
 
     def _field_model_value(self, fieldname):
-        """Committed model value from cur_frm, or {'has_frm': False} off-form."""
+        """Committed model value from cur_frm (form) or cur_dialog (quick
+        entry), or {'has_frm': False} when neither is present."""
         try:
             return self.page.evaluate(
                 """(fn) => {
-                if (!(window.cur_frm && cur_frm.doc)) return {has_frm: false};
-                return {has_frm: true, value: cur_frm.doc[fn]};
+                if (window.cur_frm && cur_frm.doc) return {has_frm: true, value: cur_frm.doc[fn]};
+                if (window.cur_dialog && cur_dialog.get_value) {
+                  try { return {has_frm: true, value: cur_dialog.get_value(fn)}; } catch(e) {}
+                }
+                return {has_frm: false};
               }""", fieldname)
         except Exception:
             return {"has_frm": False}
@@ -434,10 +448,19 @@ class ERPNextEnv:
                 return
 
         # last resort: frappe model-level set (used when the widget renders in
-        # an iframe, e.g. TinyMCE text editors)
-        self.page.evaluate(
-            """(a) => { if (window.cur_frm && cur_frm.doc) cur_frm.set_value(a.f, a.v); }""",
-            {"f": fieldname, "v": str(value)})
+        # an iframe, e.g. TinyMCE text editors, or when a quick-entry dialog's
+        # input text did not bind). Applies to cur_frm, else cur_dialog.
+        applied = self.page.evaluate(
+            """(a) => {
+            if (window.cur_frm && cur_frm.doc) { cur_frm.set_value(a.f, a.v); return true; }
+            if (window.cur_dialog && cur_dialog.set_value) {
+              try { cur_dialog.set_value(a.f, a.v); return true; } catch(e) {}
+            }
+            return false;
+          }""", {"f": fieldname, "v": str(value)})
+        if not applied:
+            raise RuntimeError(
+                f"no form open for '{fieldname}' (page is not an editable document form)")
         self.page.wait_for_timeout(400)
         self._last_fill_note = "via-set_value"
 

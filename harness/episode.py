@@ -185,7 +185,7 @@ class Episode:
         self.c["llm_calls"] += 1
         cond = self.conds[i]
         obs = self.env.observe()
-        self.last_obs_meta = {
+        self.env.last_obs_meta = {
             "rows": len(obs.get("list_rows") or []),
             "links": len(obs.get("row_links") or []),
             "fields": len(obs.get("fields") or []),
@@ -194,17 +194,23 @@ class Episode:
         }
         sys_prompt = (
             "You operate ERPNext's web UI through primitives. Return ONLY JSON: "
-            "{\"actions\": [{\"type\":\"navigate|fill|select|click|save|key|set_checkbox\",\"...\":...}]}. "
-            "Fieldnames come from the form's data-fieldname attributes shown in the "
-            "observation. Fill ALL required fields for the condition, then include one "
-            "save action. Use exact values given; do not invent data. "
-            "For Link fields use the select primitive with the exact target value. "
-            "For checkboxes use set_checkbox with fieldname and a boolean value. "
-            "To open an existing record from a list: the observation's row_links "
-            "give each row's record URL - navigate to that href, or click the row "
-            "by its visible text. To submit a document: click Submit, then click "
-            "Yes in the confirmation dialog. Plan each attempt as a COMPLETE "
-            "sequence (locate -> open -> edit -> save [+ submit]).")
+            "{\"actions\": [...]} where each action is EXACTLY one of:\n"
+            '{"type":"navigate","url":"/app/<doctype>/<name>"} (record/list URL; '
+            "use row_links hrefs from the observation for existing records)\n"
+            '{"type":"fill","fieldname":"<data-fieldname>","value":"<text|number>"}\n'
+            '{"type":"select","fieldname":"<data-fieldname>","value":"<exact label>"}\n'
+            '{"type":"click","text":"<visible button/link/row text>"}\n'
+            '{"type":"set_checkbox","fieldname":"<data-fieldname>","value":true}\n'
+            '{"type":"save"}\n'
+            '{"type":"key","key":"Enter"}\n'
+            "Fill ALL required fields for the condition, then include one save "
+            "action. Use exact values given; do not invent data. For Link fields "
+            "use the select primitive with the exact target value. To open an "
+            "existing record: use its row_links href from the observation. To "
+            "submit a document: click Submit, then click Yes in the confirmation "
+            "dialog. Plan each attempt as a COMPLETE sequence (locate -> open -> "
+            "edit -> save [+ submit]). Do not repeat a navigation you already "
+            "made; if a list shows the target row, open it immediately.")
         user = json.dumps({
             "condition": {"doctype": cond["doctype"], "fields": cond["fields"],
                           "hint": cond.get("hint")},
