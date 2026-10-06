@@ -326,7 +326,8 @@ def build():
             "doctype": "BOM", "item": code, "company": COMPANY, "quantity": 1, "uom": UOM,
             "with_operations": 1, "routing": route, "is_active": 1, "is_default": 1,
             "rm_cost_as_per": "Valuation Rate",
-            itf.fieldname: [{"item_code": rm, "qty": q, "uom": UOM, "rate": RM_RATE[rm]}
+            itf.fieldname: [{"item_code": rm, "qty": q, "uom": UOM, "rate": RM_RATE[rm],
+                             "from_warehouse": f"RM-WH - {ABBR}"}
                             for rm, q in rms.items()],
             opf.fieldname: op_rows,
         })
