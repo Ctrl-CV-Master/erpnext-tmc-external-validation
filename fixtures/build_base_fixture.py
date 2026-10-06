@@ -177,12 +177,15 @@ def build():
             "stock_uom": UOM, "is_stock_item": 1, "is_sales_item": 1, "is_purchase_item": 0,
             "has_batch_no": 1, "create_new_batch": 1, "batch_number_series": f"{code}-B.####",
             "standard_rate": FG_RATE[code], "description": f"Synthetic finished preparation {code}",
+            # WO required_items.source_warehouse resolves from the item default
+            "item_defaults": [{"company": COMPANY, "default_warehouse": f"FG-WH - {ABBR}"}],
         })
     for code in RAW_ITEMS:
         vals = {
             "item_code": code, "item_name": f"Synthetic Raw Material {code[-3:]}", "item_group": "Raw Materials",
             "stock_uom": UOM, "is_stock_item": 1, "is_sales_item": 0, "is_purchase_item": 1,
             "standard_rate": RM_RATE[code], "description": f"Synthetic raw material {code}",
+            "item_defaults": [{"company": COMPANY, "default_warehouse": f"RM-WH - {ABBR}"}],
         }
         if code in BATCHED_RM:
             vals.update({"has_batch_no": 1, "create_new_batch": 1, "batch_number_series": f"{code}-B.####"})
