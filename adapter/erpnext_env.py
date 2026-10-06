@@ -209,7 +209,16 @@ class ERPNextEnv:
                         buttons: buttons.slice(0, 12), list_rows, row_links};
             }"""
         )
-        return {"url": url, "toasts": self._toasts(), **data}
+        out = {"url": url, "toasts": self._toasts(), **data}
+        if not (data.get("fields") or data.get("list_rows") or data.get("row_links")):
+            # empty page dump: capture what the page actually says (diagnostics
+            # + lets the planner see loading/error states)
+            try:
+                out["page_text"] = self.page.evaluate(
+                    "() => document.body.innerText.replace(/\\s+/g, ' ').slice(0, 300)")
+            except Exception:
+                pass
+        return out
 
     # ---------------- actions ----------------
     def act(self, action):
