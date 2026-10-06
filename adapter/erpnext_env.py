@@ -218,6 +218,39 @@ class ERPNextEnv:
                     "() => document.body.innerText.replace(/\\s+/g, ' ').slice(0, 300)")
             except Exception:
                 pass
+            # one retry: some lists render just past the wait window
+            if not out.get("page_text") or "loading" in (out.get("page_text") or "").lower():
+                self.page.wait_for_timeout(3000)
+                data = self.page.evaluate(
+                    """() => {
+                        const fields = [];
+                        document.querySelectorAll('[data-fieldname]').forEach(el => {
+                            if (!el.offsetParent) return;
+                            const fn = el.getAttribute('data-fieldname');
+                            if (!fn || ['__newname'].includes(fn)) return;
+                            const label = el.querySelector('label.control-label');
+                            const input = el.querySelector('input, textarea, select');
+                            let value = null, kind = null;
+                            if (input) { kind = input.tagName.toLowerCase(); value = input.value; }
+                            else {
+                                const txt = el.querySelector('.control-value');
+                                if (txt) { kind = 'static'; value = txt.innerText.trim(); }
+                            }
+                            if (label || input) fields.push({fieldname: fn, value: value});
+                        });
+                        const list_rows = [];
+                        document.querySelectorAll('.list-row').forEach(r => {
+                            if (list_rows.length < 20) list_rows.push(r.innerText.replace(/\\s+/g, ' ').trim().slice(0, 160));
+                        });
+                        const row_links = [];
+                        document.querySelectorAll('.list-row a[href*="/app/"]').forEach(a => {
+                            if (row_links.length < 20) row_links.push({
+                                text: (a.innerText || '').trim().slice(0, 80),
+                                href: a.getAttribute('href')});
+                        });
+                        return {fields, list_rows, row_links};
+                    }""")
+                out.update({k: v for k, v in data.items()})
         return out
 
     # ---------------- actions ----------------
@@ -228,9 +261,11 @@ class ERPNextEnv:
         result = self._act_impl(action)
         meta = getattr(self, "last_obs_meta", None)
         if meta:
+            pt = (meta.get("page_text") or "")[:100]
             result.message = (result.message or "") + (
                 f" [obs {meta.get('rows', 0)}r/{meta.get('links', 0)}l"
-                f" {meta.get('fields', 0)}f {meta.get('bytes', 0)}b]")
+                f" {meta.get('fields', 0)}f {meta.get('bytes', 0)}b"
+                + (f" | {pt}" if pt and meta.get('rows', 0) == 0 else "") + "]")
         return result
 
     def _act_impl(self, action):
