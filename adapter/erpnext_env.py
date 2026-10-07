@@ -546,26 +546,41 @@ class ERPNextEnv:
             return True
 
     def _select_field(self, fieldname, value):
-        box = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
-                                f'[data-fieldname="{fieldname}"] select:visible').first
-        try:
-            box.wait_for(state="visible", timeout=4000)
-        except Exception:
-            self._reveal_field(fieldname)
-            box.wait_for(state="visible", timeout=12000)
-        tag = box.evaluate("el => el.tagName.toLowerCase()")
-        if tag == "select":
-            box.select_option(label=value)
-            return
-        box.fill(value)
-        self.page.wait_for_timeout(600)
-        opt = self.page.locator(f'[data-fieldname="{fieldname}"] .awesomplete li, '
-                                f'.awesomplete li:has-text("{value}")').first
-        try:
-            opt.wait_for(state="visible", timeout=5000)
-            opt.click()
-        except Exception:
-            box.press("Enter")
+        """Select with model verification and layered retries (the v15 select
+        widgets intermittently fail to commit on cold loads)."""
+        for attempt in range(3):
+            box = self.page.locator(f'[data-fieldname="{fieldname}"] input:visible, '
+                                    f'[data-fieldname="{fieldname}"] select:visible').first
+            try:
+                box.wait_for(state="visible", timeout=4000)
+            except Exception:
+                self._reveal_field(fieldname)
+                box.wait_for(state="visible", timeout=12000)
+            tag = box.evaluate("el => el.tagName.toLowerCase()")
+            if tag == "select":
+                box.select_option(label=value)
+            else:
+                box.fill(value)
+                self.page.wait_for_timeout(600)
+                opt = self.page.locator(f'[data-fieldname="{fieldname}"] .awesomplete li, '
+                                        f'.awesomplete li:has-text("{value}")').first
+                try:
+                    opt.wait_for(state="visible", timeout=5000)
+                    opt.click()
+                except Exception:
+                    box.press("Enter")
+            self.page.wait_for_timeout(500)
+            mv = self._field_model_value(fieldname)
+            if mv.get("has_frm") and self._model_matches(mv.get("value"), value):
+                return
+            # model not committed: retry (next attempt re-fills), or force via
+            # set_value on the last pass
+            if attempt == 2:
+                self.page.evaluate(
+                    """(a) => { if (window.cur_frm && cur_frm.doc) cur_frm.set_value(a.f, a.v); }""",
+                    {"f": fieldname, "v": str(value)})
+                self.page.wait_for_timeout(400)
+                return
 
     def _save(self):
         # Click the first Save control that actually receives the click.
@@ -631,23 +646,34 @@ class ERPNextEnv:
                 self.page.wait_for_selector(".form-layout [data-fieldname]", timeout=15000)
             except Exception:
                 pass
-            fields = self.page.evaluate(
-                """() => {
-                    const out = [];
-                    document.querySelectorAll('.form-layout [data-fieldname]').forEach(el => {
-                        const fn = el.getAttribute('data-fieldname');
-                        if (!fn || fn.indexOf('__') === 0) return;
-                        const input = el.querySelector('input, textarea, select');
-                        let value = null;
-                        if (input) value = input.value;
-                        else {
-                            const txt = el.querySelector('.control-value');
-                            if (txt) value = txt.innerText.trim();
-                        }
-                        if (value !== null && value !== '') out.push({fieldname: fn, value: value});
-                    });
-                    return out;
-                }""")
+            fields = []
+            # the form renders asynchronously after navigation; re-dump until
+            # fields appear (up to ~20s) or the readback races and fails
+            for _attempt in range(4):
+                fields = self.page.evaluate(
+                    """() => {
+                        const out = [];
+                        document.querySelectorAll('.form-layout [data-fieldname]').forEach(el => {
+                            const fn = el.getAttribute('data-fieldname');
+                            if (!fn || fn.indexOf('__') === 0) return;
+                            const input = el.querySelector('input, textarea, select');
+                            let value = null;
+                            if (input) value = input.value;
+                            else {
+                                const txt = el.querySelector('.control-value');
+                                if (txt) value = txt.innerText.trim();
+                            }
+                            if (value !== null && value !== '') out.push({fieldname: fn, value: value});
+                        });
+                        return out;
+                    }""")
+                if fields:
+                    break
+                self.page.wait_for_timeout(2500)
+                try:
+                    self.page.wait_for_selector(".form-layout [data-fieldname]", timeout=8000)
+                except Exception:
+                    pass
             got = {f["fieldname"]: f["value"] for f in fields}
             # docstatus lives outside data-fieldname controls; the readback
             # needs it for submit-requiring conditions
