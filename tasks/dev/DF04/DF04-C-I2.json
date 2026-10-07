@@ -68,8 +68,7 @@
         "doctype": "Work Order",
         "filters": {
           "production_item": "PREP-E",
-          "qty": 52,
-          "docstatus": 0
+          "qty": 52
         },
         "count_gte": 1
       }
