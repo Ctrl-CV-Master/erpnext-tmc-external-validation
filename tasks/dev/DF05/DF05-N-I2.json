@@ -1,0 +1,54 @@
+{
+  "task_id": "DF05-N-I2",
+  "dev": true,
+  "family": "DF05",
+  "condition": "MULTI",
+  "instance": 2,
+  "instruction": "两张工单需要处理:1) MFG-WO-2026-00007(PREP-C,数量 46)的数量修订为 62 并提交;2) MFG-WO-2026-00008(PREP-D,数量 56)保持不变。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 46,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 62
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00008",
+      "match": {
+        "production_item": "PREP-D",
+        "qty": 56,
+        "docstatus": 0
+      },
+      "fields": {},
+      "hint": "该工单保持草稿状态",
+      "invalidates": [],
+      "id": "C2"
+    }
+  ]
+}

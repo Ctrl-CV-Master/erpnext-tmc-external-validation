@@ -1,0 +1,40 @@
+{
+  "task_id": "DF03-P-I2",
+  "dev": true,
+  "family": "DF03",
+  "condition": "MULTI",
+  "instance": 2,
+  "instruction": "MFG-WO-2026-00005:数量改为 41,然后提交。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00005",
+      "match": {
+        "production_item": "PREP-A",
+        "qty": 30,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 41
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00005",
+      "match": {
+        "production_item": "PREP-A",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    }
+  ]
+}

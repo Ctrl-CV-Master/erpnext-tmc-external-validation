@@ -1,0 +1,53 @@
+{
+  "task_id": "DF05-C-I2",
+  "dev": true,
+  "family": "DF05",
+  "condition": "MULTI",
+  "instance": 2,
+  "instruction": "计划变更:MFG-WO-2026-00007 的数量最终定为 62 并提交;MFG-WO-2026-00008 保持 56 件草稿不变。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 46,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 62
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00008",
+      "match": {
+        "production_item": "PREP-D",
+        "qty": 56,
+        "docstatus": 0
+      },
+      "fields": {},
+      "invalidates": [],
+      "id": "C2"
+    }
+  ]
+}

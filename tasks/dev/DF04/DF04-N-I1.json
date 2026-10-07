@@ -1,0 +1,54 @@
+{
+  "task_id": "DF04-N-I1",
+  "dev": true,
+  "family": "DF04",
+  "condition": "MULTI",
+  "instance": 1,
+  "instruction": "两项生产安排:1) 工单 MFG-WO-2026-00002(PREP-D,数量 15)的数量修订为 51 并提交;2) 为 PREP-E 创建一张 91 件的新工单草稿(公司 Open Preparation Lab,在制品仓库 WIP-WH - OPL,成品仓库 FG-WH - OPL)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00002",
+      "match": {
+        "production_item": "PREP-D",
+        "qty": 15,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 51
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00002",
+      "match": {
+        "production_item": "PREP-D",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-E",
+        "qty": 91,
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
+        "fg_warehouse": "FG-WH - OPL",
+        "company": "Open Preparation Lab"
+      },
+      "invalidates": [],
+      "id": "C2"
+    }
+  ]
+}

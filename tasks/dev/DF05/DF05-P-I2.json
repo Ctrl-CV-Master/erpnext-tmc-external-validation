@@ -1,0 +1,53 @@
+{
+  "task_id": "DF05-P-I2",
+  "dev": true,
+  "family": "DF05",
+  "condition": "MULTI",
+  "instance": 2,
+  "instruction": "MFG-WO-2026-00007:数量 46 -> 62,提交;MFG-WO-2026-00008 不动。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 46,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 62
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00007",
+      "match": {
+        "production_item": "PREP-C",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00008",
+      "match": {
+        "production_item": "PREP-D",
+        "qty": 56,
+        "docstatus": 0
+      },
+      "fields": {},
+      "invalidates": [],
+      "id": "C2"
+    }
+  ]
+}

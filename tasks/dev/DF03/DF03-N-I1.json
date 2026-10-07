@@ -1,0 +1,42 @@
+{
+  "task_id": "DF03-N-I1",
+  "dev": true,
+  "family": "DF03",
+  "condition": "MULTI",
+  "instance": 1,
+  "instruction": "工单 MFG-WO-2026-00001(PREP-C,当前数量 20)的计划数量修订为 41;修订完成后立即提交该工单(Submit 并确认)。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00001",
+      "match": {
+        "production_item": "PREP-C",
+        "qty": 20,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 41
+      },
+      "expect_docstatus": null,
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00001",
+      "match": {
+        "production_item": "PREP-C",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "hint": "提交修订后的工单(Submit + 确认)",
+      "invalidates": [],
+      "id": "C1"
+    }
+  ]
+}

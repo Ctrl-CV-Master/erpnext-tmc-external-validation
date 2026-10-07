@@ -1,0 +1,54 @@
+{
+  "task_id": "DF04-C-I2",
+  "dev": true,
+  "family": "DF04",
+  "condition": "MULTI",
+  "instance": 2,
+  "instruction": "计划变更:MFG-WO-2026-00006 的数量最终定为 52 并提交;PREP-E 的新工单数量维持 92。",
+  "conditions": [
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00006",
+      "match": {
+        "production_item": "PREP-B",
+        "qty": 40,
+        "docstatus": 0
+      },
+      "fields": {
+        "qty": 52
+      },
+      "invalidates": [
+        "C1"
+      ],
+      "id": "C0"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "edit",
+      "route": "/app/work-order/MFG-WO-2026-00006",
+      "match": {
+        "production_item": "PREP-B",
+        "docstatus": 0
+      },
+      "fields": {},
+      "expect_docstatus": 1,
+      "invalidates": [],
+      "id": "C1"
+    },
+    {
+      "doctype": "Work Order",
+      "kind": "create",
+      "fields": {
+        "production_item": "PREP-E",
+        "qty": 92,
+        "wip_warehouse": "WIP-WH - OPL",
+        "target_warehouse": "FG-WH - OPL",
+        "fg_warehouse": "FG-WH - OPL",
+        "company": "Open Preparation Lab"
+      },
+      "invalidates": [],
+      "id": "C2"
+    }
+  ]
+}
