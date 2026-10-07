@@ -36,5 +36,19 @@
       "invalidates": [],
       "id": "C1"
     }
-  ]
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "wo",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-A",
+          "qty": 41,
+          "docstatus": 1
+        },
+        "count_gte": 1
+      }
+    ]
+  }
 }

@@ -49,5 +49,49 @@
       "invalidates": [],
       "id": "C2"
     }
-  ]
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "woA",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-C",
+          "qty": 61,
+          "docstatus": 1
+        },
+        "count_gte": 1
+      },
+      {
+        "ref": "woB",
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-D",
+          "qty": 56,
+          "docstatus": 0
+        },
+        "count_gte": 1
+      }
+    ],
+    "not_exists": [
+      {
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-C",
+          "qty": 46,
+          "docstatus": 1
+        },
+        "count_eq": 0
+      },
+      {
+        "doctype": "Work Order",
+        "filters": {
+          "production_item": "PREP-D",
+          "qty": 56,
+          "docstatus": 1
+        },
+        "count_eq": 0
+      }
+    ]
+  }
 }
