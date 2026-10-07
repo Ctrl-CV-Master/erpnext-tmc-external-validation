@@ -12,6 +12,16 @@ frozen protocol (protocol/protocol.md, amendments A-D), budget 80 actions /
 - **Consolidated final matrix: 432 unique (task, method) pairs, 368 rewards
   (85.2%).**
 
+## Consolidated after the failed-family re-run (run 37565040659)
+
+The 7 blocked families re-ran on the fixed fixture/task set: 126 runs, 59
+rewards — lifting the consolidated matrix to **365/432 (84.5%)**. F22 (QI with
+a Work Order reference) remains 0/18: the QI form rejects creation even with
+reference fields populated — another mandatory-field gap to identify. F01
+recovered to 6/18 (the v15 WO-form flake is partial, not total); F13 13/18
+(the batch-ID-mandatory P design still fails), F23 9/18, F24 10/18 (customer/
+supplier edits — mixed pre/post-fix runs).
+
 ## Final matrix (reward 1 per task/method; TMC / R2 / R3)
 
 | family | surface | result |
@@ -36,7 +46,7 @@ frozen protocol (protocol/protocol.md, amendments A-D), budget 80 actions /
 | F22 | QI draft (WO-referenced) | 0/18 — redesigned task not yet validated |
 | F23/F24 | Customer/Supplier edit | 9/18, 10/18 — partial |
 
-## Per method (consolidated)
+## ## Per method (consolidated)
 
 TMC-AE 122/144 (84.7%) · R2 122/144 (84.7%) · R3 124/144 (86.1%)
 Per condition: N 133/144 · P 115/144 · C 120/144.

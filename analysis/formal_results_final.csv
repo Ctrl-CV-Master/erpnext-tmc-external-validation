@@ -1,40 +1,40 @@
 job,task_id,family,instance,condition,method,mock,reward,failed,browser_actions,llm_calls,llm_in,llm_out,wall_clock_s
-formal-F01-I1,F01-C-I1,F01,1,C,R2,False,0,"exists:wo: count=4 want [1,1]",40,5,4297,4104,317.5
-formal-F01-I1,F01-C-I1,F01,1,C,R3,False,0,"exists:wo: count=4 want [1,1]",51,5,4299,3293,340.7
-formal-F01-I1,F01-C-I1,F01,1,C,TMC,False,0,"exists:wo: count=5 want [1,1]",48,5,4297,3848,332.3
-formal-F01-I2,F01-C-I2,F01,2,C,R2,False,0,"exists:wo: count=5 want [1,1]",45,5,4291,3256,311.1
-formal-F01-I2,F01-C-I2,F01,2,C,R3,False,0,"exists:wo: count=4 want [1,1]",51,5,4297,3821,356.9
-formal-F01-I2,F01-C-I2,F01,2,C,TMC,False,0,"exists:wo: count=4 want [1,1]",46,5,4295,2546,330.0
-formal-F01-I1,F01-N-I1,F01,1,N,R2,False,1,,21,5,4316,4419,249.4
-formal-F01-I1,F01-N-I1,F01,1,N,R3,False,1,,34,5,4314,3162,284.4
-formal-F01-I1,F01-N-I1,F01,1,N,TMC,False,1,,37,5,4320,3109,290.3
-formal-F01-I2,F01-N-I2,F01,2,N,R2,False,1,,37,5,4316,3266,322.2
-formal-F01-I2,F01-N-I2,F01,2,N,R3,False,1,,43,5,4314,3751,361.6
-formal-F01-I2,F01-N-I2,F01,2,N,TMC,False,1,,37,5,4318,2406,284.2
-formal-F01-I1,F01-P-I1,F01,1,P,R2,False,0,"exists:wo: count=0 want [1,inf]",20,5,4093,1657,172.5
-formal-F01-I1,F01-P-I1,F01,1,P,R3,False,0,"exists:wo: count=0 want [1,inf]",20,5,4097,1933,181.0
-formal-F01-I1,F01-P-I1,F01,1,P,TMC,False,0,"exists:wo: count=0 want [1,inf]",20,5,4095,1833,159.1
-formal-F01-I2,F01-P-I2,F01,2,P,R2,False,0,"exists:wo: count=0 want [1,inf]",20,5,4097,2090,181.7
-formal-F01-I2,F01-P-I2,F01,2,P,R3,False,0,"exists:wo: count=0 want [1,inf]",20,5,4095,1933,181.1
-formal-F01-I2,F01-P-I2,F01,2,P,TMC,False,0,"exists:wo: count=0 want [1,inf]",20,5,4097,1578,153.8
-formal-F02-I1,F02-C-I1,F02,1,C,R2,False,0,"exists:wo: count=3 want [1,1]",46,5,4293,2928,326.3
-formal-F02-I1,F02-C-I1,F02,1,C,R3,False,0,"exists:wo: count=5 want [1,1]",50,5,4293,2914,321.8
-formal-F02-I1,F02-C-I1,F02,1,C,TMC,False,0,"exists:wo: count=4 want [1,1]",46,5,4293,2683,292.5
-formal-F02-I2,F02-C-I2,F02,2,C,R2,False,0,"exists:wo: count=3 want [1,1]",38,5,4295,3918,326.2
-formal-F02-I2,F02-C-I2,F02,2,C,R3,False,0,"exists:wo: count=5 want [1,1]",53,5,4287,2922,364.5
-formal-F02-I2,F02-C-I2,F02,2,C,TMC,False,0,"exists:wo: count=5 want [1,1]",46,5,4293,3063,296.2
-formal-F02-I1,F02-N-I1,F02,1,N,R2,False,1,,39,5,4327,3929,315.4
-formal-F02-I1,F02-N-I1,F02,1,N,R3,False,1,,41,5,4321,3928,302.5
-formal-F02-I1,F02-N-I1,F02,1,N,TMC,False,1,,47,5,4327,3194,314.7
-formal-F02-I2,F02-N-I2,F02,2,N,R2,False,1,,45,5,4319,3299,317.6
-formal-F02-I2,F02-N-I2,F02,2,N,R3,False,1,,50,5,4331,3184,327.5
-formal-F02-I2,F02-N-I2,F02,2,N,TMC,False,1,,46,5,4323,2630,293.4
-formal-F02-I1,F02-P-I1,F02,1,P,R2,False,1,,44,5,4307,2885,345.1
-formal-F02-I1,F02-P-I1,F02,1,P,R3,False,1,,52,5,4301,3561,365.4
-formal-F02-I1,F02-P-I1,F02,1,P,TMC,False,1,,47,5,4305,2643,309.5
-formal-F02-I2,F02-P-I2,F02,2,P,R2,False,1,,38,5,4305,3599,319.0
-formal-F02-I2,F02-P-I2,F02,2,P,R3,False,1,,53,5,4305,2718,363.8
-formal-F02-I2,F02-P-I2,F02,2,P,TMC,False,1,,47,5,4303,3501,316.4
+formal-F01-I1,F01-C-I1,F01,1,C,R2,False,0,"exists:wo: count=4 want [1,1]",45,5,4291,2710,345.8
+formal-F01-I1,F01-C-I1,F01,1,C,R3,False,0,"exists:wo: count=4 want [1,1]",50,5,4299,2510,309.8
+formal-F01-I1,F01-C-I1,F01,1,C,TMC,False,0,"exists:wo: count=4 want [1,1]",45,5,4293,2615,275.9
+formal-F01-I2,F01-C-I2,F01,2,C,R2,False,0,"exists:wo: count=5 want [1,1]",45,5,4301,2919,315.8
+formal-F01-I2,F01-C-I2,F01,2,C,R3,False,0,"exists:wo: count=4 want [1,1]",40,5,4289,3342,283.4
+formal-F01-I2,F01-C-I2,F01,2,C,TMC,False,0,"exists:wo: count=5 want [1,1]",49,5,4295,2517,340.0
+formal-F01-I1,F01-N-I1,F01,1,N,R2,False,1,,38,5,4320,2015,317.6
+formal-F01-I1,F01-N-I1,F01,1,N,R3,False,1,,38,5,4322,3022,314.9
+formal-F01-I1,F01-N-I1,F01,1,N,TMC,False,1,,30,5,4324,3027,254.1
+formal-F01-I2,F01-N-I2,F01,2,N,R2,False,1,,35,5,4324,3279,297.6
+formal-F01-I2,F01-N-I2,F01,2,N,R3,False,1,,41,5,4320,2697,309.6
+formal-F01-I2,F01-N-I2,F01,2,N,TMC,False,1,,36,5,4316,2041,266.8
+formal-F01-I1,F01-P-I1,F01,1,P,R2,False,0,"exists:wo: count=0 want [1,inf]",20,5,4097,2058,183.7
+formal-F01-I1,F01-P-I1,F01,1,P,R3,False,0,"exists:wo: count=0 want [1,inf]",20,5,4093,1425,168.5
+formal-F01-I1,F01-P-I1,F01,1,P,TMC,False,0,"exists:wo: count=0 want [1,inf]",20,5,4095,1517,152.3
+formal-F01-I2,F01-P-I2,F01,2,P,R2,False,0,"exists:wo: count=0 want [1,inf]",20,5,4093,1784,178.0
+formal-F01-I2,F01-P-I2,F01,2,P,R3,False,0,"exists:wo: count=0 want [1,inf]",20,5,4091,1461,173.9
+formal-F01-I2,F01-P-I2,F01,2,P,TMC,False,0,"exists:wo: count=0 want [1,inf]",20,5,4099,1470,153.7
+formal-F02-I1,F02-C-I1,F02,1,C,R2,False,0,"exists:wo: count=3 want [1,1]",45,5,4293,2822,347.6
+formal-F02-I1,F02-C-I1,F02,1,C,R3,False,0,"exists:wo: count=5 want [1,1]",51,5,4295,2866,332.4
+formal-F02-I1,F02-C-I1,F02,1,C,TMC,False,1,,46,5,4285,2291,326.3
+formal-F02-I2,F02-C-I2,F02,2,C,R2,False,0,"exists:wo: count=5 want [1,1]",46,5,4293,2679,322.6
+formal-F02-I2,F02-C-I2,F02,2,C,R3,False,0,"exists:wo: count=4 want [1,1]",41,5,4293,3462,296.3
+formal-F02-I2,F02-C-I2,F02,2,C,TMC,False,0,"exists:wo: count=5 want [1,1]",48,5,4293,2766,327.4
+formal-F02-I1,F02-N-I1,F02,1,N,R2,False,1,,37,5,4321,3234,295.5
+formal-F02-I1,F02-N-I1,F02,1,N,R3,False,1,,44,5,4319,4186,351.1
+formal-F02-I1,F02-N-I1,F02,1,N,TMC,False,1,,47,5,4327,2587,306.5
+formal-F02-I2,F02-N-I2,F02,2,N,R2,False,1,,46,5,4325,3474,344.2
+formal-F02-I2,F02-N-I2,F02,2,N,R3,False,1,,50,5,4329,3019,326.9
+formal-F02-I2,F02-N-I2,F02,2,N,TMC,False,1,,49,5,4329,2708,343.6
+formal-F02-I1,F02-P-I1,F02,1,P,R2,False,1,,48,5,4305,2630,353.5
+formal-F02-I1,F02-P-I1,F02,1,P,R3,False,1,,51,5,4305,2854,368.8
+formal-F02-I1,F02-P-I1,F02,1,P,TMC,False,1,,38,5,4305,3322,273.8
+formal-F02-I2,F02-P-I2,F02,2,P,R2,False,1,,46,5,4303,2707,325.6
+formal-F02-I2,F02-P-I2,F02,2,P,R3,False,1,,52,5,4307,3463,363.4
+formal-F02-I2,F02-P-I2,F02,2,P,TMC,False,1,,46,5,4311,2803,294.8
 formal-F03-I1,F03-C-I1,F03,1,C,R2,False,1,,11,5,4630,2705,163.7
 formal-F03-I1,F03-C-I1,F03,1,C,R3,False,1,,13,5,4630,3037,187.6
 formal-F03-I1,F03-C-I1,F03,1,C,TMC,False,1,,11,5,4630,3364,115.5
@@ -215,24 +215,24 @@ formal-F12-I1,F12-P-I1,F12,1,P,TMC,False,1,,6,1,610,306,40.6
 formal-F12-I2,F12-P-I2,F12,2,P,R2,False,1,,5,1,610,157,30.5
 formal-F12-I2,F12-P-I2,F12,2,P,R3,False,1,,6,1,620,165,31.7
 formal-F12-I2,F12-P-I2,F12,2,P,TMC,False,1,,5,1,610,140,28.2
-formal-F13-I1,F13-C-I1,F13,1,C,R2,False,1,,4,1,836,116,43.7
-formal-F13-I1,F13-C-I1,F13,1,C,R3,False,1,,5,1,838,158,60.9
-formal-F13-I1,F13-C-I1,F13,1,C,TMC,False,1,,4,1,834,97,42.9
-formal-F13-I2,F13-C-I2,F13,2,C,R2,False,1,,4,1,834,253,46.9
-formal-F13-I2,F13-C-I2,F13,2,C,R3,False,1,,5,1,836,140,61.5
-formal-F13-I2,F13-C-I2,F13,2,C,TMC,False,1,,4,1,834,118,43.5
-formal-F13-I1,F13-N-I1,F13,1,N,R2,False,1,,4,1,837,141,44.0
-formal-F13-I1,F13-N-I1,F13,1,N,R3,False,1,,5,1,837,220,62.1
-formal-F13-I1,F13-N-I1,F13,1,N,TMC,False,1,,4,1,835,183,43.5
-formal-F13-I2,F13-N-I2,F13,2,N,R2,False,1,,4,1,835,102,44.1
-formal-F13-I2,F13-N-I2,F13,2,N,R3,False,1,,5,1,835,112,61.1
-formal-F13-I2,F13-N-I2,F13,2,N,TMC,False,1,,4,1,839,102,43.9
-formal-F13-I1,F13-P-I1,F13,1,P,R2,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,766,116.3
-formal-F13-I1,F13-P-I1,F13,1,P,R3,False,1,,5,1,824,392,67.3
-formal-F13-I1,F13-P-I1,F13,1,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4130,536,105.6
-formal-F13-I2,F13-P-I2,F13,2,P,R2,False,0,"exists:b: count=1 want [2,inf]",10,5,4134,790,117.3
-formal-F13-I2,F13-P-I2,F13,2,P,R3,False,0,"exists:b: count=1 want [2,inf]",10,5,4132,999,120.9
-formal-F13-I2,F13-P-I2,F13,2,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4134,844,108.1
+formal-F13-I1,F13-C-I1,F13,1,C,R2,False,1,,4,1,838,133,43.9
+formal-F13-I1,F13-C-I1,F13,1,C,R3,False,1,,5,1,836,96,60.8
+formal-F13-I1,F13-C-I1,F13,1,C,TMC,False,1,,4,1,836,144,43.4
+formal-F13-I2,F13-C-I2,F13,2,C,R2,False,1,,4,1,836,114,44.1
+formal-F13-I2,F13-C-I2,F13,2,C,R3,False,1,,5,1,836,125,61.1
+formal-F13-I2,F13-C-I2,F13,2,C,TMC,False,1,,4,1,838,126,44.3
+formal-F13-I1,F13-N-I1,F13,1,N,R2,False,1,,4,1,835,141,44.4
+formal-F13-I1,F13-N-I1,F13,1,N,R3,False,1,,5,1,833,104,61.8
+formal-F13-I1,F13-N-I1,F13,1,N,TMC,False,1,,4,1,833,161,43.8
+formal-F13-I2,F13-N-I2,F13,2,N,R2,False,1,,4,1,835,136,45.8
+formal-F13-I2,F13-N-I2,F13,2,N,R3,False,1,,5,1,835,128,61.3
+formal-F13-I2,F13-N-I2,F13,2,N,TMC,False,1,,4,1,837,144,43.6
+formal-F13-I1,F13-P-I1,F13,1,P,R2,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,647,119.8
+formal-F13-I1,F13-P-I1,F13,1,P,R3,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,642,115.3
+formal-F13-I1,F13-P-I1,F13,1,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4126,693,107.7
+formal-F13-I2,F13-P-I2,F13,2,P,R2,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,742,119.8
+formal-F13-I2,F13-P-I2,F13,2,P,R3,False,0,"exists:b: count=1 want [2,inf]",10,5,4132,766,121.3
+formal-F13-I2,F13-P-I2,F13,2,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4126,529,105.9
 formal-F14-I1,F14-C-I1,F14,1,C,R2,False,1,,4,1,1098,100,38.2
 formal-F14-I1,F14-C-I1,F14,1,C,R3,False,1,,5,1,1098,84,53.9
 formal-F14-I1,F14-C-I1,F14,1,C,TMC,False,1,,4,1,1098,86,36.3
@@ -287,24 +287,24 @@ formal-F16-I1,F16-P-I1,F16,1,P,TMC,False,1,,20,5,3814,842,196.6
 formal-F16-I2,F16-P-I2,F16,2,P,R2,False,1,,20,5,3815,1312,219.9
 formal-F16-I2,F16-P-I2,F16,2,P,R3,False,1,,25,5,3816,845,290.6
 formal-F16-I2,F16-P-I2,F16,2,P,TMC,False,1,,20,5,3815,935,196.5
-formal-F17-I1,F17-C-I1,F17,1,C,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4715,1084,216.9
-formal-F17-I1,F17-C-I1,F17,1,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4715,1400,304.7
-formal-F17-I1,F17-C-I1,F17,1,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4717,754,206.7
-formal-F17-I2,F17-C-I2,F17,2,C,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4711,1430,219.8
-formal-F17-I2,F17-C-I2,F17,2,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4713,1255,301.7
-formal-F17-I2,F17-C-I2,F17,2,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4713,1091,204.5
-formal-F17-I1,F17-N-I1,F17,1,N,R2,False,1,,25,5,4727,1477,219.7
-formal-F17-I1,F17-N-I1,F17,1,N,R3,False,1,,30,5,4721,1568,305.7
-formal-F17-I1,F17-N-I1,F17,1,N,TMC,False,1,,25,5,4721,1239,204.5
-formal-F17-I2,F17-N-I2,F17,2,N,R2,False,1,,25,5,4733,1769,226.0
-formal-F17-I2,F17-N-I2,F17,2,N,R3,False,1,,30,5,4723,1701,306.5
-formal-F17-I2,F17-N-I2,F17,2,N,TMC,False,1,,25,5,4723,953,202.6
-formal-F17-I1,F17-P-I1,F17,1,P,R2,False,1,,25,5,4707,1530,222.7
-formal-F17-I1,F17-P-I1,F17,1,P,R3,False,1,,29,5,4701,1534,305.8
-formal-F17-I1,F17-P-I1,F17,1,P,TMC,False,1,,25,5,4707,1218,203.1
-formal-F17-I2,F17-P-I2,F17,2,P,R2,False,1,,25,5,4707,1248,220.3
-formal-F17-I2,F17-P-I2,F17,2,P,R3,False,1,,30,5,4703,1634,304.7
-formal-F17-I2,F17-P-I2,F17,2,P,TMC,False,1,,24,5,4707,922,201.8
+formal-F17-I1,F17-C-I1,F17,1,C,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4711,824,210.0
+formal-F17-I1,F17-C-I1,F17,1,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4715,1129,298.2
+formal-F17-I1,F17-C-I1,F17,1,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4715,896,201.5
+formal-F17-I2,F17-C-I2,F17,2,C,R2,False,0,"exists:c: count=5 want [1,1]",24,5,4715,942,212.0
+formal-F17-I2,F17-C-I2,F17,2,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4717,1561,308.3
+formal-F17-I2,F17-C-I2,F17,2,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4717,1019,202.5
+formal-F17-I1,F17-N-I1,F17,1,N,R2,False,1,,25,5,4727,1223,224.2
+formal-F17-I1,F17-N-I1,F17,1,N,R3,False,1,,30,5,4723,1506,306.7
+formal-F17-I1,F17-N-I1,F17,1,N,TMC,False,1,,25,5,4725,1106,205.5
+formal-F17-I2,F17-N-I2,F17,2,N,R2,False,1,,25,5,4725,1470,223.8
+formal-F17-I2,F17-N-I2,F17,2,N,R3,False,1,,30,5,4725,1702,307.1
+formal-F17-I2,F17-N-I2,F17,2,N,TMC,False,1,,25,5,4731,982,202.1
+formal-F17-I1,F17-P-I1,F17,1,P,R2,False,1,,25,5,4703,1208,218.9
+formal-F17-I1,F17-P-I1,F17,1,P,R3,False,1,,30,5,4703,1433,305.5
+formal-F17-I1,F17-P-I1,F17,1,P,TMC,False,1,,25,5,4705,1265,204.8
+formal-F17-I2,F17-P-I2,F17,2,P,R2,False,1,,25,5,4705,1192,218.1
+formal-F17-I2,F17-P-I2,F17,2,P,R3,False,1,,30,5,4703,1323,302.3
+formal-F17-I2,F17-P-I2,F17,2,P,TMC,False,1,,25,5,4711,1148,202.5
 formal-F18-I1,F18-C-I1,F18,1,C,R2,False,1,,20,5,4288,597,205.3
 formal-F18-I1,F18-C-I1,F18,1,C,R3,False,1,,25,5,4290,1786,317.8
 formal-F18-I1,F18-C-I1,F18,1,C,TMC,False,1,,20,5,4294,746,196.7
@@ -377,57 +377,57 @@ formal-F21-I1,F21-P-I1,F21,1,P,TMC,False,1,,41,5,6007,3166,440.9
 formal-F21-I2,F21-P-I2,F21,2,P,R2,False,1,,41,5,6008,3827,452.0
 formal-F21-I2,F21-P-I2,F21,2,P,R3,False,1,,41,5,6005,3448,456.7
 formal-F21-I2,F21-P-I2,F21,2,P,TMC,False,1,,32,5,6006,3358,342.8
-formal-F22-I1,F22-C-I1,F22,1,C,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6609,2827,367.8
-formal-F22-I1,F22-C-I1,F22,1,C,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6608,2443,359.4
-formal-F22-I1,F22-C-I1,F22,1,C,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6611,3021,339.8
-formal-F22-I2,F22-C-I2,F22,2,C,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6610,2531,367.7
-formal-F22-I2,F22-C-I2,F22,2,C,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6610,2898,372.9
-formal-F22-I2,F22-C-I2,F22,2,C,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6611,2979,341.9
-formal-F22-I1,F22-N-I1,F22,1,N,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6655,2181,353.0
-formal-F22-I1,F22-N-I1,F22,1,N,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6656,2212,358.6
-formal-F22-I1,F22-N-I1,F22,1,N,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6656,1987,335.5
-formal-F22-I2,F22-N-I2,F22,2,N,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6649,2398,358.3
-formal-F22-I2,F22-N-I2,F22,2,N,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6650,2300,357.4
-formal-F22-I2,F22-N-I2,F22,2,N,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6649,2072,335.2
-formal-F22-I1,F22-P-I1,F22,1,P,R2,False,0,"exists:qi: count=0 want [1,inf]",20,5,6501,1550,159.3
-formal-F22-I1,F22-P-I1,F22,1,P,R3,False,0,"exists:qi: count=0 want [1,inf]",20,5,6498,1651,163.9
-formal-F22-I1,F22-P-I1,F22,1,P,TMC,False,0,"exists:qi: count=0 want [1,inf]",20,5,6498,1476,146.1
-formal-F22-I2,F22-P-I2,F22,2,P,R2,False,0,"exists:qi: count=0 want [1,inf]",20,5,6494,2234,175.7
-formal-F22-I2,F22-P-I2,F22,2,P,R3,False,0,"exists:qi: count=0 want [1,inf]",20,5,6497,2366,179.6
-formal-F22-I2,F22-P-I2,F22,2,P,TMC,False,0,"exists:qi: count=0 want [1,inf]",20,5,6497,1306,148.3
-formal-F23-I1,F23-C-I1,F23,1,C,R2,False,1,,15,5,2533,1495,136.6
-formal-F23-I1,F23-C-I1,F23,1,C,R3,False,1,,15,5,2543,2180,148.1
-formal-F23-I1,F23-C-I1,F23,1,C,TMC,False,1,,16,5,2513,3077,144.5
-formal-F23-I2,F23-C-I2,F23,2,C,R2,False,1,,21,5,2512,3433,266.8
-formal-F23-I2,F23-C-I2,F23,2,C,R3,False,1,,24,5,2542,2664,314.8
-formal-F23-I2,F23-C-I2,F23,2,C,TMC,False,1,,19,5,2524,1217,170.6
-formal-F23-I1,F23-N-I1,F23,1,N,R2,False,1,,12,5,2506,4028,170.4
-formal-F23-I1,F23-N-I1,F23,1,N,R3,False,1,,12,5,2478,4908,197.6
-formal-F23-I1,F23-N-I1,F23,1,N,TMC,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",10,5,2477,1703,74.2
-formal-F23-I2,F23-N-I2,F23,2,N,R2,False,1,,14,5,2468,3801,183.1
-formal-F23-I2,F23-N-I2,F23,2,N,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",8,5,2487,3518,132.0
-formal-F23-I2,F23-N-I2,F23,2,N,TMC,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",10,5,2487,1469,73.0
-formal-F23-I1,F23-P-I1,F23,1,P,R2,False,0,"exists:c: count=0 want [1,1]",17,5,3099,2600,218.8
-formal-F23-I1,F23-P-I1,F23,1,P,R3,False,0,"exists:c: count=0 want [1,1]",21,5,3089,1850,228.9
-formal-F23-I1,F23-P-I1,F23,1,P,TMC,False,0,"exists:c: count=0 want [1,1]",20,5,3108,1765,202.1
-formal-F23-I2,F23-P-I2,F23,2,P,R2,False,0,"exists:c: count=0 want [1,1]",24,5,3117,2123,267.7
-formal-F23-I2,F23-P-I2,F23,2,P,R3,False,0,"exists:c: count=0 want [1,1]",20,5,3098,3225,257.0
-formal-F23-I2,F23-P-I2,F23,2,P,TMC,False,0,"exists:c: count=0 want [1,1]",20,5,3098,1034,191.9
-formal-F24-I1,F24-C-I1,F24,1,C,R2,False,1,,27,5,2507,3198,354.6
-formal-F24-I1,F24-C-I1,F24,1,C,R3,False,1,,29,5,2506,2221,372.8
-formal-F24-I1,F24-C-I1,F24,1,C,TMC,False,1,,14,5,2516,1440,100.8
-formal-F24-I2,F24-C-I2,F24,2,C,R2,False,1,,14,5,2488,3412,190.3
-formal-F24-I2,F24-C-I2,F24,2,C,R3,False,1,,19,5,2538,3366,256.5
-formal-F24-I2,F24-C-I2,F24,2,C,TMC,False,1,,29,5,2497,2078,340.6
-formal-F24-I1,F24-N-I1,F24,1,N,R2,False,0,"exists:s: count=0 want [1,1]",8,5,2512,3351,132.1
-formal-F24-I1,F24-N-I1,F24,1,N,R3,False,1,,26,5,2494,1890,320.8
-formal-F24-I1,F24-N-I1,F24,1,N,TMC,False,1,,18,5,2472,2549,167.7
-formal-F24-I2,F24-N-I2,F24,2,N,R2,False,0,"exists:s: count=0 want [1,1]",10,5,2472,2078,105.1
-formal-F24-I2,F24-N-I2,F24,2,N,R3,False,1,,29,5,2505,2639,381.7
-formal-F24-I2,F24-N-I2,F24,2,N,TMC,False,1,,15,5,2481,1699,122.0
-formal-F24-I1,F24-P-I1,F24,1,P,R2,False,0,"exists:s: count=0 want [1,1]",20,5,3097,1824,220.0
-formal-F24-I1,F24-P-I1,F24,1,P,R3,False,0,"exists:s: count=0 want [1,1]",22,5,3080,1945,245.3
-formal-F24-I1,F24-P-I1,F24,1,P,TMC,False,0,"exists:s: count=0 want [1,1]",20,5,3089,1542,195.2
-formal-F24-I2,F24-P-I2,F24,2,P,R2,False,0,"exists:s: count=0 want [1,1]",20,5,3079,1395,212.2
-formal-F24-I2,F24-P-I2,F24,2,P,R3,False,0,"exists:s: count=0 want [1,1]",20,5,3080,1156,204.2
-formal-F24-I2,F24-P-I2,F24,2,P,TMC,False,0,"exists:s: count=0 want [1,1]",20,5,3088,1484,195.1
+formal-F22-I1,F22-C-I1,F22,1,C,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6609,2623,357.1
+formal-F22-I1,F22-C-I1,F22,1,C,R3,False,0,"exists:qi: count=0 want [1,inf]",24,5,6608,3012,332.8
+formal-F22-I1,F22-C-I1,F22,1,C,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6610,2881,342.3
+formal-F22-I2,F22-C-I2,F22,2,C,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6610,2420,362.5
+formal-F22-I2,F22-C-I2,F22,2,C,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6610,2570,363.9
+formal-F22-I2,F22-C-I2,F22,2,C,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6611,2677,343.5
+formal-F22-I1,F22-N-I1,F22,1,N,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6655,3250,366.8
+formal-F22-I1,F22-N-I1,F22,1,N,R3,False,0,"exists:qi: count=0 want [1,inf]",24,5,6657,3011,324.5
+formal-F22-I1,F22-N-I1,F22,1,N,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6655,2220,334.0
+formal-F22-I2,F22-N-I2,F22,2,N,R2,False,0,"exists:qi: count=0 want [1,inf]",30,5,6649,2759,366.7
+formal-F22-I2,F22-N-I2,F22,2,N,R3,False,0,"exists:qi: count=0 want [1,inf]",30,5,6652,3461,381.9
+formal-F22-I2,F22-N-I2,F22,2,N,TMC,False,0,"exists:qi: count=0 want [1,inf]",30,5,6651,2690,340.2
+formal-F22-I1,F22-P-I1,F22,1,P,R2,False,0,"exists:qi: count=0 want [1,inf]",20,5,6499,1483,161.9
+formal-F22-I1,F22-P-I1,F22,1,P,R3,False,0,"exists:qi: count=0 want [1,inf]",20,5,6504,1657,165.5
+formal-F22-I1,F22-P-I1,F22,1,P,TMC,False,0,"exists:qi: count=0 want [1,inf]",20,5,6500,1169,145.3
+formal-F22-I2,F22-P-I2,F22,2,P,R2,False,0,"exists:qi: count=0 want [1,inf]",20,5,6491,2148,175.8
+formal-F22-I2,F22-P-I2,F22,2,P,R3,False,0,"exists:qi: count=0 want [1,inf]",20,5,6496,1616,166.6
+formal-F22-I2,F22-P-I2,F22,2,P,TMC,False,0,"exists:qi: count=0 want [1,inf]",20,5,6495,1344,147.5
+formal-F23-I1,F23-C-I1,F23,1,C,R2,False,1,,18,5,2502,2988,224.6
+formal-F23-I1,F23-C-I1,F23,1,C,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",11,5,2521,1433,96.9
+formal-F23-I1,F23-C-I1,F23,1,C,TMC,False,1,,19,5,2511,3834,209.2
+formal-F23-I2,F23-C-I2,F23,2,C,R2,False,1,,19,5,2512,2612,215.4
+formal-F23-I2,F23-C-I2,F23,2,C,R3,False,1,,15,5,2543,995,122.9
+formal-F23-I2,F23-C-I2,F23,2,C,TMC,False,1,,21,5,2502,2455,213.6
+formal-F23-I1,F23-N-I1,F23,1,N,R2,False,0,"exists:c: count=2 want [1,1]",22,5,2487,3379,254.6
+formal-F23-I1,F23-N-I1,F23,1,N,R3,False,1,,16,5,2505,5072,229.4
+formal-F23-I1,F23-N-I1,F23,1,N,TMC,False,1,,18,5,2468,2084,159.3
+formal-F23-I2,F23-N-I2,F23,2,N,R2,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",8,5,2486,3679,138.1
+formal-F23-I2,F23-N-I2,F23,2,N,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",10,5,2536,3334,140.0
+formal-F23-I2,F23-N-I2,F23,2,N,TMC,False,1,,18,5,2487,1717,170.0
+formal-F23-I1,F23-P-I1,F23,1,P,R2,False,0,"exists:c: count=0 want [1,1]",20,5,3100,1891,226.1
+formal-F23-I1,F23-P-I1,F23,1,P,R3,False,0,"exists:c: count=0 want [1,1]",17,5,3109,2859,222.8
+formal-F23-I1,F23-P-I1,F23,1,P,TMC,False,0,"exists:c: count=0 want [1,1]",21,5,3089,2159,211.1
+formal-F23-I2,F23-P-I2,F23,2,P,R2,False,0,"exists:c: count=0 want [1,1]",21,5,3118,1691,232.9
+formal-F23-I2,F23-P-I2,F23,2,P,R3,False,0,"exists:c: count=0 want [1,1]",17,5,3107,2812,227.7
+formal-F23-I2,F23-P-I2,F23,2,P,TMC,False,0,"exists:c: count=0 want [1,1]",20,5,3128,2676,212.7
+formal-F24-I1,F24-C-I1,F24,1,C,R2,False,1,,15,5,2488,1071,125.7
+formal-F24-I1,F24-C-I1,F24,1,C,R3,False,1,,27,5,2518,3034,371.8
+formal-F24-I1,F24-C-I1,F24,1,C,TMC,False,1,,23,5,2517,2245,256.0
+formal-F24-I2,F24-C-I2,F24,2,C,R2,False,1,,20,5,2507,2735,241.1
+formal-F24-I2,F24-C-I2,F24,2,C,R3,False,1,,15,5,2516,2779,184.5
+formal-F24-I2,F24-C-I2,F24,2,C,TMC,False,0,"exists:s: count=0 want [1,1]",10,5,2497,1093,70.1
+formal-F24-I1,F24-N-I1,F24,1,N,R2,False,1,,14,5,2473,1432,121.4
+formal-F24-I1,F24-N-I1,F24,1,N,R3,False,0,"exists:s: count=0 want [1,1]",21,5,2463,2703,292.9
+formal-F24-I1,F24-N-I1,F24,1,N,TMC,False,0,"exists:s: count=0 want [1,1]",10,5,2490,1185,70.0
+formal-F24-I2,F24-N-I2,F24,2,N,R2,False,1,,15,5,2503,1400,125.0
+formal-F24-I2,F24-N-I2,F24,2,N,R3,False,0,"exists:s: count=0 want [1,1]",19,5,2491,1953,226.4
+formal-F24-I2,F24-N-I2,F24,2,N,TMC,False,1,,24,5,2509,2029,224.2
+formal-F24-I1,F24-P-I1,F24,1,P,R2,False,0,"exists:s: count=0 want [1,1]",20,5,3088,1686,216.3
+formal-F24-I1,F24-P-I1,F24,1,P,R3,False,0,"exists:s: count=0 want [1,1]",23,5,3080,1674,246.9
+formal-F24-I1,F24-P-I1,F24,1,P,TMC,False,0,"exists:s: count=0 want [1,1]",20,5,3096,1074,191.7
+formal-F24-I2,F24-P-I2,F24,2,P,R2,False,0,"exists:s: count=0 want [1,1]",20,5,3117,2305,236.1
+formal-F24-I2,F24-P-I2,F24,2,P,R3,False,0,"exists:s: count=0 want [1,1]",17,5,3079,2234,206.6
+formal-F24-I2,F24-P-I2,F24,2,P,TMC,False,0,"exists:s: count=0 want [1,1]",21,5,3088,1307,204.5
