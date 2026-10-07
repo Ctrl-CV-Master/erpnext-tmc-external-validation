@@ -1,0 +1,432 @@
+job,task_id,family,instance,condition,method,mock,reward,failed,browser_actions,llm_calls,llm_in,llm_out,wall_clock_s
+formal-F21-I2,F21-C-I2,F21,2,C,R2,False,1,,33,5,5962,3711,400.7
+formal-F21-I2,F21-C-I2,F21,2,C,R3,False,1,,35,5,5963,3231,404.2
+formal-F21-I2,F21-C-I2,F21,2,C,TMC,False,1,,34,5,5967,2922,322.3
+formal-F21-I2,F21-N-I2,F21,2,N,R2,False,1,,34,5,6034,4053,405.9
+formal-F21-I2,F21-N-I2,F21,2,N,R3,False,1,,40,5,6038,4398,488.7
+formal-F21-I2,F21-N-I2,F21,2,N,TMC,False,1,,42,5,6032,3736,371.5
+formal-F21-I2,F21-P-I2,F21,2,P,R2,False,1,,41,5,6008,3827,452.0
+formal-F21-I2,F21-P-I2,F21,2,P,R3,False,1,,41,5,6005,3448,456.7
+formal-F21-I2,F21-P-I2,F21,2,P,TMC,False,1,,32,5,6006,3358,342.8
+formal-F21-I1,F21-C-I1,F21,1,C,R2,False,1,,35,5,5964,4140,388.0
+formal-F21-I1,F21-C-I1,F21,1,C,R3,False,1,,34,5,5969,4109,409.9
+formal-F21-I1,F21-C-I1,F21,1,C,TMC,False,1,,32,5,5968,3492,294.4
+formal-F21-I1,F21-N-I1,F21,1,N,R2,False,1,,43,5,6034,3967,459.6
+formal-F21-I1,F21-N-I1,F21,1,N,R3,False,1,,28,5,6035,4316,363.5
+formal-F21-I1,F21-N-I1,F21,1,N,TMC,False,1,,41,5,6034,3025,401.9
+formal-F21-I1,F21-P-I1,F21,1,P,R2,False,1,,42,5,6005,3721,465.7
+formal-F21-I1,F21-P-I1,F21,1,P,R3,False,1,,33,5,6004,3804,386.9
+formal-F21-I1,F21-P-I1,F21,1,P,TMC,False,1,,41,5,6007,3166,440.9
+formal-F24-I2,F24-C-I2,F24,2,C,R2,False,1,,24,5,2507,3598,335.9
+formal-F24-I2,F24-C-I2,F24,2,C,R3,False,1,,23,5,2497,1769,283.1
+formal-F24-I2,F24-C-I2,F24,2,C,TMC,False,1,,22,5,2488,1283,215.0
+formal-F24-I2,F24-N-I2,F24,2,N,R2,False,0,"exists:s: count=0 want [1,1]",10,5,2512,2968,148.9
+formal-F24-I2,F24-N-I2,F24,2,N,R3,False,0,"exists:s: count=0 want [1,1]",9,5,2513,3181,148.7
+formal-F24-I2,F24-N-I2,F24,2,N,TMC,False,0,"exists:s: count=0 want [1,1]",10,5,2463,1368,70.9
+formal-F24-I2,F24-P-I2,F24,2,P,R2,False,0,"exists:s: count=0 want [1,1]",20,5,3089,2182,238.5
+formal-F24-I2,F24-P-I2,F24,2,P,R3,False,0,"exists:s: count=0 want [1,1]",20,5,3088,1146,208.6
+formal-F24-I2,F24-P-I2,F24,2,P,TMC,False,0,"exists:s: count=0 want [1,1]",20,5,3078,1178,192.3
+formal-F23-I2,F23-C-I2,F23,2,C,R2,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",8,5,2524,2954,140.9
+formal-F23-I2,F23-C-I2,F23,2,C,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",9,5,2512,2279,114.9
+formal-F23-I2,F23-C-I2,F23,2,C,TMC,False,0,not_exists:Customer: count=1 want 0,19,5,2512,1717,184.9
+formal-F23-I2,F23-N-I2,F23,2,N,R2,False,1,,21,5,2477,2479,248.7
+formal-F23-I2,F23-N-I2,F23,2,N,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",10,5,2488,2066,120.6
+formal-F23-I2,F23-N-I2,F23,2,N,TMC,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",14,5,2505,2445,110.4
+formal-F23-I2,F23-P-I2,F23,2,P,R2,False,0,"exists:c: count=0 want [1,1]",21,5,3118,2731,271.2
+formal-F23-I2,F23-P-I2,F23,2,P,R3,False,0,"exists:c: count=0 want [1,1]",21,5,3118,2256,257.7
+formal-F23-I2,F23-P-I2,F23,2,P,TMC,False,0,"exists:c: count=0 want [1,1]",21,5,3089,2647,202.0
+formal-F22-I2,F22-C-I2,F22,2,C,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6488,1753,175.1
+formal-F22-I2,F22-C-I2,F22,2,C,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6494,1150,160.8
+formal-F22-I2,F22-C-I2,F22,2,C,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6490,1481,146.9
+formal-F22-I2,F22-N-I2,F22,2,N,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6531,1304,164.0
+formal-F22-I2,F22-N-I2,F22,2,N,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6533,1482,169.4
+formal-F22-I2,F22-N-I2,F22,2,N,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6529,1464,147.5
+formal-F22-I2,F22-P-I2,F22,2,P,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6496,1315,165.6
+formal-F22-I2,F22-P-I2,F22,2,P,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6495,1374,173.6
+formal-F22-I2,F22-P-I2,F22,2,P,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6497,1219,146.0
+formal-F24-I1,F24-C-I1,F24,1,C,R2,False,1,,18,5,2528,2432,218.2
+formal-F24-I1,F24-C-I1,F24,1,C,R3,False,1,,29,5,2518,1901,372.0
+formal-F24-I1,F24-C-I1,F24,1,C,TMC,False,1,,23,5,2497,1983,241.1
+formal-F24-I1,F24-N-I1,F24,1,N,R2,False,0,"exists:s: count=0 want [1,1]",10,5,2503,1924,115.4
+formal-F24-I1,F24-N-I1,F24,1,N,R3,False,0,"exists:s: count=0 want [1,1]",10,5,2473,1509,103.1
+formal-F24-I1,F24-N-I1,F24,1,N,TMC,False,0,"exists:s: count=0 want [1,1]",9,5,2492,2184,75.9
+formal-F24-I1,F24-P-I1,F24,1,P,R2,False,0,"exists:s: count=0 want [1,1]",21,5,3079,1205,223.0
+formal-F24-I1,F24-P-I1,F24,1,P,R3,False,0,"exists:s: count=0 want [1,1]",20,5,3097,1449,219.4
+formal-F24-I1,F24-P-I1,F24,1,P,TMC,False,0,"exists:s: count=0 want [1,1]",20,5,3080,1390,194.2
+formal-F23-I1,F23-C-I1,F23,1,C,R2,False,1,,21,5,2525,2186,247.4
+formal-F23-I1,F23-C-I1,F23,1,C,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",12,5,2493,2748,151.9
+formal-F23-I1,F23-C-I1,F23,1,C,TMC,False,0,"exists:c: count=2 want [1,1]",25,5,2512,2931,254.6
+formal-F23-I1,F23-N-I1,F23,1,N,R2,False,1,,15,5,2477,4358,267.5
+formal-F23-I1,F23-N-I1,F23,1,N,R3,False,0,"exists:c: count=0 want [1,1]; not_exists:Customer: count=1 want 0",26,5,2487,2342,316.2
+formal-F23-I1,F23-N-I1,F23,1,N,TMC,False,0,not_exists:Customer: count=1 want 0,14,5,2499,1558,111.7
+formal-F23-I1,F23-P-I1,F23,1,P,R2,False,0,"exists:c: count=0 want [1,1]",21,5,3098,2936,279.0
+formal-F23-I1,F23-P-I1,F23,1,P,R3,False,0,"exists:c: count=0 want [1,1]",21,5,3136,1778,240.3
+formal-F23-I1,F23-P-I1,F23,1,P,TMC,False,0,"exists:c: count=0 want [1,1]",21,5,3107,1488,205.9
+formal-F17-I2,F17-C-I2,F17,2,C,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4713,1191,218.1
+formal-F17-I2,F17-C-I2,F17,2,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4713,923,294.7
+formal-F17-I2,F17-C-I2,F17,2,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4717,830,199.0
+formal-F17-I2,F17-N-I2,F17,2,N,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4723,1373,225.2
+formal-F17-I2,F17-N-I2,F17,2,N,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4723,1300,302.0
+formal-F17-I2,F17-N-I2,F17,2,N,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4717,1208,201.6
+formal-F17-I2,F17-P-I2,F17,2,P,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4707,997,213.2
+formal-F17-I2,F17-P-I2,F17,2,P,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4705,1188,301.6
+formal-F17-I2,F17-P-I2,F17,2,P,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4707,1567,202.1
+formal-F18-I2,F18-C-I2,F18,2,C,R2,False,1,,20,5,4286,664,203.6
+formal-F18-I2,F18-C-I2,F18,2,C,R3,False,1,,25,5,4286,992,294.2
+formal-F18-I2,F18-C-I2,F18,2,C,TMC,False,1,,20,5,4288,771,196.4
+formal-F18-I2,F18-N-I2,F18,2,N,R2,False,1,,20,5,4279,763,206.3
+formal-F18-I2,F18-N-I2,F18,2,N,R3,False,1,,25,5,4283,852,290.4
+formal-F18-I2,F18-N-I2,F18,2,N,TMC,False,1,,20,5,4281,585,194.7
+formal-F18-I2,F18-P-I2,F18,2,P,R2,False,1,,20,5,4267,715,205.6
+formal-F18-I2,F18-P-I2,F18,2,P,R3,False,1,,25,5,4261,628,285.5
+formal-F18-I2,F18-P-I2,F18,2,P,TMC,False,1,,20,5,4265,674,195.2
+formal-F19-I1,F19-C-I1,F19,1,C,R2,False,0,"exists:ip: count=0 want [1,1]",26,5,5938,2320,307.3
+formal-F19-I1,F19-C-I1,F19,1,C,R3,False,0,"exists:ip: count=0 want [1,1]",26,5,5938,2698,314.4
+formal-F19-I1,F19-C-I1,F19,1,C,TMC,False,0,"exists:ip: count=0 want [1,1]",25,5,5946,1458,255.4
+formal-F19-I1,F19-N-I1,F19,1,N,R2,False,0,"exists:ip: count=0 want [1,1]",26,5,5982,2248,304.1
+formal-F19-I1,F19-N-I1,F19,1,N,R3,False,0,"exists:ip: count=0 want [1,1]",25,5,5978,1569,284.6
+formal-F19-I1,F19-N-I1,F19,1,N,TMC,False,0,"exists:ip: count=0 want [1,1]",25,5,5976,1558,257.1
+formal-F19-I1,F19-P-I1,F19,1,P,R2,False,0,"exists:ip: count=0 want [1,1]",25,5,5972,1949,290.9
+formal-F19-I1,F19-P-I1,F19,1,P,TMC,False,0,"exists:ip: count=0 want [1,1]",20,5,5970,2477,225.0
+formal-F22-I1,F22-C-I1,F22,1,C,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6496,1721,173.4
+formal-F22-I1,F22-C-I1,F22,1,C,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6494,1568,170.2
+formal-F22-I1,F22-C-I1,F22,1,C,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6496,1602,147.9
+formal-F22-I1,F22-N-I1,F22,1,N,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6529,1797,174.1
+formal-F22-I1,F22-N-I1,F22,1,N,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6530,1509,169.8
+formal-F22-I1,F22-N-I1,F22,1,N,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6529,1133,144.8
+formal-F22-I1,F22-P-I1,F22,1,P,R2,False,0,"exists:qi: count=0 want [1,1]",20,5,6502,1233,163.8
+formal-F22-I1,F22-P-I1,F22,1,P,R3,False,0,"exists:qi: count=0 want [1,1]",20,5,6499,2258,184.9
+formal-F22-I1,F22-P-I1,F22,1,P,TMC,False,0,"exists:qi: count=0 want [1,1]",20,5,6500,974,142.7
+formal-F16-I1,F16-C-I1,F16,1,C,R2,False,1,,20,5,3825,957,212.5
+formal-F16-I1,F16-C-I1,F16,1,C,R3,False,1,,25,5,3823,862,291.3
+formal-F16-I1,F16-C-I1,F16,1,C,TMC,False,1,,20,5,3824,888,197.0
+formal-F16-I1,F16-N-I1,F16,1,N,R2,False,1,,20,5,3834,853,208.7
+formal-F16-I1,F16-N-I1,F16,1,N,R3,False,1,,25,5,3833,865,291.8
+formal-F16-I1,F16-N-I1,F16,1,N,TMC,False,1,,20,5,3836,672,196.8
+formal-F16-I1,F16-P-I1,F16,1,P,R2,False,1,,20,5,3815,675,206.0
+formal-F16-I1,F16-P-I1,F16,1,P,R3,False,1,,25,5,3814,934,292.7
+formal-F16-I1,F16-P-I1,F16,1,P,TMC,False,1,,20,5,3814,842,196.6
+formal-F18-I1,F18-C-I1,F18,1,C,R2,False,1,,20,5,4288,597,205.3
+formal-F18-I1,F18-C-I1,F18,1,C,R3,False,1,,25,5,4290,1786,317.8
+formal-F18-I1,F18-C-I1,F18,1,C,TMC,False,1,,20,5,4294,746,196.7
+formal-F18-I1,F18-N-I1,F18,1,N,R2,False,1,,20,5,4283,707,204.8
+formal-F18-I1,F18-N-I1,F18,1,N,R3,False,1,,25,5,4285,590,286.3
+formal-F18-I1,F18-N-I1,F18,1,N,TMC,False,1,,20,5,4287,651,195.4
+formal-F18-I1,F18-P-I1,F18,1,P,R2,False,1,,20,5,4263,712,205.1
+formal-F18-I1,F18-P-I1,F18,1,P,R3,False,1,,25,5,4269,565,285.6
+formal-F18-I1,F18-P-I1,F18,1,P,TMC,False,1,,20,5,4267,735,196.1
+formal-F17-I1,F17-C-I1,F17,1,C,R2,False,0,"exists:c: count=5 want [1,1]",24,5,4715,957,217.9
+formal-F17-I1,F17-C-I1,F17,1,C,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4715,1112,306.5
+formal-F17-I1,F17-C-I1,F17,1,C,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4715,965,203.0
+formal-F17-I1,F17-N-I1,F17,1,N,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4721,1641,233.9
+formal-F17-I1,F17-N-I1,F17,1,N,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4723,1155,305.3
+formal-F17-I1,F17-N-I1,F17,1,N,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4723,1321,205.3
+formal-F17-I1,F17-P-I1,F17,1,P,R2,False,0,"exists:c: count=5 want [1,1]",25,5,4709,1107,222.5
+formal-F17-I1,F17-P-I1,F17,1,P,R3,False,0,"exists:c: count=5 want [1,1]",30,5,4705,1192,308.6
+formal-F17-I1,F17-P-I1,F17,1,P,TMC,False,0,"exists:c: count=5 want [1,1]",25,5,4703,885,202.5
+formal-F19-I2,F19-C-I2,F19,2,C,R2,False,0,"exists:ip: count=0 want [1,1]",25,5,5940,1926,293.7
+formal-F19-I2,F19-C-I2,F19,2,C,R3,False,0,"exists:ip: count=0 want [1,1]",25,5,5942,3162,324.3
+formal-F19-I2,F19-C-I2,F19,2,C,TMC,False,0,"exists:ip: count=0 want [1,1]",25,5,5944,2344,260.3
+formal-F19-I2,F19-N-I2,F19,2,N,R2,False,0,"exists:ip: count=0 want [1,1]",21,5,5980,2559,273.2
+formal-F19-I2,F19-N-I2,F19,2,N,R3,False,0,"exists:ip: count=0 want [1,1]",26,5,5982,2466,303.5
+formal-F19-I2,F19-N-I2,F19,2,N,TMC,False,0,"exists:ip: count=0 want [1,1]",26,5,5976,1999,261.2
+formal-F19-I2,F19-P-I2,F19,2,P,R2,False,0,"exists:ip: count=0 want [1,1]",25,5,5972,2289,310.5
+formal-F19-I2,F19-P-I2,F19,2,P,R3,False,0,"exists:ip: count=0 want [1,1]",20,5,5968,2733,274.1
+formal-F19-I2,F19-P-I2,F19,2,P,TMC,False,0,"exists:ip: count=0 want [1,1]",25,5,5974,1405,252.2
+formal-F02-I2,F02-C-I2,F02,2,C,R2,False,0,"exists:wo: count=4 want [1,1]",46,5,4297,3889,409.7
+formal-F02-I2,F02-C-I2,F02,2,C,R3,False,0,"exists:wo: count=3 want [1,1]",48,5,4293,3013,361.2
+formal-F02-I2,F02-C-I2,F02,2,C,TMC,False,0,"exists:wo: count=4 want [1,1]",46,5,4293,2976,294.9
+formal-F02-I2,F02-N-I2,F02,2,N,R2,False,0,"exists:wo: count=3 want [1,1]",43,5,4327,4240,375.2
+formal-F02-I2,F02-N-I2,F02,2,N,R3,False,0,"exists:wo: count=2 want [1,1]",42,5,4321,3435,354.8
+formal-F02-I2,F02-N-I2,F02,2,N,TMC,False,0,"exists:wo: count=2 want [1,1]",45,5,4319,2396,276.3
+formal-F02-I2,F02-P-I2,F02,2,P,R2,False,0,"exists:wo: count=2 want [1,1]",36,5,4307,3398,305.3
+formal-F02-I2,F02-P-I2,F02,2,P,R3,False,0,"exists:wo: count=5 want [1,1]",51,5,4301,2656,346.3
+formal-F02-I2,F02-P-I2,F02,2,P,TMC,False,0,"exists:wo: count=5 want [1,1]",46,5,4301,2530,291.8
+formal-F20-I2,F20-C-I2,F20,2,C,R2,False,1,,4,1,649,111,24.1
+formal-F20-I2,F20-C-I2,F20,2,C,R3,False,1,,5,1,648,138,25.5
+formal-F20-I2,F20-C-I2,F20,2,C,TMC,False,1,,4,1,649,130,22.8
+formal-F20-I2,F20-N-I2,F20,2,N,R2,False,1,,4,1,655,109,24.1
+formal-F20-I2,F20-N-I2,F20,2,N,R3,False,1,,5,1,654,88,24.8
+formal-F20-I2,F20-N-I2,F20,2,N,TMC,False,1,,4,1,655,87,22.6
+formal-F20-I2,F20-P-I2,F20,2,P,R2,False,1,,4,1,649,86,23.3
+formal-F20-I2,F20-P-I2,F20,2,P,R3,False,1,,5,1,650,105,25.6
+formal-F20-I2,F20-P-I2,F20,2,P,TMC,False,1,,4,1,650,87,22.5
+formal-F02-I1,F02-C-I1,F02,1,C,R2,False,0,"exists:wo: count=5 want [1,1]",47,5,4291,2650,349.4
+formal-F02-I1,F02-C-I1,F02,1,C,R3,False,0,"exists:wo: count=3 want [1,1]",52,5,4297,2808,364.7
+formal-F02-I1,F02-C-I1,F02,1,C,TMC,False,0,"exists:wo: count=3 want [1,1]",47,5,4291,3272,313.8
+formal-F02-I1,F02-N-I1,F02,1,N,R2,False,0,"exists:wo: count=2 want [1,1]",36,5,4323,4060,310.3
+formal-F02-I1,F02-N-I1,F02,1,N,R3,False,1,,48,5,4327,3025,333.6
+formal-F02-I1,F02-N-I1,F02,1,N,TMC,False,0,"exists:wo: count=3 want [1,1]",48,5,4331,2850,327.0
+formal-F02-I1,F02-P-I1,F02,1,P,R2,False,0,"exists:wo: count=5 want [1,1]",47,5,4301,3474,368.3
+formal-F02-I1,F02-P-I1,F02,1,P,R3,False,0,"exists:wo: count=4 want [1,1]",51,5,4305,2559,342.9
+formal-F02-I1,F02-P-I1,F02,1,P,TMC,False,0,"exists:wo: count=2 want [1,1]",48,5,4309,2602,323.3
+formal-F20-I1,F20-C-I1,F20,1,C,R2,False,1,,4,1,648,100,23.7
+formal-F20-I1,F20-C-I1,F20,1,C,R3,False,1,,5,1,648,86,25.0
+formal-F20-I1,F20-C-I1,F20,1,C,TMC,False,1,,4,1,648,131,22.9
+formal-F20-I1,F20-N-I1,F20,1,N,R2,False,1,,4,1,655,135,24.8
+formal-F20-I1,F20-N-I1,F20,1,N,R3,False,1,,5,1,654,168,26.8
+formal-F20-I1,F20-N-I1,F20,1,N,TMC,False,1,,4,1,654,82,23.1
+formal-F20-I1,F20-P-I1,F20,1,P,R2,False,1,,4,1,648,117,24.6
+formal-F20-I1,F20-P-I1,F20,1,P,R3,False,1,,5,1,648,130,26.4
+formal-F20-I1,F20-P-I1,F20,1,P,TMC,False,1,,4,1,649,90,23.1
+formal-F16-I2,F16-C-I2,F16,2,C,R2,False,1,,20,5,3844,1286,218.8
+formal-F16-I2,F16-C-I2,F16,2,C,R3,False,1,,25,5,3845,954,292.5
+formal-F16-I2,F16-C-I2,F16,2,C,TMC,False,1,,20,5,3847,757,195.1
+formal-F16-I2,F16-N-I2,F16,2,N,R2,False,1,,20,5,3839,679,207.8
+formal-F16-I2,F16-N-I2,F16,2,N,R3,False,1,,25,5,3835,852,292.2
+formal-F16-I2,F16-N-I2,F16,2,N,TMC,False,1,,20,5,3833,1191,197.6
+formal-F16-I2,F16-P-I2,F16,2,P,R2,False,1,,20,5,3815,1312,219.9
+formal-F16-I2,F16-P-I2,F16,2,P,R3,False,1,,25,5,3816,845,290.6
+formal-F16-I2,F16-P-I2,F16,2,P,TMC,False,1,,20,5,3815,935,196.5
+formal-F15-I1,F15-C-I1,F15,1,C,R2,False,1,,15,5,2799,373,164.1
+formal-F15-I1,F15-C-I1,F15,1,C,R3,False,1,,20,5,2803,399,247.1
+formal-F15-I1,F15-C-I1,F15,1,C,TMC,False,1,,15,5,2804,461,159.2
+formal-F15-I1,F15-N-I1,F15,1,N,R2,False,1,,15,5,2798,493,166.6
+formal-F15-I1,F15-N-I1,F15,1,N,R3,False,1,,20,5,2800,363,247.1
+formal-F15-I1,F15-N-I1,F15,1,N,TMC,False,1,,15,5,2802,400,159.1
+formal-F15-I1,F15-P-I1,F15,1,P,R2,False,1,,15,5,2775,680,173.0
+formal-F15-I1,F15-P-I1,F15,1,P,R3,False,1,,20,5,2774,340,245.7
+formal-F15-I1,F15-P-I1,F15,1,P,TMC,False,1,,15,5,2773,542,160.2
+formal-F10-I1,F10-C-I1,F10,1,C,R2,False,1,,20,5,4575,2149,264.8
+formal-F10-I1,F10-C-I1,F10,1,C,R3,False,1,,25,5,4575,1749,259.8
+formal-F10-I1,F10-C-I1,F10,1,C,TMC,False,1,,17,5,4575,2431,186.5
+formal-F10-I1,F10-N-I1,F10,1,N,R2,False,1,,20,5,4545,1356,240.1
+formal-F10-I1,F10-N-I1,F10,1,N,R3,False,1,,25,5,4545,1602,257.5
+formal-F10-I1,F10-N-I1,F10,1,N,TMC,False,1,,20,5,4545,1484,217.8
+formal-F10-I1,F10-P-I1,F10,1,P,R2,False,1,,26,5,3073,1055,245.3
+formal-F10-I1,F10-P-I1,F10,1,P,R3,False,1,,30,5,3071,1281,250.4
+formal-F10-I1,F10-P-I1,F10,1,P,TMC,False,1,,25,5,3062,876,216.5
+formal-F11-I1,F11-C-I1,F11,1,C,R2,False,1,,20,5,4575,1444,180.6
+formal-F11-I1,F11-C-I1,F11,1,C,R3,False,1,,25,5,4575,964,175.2
+formal-F11-I1,F11-C-I1,F11,1,C,TMC,False,1,,19,5,4575,2080,181.8
+formal-F11-I1,F11-N-I1,F11,1,N,R2,False,1,,20,5,4555,1189,174.3
+formal-F11-I1,F11-N-I1,F11,1,N,R3,False,1,,25,5,4555,1356,184.3
+formal-F11-I1,F11-N-I1,F11,1,N,TMC,False,1,,20,5,4555,1730,182.5
+formal-F11-I1,F11-P-I1,F11,1,P,R2,False,1,,26,5,3098,1695,209.5
+formal-F11-I1,F11-P-I1,F11,1,P,R3,False,1,,30,5,3079,933,184.3
+formal-F11-I1,F11-P-I1,F11,1,P,TMC,False,1,,25,5,3087,1084,161.5
+formal-F10-I2,F10-C-I2,F10,2,C,R2,False,1,,20,5,4575,1648,251.8
+formal-F10-I2,F10-C-I2,F10,2,C,R3,False,1,,25,5,4575,2173,279.0
+formal-F10-I2,F10-C-I2,F10,2,C,TMC,False,1,,20,5,4575,1758,221.1
+formal-F10-I2,F10-N-I2,F10,2,N,R2,False,1,,20,5,4545,996,233.0
+formal-F10-I2,F10-N-I2,F10,2,N,R3,False,1,,25,5,4545,1209,247.8
+formal-F10-I2,F10-N-I2,F10,2,N,TMC,False,1,,20,5,4545,1153,216.8
+formal-F10-I2,F10-P-I2,F10,2,P,R2,False,1,,25,5,3053,1121,243.8
+formal-F10-I2,F10-P-I2,F10,2,P,R3,False,1,,30,5,3063,1021,250.6
+formal-F10-I2,F10-P-I2,F10,2,P,TMC,False,1,,25,5,3044,765,221.0
+formal-F01-I2,F01-C-I2,F01,2,C,R2,False,0,"exists:wo: count=4 want [1,1]",48,5,4295,3139,381.8
+formal-F01-I2,F01-C-I2,F01,2,C,R3,False,0,"exists:wo: count=3 want [1,1]",32,5,4301,4363,307.9
+formal-F01-I2,F01-C-I2,F01,2,C,TMC,False,0,"exists:wo: count=3 want [1,1]",48,5,4299,2589,323.4
+formal-F01-I2,F01-N-I2,F01,2,N,R2,False,0,"exists:wo: count=5 want [1,1]",37,5,4320,2737,327.6
+formal-F01-I2,F01-N-I2,F01,2,N,R3,False,0,"exists:wo: count=5 want [1,1]",42,5,4320,2912,341.3
+formal-F01-I2,F01-N-I2,F01,2,N,TMC,False,0,"exists:wo: count=5 want [1,1]",36,5,4318,2806,270.4
+formal-F01-I2,F01-P-I2,F01,2,P,R2,False,0,"exists:wo: count=0 want [1,1]",20,5,4093,1807,185.8
+formal-F01-I2,F01-P-I2,F01,2,P,R3,False,0,"exists:wo: count=0 want [1,1]",20,5,4095,1520,180.8
+formal-F01-I2,F01-P-I2,F01,2,P,TMC,False,0,"exists:wo: count=0 want [1,1]",20,5,4095,1400,151.5
+formal-F11-I2,F11-C-I2,F11,2,C,R2,False,1,,20,5,4575,1436,184.2
+formal-F11-I2,F11-C-I2,F11,2,C,R3,False,1,,25,5,4575,2298,247.3
+formal-F11-I2,F11-C-I2,F11,2,C,TMC,False,1,,20,5,4575,1953,187.6
+formal-F11-I2,F11-N-I2,F11,2,N,R2,False,1,,20,5,4555,1447,207.7
+formal-F11-I2,F11-N-I2,F11,2,N,R3,False,1,,25,5,4555,1883,228.6
+formal-F11-I2,F11-N-I2,F11,2,N,TMC,False,1,,20,5,4555,1458,160.5
+formal-F11-I2,F11-P-I2,F11,2,P,R2,False,1,,25,5,3097,1571,199.0
+formal-F11-I2,F11-P-I2,F11,2,P,R3,False,1,,30,5,3108,830,187.2
+formal-F11-I2,F11-P-I2,F11,2,P,TMC,False,1,,25,5,3069,1278,168.7
+formal-F15-I2,F15-C-I2,F15,2,C,R2,False,1,,15,5,2811,652,172.3
+formal-F15-I2,F15-C-I2,F15,2,C,R3,False,1,,20,5,2809,607,252.6
+formal-F15-I2,F15-C-I2,F15,2,C,TMC,False,1,,15,5,2812,678,163.8
+formal-F15-I2,F15-N-I2,F15,2,N,R2,False,1,,15,5,2807,456,167.1
+formal-F15-I2,F15-N-I2,F15,2,N,R3,False,1,,20,5,2805,398,250.0
+formal-F15-I2,F15-N-I2,F15,2,N,TMC,False,1,,15,5,2808,394,160.6
+formal-F15-I2,F15-P-I2,F15,2,P,R2,False,1,,15,5,2780,438,168.0
+formal-F15-I2,F15-P-I2,F15,2,P,R3,False,1,,20,5,2781,482,251.0
+formal-F15-I2,F15-P-I2,F15,2,P,TMC,False,1,,15,5,2780,396,161.3
+formal-F12-I2,F12-C-I2,F12,2,C,R2,False,1,,4,1,918,156,28.3
+formal-F12-I2,F12-C-I2,F12,2,C,R3,False,1,,5,1,918,158,30.1
+formal-F12-I2,F12-C-I2,F12,2,C,TMC,False,1,,4,1,918,107,26.4
+formal-F12-I2,F12-N-I2,F12,2,N,R2,False,1,,4,1,911,223,29.6
+formal-F12-I2,F12-N-I2,F12,2,N,R3,False,1,,5,1,911,89,28.7
+formal-F12-I2,F12-N-I2,F12,2,N,TMC,False,1,,4,1,911,97,27.0
+formal-F12-I2,F12-P-I2,F12,2,P,R2,False,1,,5,1,610,157,30.5
+formal-F12-I2,F12-P-I2,F12,2,P,R3,False,1,,6,1,620,165,31.7
+formal-F12-I2,F12-P-I2,F12,2,P,TMC,False,1,,5,1,610,140,28.2
+formal-F05-I1,F05-C-I1,F05,1,C,R2,False,1,,7,5,4240,476,69.0
+formal-F05-I1,F05-C-I1,F05,1,C,R3,False,1,,7,5,4240,660,73.3
+formal-F05-I1,F05-C-I1,F05,1,C,TMC,False,1,,7,5,4240,560,61.7
+formal-F05-I1,F05-N-I1,F05,1,N,R2,False,1,,7,5,4230,611,72.4
+formal-F05-I1,F05-N-I1,F05,1,N,R3,False,1,,7,5,4230,594,72.0
+formal-F05-I1,F05-N-I1,F05,1,N,TMC,False,1,,7,5,4230,508,62.4
+formal-F05-I1,F05-P-I1,F05,1,P,R2,False,1,,7,5,4230,530,69.6
+formal-F05-I1,F05-P-I1,F05,1,P,R3,False,1,,7,5,4230,521,69.6
+formal-F05-I1,F05-P-I1,F05,1,P,TMC,False,1,,7,5,4230,974,64.4
+formal-F14-I1,F14-C-I1,F14,1,C,R2,False,1,,4,1,1098,100,38.2
+formal-F14-I1,F14-C-I1,F14,1,C,R3,False,1,,5,1,1098,84,53.9
+formal-F14-I1,F14-C-I1,F14,1,C,TMC,False,1,,4,1,1098,86,36.3
+formal-F14-I1,F14-N-I1,F14,1,N,R2,False,1,,4,1,1091,88,37.5
+formal-F14-I1,F14-N-I1,F14,1,N,R3,False,1,,5,1,1091,147,55.2
+formal-F14-I1,F14-N-I1,F14,1,N,TMC,False,1,,4,1,1091,82,36.8
+formal-F14-I1,F14-P-I1,F14,1,P,R2,False,1,,6,1,614,307,53.4
+formal-F14-I1,F14-P-I1,F14,1,P,R3,False,1,,6,1,614,374,62.4
+formal-F14-I1,F14-P-I1,F14,1,P,TMC,False,1,,5,1,614,418,40.8
+formal-F01-I1,F01-C-I1,F01,1,C,R2,False,0,"exists:wo: count=5 want [1,1]",46,5,4291,4156,377.8
+formal-F01-I1,F01-C-I1,F01,1,C,R3,False,0,"exists:wo: count=3 want [1,1]",31,5,4297,4588,326.4
+formal-F01-I1,F01-C-I1,F01,1,C,TMC,False,0,"exists:wo: count=3 want [1,1]",36,5,4291,3378,281.3
+formal-F01-I1,F01-N-I1,F01,1,N,R2,False,0,"exists:wo: count=5 want [1,1]",36,5,4322,3195,326.0
+formal-F01-I1,F01-N-I1,F01,1,N,R3,False,0,"exists:wo: count=5 want [1,1]",41,5,4324,2650,324.6
+formal-F01-I1,F01-N-I1,F01,1,N,TMC,False,0,"exists:wo: count=5 want [1,1]",39,5,4316,2515,317.4
+formal-F01-I1,F01-P-I1,F01,1,P,R2,False,0,"exists:wo: count=0 want [1,1]",20,5,4097,1263,172.5
+formal-F01-I1,F01-P-I1,F01,1,P,R3,False,0,"exists:wo: count=0 want [1,1]",20,5,4093,1479,178.2
+formal-F01-I1,F01-P-I1,F01,1,P,TMC,False,0,"exists:wo: count=0 want [1,1]",20,5,4097,1203,150.5
+formal-F14-I2,F14-C-I2,F14,2,C,R2,False,1,,4,1,1098,146,38.4
+formal-F14-I2,F14-C-I2,F14,2,C,R3,False,1,,5,1,1098,83,53.4
+formal-F14-I2,F14-C-I2,F14,2,C,TMC,False,1,,4,1,1098,83,35.8
+formal-F14-I2,F14-N-I2,F14,2,N,R2,False,1,,4,1,1091,112,37.9
+formal-F14-I2,F14-N-I2,F14,2,N,R3,False,1,,5,1,1091,149,56.2
+formal-F14-I2,F14-N-I2,F14,2,N,TMC,False,1,,4,1,1091,77,37.1
+formal-F14-I2,F14-P-I2,F14,2,P,R2,False,1,,5,1,623,189,40.2
+formal-F14-I2,F14-P-I2,F14,2,P,R3,False,1,,6,1,623,181,56.8
+formal-F14-I2,F14-P-I2,F14,2,P,TMC,False,1,,5,1,614,168,38.3
+formal-F07-I2,F07-C-I2,F07,2,C,R2,False,1,,6,1,907,291,39.4
+formal-F07-I2,F07-C-I2,F07,2,C,R3,False,1,,7,1,907,216,39.8
+formal-F07-I2,F07-C-I2,F07,2,C,TMC,False,1,,6,1,911,236,35.7
+formal-F07-I2,F07-N-I2,F07,2,N,R2,False,1,,6,1,913,177,37.0
+formal-F07-I2,F07-N-I2,F07,2,N,R3,False,1,,7,1,913,201,39.9
+formal-F07-I2,F07-N-I2,F07,2,N,TMC,False,1,,6,1,913,229,35.9
+formal-F07-I2,F07-P-I2,F07,2,P,R2,False,1,,6,1,894,853,57.3
+formal-F07-I2,F07-P-I2,F07,2,P,R3,False,1,,7,1,892,222,39.6
+formal-F07-I2,F07-P-I2,F07,2,P,TMC,False,1,,6,1,894,175,35.3
+formal-F08-I2,F08-C-I2,F08,2,C,R2,False,1,,6,1,910,204,36.7
+formal-F08-I2,F08-C-I2,F08,2,C,R3,False,1,,7,1,910,270,40.0
+formal-F08-I2,F08-C-I2,F08,2,C,TMC,False,1,,6,1,910,230,34.9
+formal-F08-I2,F08-N-I2,F08,2,N,R2,False,1,,6,1,913,236,37.2
+formal-F08-I2,F08-N-I2,F08,2,N,R3,False,1,,7,1,915,380,41.7
+formal-F08-I2,F08-N-I2,F08,2,N,TMC,False,1,,6,1,917,174,36.2
+formal-F08-I2,F08-P-I2,F08,2,P,R2,False,1,,6,1,894,184,36.4
+formal-F08-I2,F08-P-I2,F08,2,P,R3,False,1,,7,1,894,259,39.6
+formal-F08-I2,F08-P-I2,F08,2,P,TMC,False,1,,6,1,896,231,35.2
+formal-F06-I2,F06-C-I2,F06,2,C,R2,False,1,,20,5,4405,1071,155.7
+formal-F06-I2,F06-C-I2,F06,2,C,R3,False,1,,25,5,4405,1141,169.9
+formal-F06-I2,F06-C-I2,F06,2,C,TMC,False,1,,20,5,4405,976,139.1
+formal-F06-I2,F06-N-I2,F06,2,N,R2,False,1,,20,5,4395,1079,154.2
+formal-F06-I2,F06-N-I2,F06,2,N,R3,False,1,,25,5,4395,1307,168.4
+formal-F06-I2,F06-N-I2,F06,2,N,TMC,False,1,,20,5,4395,903,138.8
+formal-F06-I2,F06-P-I2,F06,2,P,R2,False,1,,20,5,4405,1198,157.7
+formal-F06-I2,F06-P-I2,F06,2,P,R3,False,1,,25,5,4405,1356,167.0
+formal-F06-I2,F06-P-I2,F06,2,P,TMC,False,1,,20,5,4405,775,137.5
+formal-F05-I2,F05-C-I2,F05,2,C,R2,False,1,,7,5,4240,540,68.6
+formal-F05-I2,F05-C-I2,F05,2,C,R3,False,1,,7,5,4240,685,71.7
+formal-F05-I2,F05-C-I2,F05,2,C,TMC,False,1,,7,5,4240,613,61.5
+formal-F05-I2,F05-N-I2,F05,2,N,R2,False,1,,7,5,4230,490,69.1
+formal-F05-I2,F05-N-I2,F05,2,N,R3,False,1,,7,5,4230,542,68.6
+formal-F05-I2,F05-N-I2,F05,2,N,TMC,False,1,,7,5,4230,520,61.4
+formal-F05-I2,F05-P-I2,F05,2,P,R2,False,1,,7,5,4240,619,69.9
+formal-F05-I2,F05-P-I2,F05,2,P,R3,False,1,,7,5,4240,1370,89.3
+formal-F05-I2,F05-P-I2,F05,2,P,TMC,False,1,,7,5,4240,611,61.6
+formal-F07-I1,F07-C-I1,F07,1,C,R2,False,1,,6,1,907,218,38.9
+formal-F07-I1,F07-C-I1,F07,1,C,R3,False,1,,7,1,909,191,40.2
+formal-F07-I1,F07-C-I1,F07,1,C,TMC,False,1,,6,1,909,142,36.5
+formal-F07-I1,F07-N-I1,F07,1,N,R2,False,1,,6,1,913,197,39.0
+formal-F07-I1,F07-N-I1,F07,1,N,R3,False,1,,7,1,911,177,42.1
+formal-F07-I1,F07-N-I1,F07,1,N,TMC,False,1,,6,1,909,194,37.1
+formal-F07-I1,F07-P-I1,F07,1,P,R2,False,1,,6,1,896,181,38.5
+formal-F07-I1,F07-P-I1,F07,1,P,R3,False,1,,7,1,894,206,40.6
+formal-F07-I1,F07-P-I1,F07,1,P,TMC,False,1,,6,1,894,202,36.9
+formal-F06-I1,F06-C-I1,F06,1,C,R2,False,1,,20,5,4405,1466,164.7
+formal-F06-I1,F06-C-I1,F06,1,C,R3,False,1,,25,5,4405,1189,165.0
+formal-F06-I1,F06-C-I1,F06,1,C,TMC,False,1,,21,5,4405,1147,141.1
+formal-F06-I1,F06-N-I1,F06,1,N,R2,False,1,,20,5,4395,1409,161.0
+formal-F06-I1,F06-N-I1,F06,1,N,R3,False,1,,25,5,4395,1099,162.3
+formal-F06-I1,F06-N-I1,F06,1,N,TMC,False,1,,20,5,4395,1160,141.6
+formal-F06-I1,F06-P-I1,F06,1,P,R2,False,1,,20,5,4395,1309,161.5
+formal-F06-I1,F06-P-I1,F06,1,P,R3,False,1,,25,5,4395,941,161.0
+formal-F06-I1,F06-P-I1,F06,1,P,TMC,False,1,,20,5,4395,1259,140.0
+formal-F12-I1,F12-C-I1,F12,1,C,R2,False,1,,4,1,918,103,28.5
+formal-F12-I1,F12-C-I1,F12,1,C,R3,False,1,,5,1,918,150,31.3
+formal-F12-I1,F12-C-I1,F12,1,C,TMC,False,1,,4,1,918,153,27.9
+formal-F12-I1,F12-N-I1,F12,1,N,R2,False,1,,4,1,911,147,29.4
+formal-F12-I1,F12-N-I1,F12,1,N,R3,False,1,,5,1,911,267,33.7
+formal-F12-I1,F12-N-I1,F12,1,N,TMC,False,1,,4,1,911,189,28.2
+formal-F12-I1,F12-P-I1,F12,1,P,R2,False,1,,6,1,610,227,42.3
+formal-F12-I1,F12-P-I1,F12,1,P,R3,False,1,,6,1,620,178,33.4
+formal-F12-I1,F12-P-I1,F12,1,P,TMC,False,1,,6,1,610,306,40.6
+formal-F03-I2,F03-C-I2,F03,2,C,R2,False,1,,13,5,4630,3376,201.8
+formal-F03-I2,F03-C-I2,F03,2,C,R3,False,1,,13,5,4630,2723,182.0
+formal-F03-I2,F03-C-I2,F03,2,C,TMC,False,1,,13,5,4630,3433,131.6
+formal-F03-I2,F03-N-I2,F03,2,N,R2,False,1,,13,5,4620,3368,197.4
+formal-F03-I2,F03-N-I2,F03,2,N,R3,False,1,,11,5,4620,3563,188.7
+formal-F03-I2,F03-N-I2,F03,2,N,TMC,False,1,,13,5,4620,2551,124.7
+formal-F03-I2,F03-P-I2,F03,2,P,R2,False,1,,11,5,4630,3672,191.1
+formal-F03-I2,F03-P-I2,F03,2,P,R3,False,1,,9,5,4630,4392,203.8
+formal-F03-I2,F03-P-I2,F03,2,P,TMC,False,1,,13,5,4630,2842,125.3
+formal-F03-I1,F03-C-I1,F03,1,C,R2,False,1,,11,5,4630,2705,163.7
+formal-F03-I1,F03-C-I1,F03,1,C,R3,False,1,,13,5,4630,3037,187.6
+formal-F03-I1,F03-C-I1,F03,1,C,TMC,False,1,,11,5,4630,3364,115.5
+formal-F03-I1,F03-N-I1,F03,1,N,R2,False,1,,9,5,4620,4119,186.2
+formal-F03-I1,F03-N-I1,F03,1,N,R3,False,1,,11,5,4620,3524,186.5
+formal-F03-I1,F03-N-I1,F03,1,N,TMC,False,1,,15,5,4620,2095,133.2
+formal-F03-I1,F03-P-I1,F03,1,P,R2,False,1,,9,5,4620,4245,192.5
+formal-F03-I1,F03-P-I1,F03,1,P,R3,False,1,,13,5,4620,3104,190.6
+formal-F03-I1,F03-P-I1,F03,1,P,TMC,False,1,,15,5,4620,2457,140.2
+formal-F04-I2,F04-C-I2,F04,2,C,R2,False,1,,6,1,871,212,28.6
+formal-F04-I2,F04-C-I2,F04,2,C,R3,False,1,,7,1,871,226,30.8
+formal-F04-I2,F04-C-I2,F04,2,C,TMC,False,1,,6,1,871,269,27.0
+formal-F04-I2,F04-N-I2,F04,2,N,R2,False,1,,6,1,869,195,29.6
+formal-F04-I2,F04-N-I2,F04,2,N,R3,False,1,,7,1,869,309,34.1
+formal-F04-I2,F04-N-I2,F04,2,N,TMC,False,1,,6,1,869,172,27.0
+formal-F04-I2,F04-P-I2,F04,2,P,R2,False,1,,6,1,871,249,30.9
+formal-F04-I2,F04-P-I2,F04,2,P,R3,False,1,,7,1,871,220,31.1
+formal-F04-I2,F04-P-I2,F04,2,P,TMC,False,1,,6,1,871,201,26.5
+formal-F13-I1,F13-C-I1,F13,1,C,R2,False,1,,4,1,836,119,45.0
+formal-F13-I1,F13-C-I1,F13,1,C,R3,False,1,,5,1,834,148,62.1
+formal-F13-I1,F13-C-I1,F13,1,C,TMC,False,1,,4,1,834,142,43.3
+formal-F13-I1,F13-N-I1,F13,1,N,R2,False,1,,4,1,833,96,44.1
+formal-F13-I1,F13-N-I1,F13,1,N,R3,False,1,,5,1,835,95,61.0
+formal-F13-I1,F13-N-I1,F13,1,N,TMC,False,1,,4,1,835,202,44.0
+formal-F13-I1,F13-P-I1,F13,1,P,R2,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,560,115.5
+formal-F13-I1,F13-P-I1,F13,1,P,R3,False,0,"exists:b: count=1 want [2,inf]",10,5,4136,541,114.5
+formal-F13-I1,F13-P-I1,F13,1,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4126,453,105.1
+formal-F04-I1,F04-C-I1,F04,1,C,R2,False,1,,6,1,871,130,26.5
+formal-F04-I1,F04-C-I1,F04,1,C,R3,False,1,,7,1,871,162,28.6
+formal-F04-I1,F04-C-I1,F04,1,C,TMC,False,1,,6,1,871,265,26.0
+formal-F04-I1,F04-N-I1,F04,1,N,R2,False,1,,6,1,869,197,28.0
+formal-F04-I1,F04-N-I1,F04,1,N,R3,False,1,,7,1,869,181,28.6
+formal-F04-I1,F04-N-I1,F04,1,N,TMC,False,1,,6,1,869,205,26.9
+formal-F04-I1,F04-P-I1,F04,1,P,R2,False,1,,6,1,869,250,27.9
+formal-F04-I1,F04-P-I1,F04,1,P,R3,False,1,,7,1,869,199,28.8
+formal-F04-I1,F04-P-I1,F04,1,P,TMC,False,1,,6,1,869,242,26.2
+formal-F13-I2,F13-C-I2,F13,2,C,R2,False,1,,4,1,836,148,44.2
+formal-F13-I2,F13-C-I2,F13,2,C,R3,False,1,,5,1,836,163,62.9
+formal-F13-I2,F13-C-I2,F13,2,C,TMC,False,1,,4,1,834,139,42.2
+formal-F13-I2,F13-N-I2,F13,2,N,R2,False,1,,4,1,835,138,44.3
+formal-F13-I2,F13-N-I2,F13,2,N,R3,False,1,,5,1,833,156,60.4
+formal-F13-I2,F13-N-I2,F13,2,N,TMC,False,1,,15,5,4173,634,110.8
+formal-F13-I2,F13-P-I2,F13,2,P,R2,False,1,,8,3,2478,801,98.6
+formal-F13-I2,F13-P-I2,F13,2,P,R3,False,0,"exists:b: count=1 want [2,inf]",10,5,4128,780,118.9
+formal-F13-I2,F13-P-I2,F13,2,P,TMC,False,0,"exists:b: count=1 want [2,inf]",10,5,4134,868,107.0
+formal-F09-I1,F09-C-I1,F09,1,C,R2,False,1,,4,1,921,84,23.2
+formal-F09-I1,F09-C-I1,F09,1,C,R3,False,1,,5,1,921,100,25.1
+formal-F09-I1,F09-C-I1,F09,1,C,TMC,False,1,,4,1,921,71,22.0
+formal-F09-I1,F09-N-I1,F09,1,N,R2,False,1,,4,1,915,130,24.3
+formal-F09-I1,F09-N-I1,F09,1,N,R3,False,1,,5,1,915,137,26.5
+formal-F09-I1,F09-N-I1,F09,1,N,TMC,False,1,,4,1,915,110,23.0
+formal-F09-I1,F09-P-I1,F09,1,P,R2,False,1,,6,1,617,283,39.8
+formal-F09-I1,F09-P-I1,F09,1,P,R3,False,1,,7,1,626,299,40.5
+formal-F09-I1,F09-P-I1,F09,1,P,TMC,False,1,,5,1,626,170,25.2
+formal-F08-I1,F08-C-I1,F08,1,C,R2,False,1,,6,1,910,249,41.3
+formal-F08-I1,F08-C-I1,F08,1,C,R3,False,1,,7,1,908,189,40.2
+formal-F08-I1,F08-C-I1,F08,1,C,TMC,False,1,,6,1,910,164,36.6
+formal-F08-I1,F08-N-I1,F08,1,N,R2,False,1,,6,1,915,139,37.8
+formal-F08-I1,F08-N-I1,F08,1,N,R3,False,1,,7,1,913,431,46.7
+formal-F08-I1,F08-N-I1,F08,1,N,TMC,False,1,,6,1,915,205,36.8
+formal-F08-I1,F08-P-I1,F08,1,P,R2,False,1,,6,1,896,259,39.4
+formal-F08-I1,F08-P-I1,F08,1,P,R3,False,1,,7,1,896,183,40.0
+formal-F08-I1,F08-P-I1,F08,1,P,TMC,False,1,,6,1,896,231,37.5
+formal-F09-I2,F09-C-I2,F09,2,C,R2,False,1,,4,1,921,149,21.9
+formal-F09-I2,F09-C-I2,F09,2,C,R3,False,1,,5,1,921,154,23.7
+formal-F09-I2,F09-C-I2,F09,2,C,TMC,False,1,,4,1,921,112,20.3
+formal-F09-I2,F09-N-I2,F09,2,N,R2,False,1,,4,1,915,115,22.1
+formal-F09-I2,F09-N-I2,F09,2,N,R3,False,1,,5,1,915,113,23.6
+formal-F09-I2,F09-N-I2,F09,2,N,TMC,False,1,,4,1,915,134,22.0
+formal-F09-I2,F09-P-I2,F09,2,P,R2,False,1,,5,1,636,233,24.9
+formal-F09-I2,F09-P-I2,F09,2,P,R3,False,1,,6,1,627,152,25.2
+formal-F09-I2,F09-P-I2,F09,2,P,TMC,False,1,,5,1,626,232,23.1

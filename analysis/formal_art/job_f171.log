@@ -1,0 +1,726 @@
+﻿2026-10-06T16:05:20.9810227Z Current runner version: '2.337.0'
+2026-10-06T16:05:20.9837384Z ##[group]Runner Image Provisioner
+2026-10-06T16:05:20.9838479Z Hosted Compute Agent
+2026-10-06T16:05:20.9839160Z Version: 20261002.596
+2026-10-06T16:05:20.9839862Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-06T16:05:20.9840824Z Build Date: 2026-10-02T22:28:27Z
+2026-10-06T16:05:20.9841731Z Worker ID: {ff4ff1ef-3d9f-489f-ad86-85ebb41a9c22}
+2026-10-06T16:05:20.9842573Z Region: eastus
+2026-10-06T16:05:20.9843199Z Cloud: Azure
+2026-10-06T16:05:20.9843813Z ##[endgroup]
+2026-10-06T16:05:20.9845471Z ##[group]Operating System
+2026-10-06T16:05:20.9846165Z Ubuntu
+2026-10-06T16:05:20.9846859Z 24.04.5
+2026-10-06T16:05:20.9847746Z LTS
+2026-10-06T16:05:20.9848410Z ##[endgroup]
+2026-10-06T16:05:20.9849056Z ##[group]Runner Image
+2026-10-06T16:05:20.9850218Z Image: ubuntu-24.04
+2026-10-06T16:05:20.9850869Z Version: 20261004.327.1
+2026-10-06T16:05:20.9852302Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-06T16:05:20.9853947Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-06T16:05:20.9855071Z ##[endgroup]
+2026-10-06T16:05:20.9856255Z ##[group]GITHUB_TOKEN Permissions
+2026-10-06T16:05:20.9858910Z Contents: read
+2026-10-06T16:05:20.9859679Z Metadata: read
+2026-10-06T16:05:20.9860382Z ##[endgroup]
+2026-10-06T16:05:20.9862677Z Secret source: Actions
+2026-10-06T16:05:20.9863799Z Cache mode: write
+2026-10-06T16:05:20.9864799Z Prepare workflow directory
+2026-10-06T16:05:21.0420420Z Prepare all required actions
+2026-10-06T16:05:21.0471344Z Getting action download info
+2026-10-06T16:05:21.3045472Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-06T16:05:21.4074906Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-06T16:05:21.6105198Z Complete job name: formal (F17, 1)
+2026-10-06T16:05:21.6863120Z ##[group]Run actions/checkout@v4
+2026-10-06T16:05:21.6864099Z with:
+2026-10-06T16:05:21.6864700Z   repository: Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T16:05:21.6869239Z   token: ***
+2026-10-06T16:05:21.6869707Z   ssh-strict: true
+2026-10-06T16:05:21.6870176Z   ssh-user: git
+2026-10-06T16:05:21.6870647Z   persist-credentials: true
+2026-10-06T16:05:21.6871163Z   clean: true
+2026-10-06T16:05:21.6871646Z   sparse-checkout-cone-mode: true
+2026-10-06T16:05:21.6872201Z   fetch-depth: 1
+2026-10-06T16:05:21.6872663Z   fetch-tags: false
+2026-10-06T16:05:21.6873139Z   show-progress: true
+2026-10-06T16:05:21.6873613Z   lfs: false
+2026-10-06T16:05:21.6874045Z   submodules: false
+2026-10-06T16:05:21.6874524Z   set-safe-directory: true
+2026-10-06T16:05:21.6875055Z   allow-unsafe-pr-checkout: false
+2026-10-06T16:05:21.6875876Z env:
+2026-10-06T16:05:21.6876330Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:05:21.6876868Z   FRAPPE_VERSION: version-15
+2026-10-06T16:05:21.6877747Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:05:21.6878498Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:05:21.6879044Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:05:21.6879552Z   ERPNEXT_SITE: frontend
+2026-10-06T16:05:21.6880243Z   GLM_API_KEY: ***
+2026-10-06T16:05:21.6880863Z   GLM_API_KEY_2: ***
+2026-10-06T16:05:21.6881482Z   GLM_API_KEY_3: ***
+2026-10-06T16:05:21.6882106Z   GLM_API_KEY_4: ***
+2026-10-06T16:05:21.6882733Z   GLM_API_KEY_5: ***
+2026-10-06T16:05:21.6883370Z   GLM_API_KEY_6: ***
+2026-10-06T16:05:21.6883838Z ##[endgroup]
+2026-10-06T16:05:21.7934336Z Syncing repository: Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T16:05:21.7936862Z ##[group]Getting Git version info
+2026-10-06T16:05:21.7939046Z Working directory is '/home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation'
+2026-10-06T16:05:21.7941357Z [command]/usr/bin/git version
+2026-10-06T16:05:21.8056207Z git version 2.55.0
+2026-10-06T16:05:21.8085089Z ##[endgroup]
+2026-10-06T16:05:21.8105536Z Temporarily overriding HOME='/home/runner/work/_temp/7d7fd27d-2d69-43ff-a4a9-22226a469694' before making global git config changes
+2026-10-06T16:05:21.8108406Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T16:05:21.8111823Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T16:05:21.8169374Z Deleting the contents of '/home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation'
+2026-10-06T16:05:21.8172654Z ##[group]Initializing the repository
+2026-10-06T16:05:21.8178919Z [command]/usr/bin/git init /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T16:05:21.8294853Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-06T16:05:21.8297831Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-06T16:05:21.8300121Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-06T16:05:21.8303124Z hint: call:
+2026-10-06T16:05:21.8304464Z hint:
+2026-10-06T16:05:21.8305550Z hint: 	git config --global init.defaultBranch <name>
+2026-10-06T16:05:21.8306291Z hint:
+2026-10-06T16:05:21.8307308Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-06T16:05:21.8309054Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-06T16:05:21.8310317Z hint:
+2026-10-06T16:05:21.8311186Z hint: 	git branch -m <name>
+2026-10-06T16:05:21.8311840Z hint:
+2026-10-06T16:05:21.8312636Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-06T16:05:21.8314268Z Initialized empty Git repository in /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation/.git/
+2026-10-06T16:05:21.8317233Z [command]/usr/bin/git remote add origin https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T16:05:21.8370114Z ##[endgroup]
+2026-10-06T16:05:21.8371659Z ##[group]Disabling automatic garbage collection
+2026-10-06T16:05:21.8374455Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-06T16:05:21.8409632Z ##[endgroup]
+2026-10-06T16:05:21.8410938Z ##[group]Setting up auth
+2026-10-06T16:05:21.8418167Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T16:05:21.8455165Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T16:05:21.8871590Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T16:05:21.8914629Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T16:05:21.9184981Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T16:05:21.9223535Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T16:05:21.9480762Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-06T16:05:21.9526383Z ##[endgroup]
+2026-10-06T16:05:21.9528972Z ##[group]Fetching the repository
+2026-10-06T16:05:21.9539327Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +876e821c54e063f6de227c031853104ab814ef24:refs/remotes/origin/main
+2026-10-06T16:05:22.3187860Z From https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T16:05:22.3189308Z  * [new ref]         876e821c54e063f6de227c031853104ab814ef24 -> origin/main
+2026-10-06T16:05:22.3193022Z ##[endgroup]
+2026-10-06T16:05:22.3194671Z ##[group]Determining the checkout info
+2026-10-06T16:05:22.3196292Z ##[endgroup]
+2026-10-06T16:05:22.3201601Z [command]/usr/bin/git sparse-checkout disable
+2026-10-06T16:05:22.3260970Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-06T16:05:22.3298514Z ##[group]Checking out the ref
+2026-10-06T16:05:22.3311053Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-06T16:05:22.3511722Z Switched to a new branch 'main'
+2026-10-06T16:05:22.3518505Z branch 'main' set up to track 'origin/main'.
+2026-10-06T16:05:22.3529502Z ##[endgroup]
+2026-10-06T16:05:22.3582005Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T16:05:22.3616648Z 876e821c54e063f6de227c031853104ab814ef24
+2026-10-06T16:05:22.3892354Z ##[group]Run F="F17"
+2026-10-06T16:05:22.3893097Z [36;1mF="F17"[0m
+2026-10-06T16:05:22.3893666Z [36;1mWANT=""[0m
+2026-10-06T16:05:22.3894288Z [36;1mif [ -n "$WANT" ]; then[0m
+2026-10-06T16:05:22.3895066Z [36;1m  case ",$WANT," in[0m
+2026-10-06T16:05:22.3895942Z [36;1m    *",$F,"*) echo "run=true" >> "$GITHUB_OUTPUT";;[0m
+2026-10-06T16:05:22.3897359Z [36;1m    *) echo "run=false" >> "$GITHUB_OUTPUT";;[0m
+2026-10-06T16:05:22.3898349Z [36;1m  esac[0m
+2026-10-06T16:05:22.3898900Z [36;1melse[0m
+2026-10-06T16:05:22.3899521Z [36;1m  echo "run=true" >> "$GITHUB_OUTPUT"[0m
+2026-10-06T16:05:22.3900406Z [36;1mfi[0m
+2026-10-06T16:05:22.4185194Z shell: /usr/bin/bash -e {0}
+2026-10-06T16:05:22.4186129Z env:
+2026-10-06T16:05:22.4186716Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:05:22.4187770Z   FRAPPE_VERSION: version-15
+2026-10-06T16:05:22.4188775Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:05:22.4189930Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:05:22.4190778Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:05:22.4191493Z   ERPNEXT_SITE: frontend
+2026-10-06T16:05:22.4192657Z   GLM_API_KEY: ***
+2026-10-06T16:05:22.4193552Z   GLM_API_KEY_2: ***
+2026-10-06T16:05:22.4194466Z   GLM_API_KEY_3: ***
+2026-10-06T16:05:22.4195375Z   GLM_API_KEY_4: ***
+2026-10-06T16:05:22.4196307Z   GLM_API_KEY_5: ***
+2026-10-06T16:05:22.4197410Z   GLM_API_KEY_6: ***
+2026-10-06T16:05:22.4198022Z ##[endgroup]
+2026-10-06T16:05:22.4504210Z ##[group]Run bash scripts/cleanup_runner_disk.sh normal
+2026-10-06T16:05:22.4505489Z [36;1mbash scripts/cleanup_runner_disk.sh normal[0m
+2026-10-06T16:05:22.4570854Z shell: /usr/bin/bash -e {0}
+2026-10-06T16:05:22.4571566Z env:
+2026-10-06T16:05:22.4572105Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:05:22.4572824Z   FRAPPE_VERSION: version-15
+2026-10-06T16:05:22.4573783Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:05:22.4574871Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:05:22.4575623Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:05:22.4576318Z   ERPNEXT_SITE: frontend
+2026-10-06T16:05:22.4577664Z   GLM_API_KEY: ***
+2026-10-06T16:05:22.4578579Z   GLM_API_KEY_2: ***
+2026-10-06T16:05:22.4579475Z   GLM_API_KEY_3: ***
+2026-10-06T16:05:22.4580382Z   GLM_API_KEY_4: ***
+2026-10-06T16:05:22.4581291Z   GLM_API_KEY_5: ***
+2026-10-06T16:05:22.4582211Z   GLM_API_KEY_6: ***
+2026-10-06T16:05:22.4582813Z ##[endgroup]
+2026-10-06T16:05:22.4707872Z === df -h before cleanup ===
+2026-10-06T16:05:22.4850327Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T16:05:22.4851526Z /dev/root       145G   59G   86G  41% /
+2026-10-06T16:08:29.4405244Z removing /usr/local/lib/android                        12G
+2026-10-06T16:08:58.0670926Z removing /usr/share/dotnet                             5.8G
+2026-10-06T16:09:03.1701116Z removing /usr/local/.ghcup                             3.7G
+2026-10-06T16:09:17.6634781Z removing /opt/hostedtoolcache/CodeQL                   1.4G
+2026-10-06T16:09:20.4766607Z removing /usr/share/swift                              3.5G
+2026-10-06T16:09:26.2639912Z removing /usr/share/miniconda                          980M
+2026-10-06T16:09:41.4929357Z removing /opt/hostedtoolcache/go                       799M
+2026-10-06T16:09:48.3520196Z removing /opt/hostedtoolcache/PyPy                     523M
+2026-10-06T16:09:49.4895696Z removing /usr/share/gradle-9.8.0                       165M
+2026-10-06T16:09:49.6023553Z removing /usr/share/kotlinc                            94M
+2026-10-06T16:09:51.0621967Z removing /usr/lib/jvm                                  1.5G
+2026-10-06T16:10:13.8766022Z removing /opt/pipx                                     500M
+2026-10-06T16:10:16.7658757Z removing /usr/share/mysql                              9.5M
+2026-10-06T16:10:16.7817657Z removing /var/lib/mysql                                4.0K
+2026-10-06T16:10:56.6034616Z === df -h after cleanup ===
+2026-10-06T16:10:56.6048600Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T16:10:56.6063952Z /dev/root       145G   27G  118G  19% /
+2026-10-06T16:10:56.6135674Z ##[group]Run bash smoke/start_erpnext.sh
+2026-10-06T16:10:56.6136073Z [36;1mbash smoke/start_erpnext.sh[0m
+2026-10-06T16:10:56.6200587Z shell: /usr/bin/bash -e {0}
+2026-10-06T16:10:56.6200939Z env:
+2026-10-06T16:10:56.6201170Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:10:56.6201457Z   FRAPPE_VERSION: version-15
+2026-10-06T16:10:56.6201807Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:10:56.6202221Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:10:56.6202495Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:10:56.6202763Z   ERPNEXT_SITE: frontend
+2026-10-06T16:10:56.6203647Z   GLM_API_KEY: ***
+2026-10-06T16:10:56.6203989Z   GLM_API_KEY_2: ***
+2026-10-06T16:10:56.6204357Z   GLM_API_KEY_3: ***
+2026-10-06T16:10:56.6204703Z   GLM_API_KEY_4: ***
+2026-10-06T16:10:56.6205021Z   GLM_API_KEY_5: ***
+2026-10-06T16:10:56.6205326Z   GLM_API_KEY_6: ***
+2026-10-06T16:10:56.6205554Z ##[endgroup]
+2026-10-06T16:10:57.1001152Z 3:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1001894Z 22:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1002364Z 51:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1002807Z 111:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1003268Z 138:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1003703Z 160:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1004124Z 200:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1004537Z 217:    image: frappe/erpnext:v15.99.1
+2026-10-06T16:10:57.1031509Z [16:10:57] pulling pinned images ...
+2026-10-06T16:11:35.1782800Z  dfc4cfbee500 Pull complete 
+2026-10-06T16:11:35.1783322Z  4f4fb700ef54 Extracting [==================================================>]      32B/32B
+2026-10-06T16:11:35.1783896Z  4f4fb700ef54 Extracting [==================================================>]      32B/32B
+2026-10-06T16:11:35.1784671Z  4f4fb700ef54 Pull complete 
+2026-10-06T16:11:35.1785125Z  websocket Pulled 
+2026-10-06T16:11:35.1922410Z mariadb:10.6	309MB
+2026-10-06T16:11:35.1922789Z redis:6.2-alpine	27.8MB
+2026-10-06T16:11:35.1923069Z frappe/erpnext:v15.99.1	2.27GB
+2026-10-06T16:11:35.2573936Z === df -h after image pull ===
+2026-10-06T16:11:35.2594471Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T16:11:35.2597419Z /dev/root       145G   30G  116G  21% /
+2026-10-06T16:11:35.2769099Z [16:11:35] starting stack ...
+2026-10-06T16:11:35.3710612Z  Network frappe_docker_frappe_network  Creating
+2026-10-06T16:11:35.4111266Z  Network frappe_docker_frappe_network  Created
+2026-10-06T16:11:35.4329812Z  Volume "frappe_docker_db-data"  Creating
+2026-10-06T16:11:35.4345715Z  Volume "frappe_docker_db-data"  Created
+2026-10-06T16:11:35.4350175Z  Volume "frappe_docker_redis-queue-data"  Creating
+2026-10-06T16:11:35.4359485Z  Volume "frappe_docker_redis-queue-data"  Created
+2026-10-06T16:11:35.4363194Z  Volume "frappe_docker_sites"  Creating
+2026-10-06T16:11:35.4393946Z  Volume "frappe_docker_sites"  Created
+2026-10-06T16:11:35.4398582Z  Volume "frappe_docker_logs"  Creating
+2026-10-06T16:11:35.4414315Z  Volume "frappe_docker_logs"  Created
+2026-10-06T16:11:35.4420521Z  Container frappe_docker-redis-queue-1  Creating
+2026-10-06T16:11:35.4421539Z  Container frappe_docker-create-site-1  Creating
+2026-10-06T16:11:35.4421939Z  Container frappe_docker-redis-cache-1  Creating
+2026-10-06T16:11:35.4422306Z  Container frappe_docker-configurator-1  Creating
+2026-10-06T16:11:35.4422793Z  Container frappe_docker-db-1  Creating
+2026-10-06T16:11:35.5025985Z  Container frappe_docker-redis-cache-1  Created
+2026-10-06T16:11:35.5079367Z  Container frappe_docker-db-1  Created
+2026-10-06T16:11:35.5085242Z  Container frappe_docker-redis-queue-1  Created
+2026-10-06T16:11:35.5248483Z  Container frappe_docker-configurator-1  Created
+2026-10-06T16:11:35.5273028Z  Container frappe_docker-backend-1  Creating
+2026-10-06T16:11:35.5274667Z  Container frappe_docker-queue-short-1  Creating
+2026-10-06T16:11:35.5275657Z  Container frappe_docker-scheduler-1  Creating
+2026-10-06T16:11:35.5276494Z  Container frappe_docker-queue-long-1  Creating
+2026-10-06T16:11:35.5277778Z  Container frappe_docker-websocket-1  Creating
+2026-10-06T16:11:35.5580874Z  Container frappe_docker-create-site-1  Created
+2026-10-06T16:11:35.6125984Z  Container frappe_docker-backend-1  Created
+2026-10-06T16:11:35.6127538Z  Container frappe_docker-queue-short-1  Created
+2026-10-06T16:11:35.6149625Z  Container frappe_docker-queue-long-1  Created
+2026-10-06T16:11:35.6184210Z  Container frappe_docker-websocket-1  Created
+2026-10-06T16:11:35.6185225Z  Container frappe_docker-scheduler-1  Created
+2026-10-06T16:11:35.6185977Z  Container frappe_docker-frontend-1  Creating
+2026-10-06T16:11:35.6479639Z  Container frappe_docker-frontend-1  Created
+2026-10-06T16:11:35.6503876Z  Container frappe_docker-configurator-1  Starting
+2026-10-06T16:11:35.6504723Z  Container frappe_docker-db-1  Starting
+2026-10-06T16:11:35.6505389Z  Container frappe_docker-redis-cache-1  Starting
+2026-10-06T16:11:35.6533220Z  Container frappe_docker-redis-queue-1  Starting
+2026-10-06T16:11:35.6539581Z  Container frappe_docker-create-site-1  Starting
+2026-10-06T16:11:35.9739083Z  Container frappe_docker-configurator-1  Started
+2026-10-06T16:11:35.9742106Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T16:11:35.9749894Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T16:11:35.9750795Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T16:11:35.9752378Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T16:11:35.9753784Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T16:11:36.0069938Z  Container frappe_docker-redis-cache-1  Started
+2026-10-06T16:11:36.0125584Z  Container frappe_docker-create-site-1  Started
+2026-10-06T16:11:36.0128470Z  Container frappe_docker-redis-queue-1  Started
+2026-10-06T16:11:36.0249183Z  Container frappe_docker-db-1  Started
+2026-10-06T16:11:40.9750735Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T16:11:40.9755221Z  Container frappe_docker-scheduler-1  Starting
+2026-10-06T16:11:40.9762690Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T16:11:40.9763533Z  Container frappe_docker-queue-short-1  Starting
+2026-10-06T16:11:40.9770297Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T16:11:40.9772094Z  Container frappe_docker-backend-1  Starting
+2026-10-06T16:11:40.9788554Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T16:11:40.9803039Z  Container frappe_docker-queue-long-1  Starting
+2026-10-06T16:11:40.9803829Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T16:11:40.9805233Z  Container frappe_docker-websocket-1  Starting
+2026-10-06T16:11:41.2386311Z  Container frappe_docker-websocket-1  Started
+2026-10-06T16:11:41.2547180Z  Container frappe_docker-backend-1  Started
+2026-10-06T16:11:41.2551842Z  Container frappe_docker-frontend-1  Starting
+2026-10-06T16:11:41.4003720Z  Container frappe_docker-scheduler-1  Started
+2026-10-06T16:11:41.4012034Z  Container frappe_docker-queue-short-1  Started
+2026-10-06T16:11:41.4058007Z  Container frappe_docker-queue-long-1  Started
+2026-10-06T16:11:41.5774083Z  Container frappe_docker-frontend-1  Started
+2026-10-06T16:12:45.9177602Z create-site completed successfully at 16:12:45
+2026-10-06T16:12:46.0877415Z ERPNEXT_READY after 71s (create-site exit 0 + pong)
+2026-10-06T16:12:46.2070654Z detected site: frontend
+2026-10-06T16:12:46.3243497Z db_name raw match: "db_name": "_5e5899d8398b5f7b"
+2026-10-06T16:12:46.3277240Z db: _5e5899d8398b5f7b
+2026-10-06T16:12:47.2239209Z setup_complete written via SQL
+2026-10-06T16:12:47.3416039Z setup_complete now: 1
+2026-10-06T16:12:47.4660625Z installed_apps: erpnext=1 frappe=1 
+2026-10-06T16:12:47.5890089Z language set to en
+2026-10-06T16:12:51.0964870Z curl_login_http=200 body={"message":"Logged In","home_page":"/app/home","full_name":"Administrator"}
+2026-10-06T16:12:51.1763476Z NAME                          IMAGE                     COMMAND                  SERVICE       CREATED              STATUS                        PORTS
+2026-10-06T16:12:51.1766278Z frappe_docker-backend-1       frappe/erpnext:v15.99.1   "/home/frappe/frappe…"   backend       About a minute ago   Up About a minute             
+2026-10-06T16:12:51.1768098Z frappe_docker-db-1            mariadb:10.6              "docker-entrypoint.s…"   db            About a minute ago   Up About a minute (healthy)   3306/tcp
+2026-10-06T16:12:51.1773908Z frappe_docker-frontend-1      frappe/erpnext:v15.99.1   "nginx-entrypoint.sh"    frontend      About a minute ago   Up About a minute             0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+2026-10-06T16:12:51.1775304Z frappe_docker-queue-long-1    frappe/erpnext:v15.99.1   "bench worker --queu…"   queue-long    About a minute ago   Up About a minute             
+2026-10-06T16:12:51.1776441Z frappe_docker-queue-short-1   frappe/erpnext:v15.99.1   "bench worker --queu…"   queue-short   About a minute ago   Up About a minute             
+2026-10-06T16:12:51.1777948Z frappe_docker-redis-cache-1   redis:6.2-alpine          "docker-entrypoint.s…"   redis-cache   About a minute ago   Up About a minute             6379/tcp
+2026-10-06T16:12:51.1779142Z frappe_docker-redis-queue-1   redis:6.2-alpine          "docker-entrypoint.s…"   redis-queue   About a minute ago   Up About a minute             6379/tcp
+2026-10-06T16:12:51.1780234Z frappe_docker-scheduler-1     frappe/erpnext:v15.99.1   "bench schedule"         scheduler     About a minute ago   Up About a minute             
+2026-10-06T16:12:51.1781316Z frappe_docker-websocket-1     frappe/erpnext:v15.99.1   "node /home/frappe/f…"   websocket     About a minute ago   Up About a minute             
+2026-10-06T16:12:51.1812606Z === df -h after startup ===
+2026-10-06T16:12:51.1829149Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T16:12:51.1829867Z /dev/root       145G   30G  115G  21% /
+2026-10-06T16:12:56.1902669Z ##[group]Run python3 -m venv .venv
+2026-10-06T16:12:56.1920888Z [36;1mpython3 -m venv .venv[0m
+2026-10-06T16:12:56.1921218Z [36;1m.venv/bin/pip install -q --upgrade pip[0m
+2026-10-06T16:12:56.1921626Z [36;1m.venv/bin/pip install -q "playwright==1.52.0"[0m
+2026-10-06T16:12:56.1922083Z [36;1m.venv/bin/python -m playwright install --with-deps chromium[0m
+2026-10-06T16:12:56.1981066Z shell: /usr/bin/bash -e {0}
+2026-10-06T16:12:56.1981333Z env:
+2026-10-06T16:12:56.1981547Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:12:56.1981808Z   FRAPPE_VERSION: version-15
+2026-10-06T16:12:56.1982141Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:12:56.1982509Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:12:56.1982783Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:12:56.1983028Z   ERPNEXT_SITE: frontend
+2026-10-06T16:12:56.1983473Z   GLM_API_KEY: ***
+2026-10-06T16:12:56.1983800Z   GLM_API_KEY_2: ***
+2026-10-06T16:12:56.1984111Z   GLM_API_KEY_3: ***
+2026-10-06T16:12:56.1984446Z   GLM_API_KEY_4: ***
+2026-10-06T16:12:56.1984743Z   GLM_API_KEY_5: ***
+2026-10-06T16:12:56.1985039Z   GLM_API_KEY_6: ***
+2026-10-06T16:12:56.1985266Z ##[endgroup]
+2026-10-06T16:13:02.7216193Z Installing dependencies...
+2026-10-06T16:13:02.7301839Z Switching to root user to install dependencies...
+2026-10-06T16:13:02.7989668Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-06T16:13:02.8228548Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+2026-10-06T16:13:02.8261199Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-06T16:13:02.8387816Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-06T16:13:02.8412669Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-06T16:13:02.8457965Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-06T16:13:02.9061719Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main all Packages [643 B]
+2026-10-06T16:13:02.9175716Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.6 kB]
+2026-10-06T16:13:02.9193033Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [458 kB]
+2026-10-06T16:13:02.9268121Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [515 kB]
+2026-10-06T16:13:02.9724743Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 Packages [1401 kB]
+2026-10-06T16:13:02.9819070Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/main Translation-en [513 kB]
+2026-10-06T16:13:02.9849133Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 c-n-f Metadata [30.5 kB]
+2026-10-06T16:13:02.9862541Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 Packages [15.0 MB]
+2026-10-06T16:13:03.0669901Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/universe Translation-en [5982 kB]
+2026-10-06T16:13:03.0970981Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 c-n-f Metadata [301 kB]
+2026-10-06T16:13:03.0981932Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [93.9 kB]
+2026-10-06T16:13:03.0998737Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble/restricted Translation-en [18.7 kB]
+2026-10-06T16:13:03.1013866Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble/restricted amd64 c-n-f Metadata [416 B]
+2026-10-06T16:13:03.1038068Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [269 kB]
+2026-10-06T16:13:03.1058266Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble/multiverse Translation-en [118 kB]
+2026-10-06T16:13:03.1525099Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble/multiverse amd64 c-n-f Metadata [8328 B]
+2026-10-06T16:13:03.1540033Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1374 kB]
+2026-10-06T16:13:03.1612372Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [306 kB]
+2026-10-06T16:13:03.1638022Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [17.7 kB]
+2026-10-06T16:13:03.1652603Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1700 kB]
+2026-10-06T16:13:03.1738186Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [341 kB]
+2026-10-06T16:13:03.1765393Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [34.9 kB]
+2026-10-06T16:13:03.1781201Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1730 kB]
+2026-10-06T16:13:03.1865379Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [396 kB]
+2026-10-06T16:13:03.1895118Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 c-n-f Metadata [456 B]
+2026-10-06T16:13:03.1907847Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [45.7 kB]
+2026-10-06T16:13:03.1922995Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [13.3 kB]
+2026-10-06T16:13:03.1936928Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [656 B]
+2026-10-06T16:13:03.1950126Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+2026-10-06T16:13:03.2391840Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9172 B]
+2026-10-06T16:13:03.2428840Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 c-n-f Metadata [368 B]
+2026-10-06T16:13:03.2430671Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+2026-10-06T16:13:03.2435763Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+2026-10-06T16:13:03.2446407Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [1588 B]
+2026-10-06T16:13:03.2459588Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 c-n-f Metadata [116 B]
+2026-10-06T16:13:03.2472357Z Get:42 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+2026-10-06T16:13:03.2485603Z Get:43 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+2026-10-06T16:13:03.2498797Z Get:44 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 c-n-f Metadata [116 B]
+2026-10-06T16:13:03.2514491Z Get:45 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1072 kB]
+2026-10-06T16:13:03.2576901Z Get:46 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [222 kB]
+2026-10-06T16:13:03.2597876Z Get:47 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [11.9 kB]
+2026-10-06T16:13:03.2629596Z Get:48 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1216 kB]
+2026-10-06T16:13:03.2694931Z Get:49 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [244 kB]
+2026-10-06T16:13:03.2717566Z Get:50 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [24.2 kB]
+2026-10-06T16:13:03.3153504Z Get:51 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1566 kB]
+2026-10-06T16:13:03.3233087Z Get:52 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [361 kB]
+2026-10-06T16:13:03.3261394Z Get:53 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 c-n-f Metadata [444 B]
+2026-10-06T16:13:03.3274836Z Get:54 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [40.3 kB]
+2026-10-06T16:13:03.3289356Z Get:55 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [11.3 kB]
+2026-10-06T16:13:03.3303051Z Get:56 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 c-n-f Metadata [468 B]
+2026-10-06T16:13:12.8875896Z Fetched 36.2 MB in 3s (11.9 MB/s)
+2026-10-06T16:13:13.7570230Z Reading package lists...
+2026-10-06T16:13:13.7800471Z Reading package lists...
+2026-10-06T16:13:13.9835837Z Building dependency tree...
+2026-10-06T16:13:13.9843407Z Reading state information...
+2026-10-06T16:13:14.1481863Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-06T16:13:14.1482978Z libasound2t64 set to manually installed.
+2026-10-06T16:13:14.1483731Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-06T16:13:14.1484436Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-06T16:13:14.1485077Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-06T16:13:14.1485675Z libatk1.0-0t64 set to manually installed.
+2026-10-06T16:13:14.1486273Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-06T16:13:14.1487556Z libatspi2.0-0t64 set to manually installed.
+2026-10-06T16:13:14.1488129Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-06T16:13:14.1488596Z libcairo2 set to manually installed.
+2026-10-06T16:13:14.1489081Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-06T16:13:14.1489585Z libcups2t64 set to manually installed.
+2026-10-06T16:13:14.1490046Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-06T16:13:14.1490522Z libdbus-1-3 set to manually installed.
+2026-10-06T16:13:14.1490997Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-06T16:13:14.1491488Z libdrm2 set to manually installed.
+2026-10-06T16:13:14.1491937Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-10-06T16:13:14.1492419Z libgbm1 set to manually installed.
+2026-10-06T16:13:14.1492882Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-06T16:13:14.1493615Z libglib2.0-0t64 set to manually installed.
+2026-10-06T16:13:14.1494019Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-06T16:13:14.1494411Z libnspr4 set to manually installed.
+2026-10-06T16:13:14.1494785Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-06T16:13:14.1495176Z libnss3 set to manually installed.
+2026-10-06T16:13:14.1495571Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-06T16:13:14.1495992Z libpango-1.0-0 set to manually installed.
+2026-10-06T16:13:14.1496379Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-06T16:13:14.1496760Z libx11-6 set to manually installed.
+2026-10-06T16:13:14.1497259Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-06T16:13:14.1497629Z libxcb1 set to manually installed.
+2026-10-06T16:13:14.1498017Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-06T16:13:14.1498444Z libxcomposite1 set to manually installed.
+2026-10-06T16:13:14.1498854Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-06T16:13:14.1499255Z libxdamage1 set to manually installed.
+2026-10-06T16:13:14.1499631Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-06T16:13:14.1500011Z libxext6 set to manually installed.
+2026-10-06T16:13:14.1500389Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-06T16:13:14.1500786Z libxfixes3 set to manually installed.
+2026-10-06T16:13:14.1501174Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-06T16:13:14.1501587Z libxkbcommon0 set to manually installed.
+2026-10-06T16:13:14.1501959Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-06T16:13:14.1502336Z libxrandr2 set to manually installed.
+2026-10-06T16:13:14.1502669Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-06T16:13:14.1503147Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-06T16:13:14.1503663Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-06T16:13:14.1504059Z libfontconfig1 set to manually installed.
+2026-10-06T16:13:14.1504409Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-06T16:13:14.1504781Z fonts-liberation set to manually installed.
+2026-10-06T16:13:14.1505290Z The following additional packages will be installed:
+2026-10-06T16:13:14.1505641Z   xfonts-encodings xfonts-utils
+2026-10-06T16:13:14.1505919Z Recommended packages:
+2026-10-06T16:13:14.1506179Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-06T16:13:14.1659493Z The following NEW packages will be installed:
+2026-10-06T16:13:14.1660066Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-06T16:13:14.1666188Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-06T16:13:14.1666923Z   xfonts-utils
+2026-10-06T16:13:14.1670968Z The following packages will be upgraded:
+2026-10-06T16:13:14.1676022Z   libfreetype6
+2026-10-06T16:13:14.1847284Z 1 upgraded, 9 newly installed, 0 to remove and 9 not upgraded.
+2026-10-06T16:13:14.1848076Z Need to get 21.5 MB of archives.
+2026-10-06T16:13:14.1848716Z After this operation, 79.5 MB of additional disk space will be used.
+2026-10-06T16:13:14.1849477Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-06T16:13:14.2174508Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-06T16:13:14.2644462Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-06T16:13:14.3105133Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-06T16:13:14.3267692Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-06T16:13:14.3591029Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-06T16:13:14.4166195Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 libfreetype6 amd64 2.13.2+dfsg-1ubuntu0.2 [403 kB]
+2026-10-06T16:13:14.4336192Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-06T16:13:14.4526055Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-06T16:13:14.4678510Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-06T16:13:14.4849086Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-06T16:13:14.7556086Z Fetched 21.5 MB in 0s (68.8 MB/s)
+2026-10-06T16:13:14.7792418Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-06T16:13:14.8086152Z (Reading database ... 
+2026-10-06T16:13:14.8086755Z (Reading database ... 5%
+2026-10-06T16:13:14.8087765Z (Reading database ... 10%
+2026-10-06T16:13:14.8088338Z (Reading database ... 15%
+2026-10-06T16:13:14.8089108Z (Reading database ... 20%
+2026-10-06T16:13:14.8089638Z (Reading database ... 25%
+2026-10-06T16:13:14.8090465Z (Reading database ... 30%
+2026-10-06T16:13:14.8090998Z (Reading database ... 35%
+2026-10-06T16:13:14.8091739Z (Reading database ... 40%
+2026-10-06T16:13:14.8092334Z (Reading database ... 45%
+2026-10-06T16:13:14.8093079Z (Reading database ... 50%
+2026-10-06T16:13:14.8140237Z (Reading database ... 55%
+2026-10-06T16:13:14.9048776Z (Reading database ... 60%
+2026-10-06T16:13:15.1528235Z (Reading database ... 65%
+2026-10-06T16:13:15.3043899Z (Reading database ... 70%
+2026-10-06T16:13:15.5069992Z (Reading database ... 75%
+2026-10-06T16:13:15.7041484Z (Reading database ... 80%
+2026-10-06T16:13:15.8498520Z (Reading database ... 85%
+2026-10-06T16:13:16.0505484Z (Reading database ... 90%
+2026-10-06T16:13:16.1940409Z (Reading database ... 95%
+2026-10-06T16:13:16.1941148Z (Reading database ... 100%
+2026-10-06T16:13:16.1942170Z (Reading database ... 203191 files and directories currently installed.)
+2026-10-06T16:13:16.1987435Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-06T16:13:16.2082479Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-06T16:13:16.4394389Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-06T16:13:16.4520090Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-06T16:13:16.4526847Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-06T16:13:16.5339978Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-06T16:13:16.5465065Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-06T16:13:16.5471938Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-06T16:13:16.5689820Z Selecting previously unselected package fonts-unifont.
+2026-10-06T16:13:16.5813287Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-06T16:13:16.5820929Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-06T16:13:16.6913974Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-06T16:13:16.7039630Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-06T16:13:16.7146666Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-06T16:13:17.2075504Z Preparing to unpack .../5-libfreetype6_2.13.2+dfsg-1ubuntu0.2_amd64.deb ...
+2026-10-06T16:13:17.2103065Z Unpacking libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) over (2.13.2+dfsg-1ubuntu0.1) ...
+2026-10-06T16:13:17.2356037Z Selecting previously unselected package xfonts-encodings.
+2026-10-06T16:13:17.2482447Z Preparing to unpack .../6-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-06T16:13:17.2490280Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-06T16:13:17.2781227Z Selecting previously unselected package xfonts-utils.
+2026-10-06T16:13:17.2908803Z Preparing to unpack .../7-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-06T16:13:17.2916261Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-06T16:13:17.3562860Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-06T16:13:17.3692003Z Preparing to unpack .../8-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-06T16:13:17.3699378Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-06T16:13:17.4052466Z Selecting previously unselected package xfonts-scalable.
+2026-10-06T16:13:17.4179786Z Preparing to unpack .../9-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-06T16:13:17.4187544Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-06T16:13:17.4634941Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-06T16:13:17.4759067Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-06T16:13:17.4776437Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-06T16:13:17.4794563Z Setting up libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) ...
+2026-10-06T16:13:17.4813385Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-06T16:13:17.4831265Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-06T16:13:17.4893515Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-06T16:13:17.4910096Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-06T16:13:17.4929606Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-06T16:13:17.4968658Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-06T16:13:17.5299094Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-06T16:13:17.5611827Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-06T16:13:17.5927283Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-06T16:13:17.5948763Z Not building database; man-db/auto-update is not 'true'.
+2026-10-06T16:13:17.5962760Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-06T16:13:18.3927161Z 
+2026-10-06T16:13:18.3928244Z Running kernel seems to be up-to-date.
+2026-10-06T16:13:18.3928651Z 
+2026-10-06T16:13:18.3928807Z Restarting services...
+2026-10-06T16:13:18.4012397Z  systemctl restart php8.3-fpm.service
+2026-10-06T16:13:18.5077357Z 
+2026-10-06T16:13:18.5078607Z No containers need to be restarted.
+2026-10-06T16:13:18.5079006Z 
+2026-10-06T16:13:18.5079345Z No user sessions are running outdated binaries.
+2026-10-06T16:13:18.5079833Z 
+2026-10-06T16:13:18.5080617Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-06T16:13:19.3638045Z Downloading Chromium 136.0.7103.25 (playwright build v1169) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1169/chromium-linux.zip
+2026-10-06T16:13:19.5170838Z |                                                                                |   0% of 167.7 MiB
+2026-10-06T16:13:19.6515150Z |■■■■■■■■                                                                        |  10% of 167.7 MiB
+2026-10-06T16:13:19.7463236Z |■■■■■■■■■■■■■■■■                                                                |  20% of 167.7 MiB
+2026-10-06T16:13:19.8671996Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 167.7 MiB
+2026-10-06T16:13:19.9843983Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 167.7 MiB
+2026-10-06T16:13:20.0773121Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 167.7 MiB
+2026-10-06T16:13:20.1733361Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 167.7 MiB
+2026-10-06T16:13:20.2556469Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 167.7 MiB
+2026-10-06T16:13:20.3780580Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 167.7 MiB
+2026-10-06T16:13:20.5397757Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 167.7 MiB
+2026-10-06T16:13:20.6400096Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 167.7 MiB
+2026-10-06T16:13:23.8604553Z Chromium 136.0.7103.25 (playwright build v1169) downloaded to /home/runner/.cache/ms-playwright/chromium-1169
+2026-10-06T16:13:23.8606883Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-06T16:13:24.0028538Z |                                                                                |   0% of 2.3 MiB
+2026-10-06T16:13:24.0099361Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-06T16:13:24.0135052Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-06T16:13:24.0156899Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-06T16:13:24.0172623Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-06T16:13:24.0194879Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-06T16:13:24.0219779Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-06T16:13:24.0237421Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-06T16:13:24.0251636Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-06T16:13:24.0268658Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-06T16:13:24.0280958Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-06T16:13:24.0821399Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-06T16:13:24.0823754Z Downloading Chromium Headless Shell 136.0.7103.25 (playwright build v1169) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1169/chromium-headless-shell-linux.zip
+2026-10-06T16:13:24.2296450Z |                                                                                |   0% of 101.4 MiB
+2026-10-06T16:13:24.3079536Z |■■■■■■■■                                                                        |  10% of 101.4 MiB
+2026-10-06T16:13:24.3654567Z |■■■■■■■■■■■■■■■■                                                                |  20% of 101.4 MiB
+2026-10-06T16:13:24.4259674Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 101.4 MiB
+2026-10-06T16:13:24.4803728Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 101.4 MiB
+2026-10-06T16:13:24.5765834Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 101.4 MiB
+2026-10-06T16:13:24.6796078Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 101.4 MiB
+2026-10-06T16:13:24.7562475Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 101.4 MiB
+2026-10-06T16:13:24.8208544Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 101.4 MiB
+2026-10-06T16:13:24.8831562Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 101.4 MiB
+2026-10-06T16:13:24.9407784Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 101.4 MiB
+2026-10-06T16:13:26.8018454Z Chromium Headless Shell 136.0.7103.25 (playwright build v1169) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1169
+2026-10-06T16:13:26.8860509Z ##[group]Run FAM="F17"
+2026-10-06T16:13:26.8860815Z [36;1mFAM="F17"[0m
+2026-10-06T16:13:26.8861036Z [36;1mINST="1"[0m
+2026-10-06T16:13:26.8861281Z [36;1mmkdir -p "runs/${FAM}-I${INST}"[0m
+2026-10-06T16:13:26.8861584Z [36;1mfor COND in N P C; do[0m
+2026-10-06T16:13:26.8861853Z [36;1m  for M in TMC R2 R3; do[0m
+2026-10-06T16:13:26.8862133Z [36;1m    echo "=== $FAM $COND $M ==="[0m
+2026-10-06T16:13:26.8862448Z [36;1m    bash fixtures/restore_base.sh[0m
+2026-10-06T16:13:26.8862776Z [36;1m    .venv/bin/python harness/runner.py \[0m
+2026-10-06T16:13:26.8863226Z [36;1m      --task "tasks/formal/${FAM}/${FAM}-${COND}-I${INST}.json" \[0m
+2026-10-06T16:13:26.8863677Z [36;1m      --method "$M" --out-dir "runs/${FAM}-I${INST}" \[0m
+2026-10-06T16:13:26.8864083Z [36;1m      || echo "RUN_FAILED ${FAM}-${COND}-I${INST} ${M}"[0m
+2026-10-06T16:13:26.8864408Z [36;1m  done[0m
+2026-10-06T16:13:26.8864617Z [36;1mdone[0m
+2026-10-06T16:13:26.8924377Z shell: /usr/bin/bash -e {0}
+2026-10-06T16:13:26.8924688Z env:
+2026-10-06T16:13:26.8924904Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:13:26.8925172Z   FRAPPE_VERSION: version-15
+2026-10-06T16:13:26.8925508Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:13:26.8925875Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:13:26.8926135Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:13:26.8926375Z   ERPNEXT_SITE: frontend
+2026-10-06T16:13:26.8927540Z   GLM_API_KEY: ***
+2026-10-06T16:13:26.8928071Z   GLM_API_KEY_2: ***
+2026-10-06T16:13:26.8928457Z   GLM_API_KEY_3: ***
+2026-10-06T16:13:26.8928791Z   GLM_API_KEY_4: ***
+2026-10-06T16:13:26.8929095Z   GLM_API_KEY_5: ***
+2026-10-06T16:13:26.8929415Z   GLM_API_KEY_6: ***
+2026-10-06T16:13:26.8929624Z ##[endgroup]
+2026-10-06T16:13:26.9025917Z === F17 N TMC ===
+2026-10-06T16:13:26.9076713Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:13:33.8412539Z restore: /login http=200
+2026-10-06T16:13:33.8413071Z BASE_RESTORED
+2026-10-06T16:16:56.8665508Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:16:57.0686216Z RUN_DONE F17-N-I1 TMC reward 0
+2026-10-06T16:16:57.0926370Z RUN_FAILED F17-N-I1 TMC
+2026-10-06T16:16:57.0977693Z === F17 N R2 ===
+2026-10-06T16:16:57.0978136Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:17:03.4677866Z restore: /login http=200
+2026-10-06T16:17:03.4678216Z BASE_RESTORED
+2026-10-06T16:20:55.8546199Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:20:56.0611316Z RUN_DONE F17-N-I1 R2 reward 0
+2026-10-06T16:20:56.0859282Z RUN_FAILED F17-N-I1 R2
+2026-10-06T16:20:56.0859986Z === F17 N R3 ===
+2026-10-06T16:20:56.0912976Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:21:02.5426041Z restore: /login http=200
+2026-10-06T16:21:02.5426559Z BASE_RESTORED
+2026-10-06T16:26:12.5145527Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:26:12.7414270Z RUN_DONE F17-N-I1 R3 reward 0
+2026-10-06T16:26:12.7645362Z RUN_FAILED F17-N-I1 R3
+2026-10-06T16:26:12.7645680Z === F17 P TMC ===
+2026-10-06T16:26:12.7698770Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:26:19.1842906Z restore: /login http=200
+2026-10-06T16:26:19.1843448Z BASE_RESTORED
+2026-10-06T16:29:44.7240194Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:29:44.9382273Z RUN_DONE F17-P-I1 TMC reward 0
+2026-10-06T16:29:44.9663390Z RUN_FAILED F17-P-I1 TMC
+2026-10-06T16:29:44.9663844Z === F17 P R2 ===
+2026-10-06T16:29:44.9716976Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:29:51.1739156Z restore: /login http=200
+2026-10-06T16:29:51.1739537Z BASE_RESTORED
+2026-10-06T16:33:31.9708815Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:33:32.1971415Z RUN_DONE F17-P-I1 R2 reward 0
+2026-10-06T16:33:32.2222576Z RUN_FAILED F17-P-I1 R2
+2026-10-06T16:33:32.2223286Z === F17 P R3 ===
+2026-10-06T16:33:32.2279443Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:33:38.5320398Z restore: /login http=200
+2026-10-06T16:33:38.5320732Z BASE_RESTORED
+2026-10-06T16:38:51.0740991Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:38:51.2940424Z RUN_DONE F17-P-I1 R3 reward 0
+2026-10-06T16:38:51.3208061Z RUN_FAILED F17-P-I1 R3
+2026-10-06T16:38:51.3209751Z === F17 C TMC ===
+2026-10-06T16:38:51.3263189Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:38:57.5947710Z restore: /login http=200
+2026-10-06T16:38:57.5948224Z BASE_RESTORED
+2026-10-06T16:42:20.1585153Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:42:20.3493441Z RUN_DONE F17-C-I1 TMC reward 0
+2026-10-06T16:42:20.3712209Z RUN_FAILED F17-C-I1 TMC
+2026-10-06T16:42:20.3713250Z === F17 C R2 ===
+2026-10-06T16:42:20.3762870Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:42:26.2634319Z restore: /login http=200
+2026-10-06T16:42:26.2634673Z BASE_RESTORED
+2026-10-06T16:46:02.0212467Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:46:02.2176762Z RUN_DONE F17-C-I1 R2 reward 0
+2026-10-06T16:46:02.2416703Z RUN_FAILED F17-C-I1 R2
+2026-10-06T16:46:02.2417296Z === F17 C R3 ===
+2026-10-06T16:46:02.2468589Z restore: site=frontend db=_5e5899d8398b5f7b
+2026-10-06T16:46:08.2087496Z restore: /login http=200
+2026-10-06T16:46:08.2088059Z BASE_RESTORED
+2026-10-06T16:51:15.9723950Z EVAL_REWARD 0 FAILED 1
+2026-10-06T16:51:16.1857623Z RUN_DONE F17-C-I1 R3 reward 0
+2026-10-06T16:51:16.2109902Z RUN_FAILED F17-C-I1 R3
+2026-10-06T16:51:16.2188166Z ##[group]Run actions/upload-artifact@v4
+2026-10-06T16:51:16.2188533Z with:
+2026-10-06T16:51:16.2188752Z   name: formal-F17-I1
+2026-10-06T16:51:16.2188997Z   path: runs/
+2026-10-06T16:51:16.2189212Z   retention-days: 30
+2026-10-06T16:51:16.2189458Z   if-no-files-found: warn
+2026-10-06T16:51:16.2189711Z   compression-level: 6
+2026-10-06T16:51:16.2189937Z   overwrite: false
+2026-10-06T16:51:16.2190181Z   include-hidden-files: false
+2026-10-06T16:51:16.2190455Z env:
+2026-10-06T16:51:16.2190662Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T16:51:16.2190920Z   FRAPPE_VERSION: version-15
+2026-10-06T16:51:16.2191248Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T16:51:16.2191629Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T16:51:16.2191892Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T16:51:16.2192141Z   ERPNEXT_SITE: frontend
+2026-10-06T16:51:16.2192570Z   GLM_API_KEY: ***
+2026-10-06T16:51:16.2192890Z   GLM_API_KEY_2: ***
+2026-10-06T16:51:16.2193230Z   GLM_API_KEY_3: ***
+2026-10-06T16:51:16.2193565Z   GLM_API_KEY_4: ***
+2026-10-06T16:51:16.2193868Z   GLM_API_KEY_5: ***
+2026-10-06T16:51:16.2194170Z   GLM_API_KEY_6: ***
+2026-10-06T16:51:16.2194386Z ##[endgroup]
+2026-10-06T16:51:16.3805415Z (node:22592) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T16:51:16.3806191Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T16:51:16.3909570Z With the provided path, there will be 19 files uploaded
+2026-10-06T16:51:16.3915441Z Artifact name is valid!
+2026-10-06T16:51:16.3916195Z Root directory input is valid!
+2026-10-06T16:51:16.5744905Z Beginning upload of artifact content to blob storage
+2026-10-06T16:51:16.6163192Z (node:22592) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-06T16:51:16.6724572Z Uploaded bytes 13502
+2026-10-06T16:51:16.6958715Z Finished uploading artifact content to blob storage!
+2026-10-06T16:51:16.6960134Z SHA256 digest of uploaded artifact zip is 6a3576d9219ed60d531f5204c0565f4307a76f1eef72280db533ae06a62dcb10
+2026-10-06T16:51:16.6961312Z Finalizing artifact upload
+2026-10-06T16:51:16.8880986Z Artifact formal-F17-I1.zip successfully finalized. Artifact ID 11428917014
+2026-10-06T16:51:16.8882277Z Artifact formal-F17-I1 has been successfully uploaded! Final size is 13502 bytes. Artifact ID is 11428917014
+2026-10-06T16:51:16.8889506Z Artifact download URL: https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/artifacts/11428917014
+2026-10-06T16:51:16.9133702Z Post job cleanup.
+2026-10-06T16:51:16.9958718Z [command]/usr/bin/git version
+2026-10-06T16:51:17.0004205Z git version 2.55.0
+2026-10-06T16:51:17.0048204Z Temporarily overriding HOME='/home/runner/work/_temp/32ec3a45-a3a7-4a25-9560-8638ba287e3e' before making global git config changes
+2026-10-06T16:51:17.0049895Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T16:51:17.0054495Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T16:51:17.0096215Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T16:51:17.0131849Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T16:51:17.0396955Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T16:51:17.0427495Z http.https://github.com/.extraheader
+2026-10-06T16:51:17.0439798Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-06T16:51:17.0475574Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T16:51:17.0732233Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T16:51:17.0777607Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T16:51:17.1186137Z Cleaning up orphan processes
+2026-10-06T16:51:17.1518634Z Terminate orphan process: pid (2593) (bash)
+2026-10-06T16:51:17.1869281Z Terminate orphan process: pid (22328) (sleep)
+2026-10-06T16:51:17.1883673Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

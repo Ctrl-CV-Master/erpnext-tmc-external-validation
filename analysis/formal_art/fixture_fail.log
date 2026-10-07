@@ -1,0 +1,461 @@
+﻿2026-10-06T17:57:21.8990169Z Current runner version: '2.337.0'
+2026-10-06T17:57:21.9015671Z ##[group]Runner Image Provisioner
+2026-10-06T17:57:21.9016549Z Hosted Compute Agent
+2026-10-06T17:57:21.9017227Z Version: 20260901.588
+2026-10-06T17:57:21.9017914Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-06T17:57:21.9018731Z Build Date: 2026-09-01T19:56:44Z
+2026-10-06T17:57:21.9019505Z Worker ID: {499e3815-3bd7-4d81-b951-3e2348276d7c}
+2026-10-06T17:57:21.9020256Z Azure Region: westcentralus
+2026-10-06T17:57:21.9020918Z ##[endgroup]
+2026-10-06T17:57:21.9022614Z ##[group]Operating System
+2026-10-06T17:57:21.9023290Z Ubuntu
+2026-10-06T17:57:21.9023916Z 24.04.5
+2026-10-06T17:57:21.9024469Z LTS
+2026-10-06T17:57:21.9025023Z ##[endgroup]
+2026-10-06T17:57:21.9025685Z ##[group]Runner Image
+2026-10-06T17:57:21.9026383Z Image: ubuntu-24.04
+2026-10-06T17:57:21.9027022Z Version: 20260927.320.1
+2026-10-06T17:57:21.9028311Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-06T17:57:21.9030017Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-06T17:57:21.9031002Z ##[endgroup]
+2026-10-06T17:57:21.9032355Z ##[group]GITHUB_TOKEN Permissions
+2026-10-06T17:57:21.9034569Z Contents: read
+2026-10-06T17:57:21.9035286Z Metadata: read
+2026-10-06T17:57:21.9035931Z ##[endgroup]
+2026-10-06T17:57:21.9038026Z Secret source: Actions
+2026-10-06T17:57:21.9039118Z Cache mode: write
+2026-10-06T17:57:21.9039802Z Prepare workflow directory
+2026-10-06T17:57:21.9458836Z Prepare all required actions
+2026-10-06T17:57:21.9505762Z Getting action download info
+2026-10-06T17:57:22.2398832Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-06T17:57:22.3260433Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-06T17:57:22.5324841Z Complete job name: build
+2026-10-06T17:57:22.6083121Z ##[group]Run actions/checkout@v4
+2026-10-06T17:57:22.6084027Z with:
+2026-10-06T17:57:22.6084611Z   repository: Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T17:57:22.6088541Z   token: ***
+2026-10-06T17:57:22.6088978Z   ssh-strict: true
+2026-10-06T17:57:22.6089419Z   ssh-user: git
+2026-10-06T17:57:22.6089873Z   persist-credentials: true
+2026-10-06T17:57:22.6090362Z   clean: true
+2026-10-06T17:57:22.6090809Z   sparse-checkout-cone-mode: true
+2026-10-06T17:57:22.6091327Z   fetch-depth: 1
+2026-10-06T17:57:22.6091765Z   fetch-tags: false
+2026-10-06T17:57:22.6092368Z   show-progress: true
+2026-10-06T17:57:22.6092812Z   lfs: false
+2026-10-06T17:57:22.6093221Z   submodules: false
+2026-10-06T17:57:22.6093675Z   set-safe-directory: true
+2026-10-06T17:57:22.6094186Z   allow-unsafe-pr-checkout: false
+2026-10-06T17:57:22.6094903Z env:
+2026-10-06T17:57:22.6095321Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T17:57:22.6095828Z   FRAPPE_VERSION: version-15
+2026-10-06T17:57:22.6096466Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T17:57:22.6097139Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T17:57:22.6097649Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T17:57:22.6098117Z ##[endgroup]
+2026-10-06T17:57:22.7195115Z Syncing repository: Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T17:57:22.7197790Z ##[group]Getting Git version info
+2026-10-06T17:57:22.7199340Z Working directory is '/home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation'
+2026-10-06T17:57:22.7201431Z [command]/usr/bin/git version
+2026-10-06T17:57:22.7202431Z git version 2.55.0
+2026-10-06T17:57:22.7216270Z ##[endgroup]
+2026-10-06T17:57:22.7226314Z Temporarily overriding HOME='/home/runner/work/_temp/0259bd2c-5917-46b6-be6d-3bb1a75a4151' before making global git config changes
+2026-10-06T17:57:22.7228761Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T17:57:22.7233255Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T17:57:22.7283371Z Deleting the contents of '/home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation'
+2026-10-06T17:57:22.7286727Z ##[group]Initializing the repository
+2026-10-06T17:57:22.7291153Z [command]/usr/bin/git init /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T17:57:22.7374795Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-06T17:57:22.7376439Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-06T17:57:22.7377911Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-06T17:57:22.7379067Z hint: call:
+2026-10-06T17:57:22.7379678Z hint:
+2026-10-06T17:57:22.7380437Z hint: 	git config --global init.defaultBranch <name>
+2026-10-06T17:57:22.7381394Z hint:
+2026-10-06T17:57:22.7382536Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-06T17:57:22.7384012Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-06T17:57:22.7385183Z hint:
+2026-10-06T17:57:22.7385811Z hint: 	git branch -m <name>
+2026-10-06T17:57:22.7386535Z hint:
+2026-10-06T17:57:22.7387513Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-06T17:57:22.7389592Z Initialized empty Git repository in /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation/.git/
+2026-10-06T17:57:22.7393236Z [command]/usr/bin/git remote add origin https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T17:57:22.7434842Z ##[endgroup]
+2026-10-06T17:57:22.7435999Z ##[group]Disabling automatic garbage collection
+2026-10-06T17:57:22.7438447Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-06T17:57:22.7473326Z ##[endgroup]
+2026-10-06T17:57:22.7474502Z ##[group]Setting up auth
+2026-10-06T17:57:22.7480766Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T17:57:22.7517195Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T17:57:22.7868244Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T17:57:22.7913181Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T17:57:22.8188359Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T17:57:22.8225416Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T17:57:22.8465168Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-06T17:57:22.8508078Z ##[endgroup]
+2026-10-06T17:57:22.8509155Z ##[group]Fetching the repository
+2026-10-06T17:57:22.8518341Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2a447038219a2aedd9935ac0958051b16ac24221:refs/remotes/origin/main
+2026-10-06T17:57:23.7897336Z From https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation
+2026-10-06T17:57:23.7899290Z  * [new ref]         2a447038219a2aedd9935ac0958051b16ac24221 -> origin/main
+2026-10-06T17:57:23.7905729Z ##[endgroup]
+2026-10-06T17:57:23.7907255Z ##[group]Determining the checkout info
+2026-10-06T17:57:23.7912571Z ##[endgroup]
+2026-10-06T17:57:23.7913664Z [command]/usr/bin/git sparse-checkout disable
+2026-10-06T17:57:23.7966681Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-06T17:57:23.8003733Z ##[group]Checking out the ref
+2026-10-06T17:57:23.8015918Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-06T17:57:23.8191745Z Switched to a new branch 'main'
+2026-10-06T17:57:23.8195909Z branch 'main' set up to track 'origin/main'.
+2026-10-06T17:57:23.8205609Z ##[endgroup]
+2026-10-06T17:57:23.8250043Z [command]/usr/bin/git log -1 --format=%H
+2026-10-06T17:57:23.8278146Z 2a447038219a2aedd9935ac0958051b16ac24221
+2026-10-06T17:57:23.8525822Z ##[group]Run bash scripts/cleanup_runner_disk.sh normal
+2026-10-06T17:57:23.8527633Z [36;1mbash scripts/cleanup_runner_disk.sh normal[0m
+2026-10-06T17:57:23.8753895Z shell: /usr/bin/bash -e {0}
+2026-10-06T17:57:23.8755032Z env:
+2026-10-06T17:57:23.8755917Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T17:57:23.8757019Z   FRAPPE_VERSION: version-15
+2026-10-06T17:57:23.8758406Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T17:57:23.8759947Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T17:57:23.8761050Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T17:57:23.8762244Z ##[endgroup]
+2026-10-06T17:57:23.8912396Z === df -h before cleanup ===
+2026-10-06T17:57:23.9350402Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T17:57:23.9351913Z /dev/root       145G   59G   87G  41% /
+2026-10-06T18:00:09.9867991Z removing /usr/local/lib/android                        11G
+2026-10-06T18:00:48.2552455Z removing /usr/share/dotnet                             5.8G
+2026-10-06T18:00:56.9616901Z removing /usr/local/.ghcup                             3.7G
+2026-10-06T18:01:14.6160796Z removing /opt/hostedtoolcache/CodeQL                   1.4G
+2026-10-06T18:01:17.7614023Z removing /usr/share/swift                              3.5G
+2026-10-06T18:01:40.3368334Z removing /usr/share/miniconda                          980M
+2026-10-06T18:02:08.0166010Z removing /opt/hostedtoolcache/go                       799M
+2026-10-06T18:02:13.6824078Z removing /opt/hostedtoolcache/PyPy                     523M
+2026-10-06T18:02:14.6375497Z removing /usr/share/apache-maven-3.9.16                11M
+2026-10-06T18:02:14.6936796Z removing /usr/share/gradle-9.8.0                       165M
+2026-10-06T18:02:14.8445071Z removing /usr/share/kotlinc                            94M
+2026-10-06T18:02:18.4846255Z removing /usr/lib/jvm                                  1.5G
+2026-10-06T18:02:37.8746120Z removing /opt/pipx                                     500M
+2026-10-06T18:02:40.5063089Z removing /usr/share/mysql                              9.5M
+2026-10-06T18:02:40.5219922Z removing /var/lib/mysql                                4.0K
+2026-10-06T18:03:42.5113721Z === df -h after cleanup ===
+2026-10-06T18:03:42.5125150Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T18:03:42.5125646Z /dev/root       145G   27G  118G  19% /
+2026-10-06T18:03:42.5199969Z ##[group]Run bash smoke/start_erpnext.sh
+2026-10-06T18:03:42.5200329Z [36;1mbash smoke/start_erpnext.sh[0m
+2026-10-06T18:03:42.5268628Z shell: /usr/bin/bash -e {0}
+2026-10-06T18:03:42.5268895Z env:
+2026-10-06T18:03:42.5269107Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T18:03:42.5269365Z   FRAPPE_VERSION: version-15
+2026-10-06T18:03:42.5269683Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T18:03:42.5270031Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T18:03:42.5270309Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T18:03:42.5270542Z ##[endgroup]
+2026-10-06T18:03:43.6414855Z 3:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6415337Z 22:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6415637Z 51:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6415911Z 111:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6416251Z 138:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6416593Z 160:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6417065Z 200:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6417402Z 217:    image: frappe/erpnext:v15.99.1
+2026-10-06T18:03:43.6443093Z [18:03:43] pulling pinned images ...
+2026-10-06T18:04:23.5557762Z  dfc4cfbee500 Pull complete 
+2026-10-06T18:04:23.5558596Z  4f4fb700ef54 Extracting [==================================================>]      32B/32B
+2026-10-06T18:04:23.5559438Z  4f4fb700ef54 Extracting [==================================================>]      32B/32B
+2026-10-06T18:04:23.5560660Z  4f4fb700ef54 Pull complete 
+2026-10-06T18:04:23.5561048Z  configurator Pulled 
+2026-10-06T18:04:23.5683430Z mariadb:10.6	309MB
+2026-10-06T18:04:23.5683818Z redis:6.2-alpine	27.8MB
+2026-10-06T18:04:23.5684094Z frappe/erpnext:v15.99.1	2.27GB
+2026-10-06T18:04:23.6258943Z === df -h after image pull ===
+2026-10-06T18:04:23.6273000Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T18:04:23.6273518Z /dev/root       145G   29G  116G  21% /
+2026-10-06T18:04:23.6431631Z [18:04:23] starting stack ...
+2026-10-06T18:04:23.7277159Z  Network frappe_docker_frappe_network  Creating
+2026-10-06T18:04:23.7657166Z  Network frappe_docker_frappe_network  Created
+2026-10-06T18:04:23.8740303Z  Volume "frappe_docker_db-data"  Creating
+2026-10-06T18:04:23.8753615Z  Volume "frappe_docker_db-data"  Created
+2026-10-06T18:04:23.8756608Z  Volume "frappe_docker_sites"  Creating
+2026-10-06T18:04:23.8764048Z  Volume "frappe_docker_sites"  Created
+2026-10-06T18:04:23.8767032Z  Volume "frappe_docker_logs"  Creating
+2026-10-06T18:04:23.8774399Z  Volume "frappe_docker_logs"  Created
+2026-10-06T18:04:23.8777224Z  Volume "frappe_docker_redis-queue-data"  Creating
+2026-10-06T18:04:23.8789998Z  Volume "frappe_docker_redis-queue-data"  Created
+2026-10-06T18:04:23.8796379Z  Container frappe_docker-redis-queue-1  Creating
+2026-10-06T18:04:23.8799485Z  Container frappe_docker-db-1  Creating
+2026-10-06T18:04:23.8802348Z  Container frappe_docker-create-site-1  Creating
+2026-10-06T18:04:23.8802878Z  Container frappe_docker-redis-cache-1  Creating
+2026-10-06T18:04:23.8803349Z  Container frappe_docker-configurator-1  Creating
+2026-10-06T18:04:23.9128626Z  Container frappe_docker-redis-cache-1  Created
+2026-10-06T18:04:23.9129056Z  Container frappe_docker-db-1  Created
+2026-10-06T18:04:23.9129478Z  Container frappe_docker-redis-queue-1  Created
+2026-10-06T18:04:23.9386340Z  Container frappe_docker-create-site-1  Created
+2026-10-06T18:04:23.9530571Z  Container frappe_docker-configurator-1  Created
+2026-10-06T18:04:23.9531437Z  Container frappe_docker-backend-1  Creating
+2026-10-06T18:04:23.9531988Z  Container frappe_docker-queue-long-1  Creating
+2026-10-06T18:04:23.9532684Z  Container frappe_docker-queue-short-1  Creating
+2026-10-06T18:04:23.9533190Z  Container frappe_docker-websocket-1  Creating
+2026-10-06T18:04:23.9533673Z  Container frappe_docker-scheduler-1  Creating
+2026-10-06T18:04:24.0510696Z  Container frappe_docker-queue-short-1  Created
+2026-10-06T18:04:24.0517288Z  Container frappe_docker-queue-long-1  Created
+2026-10-06T18:04:24.0518217Z  Container frappe_docker-websocket-1  Created
+2026-10-06T18:04:24.0518972Z  Container frappe_docker-scheduler-1  Created
+2026-10-06T18:04:24.0519450Z  Container frappe_docker-backend-1  Created
+2026-10-06T18:04:24.0519913Z  Container frappe_docker-frontend-1  Creating
+2026-10-06T18:04:24.0780707Z  Container frappe_docker-frontend-1  Created
+2026-10-06T18:04:24.0803148Z  Container frappe_docker-create-site-1  Starting
+2026-10-06T18:04:24.0811768Z  Container frappe_docker-configurator-1  Starting
+2026-10-06T18:04:24.0813246Z  Container frappe_docker-db-1  Starting
+2026-10-06T18:04:24.0816247Z  Container frappe_docker-redis-cache-1  Starting
+2026-10-06T18:04:24.0816828Z  Container frappe_docker-redis-queue-1  Starting
+2026-10-06T18:04:24.3520865Z  Container frappe_docker-configurator-1  Started
+2026-10-06T18:04:24.3522336Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T18:04:24.3523337Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T18:04:24.3524083Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T18:04:24.3524795Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T18:04:24.3525461Z  Container frappe_docker-configurator-1  Waiting
+2026-10-06T18:04:24.3577776Z  Container frappe_docker-redis-queue-1  Started
+2026-10-06T18:04:24.3686770Z  Container frappe_docker-redis-cache-1  Started
+2026-10-06T18:04:24.3854034Z  Container frappe_docker-create-site-1  Started
+2026-10-06T18:04:24.3995261Z  Container frappe_docker-db-1  Started
+2026-10-06T18:04:28.8521790Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T18:04:28.8523643Z  Container frappe_docker-queue-short-1  Starting
+2026-10-06T18:04:28.8524495Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T18:04:28.8525229Z  Container frappe_docker-queue-long-1  Starting
+2026-10-06T18:04:28.8525929Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T18:04:28.8526554Z  Container frappe_docker-websocket-1  Starting
+2026-10-06T18:04:28.8540475Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T18:04:28.8541328Z  Container frappe_docker-scheduler-1  Starting
+2026-10-06T18:04:28.8542044Z  Container frappe_docker-configurator-1  Exited
+2026-10-06T18:04:28.8543053Z  Container frappe_docker-backend-1  Starting
+2026-10-06T18:04:29.1235808Z  Container frappe_docker-scheduler-1  Started
+2026-10-06T18:04:29.1254197Z  Container frappe_docker-queue-short-1  Started
+2026-10-06T18:04:29.1698476Z  Container frappe_docker-websocket-1  Started
+2026-10-06T18:04:29.2496389Z  Container frappe_docker-backend-1  Started
+2026-10-06T18:04:29.2498365Z  Container frappe_docker-frontend-1  Starting
+2026-10-06T18:04:29.2577076Z  Container frappe_docker-queue-long-1  Started
+2026-10-06T18:04:29.5286226Z  Container frappe_docker-frontend-1  Started
+2026-10-06T18:05:33.9307780Z create-site completed successfully at 18:05:33
+2026-10-06T18:05:34.1048379Z ERPNEXT_READY after 71s (create-site exit 0 + pong)
+2026-10-06T18:05:34.2249817Z detected site: frontend
+2026-10-06T18:05:34.4039061Z db_name raw match: "db_name": "_5e5899d8398b5f7b"
+2026-10-06T18:05:34.4073342Z db: _5e5899d8398b5f7b
+2026-10-06T18:05:35.3022853Z setup_complete written via SQL
+2026-10-06T18:05:35.4208879Z setup_complete now: 1
+2026-10-06T18:05:35.5392685Z installed_apps: erpnext=1 frappe=1 
+2026-10-06T18:05:35.6875190Z language set to en
+2026-10-06T18:05:39.0371905Z curl_login_http=200 body={"message":"Logged In","home_page":"/app/home","full_name":"Administrator"}
+2026-10-06T18:05:39.1115911Z NAME                          IMAGE                     COMMAND                  SERVICE       CREATED              STATUS                        PORTS
+2026-10-06T18:05:39.1118226Z frappe_docker-backend-1       frappe/erpnext:v15.99.1   "/home/frappe/frappe…"   backend       About a minute ago   Up About a minute             
+2026-10-06T18:05:39.1119874Z frappe_docker-db-1            mariadb:10.6              "docker-entrypoint.s…"   db            About a minute ago   Up About a minute (healthy)   3306/tcp
+2026-10-06T18:05:39.1126162Z frappe_docker-frontend-1      frappe/erpnext:v15.99.1   "nginx-entrypoint.sh"    frontend      About a minute ago   Up About a minute             0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+2026-10-06T18:05:39.1127431Z frappe_docker-queue-long-1    frappe/erpnext:v15.99.1   "bench worker --queu…"   queue-long    About a minute ago   Up About a minute             
+2026-10-06T18:05:39.1128477Z frappe_docker-queue-short-1   frappe/erpnext:v15.99.1   "bench worker --queu…"   queue-short   About a minute ago   Up About a minute             
+2026-10-06T18:05:39.1129534Z frappe_docker-redis-cache-1   redis:6.2-alpine          "docker-entrypoint.s…"   redis-cache   About a minute ago   Up About a minute             6379/tcp
+2026-10-06T18:05:39.1130577Z frappe_docker-redis-queue-1   redis:6.2-alpine          "docker-entrypoint.s…"   redis-queue   About a minute ago   Up About a minute             6379/tcp
+2026-10-06T18:05:39.1131458Z frappe_docker-scheduler-1     frappe/erpnext:v15.99.1   "bench schedule"         scheduler     About a minute ago   Up About a minute             
+2026-10-06T18:05:39.1132659Z frappe_docker-websocket-1     frappe/erpnext:v15.99.1   "node /home/frappe/f…"   websocket     About a minute ago   Up About a minute             
+2026-10-06T18:05:39.1169384Z === df -h after startup ===
+2026-10-06T18:05:39.1186262Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-06T18:05:39.1186790Z /dev/root       145G   30G  115G  21% /
+2026-10-06T18:05:44.1269479Z ##[group]Run cd "$GITHUB_WORKSPACE/frappe_docker"
+2026-10-06T18:05:44.1269893Z [36;1mcd "$GITHUB_WORKSPACE/frappe_docker"[0m
+2026-10-06T18:05:44.1270520Z [36;1mSITE=$(grep -m1 '^erpnext_site=' ../smoke-out/manifest.env | cut -d= -f2)[0m
+2026-10-06T18:05:44.1271004Z [36;1mDB=$(grep -m1 '^erpnext_db=' ../smoke-out/manifest.env | cut -d= -f2)[0m
+2026-10-06T18:05:44.1271376Z [36;1mecho "site=$SITE db=$DB"[0m
+2026-10-06T18:05:44.1271727Z [36;1mBENCH_PY=$(docker compose -f pwd.yml exec -T backend bash -c \[0m
+2026-10-06T18:05:44.1272745Z [36;1m  'for p in /home/frappe/frappe-bench/env/bin/python /home/frappe/frappe-bench/env/bin/python3; do [ -x "$p" ] && echo "$p" && exit 0; done; head -1 "$(command -v bench)" | sed "s/^#!//"' | tail -1)[0m
+2026-10-06T18:05:44.1273524Z [36;1mecho "bench python: $BENCH_PY"[0m
+2026-10-06T18:05:44.1274006Z [36;1mdocker compose -f pwd.yml exec -T backend "$BENCH_PY" -c "import frappe; print('frappe import ok')"[0m
+2026-10-06T18:05:44.1274566Z [36;1mCID=$(docker compose -f pwd.yml ps -q backend)[0m
+2026-10-06T18:05:44.1275080Z [36;1mdocker cp ../fixtures/build_base_fixture.py "$CID:/home/frappe/frappe-bench/build_base_fixture.py"[0m
+2026-10-06T18:05:44.1276151Z [36;1mdocker compose -f pwd.yml exec -T -u root backend bash -c "mkdir -p /home/frappe/logs /home/frappe/frappe-bench/logs /home/frappe/frappe-bench/*/logs /home/frappe/frappe-bench/sites/*/logs /home/frappe/frappe-bench/${SITE}/logs"[0m
+2026-10-06T18:05:44.1277144Z [36;1m# last dir: v15 site logger writes CWD-relative <site>/logs (utils/logger.py)[0m
+2026-10-06T18:05:44.1277727Z [36;1mdocker compose -f pwd.yml exec -T -u root -w /home/frappe/frappe-bench -e SITE="$SITE" backend \[0m
+2026-10-06T18:05:44.1278281Z [36;1m  "$BENCH_PY" build_base_fixture.py 2>&1 | tee ../smoke-out/build.log[0m
+2026-10-06T18:05:44.1278680Z [36;1mgrep -q "BUILD_DONE" ../smoke-out/build.log[0m
+2026-10-06T18:05:44.1279119Z [36;1mgrep "STATE_HASH=" ../smoke-out/build.log | tee ../smoke-out/state_hash_build.txt[0m
+2026-10-06T18:05:44.1342745Z shell: /usr/bin/bash -e {0}
+2026-10-06T18:05:44.1343005Z env:
+2026-10-06T18:05:44.1343220Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T18:05:44.1343468Z   FRAPPE_VERSION: version-15
+2026-10-06T18:05:44.1343775Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T18:05:44.1344112Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T18:05:44.1344366Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T18:05:44.1344599Z ##[endgroup]
+2026-10-06T18:05:44.1463393Z site=frontend db=_5e5899d8398b5f7b
+2026-10-06T18:05:44.2580730Z bench python: /home/frappe/frappe-bench/env/bin/python
+2026-10-06T18:05:44.5364352Z frappe import ok
+2026-10-06T18:06:51.9771342Z created Warehouse Type: Transit
+2026-10-06T18:06:51.9771738Z created Warehouse Type: Stores
+2026-10-06T18:06:51.9774178Z created Warehouse Type: Work In Progress
+2026-10-06T18:06:51.9774689Z created Warehouse Type: Finished Goods
+2026-10-06T18:06:51.9775063Z created Warehouse Type: Rejection
+2026-10-06T18:06:51.9775525Z created Warehouse Type: Quarantine
+2026-10-06T18:06:51.9775936Z created Warehouse Type: Reserved
+2026-10-06T18:06:51.9776345Z created Warehouse Type: Supplier
+2026-10-06T18:06:51.9776736Z created Warehouse Type: Customer
+2026-10-06T18:06:51.9777085Z company ready
+2026-10-06T18:06:51.9777420Z created Item Group root: All Item Groups
+2026-10-06T18:06:51.9777854Z created Item Group: Preparations
+2026-10-06T18:06:51.9778246Z created Item Group: Raw Materials
+2026-10-06T18:06:51.9778681Z created Warehouse: RM-WH - OPL
+2026-10-06T18:06:51.9779074Z created Warehouse: WIP-WH - OPL
+2026-10-06T18:06:51.9779462Z created Warehouse: FG-WH - OPL
+2026-10-06T18:06:51.9779841Z created Warehouse: QC-HOLD - OPL
+2026-10-06T18:06:51.9780273Z stock settings: serial/batch inventory enabled
+2026-10-06T18:06:51.9780736Z created Item: PREP-A
+2026-10-06T18:06:51.9781061Z created Item: PREP-B
+2026-10-06T18:06:51.9781367Z created Item: PREP-C
+2026-10-06T18:06:51.9781708Z created Item: PREP-D
+2026-10-06T18:06:51.9782010Z created Item: PREP-E
+2026-10-06T18:06:51.9782927Z created Item: PREP-F
+2026-10-06T18:06:51.9783148Z created Item: RM-A01
+2026-10-06T18:06:51.9783661Z created Item: RM-A02
+2026-10-06T18:06:51.9783862Z created Item: RM-A03
+2026-10-06T18:06:51.9784062Z created Item: RM-A04
+2026-10-06T18:06:51.9784272Z created Item: RM-A05
+2026-10-06T18:06:51.9784479Z created Item: RM-A06
+2026-10-06T18:06:51.9784673Z created Item: RM-A07
+2026-10-06T18:06:51.9784876Z created Item: RM-A08
+2026-10-06T18:06:51.9785077Z created Item: RM-A09
+2026-10-06T18:06:51.9785275Z created Item: RM-A10
+2026-10-06T18:06:51.9785468Z created Item: RM-A11
+2026-10-06T18:06:51.9785662Z created Item: RM-A12
+2026-10-06T18:06:51.9785858Z created Item: RM-A13
+2026-10-06T18:06:51.9786052Z created Item: RM-A14
+2026-10-06T18:06:51.9786246Z created Item: RM-A15
+2026-10-06T18:06:51.9786441Z created Item: RM-A16
+2026-10-06T18:06:51.9786641Z created Item: RM-A17
+2026-10-06T18:06:51.9786835Z created Item: RM-A18
+2026-10-06T18:06:51.9787055Z created Workstation: WS-WEIGH
+2026-10-06T18:06:51.9787311Z created Workstation: WS-MIX
+2026-10-06T18:06:51.9787553Z created Workstation: WS-FILL
+2026-10-06T18:06:51.9787805Z created Workstation: WS-PACK
+2026-10-06T18:06:51.9788045Z created Operation: Weighing
+2026-10-06T18:06:51.9788283Z created Operation: Mixing
+2026-10-06T18:06:51.9788518Z created Operation: Filling
+2026-10-06T18:06:51.9788751Z created Operation: Packaging
+2026-10-06T18:06:51.9789024Z created Quality Inspection Parameter: Appearance
+2026-10-06T18:06:51.9789399Z created Quality Inspection Parameter: pH Value
+2026-10-06T18:06:51.9789726Z created Quality Inspection Parameter: Fill Volume
+2026-10-06T18:06:51.9790048Z created Quality Inspection Parameter: Viscosity
+2026-10-06T18:06:51.9790386Z created Quality Inspection Parameter: Package Integrity
+2026-10-06T18:06:51.9790728Z created Quality Inspection Template: QI-LIQUID
+2026-10-06T18:06:51.9791030Z created Quality Inspection Template: QI-SEMI
+2026-10-06T18:06:51.9791322Z created Quality Inspection Template: QI-PACK
+2026-10-06T18:06:51.9791606Z created Routing: ROUTE-LIQUID
+2026-10-06T18:06:51.9791849Z created Routing: ROUTE-SEMI
+2026-10-06T18:06:51.9792280Z created Fiscal Year FY2026
+2026-10-06T18:06:51.9792526Z ensured Batch RM-A01-B0001
+2026-10-06T18:06:51.9792750Z ensured Batch RM-A02-B0001
+2026-10-06T18:06:51.9792968Z ensured Batch RM-A03-B0001
+2026-10-06T18:06:51.9793183Z ensured Batch RM-A04-B0001
+2026-10-06T18:06:51.9793418Z ensured Batch RM-A05-B0001
+2026-10-06T18:06:51.9793765Z ensured Batch RM-A06-B0001
+2026-10-06T18:06:51.9794015Z SR expense_account: Temporary Opening - OPL
+2026-10-06T18:06:51.9794378Z created+submitted Stock Reconciliation (opening RM stock)
+2026-10-06T18:06:51.9794727Z created+submitted BOM for PREP-A
+2026-10-06T18:06:51.9794986Z created+submitted BOM for PREP-B
+2026-10-06T18:06:51.9795229Z created+submitted BOM for PREP-C
+2026-10-06T18:06:51.9795469Z created+submitted BOM for PREP-D
+2026-10-06T18:06:51.9795708Z created+submitted BOM for PREP-E
+2026-10-06T18:06:51.9795947Z created+submitted BOM for PREP-F
+2026-10-06T18:06:51.9796264Z created Work Order for PREP-C qty=20 ds=0 name=MFG-WO-2026-00001
+2026-10-06T18:06:51.9796673Z created Work Order for PREP-D qty=15 ds=0 name=MFG-WO-2026-00002
+2026-10-06T18:06:51.9797071Z created Work Order for PREP-E qty=25 ds=0 name=MFG-WO-2026-00003
+2026-10-06T18:06:51.9797445Z created Work Order for PREP-F qty=18 ds=0 name=MFG-WO-2026-00004
+2026-10-06T18:06:51.9797823Z created Work Order for PREP-A qty=30 ds=0 name=MFG-WO-2026-00005
+2026-10-06T18:06:51.9798209Z created Work Order for PREP-B qty=40 ds=0 name=MFG-WO-2026-00006
+2026-10-06T18:06:51.9798594Z created Work Order for PREP-C qty=46 ds=0 name=MFG-WO-2026-00007
+2026-10-06T18:06:51.9798991Z created Work Order for PREP-D qty=56 ds=0 name=MFG-WO-2026-00008
+2026-10-06T18:06:51.9799376Z created Work Order for PREP-E qty=31 ds=0 name=MFG-WO-2026-00009
+2026-10-06T18:06:51.9799780Z created Work Order for PREP-F qty=21 ds=0 name=MFG-WO-2026-00010
+2026-10-06T18:06:51.9800159Z created Work Order for PREP-A qty=61 ds=0 name=MFG-WO-2026-00011
+2026-10-06T18:06:51.9800712Z created Work Order for PREP-B qty=62 ds=0 name=MFG-WO-2026-00012
+2026-10-06T18:06:51.9801214Z created Work Order for PREP-C qty=63 ds=0 name=MFG-WO-2026-00013
+2026-10-06T18:06:51.9801597Z created Work Order for PREP-D qty=64 ds=0 name=MFG-WO-2026-00014
+2026-10-06T18:06:51.9801970Z created Work Order for PREP-E qty=65 ds=0 name=MFG-WO-2026-00015
+2026-10-06T18:06:51.9802890Z created Work Order for PREP-F qty=66 ds=0 name=MFG-WO-2026-00016
+2026-10-06T18:06:51.9803427Z created Work Order for PREP-A qty=81 ds=0 name=MFG-WO-2026-00017
+2026-10-06T18:06:51.9803967Z created Work Order for PREP-B qty=82 ds=0 name=MFG-WO-2026-00018
+2026-10-06T18:06:51.9804492Z created Work Order for PREP-C qty=83 ds=0 name=MFG-WO-2026-00019
+2026-10-06T18:06:51.9805008Z created Work Order for PREP-D qty=84 ds=0 name=MFG-WO-2026-00020
+2026-10-06T18:06:51.9805529Z created Work Order for PREP-E qty=85 ds=0 name=MFG-WO-2026-00021
+2026-10-06T18:06:51.9806065Z created Work Order for PREP-F qty=86 ds=0 name=MFG-WO-2026-00022
+2026-10-06T18:06:51.9806624Z created Work Order for PREP-A qty=71 ds=1 name=MFG-WO-2026-00023
+2026-10-06T18:06:51.9807199Z created Work Order for PREP-B qty=72 ds=1 name=MFG-WO-2026-00024
+2026-10-06T18:06:51.9807789Z created Work Order for PREP-C qty=73 ds=1 name=MFG-WO-2026-00025
+2026-10-06T18:06:51.9808395Z created Work Order for PREP-D qty=74 ds=1 name=MFG-WO-2026-00026
+2026-10-06T18:06:51.9809004Z created Work Order for PREP-E qty=75 ds=1 name=MFG-WO-2026-00027
+2026-10-06T18:06:51.9809592Z created Work Order for PREP-F qty=76 ds=1 name=MFG-WO-2026-00028
+2026-10-06T18:06:51.9810114Z Traceback (most recent call last):
+2026-10-06T18:06:51.9810706Z   File "/home/frappe/frappe-bench/build_base_fixture.py", line 422, in <module>
+2026-10-06T18:06:51.9811302Z     build()
+2026-10-06T18:06:51.9811780Z   File "/home/frappe/frappe-bench/build_base_fixture.py", line 382, in build
+2026-10-06T18:06:51.9812762Z     "territory": "All Territories"}).insert(ignore_permissions=True)
+2026-10-06T18:06:51.9813371Z                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-06T18:06:51.9814098Z   File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 302, in insert
+2026-10-06T18:06:51.9814800Z     self._validate_links()
+2026-10-06T18:06:51.9815488Z   File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 979, in _validate_links
+2026-10-06T18:06:51.9816307Z     frappe.throw(_("Could not find {0}").format(msg), frappe.LinkValidationError)
+2026-10-06T18:06:51.9816835Z   File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 613, in throw
+2026-10-06T18:06:51.9817226Z     msgprint(
+2026-10-06T18:06:51.9817579Z   File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 578, in msgprint
+2026-10-06T18:06:51.9818001Z     _raise_exception()
+2026-10-06T18:06:51.9818396Z   File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 529, in _raise_exception
+2026-10-06T18:06:51.9818818Z     raise exc
+2026-10-06T18:06:51.9819289Z frappe.exceptions.LinkValidationError: Could not find Customer Group: All Customer Groups, Territory: All Territories
+2026-10-06T18:06:52.1395772Z ##[error]Process completed with exit code 1.
+2026-10-06T18:06:52.1502381Z ##[group]Run actions/upload-artifact@v4
+2026-10-06T18:06:52.1502689Z with:
+2026-10-06T18:06:52.1502907Z   name: fixture-build-results
+2026-10-06T18:06:52.1503177Z   path: base_fixture.sql.gz
+smoke-out/
+
+2026-10-06T18:06:52.1503450Z   retention-days: 30
+2026-10-06T18:06:52.1503675Z   if-no-files-found: warn
+2026-10-06T18:06:52.1503906Z   compression-level: 6
+2026-10-06T18:06:52.1504136Z   overwrite: false
+2026-10-06T18:06:52.1504354Z   include-hidden-files: false
+2026-10-06T18:06:52.1504583Z env:
+2026-10-06T18:06:52.1504784Z   ERPNEXT_VERSION: v15.99.1
+2026-10-06T18:06:52.1505026Z   FRAPPE_VERSION: version-15
+2026-10-06T18:06:52.1505321Z   FRAPPE_DOCKER_SHA: f71a386bc13f75dcc0cf7462f025f531576a04fc
+2026-10-06T18:06:52.1505652Z   ADMIN_PASSWORD: Smoke2026x!
+2026-10-06T18:06:52.1505886Z   DB_PASSWORD: Smoke2026x!
+2026-10-06T18:06:52.1506111Z ##[endgroup]
+2026-10-06T18:06:52.3184924Z (node:5847) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-06T18:06:52.3186001Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-06T18:06:52.3292617Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-06T18:06:52.3295468Z The least common ancestor is /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation. This will be the root directory of the artifact
+2026-10-06T18:06:52.3296883Z With the provided path, there will be 14 files uploaded
+2026-10-06T18:06:52.3300887Z Artifact name is valid!
+2026-10-06T18:06:52.3301860Z Root directory input is valid!
+2026-10-06T18:06:52.6381985Z Beginning upload of artifact content to blob storage
+2026-10-06T18:06:52.6723585Z (node:5847) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-06T18:06:52.8801102Z Uploaded bytes 5273
+2026-10-06T18:06:52.9395928Z Finished uploading artifact content to blob storage!
+2026-10-06T18:06:52.9396888Z SHA256 digest of uploaded artifact zip is f654c75c9097fa781ac6c4e72c73efd8a7bcc6daa8cddb5fbb689cf7d8d8790a
+2026-10-06T18:06:52.9397692Z Finalizing artifact upload
+2026-10-06T18:06:53.2165572Z Artifact fixture-build-results.zip successfully finalized. Artifact ID 11431894096
+2026-10-06T18:06:53.2166710Z Artifact fixture-build-results has been successfully uploaded! Final size is 5273 bytes. Artifact ID is 11431894096
+2026-10-06T18:06:53.2172583Z Artifact download URL: https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37507536407/artifacts/11431894096
+2026-10-06T18:06:53.2395506Z Post job cleanup.
+2026-10-06T18:06:53.3250276Z [command]/usr/bin/git version
+2026-10-06T18:06:53.3294901Z git version 2.55.0
+2026-10-06T18:06:53.3330607Z Temporarily overriding HOME='/home/runner/work/_temp/dcfdad65-7caf-4b17-acc6-4f10b66e22e1' before making global git config changes
+2026-10-06T18:06:53.3331895Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-06T18:06:53.3338788Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/erpnext-tmc-external-validation/erpnext-tmc-external-validation
+2026-10-06T18:06:53.3376700Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-06T18:06:53.3412825Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-06T18:06:53.3668241Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-06T18:06:53.3699711Z http.https://github.com/.extraheader
+2026-10-06T18:06:53.3710777Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-06T18:06:53.3747499Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-06T18:06:53.4023050Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-06T18:06:53.4070603Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-06T18:06:53.4497907Z Cleaning up orphan processes
+2026-10-06T18:06:53.4867595Z Terminate orphan process: pid (2602) (bash)
+2026-10-06T18:06:53.5083658Z Terminate orphan process: pid (5861) (sleep)
+2026-10-06T18:06:53.5093509Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

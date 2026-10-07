@@ -1,0 +1,5189 @@
+{
+  "total_count": 48,
+  "jobs": [
+    {
+      "id": 112357961908,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5wtA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357961908",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357961908",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:29:20Z",
+      "name": "formal (F01, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:55Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:55Z",
+          "completed_at": "2026-10-06T15:45:48Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:45:48Z",
+          "completed_at": "2026-10-06T15:46:22Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:46:22Z",
+          "completed_at": "2026-10-06T16:29:15Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:29:15Z",
+          "completed_at": "2026-10-06T16:29:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:29:16Z",
+          "completed_at": "2026-10-06T16:29:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:29:16Z",
+          "completed_at": "2026-10-06T16:29:16Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357961908",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000314,
+      "runner_name": "GitHub Actions 1000000314",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357961936,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5w0A",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357961936",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357961936",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T16:01:25Z",
+      "completed_at": "2026-10-06T16:13:07Z",
+      "name": "formal (F14, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:01:25Z",
+          "completed_at": "2026-10-06T16:01:27Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:01:27Z",
+          "completed_at": "2026-10-06T16:01:28Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:01:28Z",
+          "completed_at": "2026-10-06T16:01:28Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:01:28Z",
+          "completed_at": "2026-10-06T16:03:33Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:03:33Z",
+          "completed_at": "2026-10-06T16:05:02Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:05:02Z",
+          "completed_at": "2026-10-06T16:05:42Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:05:42Z",
+          "completed_at": "2026-10-06T16:13:04Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:13:04Z",
+          "completed_at": "2026-10-06T16:13:05Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:13:05Z",
+          "completed_at": "2026-10-06T16:13:05Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:13:05Z",
+          "completed_at": "2026-10-06T16:13:05Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357961936",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000327,
+      "runner_name": "GitHub Actions 1000000327",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357961977,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5w-Q",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357961977",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357961977",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T16:05:18Z",
+      "name": "formal (F04, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:41:34Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:41:34Z",
+          "completed_at": "2026-10-06T15:43:37Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:43:37Z",
+          "completed_at": "2026-10-06T15:44:10Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:10Z",
+          "completed_at": "2026-10-06T16:05:13Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:05:13Z",
+          "completed_at": "2026-10-06T16:05:13Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:05:13Z",
+          "completed_at": "2026-10-06T16:05:14Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:05:14Z",
+          "completed_at": "2026-10-06T16:05:14Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357961977",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000302,
+      "runner_name": "GitHub Actions 1000000302",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357961980,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5w_A",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357961980",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357961980",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:52:02Z",
+      "name": "formal (F08, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:43:30Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:30Z",
+          "completed_at": "2026-10-06T15:45:00Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:45:00Z",
+          "completed_at": "2026-10-06T15:45:25Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:25Z",
+          "completed_at": "2026-10-06T15:51:58Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:51:58Z",
+          "completed_at": "2026-10-06T15:51:59Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:51:59Z",
+          "completed_at": "2026-10-06T15:51:59Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:51:59Z",
+          "completed_at": "2026-10-06T15:51:59Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357961980",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000304,
+      "runner_name": "GitHub Actions 1000000304",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357961990,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xBg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357961990",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357961990",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:03:35Z",
+      "name": "formal (F05, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:42:23Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:23Z",
+          "completed_at": "2026-10-06T15:44:30Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:30Z",
+          "completed_at": "2026-10-06T15:45:08Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:08Z",
+          "completed_at": "2026-10-06T16:03:31Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:03:31Z",
+          "completed_at": "2026-10-06T16:03:32Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:03:32Z",
+          "completed_at": "2026-10-06T16:03:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:03:32Z",
+          "completed_at": "2026-10-06T16:03:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357961990",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000313,
+      "runner_name": "GitHub Actions 1000000313",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962026,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xKg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962026",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962026",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:07:19Z",
+      "name": "formal (F04, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:42:04Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:04Z",
+          "completed_at": "2026-10-06T15:44:05Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:05Z",
+          "completed_at": "2026-10-06T15:44:41Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:41Z",
+          "completed_at": "2026-10-06T16:07:16Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:07:16Z",
+          "completed_at": "2026-10-06T16:07:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:07:17Z",
+          "completed_at": "2026-10-06T16:07:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:07:17Z",
+          "completed_at": "2026-10-06T16:07:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962026",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000312,
+      "runner_name": "GitHub Actions 1000000312",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962039,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xNw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962039",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962039",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:27:21Z",
+      "name": "formal (F01, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:33Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:33Z",
+          "completed_at": "2026-10-06T15:45:30Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:45:30Z",
+          "completed_at": "2026-10-06T15:46:07Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:46:07Z",
+          "completed_at": "2026-10-06T16:27:18Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:27:18Z",
+          "completed_at": "2026-10-06T16:27:19Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:27:19Z",
+          "completed_at": "2026-10-06T16:27:19Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:27:19Z",
+          "completed_at": "2026-10-06T16:27:19Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962039",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000301,
+      "runner_name": "GitHub Actions 1000000301",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962040,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xOA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962040",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962040",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:51:36Z",
+      "name": "formal (F07, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:22Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:22Z",
+          "completed_at": "2026-10-06T15:44:49Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:49Z",
+          "completed_at": "2026-10-06T15:45:14Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:14Z",
+          "completed_at": "2026-10-06T15:51:33Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:51:33Z",
+          "completed_at": "2026-10-06T15:51:34Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:51:34Z",
+          "completed_at": "2026-10-06T15:51:34Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:51:34Z",
+          "completed_at": "2026-10-06T15:51:34Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962040",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000303,
+      "runner_name": "GitHub Actions 1000000303",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962078,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xXg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962078",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962078",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:02:42Z",
+      "name": "formal (F05, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:42:26Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:26Z",
+          "completed_at": "2026-10-06T15:44:11Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:11Z",
+          "completed_at": "2026-10-06T15:44:39Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:39Z",
+          "completed_at": "2026-10-06T16:02:39Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:02:39Z",
+          "completed_at": "2026-10-06T16:02:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:02:40Z",
+          "completed_at": "2026-10-06T16:02:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:02:40Z",
+          "completed_at": "2026-10-06T16:02:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962078",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000309,
+      "runner_name": "GitHub Actions 1000000309",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962087,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xZw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962087",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962087",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T16:39:44Z",
+      "name": "formal (F02, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:10Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:10Z",
+          "completed_at": "2026-10-06T15:44:49Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:49Z",
+          "completed_at": "2026-10-06T15:45:20Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:20Z",
+          "completed_at": "2026-10-06T16:39:41Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:39:41Z",
+          "completed_at": "2026-10-06T16:39:42Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:39:42Z",
+          "completed_at": "2026-10-06T16:39:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:39:42Z",
+          "completed_at": "2026-10-06T16:39:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962087",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000319,
+      "runner_name": "GitHub Actions 1000000319",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962090,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xag",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962090",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962090",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:02:54Z",
+      "name": "formal (F06, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:42:49Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:49Z",
+          "completed_at": "2026-10-06T15:44:41Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:41Z",
+          "completed_at": "2026-10-06T15:45:11Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:11Z",
+          "completed_at": "2026-10-06T16:02:50Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:02:50Z",
+          "completed_at": "2026-10-06T16:02:51Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:02:51Z",
+          "completed_at": "2026-10-06T16:02:51Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:02:51Z",
+          "completed_at": "2026-10-06T16:02:51Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962090",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000306,
+      "runner_name": "GitHub Actions 1000000306",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962114,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xgg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962114",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962114",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:41:33Z",
+      "name": "formal (F02, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:41:43Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:41:43Z",
+          "completed_at": "2026-10-06T15:43:41Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:43:41Z",
+          "completed_at": "2026-10-06T15:44:16Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:16Z",
+          "completed_at": "2026-10-06T16:41:28Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:41:28Z",
+          "completed_at": "2026-10-06T16:41:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:41:29Z",
+          "completed_at": "2026-10-06T16:41:30Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:41:30Z",
+          "completed_at": "2026-10-06T16:41:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962114",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000310,
+      "runner_name": "GitHub Actions 1000000310",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962135,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xlw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962135",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962135",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:51:30Z",
+      "name": "formal (F07, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:42:09Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:09Z",
+          "completed_at": "2026-10-06T15:44:01Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:01Z",
+          "completed_at": "2026-10-06T15:44:35Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:35Z",
+          "completed_at": "2026-10-06T15:51:27Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:51:27Z",
+          "completed_at": "2026-10-06T15:51:28Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:51:28Z",
+          "completed_at": "2026-10-06T15:51:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:51:28Z",
+          "completed_at": "2026-10-06T15:51:28Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962135",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000305,
+      "runner_name": "GitHub Actions 1000000305",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962146,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xog",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962146",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962146",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:03:26Z",
+      "name": "formal (F03, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:42:01Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:01Z",
+          "completed_at": "2026-10-06T15:43:59Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:43:59Z",
+          "completed_at": "2026-10-06T15:44:31Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:44:31Z",
+          "completed_at": "2026-10-06T16:03:20Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:03:20Z",
+          "completed_at": "2026-10-06T16:03:21Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:03:21Z",
+          "completed_at": "2026-10-06T16:03:21Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:03:21Z",
+          "completed_at": "2026-10-06T16:03:22Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962146",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000311,
+      "runner_name": "GitHub Actions 1000000311",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962148,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xpA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962148",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962148",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T16:06:13Z",
+      "name": "formal (F06, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:39Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:39Z",
+          "completed_at": "2026-10-06T15:45:28Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:45:28Z",
+          "completed_at": "2026-10-06T15:45:58Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:58Z",
+          "completed_at": "2026-10-06T16:06:11Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:06:11Z",
+          "completed_at": "2026-10-06T16:06:12Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:06:12Z",
+          "completed_at": "2026-10-06T16:06:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:06:12Z",
+          "completed_at": "2026-10-06T16:06:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962148",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000307,
+      "runner_name": "GitHub Actions 1000000307",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962190,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5xzg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962190",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962190",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:05:22Z",
+      "name": "formal (F03, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:42:29Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:42:29Z",
+          "completed_at": "2026-10-06T15:44:27Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:27Z",
+          "completed_at": "2026-10-06T15:45:11Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:11Z",
+          "completed_at": "2026-10-06T16:05:16Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:05:16Z",
+          "completed_at": "2026-10-06T16:05:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:05:17Z",
+          "completed_at": "2026-10-06T16:05:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:05:17Z",
+          "completed_at": "2026-10-06T16:05:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962190",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000316,
+      "runner_name": "GitHub Actions 1000000316",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962250,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5yCg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962250",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962250",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T16:03:29Z",
+      "completed_at": "2026-10-06T16:39:43Z",
+      "name": "formal (F15, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:03:30Z",
+          "completed_at": "2026-10-06T16:03:30Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:03:30Z",
+          "completed_at": "2026-10-06T16:03:31Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:03:31Z",
+          "completed_at": "2026-10-06T16:03:31Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:03:31Z",
+          "completed_at": "2026-10-06T16:07:01Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:07:01Z",
+          "completed_at": "2026-10-06T16:09:02Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:09:02Z",
+          "completed_at": "2026-10-06T16:09:38Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:09:38Z",
+          "completed_at": "2026-10-06T16:39:38Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:39:38Z",
+          "completed_at": "2026-10-06T16:39:39Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:39:39Z",
+          "completed_at": "2026-10-06T16:39:39Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:39:39Z",
+          "completed_at": "2026-10-06T16:39:39Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962250",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000330,
+      "runner_name": "GitHub Actions 1000000330",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962301,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5yPQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962301",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962301",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:52:22Z",
+      "completed_at": "2026-10-06T16:09:44Z",
+      "name": "formal (F13, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:52:23Z",
+          "completed_at": "2026-10-06T15:52:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:52:24Z",
+          "completed_at": "2026-10-06T15:52:26Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:52:26Z",
+          "completed_at": "2026-10-06T15:52:27Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:52:27Z",
+          "completed_at": "2026-10-06T15:55:16Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:55:16Z",
+          "completed_at": "2026-10-06T15:57:14Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:57:14Z",
+          "completed_at": "2026-10-06T15:57:55Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:57:55Z",
+          "completed_at": "2026-10-06T16:09:38Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:09:38Z",
+          "completed_at": "2026-10-06T16:09:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:09:40Z",
+          "completed_at": "2026-10-06T16:09:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:09:40Z",
+          "completed_at": "2026-10-06T16:09:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962301",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000325,
+      "runner_name": "GitHub Actions 1000000325",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962345,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5yaQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962345",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962345",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:58:11Z",
+      "name": "formal (F08, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:45:32Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:45:32Z",
+          "completed_at": "2026-10-06T15:47:38Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:47:38Z",
+          "completed_at": "2026-10-06T15:50:55Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:50:55Z",
+          "completed_at": "2026-10-06T15:58:07Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:58:07Z",
+          "completed_at": "2026-10-06T15:58:08Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:58:08Z",
+          "completed_at": "2026-10-06T15:58:08Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:58:08Z",
+          "completed_at": "2026-10-06T15:58:08Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962345",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000308,
+      "runner_name": "GitHub Actions 1000000308",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962350,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5ybg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962350",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962350",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:50:24Z",
+      "name": "formal (F09, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:43:02Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:02Z",
+          "completed_at": "2026-10-06T15:44:58Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:44:58Z",
+          "completed_at": "2026-10-06T15:45:30Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:30Z",
+          "completed_at": "2026-10-06T15:50:20Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:50:20Z",
+          "completed_at": "2026-10-06T15:50:21Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:50:21Z",
+          "completed_at": "2026-10-06T15:50:21Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:50:21Z",
+          "completed_at": "2026-10-06T15:50:21Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962350",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000315,
+      "runner_name": "GitHub Actions 1000000315",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962394,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5ymg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962394",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962394",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:51:33Z",
+      "completed_at": "2026-10-06T16:25:43Z",
+      "name": "formal (F11, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:51:34Z",
+          "completed_at": "2026-10-06T15:51:35Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:51:35Z",
+          "completed_at": "2026-10-06T15:51:37Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:51:37Z",
+          "completed_at": "2026-10-06T15:51:37Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:51:37Z",
+          "completed_at": "2026-10-06T15:54:44Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:54:44Z",
+          "completed_at": "2026-10-06T15:56:16Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:56:16Z",
+          "completed_at": "2026-10-06T15:56:45Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:56:45Z",
+          "completed_at": "2026-10-06T16:25:39Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:25:39Z",
+          "completed_at": "2026-10-06T16:25:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:25:40Z",
+          "completed_at": "2026-10-06T16:25:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:25:40Z",
+          "completed_at": "2026-10-06T16:25:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962394",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000322,
+      "runner_name": "GitHub Actions 1000000322",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962405,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5ypQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962405",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962405",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:30:51Z",
+      "name": "formal (F10, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:40:12Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:12Z",
+          "completed_at": "2026-10-06T15:50:49Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:50:49Z",
+          "completed_at": "2026-10-06T15:53:20Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:53:20Z",
+          "completed_at": "2026-10-06T15:53:58Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:53:58Z",
+          "completed_at": "2026-10-06T16:30:49Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:30:49Z",
+          "completed_at": "2026-10-06T16:30:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:30:49Z",
+          "completed_at": "2026-10-06T16:30:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:30:49Z",
+          "completed_at": "2026-10-06T16:30:50Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962405",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000317,
+      "runner_name": "GitHub Actions 1000000317",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962448,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5y0A",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962448",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962448",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T16:02:45Z",
+      "completed_at": "2026-10-06T16:16:54Z",
+      "name": "formal (F14, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:02:46Z",
+          "completed_at": "2026-10-06T16:02:47Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:02:47Z",
+          "completed_at": "2026-10-06T16:02:48Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:02:48Z",
+          "completed_at": "2026-10-06T16:02:48Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:02:48Z",
+          "completed_at": "2026-10-06T16:06:06Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:06:06Z",
+          "completed_at": "2026-10-06T16:08:10Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:08:10Z",
+          "completed_at": "2026-10-06T16:08:58Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:08:58Z",
+          "completed_at": "2026-10-06T16:16:49Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:16:49Z",
+          "completed_at": "2026-10-06T16:16:50Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:16:50Z",
+          "completed_at": "2026-10-06T16:16:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:16:50Z",
+          "completed_at": "2026-10-06T16:16:51Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962448",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000328,
+      "runner_name": "GitHub Actions 1000000328",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962503,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zBw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962503",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962503",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:58:13Z",
+      "completed_at": "2026-10-06T16:17:21Z",
+      "name": "formal (F13, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:58:14Z",
+          "completed_at": "2026-10-06T15:58:15Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:58:15Z",
+          "completed_at": "2026-10-06T15:58:16Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:58:16Z",
+          "completed_at": "2026-10-06T15:58:16Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:58:16Z",
+          "completed_at": "2026-10-06T16:00:52Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:00:52Z",
+          "completed_at": "2026-10-06T16:02:48Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:02:48Z",
+          "completed_at": "2026-10-06T16:05:21Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:05:21Z",
+          "completed_at": "2026-10-06T16:17:16Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:17:16Z",
+          "completed_at": "2026-10-06T16:17:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:17:17Z",
+          "completed_at": "2026-10-06T16:17:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:17:17Z",
+          "completed_at": "2026-10-06T16:17:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962503",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000326,
+      "runner_name": "GitHub Actions 1000000326",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962527,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zHw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962527",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962527",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:08Z",
+      "completed_at": "2026-10-06T15:52:20Z",
+      "name": "formal (F09, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:44:26Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:44:26Z",
+          "completed_at": "2026-10-06T15:46:34Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:46:34Z",
+          "completed_at": "2026-10-06T15:47:10Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:47:10Z",
+          "completed_at": "2026-10-06T15:52:17Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T15:52:17Z",
+          "completed_at": "2026-10-06T15:52:18Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T15:52:18Z",
+          "completed_at": "2026-10-06T15:52:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T15:52:18Z",
+          "completed_at": "2026-10-06T15:52:18Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962527",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000320,
+      "runner_name": "GitHub Actions 1000000320",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962535,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zJw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962535",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962535",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T16:02:56Z",
+      "completed_at": "2026-10-06T16:36:32Z",
+      "name": "formal (F15, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:02:56Z",
+          "completed_at": "2026-10-06T16:02:58Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:02:58Z",
+          "completed_at": "2026-10-06T16:02:59Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:02:59Z",
+          "completed_at": "2026-10-06T16:02:59Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:02:59Z",
+          "completed_at": "2026-10-06T16:05:09Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:05:09Z",
+          "completed_at": "2026-10-06T16:06:39Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:06:39Z",
+          "completed_at": "2026-10-06T16:07:05Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:07:05Z",
+          "completed_at": "2026-10-06T16:36:28Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:36:28Z",
+          "completed_at": "2026-10-06T16:36:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:36:29Z",
+          "completed_at": "2026-10-06T16:36:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:36:29Z",
+          "completed_at": "2026-10-06T16:36:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962535",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000329,
+      "runner_name": "GitHub Actions 1000000329",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962593,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zYQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962593",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962593",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:51:38Z",
+      "completed_at": "2026-10-06T16:04:24Z",
+      "name": "formal (F12, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:51:39Z",
+          "completed_at": "2026-10-06T15:51:40Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:51:40Z",
+          "completed_at": "2026-10-06T15:51:41Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:51:41Z",
+          "completed_at": "2026-10-06T15:51:41Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:51:41Z",
+          "completed_at": "2026-10-06T15:56:29Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:56:29Z",
+          "completed_at": "2026-10-06T15:58:12Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:58:12Z",
+          "completed_at": "2026-10-06T15:58:51Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:58:51Z",
+          "completed_at": "2026-10-06T16:04:20Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:04:20Z",
+          "completed_at": "2026-10-06T16:04:21Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:04:21Z",
+          "completed_at": "2026-10-06T16:04:21Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:04:21Z",
+          "completed_at": "2026-10-06T16:04:21Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962593",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000323,
+      "runner_name": "GitHub Actions 1000000323",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962613,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zdQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962613",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962613",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:52:03Z",
+      "completed_at": "2026-10-06T16:01:22Z",
+      "name": "formal (F12, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:52:04Z",
+          "completed_at": "2026-10-06T15:52:05Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:52:05Z",
+          "completed_at": "2026-10-06T15:52:05Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:52:05Z",
+          "completed_at": "2026-10-06T15:52:05Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:52:05Z",
+          "completed_at": "2026-10-06T15:54:18Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:54:18Z",
+          "completed_at": "2026-10-06T15:55:47Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:55:47Z",
+          "completed_at": "2026-10-06T15:56:14Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:56:14Z",
+          "completed_at": "2026-10-06T16:01:19Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:01:19Z",
+          "completed_at": "2026-10-06T16:01:20Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:01:20Z",
+          "completed_at": "2026-10-06T16:01:20Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:01:20Z",
+          "completed_at": "2026-10-06T16:01:20Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962613",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000324,
+      "runner_name": "GitHub Actions 1000000324",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962640,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zkA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962640",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962640",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:50:26Z",
+      "completed_at": "2026-10-06T16:24:03Z",
+      "name": "formal (F11, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:50:27Z",
+          "completed_at": "2026-10-06T15:50:27Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:50:27Z",
+          "completed_at": "2026-10-06T15:50:28Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:50:28Z",
+          "completed_at": "2026-10-06T15:50:28Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:50:28Z",
+          "completed_at": "2026-10-06T15:52:30Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:52:30Z",
+          "completed_at": "2026-10-06T15:54:30Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:54:30Z",
+          "completed_at": "2026-10-06T15:55:01Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:55:01Z",
+          "completed_at": "2026-10-06T16:24:00Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:24:00Z",
+          "completed_at": "2026-10-06T16:24:00Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:24:00Z",
+          "completed_at": "2026-10-06T16:24:01Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:24:01Z",
+          "completed_at": "2026-10-06T16:24:01Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962640",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000321,
+      "runner_name": "GitHub Actions 1000000321",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357962668,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5zrA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357962668",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357962668",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:06Z",
+      "started_at": "2026-10-06T15:40:09Z",
+      "completed_at": "2026-10-06T16:21:50Z",
+      "name": "formal (F10, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T15:40:09Z",
+          "completed_at": "2026-10-06T15:40:10Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T15:40:10Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:40:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T15:40:11Z",
+          "completed_at": "2026-10-06T15:43:20Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T15:43:20Z",
+          "completed_at": "2026-10-06T15:45:01Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T15:45:01Z",
+          "completed_at": "2026-10-06T15:45:29Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T15:45:29Z",
+          "completed_at": "2026-10-06T16:21:46Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:21:46Z",
+          "completed_at": "2026-10-06T16:21:47Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:21:47Z",
+          "completed_at": "2026-10-06T16:21:47Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:21:47Z",
+          "completed_at": "2026-10-06T16:21:47Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357962668",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000318,
+      "runner_name": "GitHub Actions 1000000318",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357964992,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ58wA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357964992",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357964992",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:04:27Z",
+      "completed_at": "2026-10-06T16:44:45Z",
+      "name": "formal (F16, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:04:28Z",
+          "completed_at": "2026-10-06T16:04:29Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:04:29Z",
+          "completed_at": "2026-10-06T16:04:30Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:04:30Z",
+          "completed_at": "2026-10-06T16:04:30Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:04:30Z",
+          "completed_at": "2026-10-06T16:06:13Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:06:13Z",
+          "completed_at": "2026-10-06T16:08:11Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:08:11Z",
+          "completed_at": "2026-10-06T16:08:45Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:08:45Z",
+          "completed_at": "2026-10-06T16:44:40Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:44:40Z",
+          "completed_at": "2026-10-06T16:44:42Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:44:42Z",
+          "completed_at": "2026-10-06T16:44:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:44:42Z",
+          "completed_at": "2026-10-06T16:44:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357964992",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000332,
+      "runner_name": "GitHub Actions 1000000332",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965042,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ588g",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965042",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965042",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:03:37Z",
+      "completed_at": "2026-10-06T16:43:31Z",
+      "name": "formal (F16, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:03:38Z",
+          "completed_at": "2026-10-06T16:03:40Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:03:40Z",
+          "completed_at": "2026-10-06T16:03:42Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:03:42Z",
+          "completed_at": "2026-10-06T16:03:42Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:03:42Z",
+          "completed_at": "2026-10-06T16:06:11Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:06:11Z",
+          "completed_at": "2026-10-06T16:07:40Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:07:40Z",
+          "completed_at": "2026-10-06T16:08:08Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:08:08Z",
+          "completed_at": "2026-10-06T16:43:27Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:43:27Z",
+          "completed_at": "2026-10-06T16:43:28Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:43:28Z",
+          "completed_at": "2026-10-06T16:43:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:43:28Z",
+          "completed_at": "2026-10-06T16:43:28Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965042",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000331,
+      "runner_name": "GitHub Actions 1000000331",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965101,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ59LQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965101",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965101",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:05:20Z",
+      "completed_at": "2026-10-06T16:51:18Z",
+      "name": "formal (F17, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:05:20Z",
+          "completed_at": "2026-10-06T16:05:21Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:05:21Z",
+          "completed_at": "2026-10-06T16:05:22Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:05:22Z",
+          "completed_at": "2026-10-06T16:05:22Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:05:22Z",
+          "completed_at": "2026-10-06T16:10:56Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:10:56Z",
+          "completed_at": "2026-10-06T16:12:56Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:12:56Z",
+          "completed_at": "2026-10-06T16:13:26Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:13:26Z",
+          "completed_at": "2026-10-06T16:51:16Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:51:16Z",
+          "completed_at": "2026-10-06T16:51:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:51:16Z",
+          "completed_at": "2026-10-06T16:51:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:51:17Z",
+          "completed_at": "2026-10-06T16:51:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965101",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000333,
+      "runner_name": "GitHub Actions 1000000333",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965291,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ596w",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965291",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965291",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:06:15Z",
+      "completed_at": "2026-10-06T16:47:51Z",
+      "name": "formal (F18, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:06:16Z",
+          "completed_at": "2026-10-06T16:06:17Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:06:17Z",
+          "completed_at": "2026-10-06T16:06:17Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:06:17Z",
+          "completed_at": "2026-10-06T16:06:17Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:06:17Z",
+          "completed_at": "2026-10-06T16:09:10Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:09:10Z",
+          "completed_at": "2026-10-06T16:11:16Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:11:16Z",
+          "completed_at": "2026-10-06T16:11:49Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:11:49Z",
+          "completed_at": "2026-10-06T16:47:48Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:47:48Z",
+          "completed_at": "2026-10-06T16:47:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:47:49Z",
+          "completed_at": "2026-10-06T16:47:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:47:49Z",
+          "completed_at": "2026-10-06T16:47:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965291",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000335,
+      "runner_name": "GitHub Actions 1000000335",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965302,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ599g",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965302",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965302",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:05:24Z",
+      "completed_at": "2026-10-06T16:48:09Z",
+      "name": "formal (F17, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:05:24Z",
+          "completed_at": "2026-10-06T16:05:25Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:05:25Z",
+          "completed_at": "2026-10-06T16:05:26Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:05:26Z",
+          "completed_at": "2026-10-06T16:05:26Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:05:26Z",
+          "completed_at": "2026-10-06T16:07:47Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:07:47Z",
+          "completed_at": "2026-10-06T16:09:45Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:09:45Z",
+          "completed_at": "2026-10-06T16:10:25Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:10:25Z",
+          "completed_at": "2026-10-06T16:48:06Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:48:06Z",
+          "completed_at": "2026-10-06T16:48:07Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:48:07Z",
+          "completed_at": "2026-10-06T16:48:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:48:07Z",
+          "completed_at": "2026-10-06T16:48:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965302",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000334,
+      "runner_name": "GitHub Actions 1000000334",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965658,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5_Wg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965658",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965658",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:09:46Z",
+      "completed_at": "2026-10-06T17:00:27Z",
+      "name": "formal (F19, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:09:46Z",
+          "completed_at": "2026-10-06T16:09:47Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:09:47Z",
+          "completed_at": "2026-10-06T16:09:48Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:09:48Z",
+          "completed_at": "2026-10-06T16:09:48Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:09:48Z",
+          "completed_at": "2026-10-06T16:13:58Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:13:58Z",
+          "completed_at": "2026-10-06T16:15:52Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:15:52Z",
+          "completed_at": "2026-10-06T16:16:29Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:16:29Z",
+          "completed_at": "2026-10-06T17:00:23Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:00:23Z",
+          "completed_at": "2026-10-06T17:00:24Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:00:24Z",
+          "completed_at": "2026-10-06T17:00:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:00:25Z",
+          "completed_at": "2026-10-06T17:00:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965658",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000337,
+      "runner_name": "GitHub Actions 1000000337",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965689,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5_eQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965689",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965689",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:13:09Z",
+      "completed_at": "2026-10-06T17:03:08Z",
+      "name": "formal (F19, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:13:10Z",
+          "completed_at": "2026-10-06T16:13:11Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:13:11Z",
+          "completed_at": "2026-10-06T16:13:11Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:13:11Z",
+          "completed_at": "2026-10-06T16:13:11Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:13:11Z",
+          "completed_at": "2026-10-06T16:15:59Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:15:59Z",
+          "completed_at": "2026-10-06T16:18:01Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:18:01Z",
+          "completed_at": "2026-10-06T16:18:41Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:18:41Z",
+          "completed_at": "2026-10-06T17:03:04Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:03:04Z",
+          "completed_at": "2026-10-06T17:03:05Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:03:05Z",
+          "completed_at": "2026-10-06T17:03:05Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:03:05Z",
+          "completed_at": "2026-10-06T17:03:05Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965689",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000338,
+      "runner_name": "GitHub Actions 1000000338",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965791,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5_3w",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965791",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965791",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:17:23Z",
+      "completed_at": "2026-10-06T16:29:45Z",
+      "name": "formal (F20, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:17:24Z",
+          "completed_at": "2026-10-06T16:17:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:17:24Z",
+          "completed_at": "2026-10-06T16:17:25Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:17:25Z",
+          "completed_at": "2026-10-06T16:17:26Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:17:26Z",
+          "completed_at": "2026-10-06T16:20:03Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:20:03Z",
+          "completed_at": "2026-10-06T16:22:04Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:22:04Z",
+          "completed_at": "2026-10-06T16:25:08Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:25:08Z",
+          "completed_at": "2026-10-06T16:29:42Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:29:42Z",
+          "completed_at": "2026-10-06T16:29:43Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:29:43Z",
+          "completed_at": "2026-10-06T16:29:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:29:43Z",
+          "completed_at": "2026-10-06T16:29:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965791",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000340,
+      "runner_name": "GitHub Actions 1000000340",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965821,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ5__Q",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965821",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965821",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:16:56Z",
+      "completed_at": "2026-10-06T16:26:32Z",
+      "name": "formal (F20, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:16:57Z",
+          "completed_at": "2026-10-06T16:16:57Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:16:57Z",
+          "completed_at": "2026-10-06T16:16:59Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:16:59Z",
+          "completed_at": "2026-10-06T16:16:59Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:16:59Z",
+          "completed_at": "2026-10-06T16:19:40Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:19:40Z",
+          "completed_at": "2026-10-06T16:21:24Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:21:24Z",
+          "completed_at": "2026-10-06T16:21:55Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:21:55Z",
+          "completed_at": "2026-10-06T16:26:28Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:26:28Z",
+          "completed_at": "2026-10-06T16:26:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:26:29Z",
+          "completed_at": "2026-10-06T16:26:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:26:29Z",
+          "completed_at": "2026-10-06T16:26:29Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965821",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000339,
+      "runner_name": "GitHub Actions 1000000339",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357965851,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6AGw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357965851",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357965851",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:07:21Z",
+      "completed_at": "2026-10-06T16:47:56Z",
+      "name": "formal (F18, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:07:22Z",
+          "completed_at": "2026-10-06T16:07:22Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:07:22Z",
+          "completed_at": "2026-10-06T16:07:23Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:07:23Z",
+          "completed_at": "2026-10-06T16:07:23Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:07:23Z",
+          "completed_at": "2026-10-06T16:09:22Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:09:22Z",
+          "completed_at": "2026-10-06T16:11:19Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:11:19Z",
+          "completed_at": "2026-10-06T16:11:51Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:11:51Z",
+          "completed_at": "2026-10-06T16:47:51Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:47:51Z",
+          "completed_at": "2026-10-06T16:47:52Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:47:52Z",
+          "completed_at": "2026-10-06T16:47:52Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:47:52Z",
+          "completed_at": "2026-10-06T16:47:52Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357965851",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000336,
+      "runner_name": "GitHub Actions 1000000336",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968730,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6LWg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968730",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968730",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:27:23Z",
+      "completed_at": "2026-10-06T16:59:48Z",
+      "name": "formal (F23, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:27:24Z",
+          "completed_at": "2026-10-06T16:27:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:27:24Z",
+          "completed_at": "2026-10-06T16:27:25Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:27:25Z",
+          "completed_at": "2026-10-06T16:27:25Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:27:25Z",
+          "completed_at": "2026-10-06T16:29:13Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:29:13Z",
+          "completed_at": "2026-10-06T16:31:13Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:31:13Z",
+          "completed_at": "2026-10-06T16:31:48Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:31:48Z",
+          "completed_at": "2026-10-06T16:59:44Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:59:44Z",
+          "completed_at": "2026-10-06T16:59:45Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:59:45Z",
+          "completed_at": "2026-10-06T16:59:45Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:59:45Z",
+          "completed_at": "2026-10-06T16:59:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968730",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000345,
+      "runner_name": "GitHub Actions 1000000345",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968753,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6LcQ",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968753",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968753",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:21:52Z",
+      "completed_at": "2026-10-06T17:28:51Z",
+      "name": "formal (F21, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:21:53Z",
+          "completed_at": "2026-10-06T16:21:53Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:21:54Z",
+          "completed_at": "2026-10-06T16:21:55Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:21:55Z",
+          "completed_at": "2026-10-06T16:21:55Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:21:55Z",
+          "completed_at": "2026-10-06T16:23:59Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:23:59Z",
+          "completed_at": "2026-10-06T16:25:56Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:25:56Z",
+          "completed_at": "2026-10-06T16:26:30Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:26:30Z",
+          "completed_at": "2026-10-06T17:28:48Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:28:48Z",
+          "completed_at": "2026-10-06T17:28:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:28:49Z",
+          "completed_at": "2026-10-06T17:28:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:28:49Z",
+          "completed_at": "2026-10-06T17:28:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968753",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000341,
+      "runner_name": "GitHub Actions 1000000341",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968770,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6Lgg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968770",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968770",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:26:34Z",
+      "completed_at": "2026-10-06T16:58:49Z",
+      "name": "formal (F22, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:26:35Z",
+          "completed_at": "2026-10-06T16:26:36Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:26:36Z",
+          "completed_at": "2026-10-06T16:26:37Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:26:37Z",
+          "completed_at": "2026-10-06T16:26:37Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:26:37Z",
+          "completed_at": "2026-10-06T16:29:31Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:29:31Z",
+          "completed_at": "2026-10-06T16:31:49Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:31:49Z",
+          "completed_at": "2026-10-06T16:32:44Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:32:44Z",
+          "completed_at": "2026-10-06T16:58:44Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:58:44Z",
+          "completed_at": "2026-10-06T16:58:45Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:58:45Z",
+          "completed_at": "2026-10-06T16:58:46Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:58:46Z",
+          "completed_at": "2026-10-06T16:58:46Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968770",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000344,
+      "runner_name": "GitHub Actions 1000000344",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968775,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6Lhw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968775",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968775",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:25:45Z",
+      "completed_at": "2026-10-06T16:57:20Z",
+      "name": "formal (F22, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:25:45Z",
+          "completed_at": "2026-10-06T16:25:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:25:46Z",
+          "completed_at": "2026-10-06T16:25:47Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:25:47Z",
+          "completed_at": "2026-10-06T16:25:47Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:25:47Z",
+          "completed_at": "2026-10-06T16:29:23Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:29:23Z",
+          "completed_at": "2026-10-06T16:31:04Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:31:04Z",
+          "completed_at": "2026-10-06T16:31:34Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:31:34Z",
+          "completed_at": "2026-10-06T16:57:17Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T16:57:17Z",
+          "completed_at": "2026-10-06T16:57:18Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T16:57:18Z",
+          "completed_at": "2026-10-06T16:57:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T16:57:18Z",
+          "completed_at": "2026-10-06T16:57:18Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968775",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000343,
+      "runner_name": "GitHub Actions 1000000343",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968778,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6Lig",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968778",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968778",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:29:47Z",
+      "completed_at": "2026-10-06T17:10:32Z",
+      "name": "formal (F24, 1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:29:48Z",
+          "completed_at": "2026-10-06T16:29:49Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:29:49Z",
+          "completed_at": "2026-10-06T16:29:51Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:29:51Z",
+          "completed_at": "2026-10-06T16:29:51Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:29:51Z",
+          "completed_at": "2026-10-06T16:33:57Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:33:57Z",
+          "completed_at": "2026-10-06T16:35:49Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:35:49Z",
+          "completed_at": "2026-10-06T16:36:32Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:36:32Z",
+          "completed_at": "2026-10-06T17:10:28Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:10:28Z",
+          "completed_at": "2026-10-06T17:10:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:10:29Z",
+          "completed_at": "2026-10-06T17:10:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:10:29Z",
+          "completed_at": "2026-10-06T17:10:29Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968778",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000347,
+      "runner_name": "GitHub Actions 1000000347",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968782,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6Ljg",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968782",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968782",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:24:06Z",
+      "completed_at": "2026-10-06T17:31:25Z",
+      "name": "formal (F21, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:24:07Z",
+          "completed_at": "2026-10-06T16:24:07Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:24:07Z",
+          "completed_at": "2026-10-06T16:24:08Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:24:08Z",
+          "completed_at": "2026-10-06T16:24:08Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:24:08Z",
+          "completed_at": "2026-10-06T16:26:39Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:26:39Z",
+          "completed_at": "2026-10-06T16:28:40Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:28:40Z",
+          "completed_at": "2026-10-06T16:29:19Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:29:19Z",
+          "completed_at": "2026-10-06T17:31:20Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:31:20Z",
+          "completed_at": "2026-10-06T17:31:22Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:31:22Z",
+          "completed_at": "2026-10-06T17:31:22Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:31:22Z",
+          "completed_at": "2026-10-06T17:31:22Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968782",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000342,
+      "runner_name": "GitHub Actions 1000000342",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968787,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6Lkw",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968787",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968787",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:29:22Z",
+      "completed_at": "2026-10-06T17:06:41Z",
+      "name": "formal (F23, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:29:23Z",
+          "completed_at": "2026-10-06T16:29:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:29:24Z",
+          "completed_at": "2026-10-06T16:29:24Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:29:24Z",
+          "completed_at": "2026-10-06T16:29:24Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:29:24Z",
+          "completed_at": "2026-10-06T16:32:41Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:32:41Z",
+          "completed_at": "2026-10-06T16:34:42Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:34:42Z",
+          "completed_at": "2026-10-06T16:35:15Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:35:15Z",
+          "completed_at": "2026-10-06T17:06:39Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:06:39Z",
+          "completed_at": "2026-10-06T17:06:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:06:40Z",
+          "completed_at": "2026-10-06T17:06:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:06:40Z",
+          "completed_at": "2026-10-06T17:06:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968787",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000346,
+      "runner_name": "GitHub Actions 1000000346",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 112357968980,
+      "run_id": 37489432320,
+      "workflow_name": "erpnext-formal",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU7a5fc8AAAAaKQ6MVA",
+      "head_sha": "876e821c54e063f6de227c031853104ab814ef24",
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/jobs/112357968980",
+      "html_url": "https://github.com/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/runs/37489432320/job/112357968980",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-06T15:40:07Z",
+      "started_at": "2026-10-06T16:30:54Z",
+      "completed_at": "2026-10-06T17:10:15Z",
+      "name": "formal (F24, 2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-06T16:30:55Z",
+          "completed_at": "2026-10-06T16:30:56Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-06T16:30:56Z",
+          "completed_at": "2026-10-06T16:30:57Z"
+        },
+        {
+          "name": "Family filter",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-06T16:30:57Z",
+          "completed_at": "2026-10-06T16:30:57Z"
+        },
+        {
+          "name": "Clean runner disk",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-06T16:30:57Z",
+          "completed_at": "2026-10-06T16:32:40Z"
+        },
+        {
+          "name": "Start ERPNext",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-06T16:32:40Z",
+          "completed_at": "2026-10-06T16:34:38Z"
+        },
+        {
+          "name": "Setup Python (playwright)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-06T16:34:38Z",
+          "completed_at": "2026-10-06T16:39:40Z"
+        },
+        {
+          "name": "Run 9 episodes (3 conditions x 3 methods, fixture restored per run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-06T16:39:40Z",
+          "completed_at": "2026-10-06T17:10:11Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-06T17:10:11Z",
+          "completed_at": "2026-10-06T17:10:12Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-06T17:10:12Z",
+          "completed_at": "2026-10-06T17:10:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-06T17:10:13Z",
+          "completed_at": "2026-10-06T17:10:13Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/check-runs/112357968980",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000348,
+      "runner_name": "GitHub Actions 1000000348",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}
