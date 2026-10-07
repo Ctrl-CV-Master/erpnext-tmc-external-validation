@@ -80,6 +80,10 @@ def cond_exists(c, refs):
     n = frappe.db.count(c["doctype"], filters=_frappe_filters(c.get("filters", {})))
     lo = c.get("count_gte", 1)
     hi = c.get("count_le", 10 ** 9)
+    globals().setdefault("EVAL_DEBUG_ROWS", {})
+    if lo > 0 and n != lo:
+        EVAL_DEBUG_ROWS[f"exists:{c['doctype']}"] = frappe.get_all(
+            c["doctype"], fields=["name"])
     ok = lo <= n <= hi
     if ok and c.get("ref"):
         first, _ = _doc_of(c["doctype"], c.get("filters", {}))
@@ -239,6 +243,7 @@ def evaluate(task):
         "n_conditions": len(results),
         "failed": failed,
         "details": [{"kind": k, "what": w, "ok": ok, "msg": m} for k, w, ok, m in results],
+        "debug_rows": globals().get("EVAL_DEBUG_ROWS", {}),
     }
 
 

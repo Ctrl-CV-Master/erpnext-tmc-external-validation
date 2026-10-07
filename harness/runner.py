@@ -129,6 +129,7 @@ def main():
     record = {
         "task_id": task_id, "method": a.method, "mock": a.mock,
         "reward": ev.get("reward"), "eval_failed": ev.get("failed", []),
+        "eval_debug_rows": ev.get("debug_rows", {}),
         "wall_clock_s": round(time.time() - t0, 1),
         "browser_actions": env.actions_used,
         "summary": summary,
