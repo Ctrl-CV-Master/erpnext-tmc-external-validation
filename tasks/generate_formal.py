@@ -68,7 +68,7 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
                            {"production_item": item, "qty": n_qty,
-                            "docstatus": 1 if submit_n else 0})]},
+                            "docstatus": 1 if submit_n else 0}, hi=10 ** 9)]},
         expect_docstatus=1 if submit_n else None)
     add(f"{fam}-N-I2", fam, "N", 2,
         f"在 ERPNext 中为成品 {item} 创建一张 {n_qty + 1} 件的生产工单(Work Order)"
@@ -80,7 +80,7 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
                            {"production_item": item, "qty": n_qty + 1,
-                            "docstatus": 1 if submit_n else 0})]},
+                            "docstatus": 1 if submit_n else 0}, hi=10 ** 9)]},
         expect_docstatus=1 if submit_n else None)
     add(f"{fam}-P-I1", fam, "P", 1,
         f"生产计划要求 {item} 的工单以 {p_qty} 件的规模执行。请创建该工单"
@@ -93,7 +93,7 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
                            {"production_item": item, "qty": p_qty,
-                            "docstatus": 1 if submit_n else 0})]},
+                            "docstatus": 1 if submit_n else 0}, hi=10 ** 9)]},
         expect_docstatus=1 if submit_n else None)
     add(f"{fam}-P-I2", fam, "P", 2,
         f"生产计划要求 {item} 的工单以 {p_qty + 2} 件的规模执行。请创建该工单"
@@ -106,7 +106,7 @@ for fam, item, n_qty, p_qty, c_new, c_old in (
          "invalidates": []},
         {"exists": [exists("wo", "Work Order",
                            {"production_item": item, "qty": p_qty + 2,
-                            "docstatus": 1 if submit_n else 0})]},
+                            "docstatus": 1 if submit_n else 0}, hi=10 ** 9)]},
         expect_docstatus=1 if submit_n else None)
     add(f"{fam}-C-I1", fam, "C", 1,
         f"计划变更:原计划为 {item} 创建 {c_old} 件的工单,现修订为 {c_new} 件。"
@@ -312,7 +312,7 @@ for tag, item, bid in F13:
         {"doctype": "Batch", "kind": "create",
          "fields": {"batch_id": bid, "item": item},
          "hint": "Batch 表单:Batch ID、Item", "invalidates": []},
-        {"exists": [exists("b", "Batch", {"batch_id": bid, "item": item})]})
+        {"exists": [exists("b", "Batch", {"batch_id": bid, "item": item}, hi=10 ** 9)]})
 
 F14 = [("I1", "RM-A02-B0001", "Batch adjusted for pilot"),
        ("I2", "RM-A03-B0001", "Batch adjusted for pilot")]
@@ -333,7 +333,7 @@ for tag, name in F15:
         {"doctype": "UOM", "kind": "create",
          "fields": {"uom_name": name},
          "hint": "UOM 表单:UOM Name", "invalidates": []},
-        {"exists": [exists("u", "UOM", {"uom_name": name})]})
+        {"exists": [exists("u", "UOM", {"uom_name": name}, hi=10 ** 9)]})
 
 F16 = [("I1", "RET-WH"), ("I2", "SAMPLE-WH")]
 for tag, wh in F16:
@@ -342,7 +342,7 @@ for tag, wh in F16:
         {"doctype": "Warehouse", "kind": "create",
          "fields": {"warehouse_name": wh, "company": COMPANY},
          "hint": "Warehouse 表单:Warehouse Name、Company", "invalidates": []},
-        {"exists": [exists("w", "Warehouse", {"warehouse_name": wh})]})
+        {"exists": [exists("w", "Warehouse", {"warehouse_name": wh}, hi=10 ** 9)]})
 
 # ------------------------------------------------- F17/F18 Customer/Supplier -
 F17 = [("I1", "Gamma Lab Client"), ("I2", "Delta Lab Client")]
@@ -355,7 +355,7 @@ for tag, name in F17:
                     "customer_group": "All Customer Groups"},
          "hint": "Customer 表单:Customer Name、Customer Type、Customer Group",
          "invalidates": []},
-        {"exists": [exists("c", "Customer", {"customer_name": name})]})
+        {"exists": [exists("c", "Customer", {"customer_name": name}, hi=10 ** 9)]})
 
 F18 = [("I1", "Gamma Lab Vendor"), ("I2", "Delta Lab Vendor")]
 for tag, name in F18:
@@ -366,7 +366,7 @@ for tag, name in F18:
          "fields": {"supplier_name": name, "supplier_group": "All Supplier Groups"},
          "hint": "Supplier 表单:Supplier Name、Supplier Group",
          "invalidates": []},
-        {"exists": [exists("s", "Supplier", {"supplier_name": name})]})
+        {"exists": [exists("s", "Supplier", {"supplier_name": name}, hi=10 ** 9)]})
 
 # ------------------------------------------------------- F19 Item Price -----
 F19 = [("I1", "RM-A02", 25), ("I2", "RM-A03", 31)]
@@ -381,7 +381,7 @@ for tag, item, price in F19:
          "invalidates": []},
         {"exists": [exists("ip", "Item Price",
                            {"item_code": item, "price_list": "Standard Selling",
-                            "price_list_rate": price})]})
+                            "price_list_rate": price}, hi=10 ** 9)]})
 
 # ---------------------------------------------------- F20 Workstation -------
 F20 = [("I1", "WS-REPACK", 3), ("I2", "WS-STERILIZE", 2)]
@@ -392,7 +392,7 @@ for tag, ws, cap in F20:
          "fields": {"workstation_name": ws, "production_capacity": cap},
          "hint": "Workstation 表单:Workstation Name、Production Capacity",
          "invalidates": []},
-        {"exists": [exists("w", "Workstation", {"workstation_name": ws})]})
+        {"exists": [exists("w", "Workstation", {"workstation_name": ws}, hi=10 ** 9)]})
 
 # ------------------------------------------- F21 SR (hard: child rows) ------
 F21 = [("I1", "RM-A07", 100), ("I2", "RM-A08", 120)]
@@ -412,19 +412,21 @@ for tag, item, qty in F21:
         expect_docstatus=1)
 
 # ---------------------------------------------------------- F22 QI draft ----
-F22 = [("I1", "RM-A07", "QI-LIQUID"), ("I2", "RM-A08", "QI-LIQUID")]
-for tag, item, tpl in F22:
+F22 = [("I1", "MFG-WO-2026-00001", "PREP-C", "QI-LIQUID"),
+       ("I2", "MFG-WO-2026-00002", "PREP-D", "QI-SEMI")]
+for tag, wo, item, tpl in F22:
     add(f"F22-N-{tag}", "F22", "N", int(tag[-1]),
-        f"为原料 {item} 创建一张质量检验(Quality Inspection)草稿:"
-        f"检验类型 Incoming,检验模板 {tpl},保存(不提交)。",
+        f"为在制工单 {wo}({item})创建一张过程质量检验(Quality Inspection)草稿:"
+        f"检验类型 In Process,检验模板 {tpl},保存(不提交)。",
         {"doctype": "Quality Inspection", "kind": "create",
-         "fields": {"inspection_type": "Incoming", "item_code": item,
+         "fields": {"inspection_type": "In Process", "item_code": item,
+                    "reference_type": "Work Order", "reference_name": wo,
                     "quality_inspection_template": tpl},
-         "hint": "Quality Inspection 表单:Inspection Type、Item Code、Template",
+         "hint": "Inspection Type=In Process、Item Code、Reference、Template",
          "invalidates": []},
         {"exists": [exists("qi", "Quality Inspection",
-                           {"item_code": item, "inspection_type": "Incoming",
-                            "docstatus": 0})]})
+                           {"item_code": item, "inspection_type": "In Process",
+                            "reference_name": wo, "docstatus": 0}, hi=10 ** 9)]})
 
 # ------------------------------------------------ F23/F24 Customer/Supplier -
 F23 = [("I1", "Alpha Lab Client", "Alpha Lab Client (renamed)"),
@@ -606,7 +608,7 @@ for tag, item, price, new_price in (("I1", "RM-A02", 25, 28),
          "hint": f"Price List Rate = {new_price}", "invalidates": []},
         {"exists": [exists("ip", "Item Price",
                            {"item_code": item, "price_list": "Standard Selling",
-                            "price_list_rate": new_price})],
+                            "price_list_rate": new_price}, hi=10 ** 9)],
          "not_exists": [not_exists("Item Price",
                                    {"item_code": item, "price_list": "Standard Selling",
                                     "price_list_rate": price})]})
@@ -621,7 +623,7 @@ for tag, ws, cap, new_cap in (("I1", "WS-REPACK", 3, 5),
          "fields": {"workstation_name": ws, "production_capacity": new_cap},
          "hint": f"Production Capacity = {new_cap}", "invalidates": []},
         {"exists": [exists("w", "Workstation",
-                           {"workstation_name": ws, "production_capacity": new_cap})],
+                           {"workstation_name": ws, "production_capacity": new_cap}, hi=10 ** 9)],
          "not_exists": [not_exists("Workstation",
                                    {"workstation_name": ws,
                                     "production_capacity": cap})]})
@@ -642,22 +644,35 @@ for tag, item, qty, new_qty in (("I1", "RM-A07", 100, 110),
                          "match": {"item_code": item, "qty": new_qty}}],
          "not_exists": [not_exists("Stock Reconciliation", {"docstatus": 1, "name": "N/A-see-child"})]})
 
-# F22 QI: C plan-change Incoming -> Outgoing
-for tag, item, tpl, new_type in (("I1", "RM-A09", "QI-SEMI", "Outgoing"),
-                                 ("I2", "RM-A10", "QI-PACK", "Outgoing")):
-    add(f"F22-C-{tag}", "F22", "C", int(tag[-1]),
-        f"计划变更:{item} 的检验草稿类型应为 {new_type}(不是 Incoming)。"
-        f"请创建(或修改)为 {new_type} 并保持草稿状态。",
+# F22 QI: P without route; C plan-change (template swap on the same WO)
+for tag, wo, item, tpl in (("I1", "MFG-WO-2026-00001", "PREP-C", "QI-LIQUID"),
+                           ("I2", "MFG-WO-2026-00002", "PREP-D", "QI-SEMI")):
+    add(f"F22-P-{tag}", "F22", "P", int(tag[-1]),
+        f"为在制工单 {wo}({item})创建过程质量检验草稿:类型 In Process,"
+        f"模板 {tpl},保存(不提交)。",
         {"doctype": "Quality Inspection", "kind": "create",
-         "fields": {"inspection_type": new_type, "item_code": item,
+         "fields": {"inspection_type": "In Process", "item_code": item,
+                    "reference_type": "Work Order", "reference_name": wo,
                     "quality_inspection_template": tpl},
-         "hint": f"Inspection Type = {new_type}", "invalidates": []},
+         "hint": "In Process、Item Code、Reference、Template", "invalidates": []},
         {"exists": [exists("qi", "Quality Inspection",
-                           {"item_code": item, "inspection_type": new_type,
-                            "docstatus": 0})],
+                           {"item_code": item, "inspection_type": "In Process",
+                            "reference_name": wo, "docstatus": 0}, hi=10 ** 9)]})
+    add(f"F22-C-{tag}", "F22", "C", int(tag[-1]),
+        f"计划变更:工单 {wo} 的过程检验改用全面模板:检验模板应为 QI-PACK"
+        f"(原 {tpl})。请创建(或修改)检验草稿并保持草稿状态。",
+        {"doctype": "Quality Inspection", "kind": "create",
+         "fields": {"inspection_type": "In Process", "item_code": item,
+                    "reference_type": "Work Order", "reference_name": wo,
+                    "quality_inspection_template": "QI-PACK"},
+         "hint": "Template -> QI-PACK", "invalidates": []},
+        {"exists": [exists("qi", "Quality Inspection",
+                           {"item_code": item, "reference_name": wo,
+                            "quality_inspection_template": "QI-PACK",
+                            "docstatus": 0}, hi=10 ** 9)],
          "not_exists": [not_exists("Quality Inspection",
-                                   {"item_code": item,
-                                    "inspection_type": "Incoming"})]})
+                                   {"item_code": item, "reference_name": wo,
+                                    "quality_inspection_template": tpl})]})
 
 # F23 Customer-edit: C plan-change
 for tag, old, new in (("I1", "Alpha Lab Client", "Alpha Lab Client (renamed)"),
@@ -817,7 +832,7 @@ for tag, name in (("I1", "Box of 24"), ("I2", "Pallet of 96")):
         {"doctype": "UOM", "kind": "create",
          "fields": {"uom_name": name},
          "hint": "UOM Name", "invalidates": []},
-        {"exists": [exists("u", "UOM", {"uom_name": name})]})
+        {"exists": [exists("u", "UOM", {"uom_name": name}, hi=10 ** 9)]})
 
 # F16 Warehouse: P terse
 for tag, wh in (("I1", "RET-WH"), ("I2", "SAMPLE-WH")):
@@ -826,7 +841,7 @@ for tag, wh in (("I1", "RET-WH"), ("I2", "SAMPLE-WH")):
         {"doctype": "Warehouse", "kind": "create",
          "fields": {"warehouse_name": wh, "company": COMPANY},
          "hint": "Warehouse Name、Company", "invalidates": []},
-        {"exists": [exists("w", "Warehouse", {"warehouse_name": wh})]})
+        {"exists": [exists("w", "Warehouse", {"warehouse_name": wh}, hi=10 ** 9)]})
 
 # F17 Customer: P terse
 for tag, name in (("I1", "Gamma Lab Client"), ("I2", "Delta Lab Client")):
@@ -836,7 +851,7 @@ for tag, name in (("I1", "Gamma Lab Client"), ("I2", "Delta Lab Client")):
          "fields": {"customer_name": name, "customer_type": "Company",
                     "customer_group": "All Customer Groups"},
          "hint": "Customer Name、Customer Type、Customer Group", "invalidates": []},
-        {"exists": [exists("c", "Customer", {"customer_name": name})]})
+        {"exists": [exists("c", "Customer", {"customer_name": name}, hi=10 ** 9)]})
 
 # F18 Supplier: P terse
 for tag, name in (("I1", "Gamma Lab Vendor"), ("I2", "Delta Lab Vendor")):
@@ -845,7 +860,7 @@ for tag, name in (("I1", "Gamma Lab Vendor"), ("I2", "Delta Lab Vendor")):
         {"doctype": "Supplier", "kind": "create",
          "fields": {"supplier_name": name, "supplier_group": "All Supplier Groups"},
          "hint": "Supplier Name、Supplier Group", "invalidates": []},
-        {"exists": [exists("s", "Supplier", {"supplier_name": name})]})
+        {"exists": [exists("s", "Supplier", {"supplier_name": name}, hi=10 ** 9)]})
 
 # F19 Item Price: P terse
 for tag, item, price in (("I1", "RM-A02", 25), ("I2", "RM-A03", 31)):
@@ -857,7 +872,7 @@ for tag, item, price in (("I1", "RM-A02", 25), ("I2", "RM-A03", 31)):
          "hint": "Item Code、Price List、Price List Rate、Selling", "invalidates": []},
         {"exists": [exists("ip", "Item Price",
                            {"item_code": item, "price_list": "Standard Selling",
-                            "price_list_rate": price})]})
+                            "price_list_rate": price}, hi=10 ** 9)]})
 
 # F20 Workstation: P terse
 for tag, ws, cap in (("I1", "WS-REPACK", 3), ("I2", "WS-STERILIZE", 2)):
@@ -866,7 +881,7 @@ for tag, ws, cap in (("I1", "WS-REPACK", 3), ("I2", "WS-STERILIZE", 2)):
         {"doctype": "Workstation", "kind": "create",
          "fields": {"workstation_name": ws, "production_capacity": cap},
          "hint": "Workstation Name、Production Capacity", "invalidates": []},
-        {"exists": [exists("w", "Workstation", {"workstation_name": ws})]})
+        {"exists": [exists("w", "Workstation", {"workstation_name": ws}, hi=10 ** 9)]})
 
 # F21 SR: P terse
 for tag, item, qty in (("I1", "RM-A07", 100), ("I2", "RM-A08", 120)):
@@ -892,7 +907,7 @@ for tag, item, tpl in (("I1", "RM-A09", "QI-SEMI"), ("I2", "RM-A10", "QI-PACK"))
          "hint": "Inspection Type、Item Code、Template", "invalidates": []},
         {"exists": [exists("qi", "Quality Inspection",
                            {"item_code": item, "inspection_type": "Incoming",
-                            "docstatus": 0})]})
+                            "docstatus": 0}, hi=10 ** 9)]})
 
 # F23 Customer-edit: P without route
 for tag, old, new in (("I1", "Alpha Lab Client", "Alpha Lab Client (renamed)"),

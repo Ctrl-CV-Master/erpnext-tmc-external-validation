@@ -28,7 +28,7 @@
           "item": "RM-A03"
         },
         "count_gte": 1,
-        "count_le": 1
+        "count_le": 1000000000
       }
     ]
   }

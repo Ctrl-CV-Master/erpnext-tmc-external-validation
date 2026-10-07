@@ -373,6 +373,15 @@ def build():
         commit()
         print(f"created Work Order for {code} qty={q} ds={ds} name={doc.name}")
 
+    # --- price lists (families F19 create Item Prices against these) ---------------
+    for pl, buying, selling in (("Standard Buying", 1, 0), ("Standard Selling", 0, 1)):
+        if not frappe.db.exists("Price List", pl):
+            frappe.get_doc({"doctype": "Price List", "price_list_name": pl,
+                            "currency": CURRENCY, "buying": buying,
+                            "selling": selling}).insert(ignore_permissions=True)
+            commit()
+            print(f"created Price List: {pl}")
+
     # --- pre-state customers/suppliers (families F23/F24 edit these) ---------------
     for dt, nm, fld in (("Customer Group", "All Customer Groups", "customer_group_name"),
                         ("Territory", "All Territories", "territory_name"),

@@ -27,7 +27,7 @@
           "workstation_name": "WS-STERILIZE"
         },
         "count_gte": 1,
-        "count_le": 1
+        "count_le": 1000000000
       }
     ]
   }

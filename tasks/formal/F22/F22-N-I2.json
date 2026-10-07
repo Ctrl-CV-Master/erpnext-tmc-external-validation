@@ -4,17 +4,19 @@
   "family": "F22",
   "condition": "N",
   "instance": 2,
-  "instruction": "为原料 RM-A08 创建一张质量检验(Quality Inspection)草稿:检验类型 Incoming,检验模板 QI-LIQUID,保存(不提交)。",
+  "instruction": "为在制工单 MFG-WO-2026-00002(PREP-D)创建一张过程质量检验(Quality Inspection)草稿:检验类型 In Process,检验模板 QI-SEMI,保存(不提交)。",
   "conditions": [
     {
       "doctype": "Quality Inspection",
       "kind": "create",
       "fields": {
-        "inspection_type": "Incoming",
-        "item_code": "RM-A08",
-        "quality_inspection_template": "QI-LIQUID"
+        "inspection_type": "In Process",
+        "item_code": "PREP-D",
+        "reference_type": "Work Order",
+        "reference_name": "MFG-WO-2026-00002",
+        "quality_inspection_template": "QI-SEMI"
       },
-      "hint": "Quality Inspection 表单:Inspection Type、Item Code、Template",
+      "hint": "Inspection Type=In Process、Item Code、Reference、Template",
       "invalidates": [],
       "id": "C0"
     }
@@ -25,12 +27,13 @@
         "ref": "qi",
         "doctype": "Quality Inspection",
         "filters": {
-          "item_code": "RM-A08",
-          "inspection_type": "Incoming",
+          "item_code": "PREP-D",
+          "inspection_type": "In Process",
+          "reference_name": "MFG-WO-2026-00002",
           "docstatus": 0
         },
         "count_gte": 1,
-        "count_le": 1
+        "count_le": 1000000000
       }
     ]
   }

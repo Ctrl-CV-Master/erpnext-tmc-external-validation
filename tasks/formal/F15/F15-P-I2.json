@@ -26,7 +26,7 @@
           "uom_name": "Pallet of 96"
         },
         "count_gte": 1,
-        "count_le": 1
+        "count_le": 1000000000
       }
     ]
   }

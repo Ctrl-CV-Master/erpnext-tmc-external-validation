@@ -4,17 +4,19 @@
   "family": "F22",
   "condition": "C",
   "instance": 2,
-  "instruction": "计划变更:RM-A10 的检验草稿类型应为 Outgoing(不是 Incoming)。请创建(或修改)为 Outgoing 并保持草稿状态。",
+  "instruction": "计划变更:工单 MFG-WO-2026-00002 的过程检验改用全面模板:检验模板应为 QI-PACK(原 QI-SEMI)。请创建(或修改)检验草稿并保持草稿状态。",
   "conditions": [
     {
       "doctype": "Quality Inspection",
       "kind": "create",
       "fields": {
-        "inspection_type": "Outgoing",
-        "item_code": "RM-A10",
+        "inspection_type": "In Process",
+        "item_code": "PREP-D",
+        "reference_type": "Work Order",
+        "reference_name": "MFG-WO-2026-00002",
         "quality_inspection_template": "QI-PACK"
       },
-      "hint": "Inspection Type = Outgoing",
+      "hint": "Template -> QI-PACK",
       "invalidates": [],
       "id": "C0"
     }
@@ -25,20 +27,22 @@
         "ref": "qi",
         "doctype": "Quality Inspection",
         "filters": {
-          "item_code": "RM-A10",
-          "inspection_type": "Outgoing",
+          "item_code": "PREP-D",
+          "reference_name": "MFG-WO-2026-00002",
+          "quality_inspection_template": "QI-PACK",
           "docstatus": 0
         },
         "count_gte": 1,
-        "count_le": 1
+        "count_le": 1000000000
       }
     ],
     "not_exists": [
       {
         "doctype": "Quality Inspection",
         "filters": {
-          "item_code": "RM-A10",
-          "inspection_type": "Incoming"
+          "item_code": "PREP-D",
+          "reference_name": "MFG-WO-2026-00002",
+          "quality_inspection_template": "QI-SEMI"
         },
         "count_eq": 0
       }
