@@ -1,0 +1,51 @@
+{
+  "task_id": "DF06-N-I1",
+  "dev": true,
+  "family": "DF06",
+  "condition": "N",
+  "instance": 1,
+  "instruction": "两步操作(按顺序执行):1) 为物料 PREP-D 创建一个批次,批次 ID 为 PREP-D-B9001,批次描述必须与该物料当前的描述保持一致(从系统读取后填写);2) 完成后,将该物料的描述(Description)改为 \"Rev C\"。",
+  "conditions": [
+    {
+      "doctype": "Batch",
+      "kind": "create",
+      "fields": {
+        "batch_id": "PREP-D-B9001",
+        "item": "PREP-D",
+        "description": "@Item.PREP-D.description"
+      },
+      "hint": "批次描述必须与该物料当前的描述保持一致(从系统读取,不要凭记忆)",
+      "invalidates": []
+    },
+    {
+      "doctype": "Item",
+      "kind": "edit",
+      "route": "/app/item/PREP-D",
+      "match": {
+        "item_code": "PREP-D",
+        "description": "Synthetic finished preparation PREP-D"
+      },
+      "fields": {
+        "description": "Rev C"
+      },
+      "hint": "物料描述 -> Rev C",
+      "invalidates": [
+        "C0"
+      ]
+    }
+  ],
+  "reward_conditions": {
+    "exists": [
+      {
+        "ref": "b",
+        "doctype": "Batch",
+        "filters": {
+          "batch_id": "PREP-D-B9001",
+          "item": "PREP-D",
+          "description": "Rev C"
+        },
+        "count_gte": 1
+      }
+    ]
+  }
+}
