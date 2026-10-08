@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 11525610849,
+      "node_id": "MDg6QXJ0aWZhY3QxMTUyNTYxMDg0OQ==",
+      "name": "devtest-results",
+      "size_in_bytes": 1612,
+      "url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/artifacts/11525610849",
+      "archive_download_url": "https://api.github.com/repos/Ctrl-CV-Master/erpnext-tmc-external-validation/actions/artifacts/11525610849/zip",
+      "expired": false,
+      "digest": "sha256:c9ab70f097dbac63c2dba1a0a75ab8d73d7259d3bd117242e5b0833d77ddca59",
+      "created_at": "2026-10-08T02:56:48Z",
+      "updated_at": "2026-10-08T02:56:48Z",
+      "expires_at": "2026-10-15T02:56:48Z",
+      "workflow_run": {
+        "id": 37719441766,
+        "repository_id": 1404483965,
+        "head_repository_id": 1404483965,
+        "head_branch": "main",
+        "head_sha": "99f054d0b70289bc8db36af6237152cc42ab0891"
+      }
+    }
+  ]
+}
