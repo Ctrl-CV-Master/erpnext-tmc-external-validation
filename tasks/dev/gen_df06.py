@@ -30,6 +30,7 @@ for tag, item, bid, new_desc in CASES:
     task_id = "DF06-N-" + tag
     conditions = [
         {   # C0 at index 0: the mirror — resolved dynamically at fill time
+            "id": "C0",
             "doctype": "Batch", "kind": "create",
             "fields": {"batch_id": bid, "item": item,
                        "description": "@Item." + item + ".description"},
@@ -37,6 +38,7 @@ for tag, item, bid, new_desc in CASES:
             "invalidates": [],
         },
         {   # C1 at index 1: the write that dirties C0's confirmed state
+            "id": "C1",
             "doctype": "Item", "kind": "edit",
             "route": "/app/item/" + item,
             "match": {"item_code": item, "description": old_desc},

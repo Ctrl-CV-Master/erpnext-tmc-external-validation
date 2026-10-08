@@ -15,7 +15,8 @@
         "description": "@Item.PREP-D.description"
       },
       "hint": "批次描述必须与该物料当前的描述保持一致(从系统读取,不要凭记忆)",
-      "invalidates": []
+      "invalidates": [],
+      "id": "C0"
     },
     {
       "doctype": "Item",
@@ -31,7 +32,8 @@
       "hint": "物料描述 -> Rev C",
       "invalidates": [
         "C0"
-      ]
+      ],
+      "id": "C1"
     }
   ],
   "reward_conditions": {
